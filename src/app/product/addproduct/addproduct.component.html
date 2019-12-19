@@ -1,0 +1,24 @@
+
+<form class="example-form" (ngSubmit)="OnProductAdd(f)" #f="ngForm">
+  <mat-form-field class="example-full-width">
+      <input ngModel name="pro_id" #pro_id="ngModel" matInput type="number" placeholder="Enter Product id:">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input ngModel name="pro_name" #pro_name="ngModel" matInput type="text" placeholder="Enter Product Name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input ngModel name="pro_mfg" #pro_mfg="ngModel" type="text" matInput placeholder="Enter Product Manufacturer">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input ngModel name="pro_price" #pro_price="ngModel" type="number" matInput placeholder="Enter Product Price">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input ngModel name="pro_desc" #pro_desc="ngModel" type="text-area" matInput placeholder="Enter Product Description">
+    </mat-form-field>
+
+    <button class="example-full-width" type="submit" mat-raised-button color="accent">Add User</button>
+</form>

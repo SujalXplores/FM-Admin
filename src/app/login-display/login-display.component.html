@@ -1,0 +1,43 @@
+<html>
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form">
+
+			<span class="login100-form-title p-b-48">
+              <i class="fal fa-user-circle"></i>
+          	</span>
+          <span class="login100-form-title p-b-26">
+              Future MediSurgico
+          </span>
+
+					<mat-form-field class="wrap-input100">
+              <input matInput placeholder="Username/Email">
+              <mat-hint>We don't share your email to anyone.</mat-hint>
+          </mat-form-field>
+
+					<mat-form-field  class="wrap-input100">
+              <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+          </mat-form-field>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" routerLink="/users">Log In</button>
+						</div>
+					</div>
+					<div class="text-center p-t-115">
+						<a class="txt2">
+							Forgot Password?
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
