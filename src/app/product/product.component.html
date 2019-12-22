@@ -1,5 +1,5 @@
 <mat-form-field class="filterClass">
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Here">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Product...">
 </mat-form-field>
 
   <div class="mat-elevation-z8">
@@ -31,20 +31,10 @@
         <td mat-cell *matCellDef="let row"> {{row.pro_name}} </td>
       </ng-container>
 
-      <!-- <ng-container matColumnDef="pro_mfg">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Manufacturer </th>
-          <td mat-cell *matCellDef="let row"> {{row.pro_mfg}} </td>
-        </ng-container> -->
-
       <ng-container matColumnDef="pro_price">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
         <td mat-cell *matCellDef="let row"> {{row.pro_price}} </td>
       </ng-container>
-
-      <!-- <ng-container matColumnDef="pro_desc">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-          <td mat-cell *matCellDef="let row"> {{row.pro_desc}} </td>
-        </ng-container> -->
 
       <ng-container matColumnDef="details">
         <th mat-header-cell *matHeaderCellDef> Details </th>

@@ -22,7 +22,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class UsersComponent implements OnInit {
   userarr: users[] = [];
   expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'u_email_id', 'u_name' , 'u_gender' , 'u_mobileno' ,  'details', 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'u_name', 'u_mobileno' ,  'details', 'delete', 'edit'];
   dataSource: MatTableDataSource<users>;
 
   selection = new SelectionModel<users>(true, []);
