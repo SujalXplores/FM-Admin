@@ -9,12 +9,14 @@ import { AddproductComponent } from './product/addproduct/addproduct.component';
 import { EditproductComponent } from './product/editproduct/editproduct.component';
 import { CategoryComponent } from './category/category.component';
 import { LoginDisplayComponent } from './login-display/login-display.component';
+import { OrderComponent } from './order/order.component';
 
 const arr: Routes = [
   {path: 'login', component: LoginDisplayComponent},
   {path: 'users', component: UsersComponent},
   {path: 'product', component: ProductComponent},
   {path: 'category', component: CategoryComponent},
+  {path: 'order', component: OrderComponent},
   {path: 'addUser', component: AdduserComponent},
   {path: 'addProduct', component: AddproductComponent},
   {path: 'edituser/:email', component: EdituserComponent},

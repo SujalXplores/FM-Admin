@@ -27,6 +27,7 @@ import { AddproductComponent } from './product/addproduct/addproduct.component';
 import { EditproductComponent } from './product/editproduct/editproduct.component';
 import { CategoryComponent } from './category/category.component';
 import { LoginDisplayComponent } from './login-display/login-display.component';
+import { OrderComponent } from './order/order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { LoginDisplayComponent } from './login-display/login-display.component';
     AddproductComponent,
     EditproductComponent,
     CategoryComponent,
-    LoginDisplayComponent
+    LoginDisplayComponent,
+    OrderComponent
   ],
   imports: [
     routingArr,
