@@ -1,0 +1,35 @@
+
+<form class="example-form" (ngSubmit)="OnOrderAdd(f)" #f="ngForm">
+  <mat-form-field class="example-full-width">
+      <input ngModel name="order_id" #order_id="ngModel" matInput type="text" placeholder="Enter Order id:">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input ngModel name="pro_name" #pro_name="ngModel" matInput type="text" placeholder="Enter Product Name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input ngModel name="u_email_id" #u_email_id="ngModel" type="text" matInput placeholder="Enter User Email id:">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input ngModel name="order_date" #order_date="ngModel" type="date" matInput placeholder="Enter Order Date">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input ngModel name="order_quantity" #order_quantity="ngModel" type="number" matInput placeholder="Enter Quantity Of Order">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-select ngModel name="order_status" #order_status="ngModel" placeholder="Choose Status">
+        <mat-option value="pending">pending</mat-option>
+        <mat-option value="delivered">delivered</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input ngModel name="deliveryboy_id" #deliveryboy_id="ngModel" type="number" matInput placeholder="Enter deliveryboy id">
+    </mat-form-field>
+
+    <button class="example-full-width" type="submit" mat-raised-button color="accent">Add Order</button>
+</form>

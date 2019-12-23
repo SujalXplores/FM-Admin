@@ -1,15 +1,14 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
-import { users } from './users';
-import { UsersdataService } from './usersdata.service';
+import { Component, OnInit , ViewChild} from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
-import { Router } from '@angular/router';
-import { SelectionModel } from '@angular/cdk/collections';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-
+import { SelectionModel } from '@angular/cdk/collections';
+import { cart } from './cart';
+import { Router } from '@angular/router';
+import { CartdataService } from './cartdata.service';
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css'],
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -18,38 +17,35 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ]),
   ],
 })
-
-export class UsersComponent implements OnInit {
-  userarr: users[] = [];
+export class CartComponent implements OnInit {
+  cartarr: cart[] = [];
   expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'u_name', 'u_mobileno' ,  'details', 'delete', 'edit'];
-  dataSource: MatTableDataSource<users>;
+  displayedColumns: string[] = ['select', 'cart_id', 'cart_quantity' , 'details', 'delete', 'edit'];
+  dataSource: MatTableDataSource<cart>;
 
-  selection = new SelectionModel<users>(true, []);
+  selection = new SelectionModel<cart>(true, []);
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-
-  constructor(private _data: UsersdataService, public _dialog: MatDialog, private _router: Router) {
+  constructor(private _data: CartdataService, public _dialog: MatDialog, private _router: Router) {
     this.dataSource = new MatTableDataSource();
   }
 
-  onDelete(item: users) {
+  onDelete(item: cart) {
     if( confirm( "Are You Sure You Want To Delete ?" )) {
-      this._data.deleteUsers(item.u_email_id).subscribe(
+      this._data.deleteCart(item.cart_id).subscribe(
         (data: any) => {
           console.log(data);
-          this.userarr.splice(this.userarr.indexOf(item), 1);
-          this.dataSource.data = this.userarr;
+          this.cartarr.splice(this.cartarr.indexOf(item), 1);
+          this.dataSource.data = this.cartarr;
         }
       );
     }
    }
 
-OnUserEdit(item: users) {
-  this._router.navigate(['edituser', item.u_email_id]);
-}
-
+   OnCartEdit(item: cart) {
+    this._router.navigate(['editcart', item.cart_id]);
+  }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -71,21 +67,19 @@ OnUserEdit(item: users) {
     this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
-
   ngOnInit() {
-    this._data.getAllUsers().subscribe(
-      (data: users[]) => {
-        this.userarr = data;
+    this._data.getAllCart().subscribe(
+      (data: cart[]) => {
+        this.cartarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }
     );
   }
-}
 
+}
 export interface ViewMore {
-  u_password: string;
-  u_dob: Date;
-  u_address: string;
+  u_email_id: string;
+  pro_id: number ;
 }

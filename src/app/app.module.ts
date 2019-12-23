@@ -28,6 +28,14 @@ import { EditproductComponent } from './product/editproduct/editproduct.componen
 import { CategoryComponent } from './category/category.component';
 import { LoginDisplayComponent } from './login-display/login-display.component';
 import { OrderComponent } from './order/order.component';
+import { AddorderComponent } from './order/addorder/addorder.component';
+import { EditorderComponent } from './order/editorder/editorder.component';
+import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
+import { AdddeliveryboyComponent } from './deliveryboy/adddeliveryboy/adddeliveryboy.component';
+import { EditdeliveryboyComponent } from './deliveryboy/editdeliveryboy/editdeliveryboy.component';
+import { CartComponent } from './cart/cart.component';
+import { AddcartComponent } from './cart/addcart/addcart.component';
+import { EditcartComponent } from './cart/editcart/editcart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +51,15 @@ import { OrderComponent } from './order/order.component';
     EditproductComponent,
     CategoryComponent,
     LoginDisplayComponent,
-    OrderComponent
+    OrderComponent,
+    AddorderComponent,
+    EditorderComponent,
+    DeliveryboyComponent,
+    AdddeliveryboyComponent,
+    EditdeliveryboyComponent,
+    CartComponent,
+    AddcartComponent,
+    EditcartComponent
   ],
   imports: [
     routingArr,

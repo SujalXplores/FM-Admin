@@ -1,15 +1,16 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
-import { users } from './users';
-import { UsersdataService } from './usersdata.service';
+import { Component, OnInit , ViewChild} from '@angular/core';
+import { deliveryboy } from './deliveryboy';
+
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
-import { Router } from '@angular/router';
+
 import { SelectionModel } from '@angular/cdk/collections';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-
+import { Router } from '@angular/router';
+import { DeliveryboydataService } from './deliveryboydata.service';
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css'],
+  selector: 'app-deliveryboy',
+  templateUrl: './deliveryboy.component.html',
+  styleUrls: ['./deliveryboy.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -18,39 +19,36 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ]),
   ],
 })
-
-export class UsersComponent implements OnInit {
-  userarr: users[] = [];
+export class DeliveryboyComponent implements OnInit {
+  deliveryboyarr: deliveryboy[] = [];
   expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'u_name', 'u_mobileno' ,  'details', 'delete', 'edit'];
-  dataSource: MatTableDataSource<users>;
+  displayedColumns: string[] = ['select', 'deliveryboy_id', 'deliveryboy_name' , 'deliveryboy_address', 'details', 'delete', 'edit'];
+  dataSource: MatTableDataSource<deliveryboy>;
 
-  selection = new SelectionModel<users>(true, []);
+  selection = new SelectionModel<deliveryboy>(true, []);
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-
-  constructor(private _data: UsersdataService, public _dialog: MatDialog, private _router: Router) {
+  constructor(private _data: DeliveryboydataService, public _dialog: MatDialog, private _router: Router) {
     this.dataSource = new MatTableDataSource();
-  }
+   }
 
-  onDelete(item: users) {
+   onDelete(item: deliveryboy) {
     if( confirm( "Are You Sure You Want To Delete ?" )) {
-      this._data.deleteUsers(item.u_email_id).subscribe(
+      this._data.deleteDeliveryboy(item.deliveryboy_id).subscribe(
         (data: any) => {
           console.log(data);
-          this.userarr.splice(this.userarr.indexOf(item), 1);
-          this.dataSource.data = this.userarr;
+          this.deliveryboyarr.splice(this.deliveryboyarr.indexOf(item), 1);
+          this.dataSource.data = this.deliveryboyarr;
         }
       );
     }
    }
 
-OnUserEdit(item: users) {
-  this._router.navigate(['edituser', item.u_email_id]);
-}
-
-  applyFilter(filterValue: string) {
+   OnDeliveryboyEdit(item: deliveryboy) {
+    this._router.navigate(['editdeliveryboy', item.deliveryboy_id]);
+  }
+   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
@@ -71,21 +69,19 @@ OnUserEdit(item: users) {
     this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
-
   ngOnInit() {
-    this._data.getAllUsers().subscribe(
-      (data: users[]) => {
-        this.userarr = data;
+    this._data.getAllDeliveryboy().subscribe(
+      (data: deliveryboy[]) => {
+        this.deliveryboyarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }
     );
   }
-}
 
+}
 export interface ViewMore {
-  u_password: string;
-  u_dob: Date;
-  u_address: string;
+  deliveryboy_mobileno: number;
+  deliveryboy_email: string ;
 }

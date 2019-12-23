@@ -22,11 +22,11 @@ export class OrderdataService {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.delete(this.url + order_id, {headers: x});
   }
-  editProduct(order_id: string) {
+  editOrder(order_id: string) {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.get(this.url + order_id, {headers: x});
   }
-  updateProduct(item: order) {
+  updateOrder(item: order) {
      let body = JSON.stringify(item);
      let x = new HttpHeaders().set('Content-Type', 'application/json');
      return this.http.put(this.url + item.order_id, body , {headers: x} );
