@@ -14,10 +14,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UsersComponent } from './users/users.component';
 import { MatPaginatorModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
-import { ReactiveFormsModule} from '@angular/forms';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { routingArr } from './app.routing';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EdituserComponent } from './users/edituser/edituser.component';
 import { AdduserComponent } from './users/adduser/adduser.component';
 import { PhoneDirective } from './phone.directive';
@@ -36,6 +35,7 @@ import { EditdeliveryboyComponent } from './deliveryboy/editdeliveryboy/editdeli
 import { CartComponent } from './cart/cart.component';
 import { AddcartComponent } from './cart/addcart/addcart.component';
 import { EditcartComponent } from './cart/editcart/editcart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,8 +82,8 @@ import { EditcartComponent } from './cart/editcart/editcart.component';
     MatRadioModule,
     MatInputModule,
     MatCheckboxModule,
-    ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     DialogboxComponent
