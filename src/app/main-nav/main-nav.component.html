@@ -12,7 +12,7 @@
       <a mat-list-item routerLink="/category"><i class="far fa-sitemap"></i><span>Category</span></a>
       <a mat-list-item routerLink="/order"><i class="far fa-clipboard-list-check"></i><span>Orders</span></a>
       <a mat-list-item routerLink="/deliveryboy"><i class="far fa-truck"></i><span>Delivery Boy</span></a>
-     <a mat-list-item routerLink="/login" style="color: red;"><i class="far fa-sign-out"></i><span>Logout</span></a>
+     <a mat-list-item (click)="onLogOut()" style="color: red;"><i class="far fa-sign-out"></i><span>Logout</span></a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
