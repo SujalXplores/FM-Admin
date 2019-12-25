@@ -20,7 +20,6 @@ export class LoginDisplayComponent implements OnInit {
       });
   }
   onLogin() {
-     if (! this.loginForm.get('u_email_id')) {
        this._logindata.login(this.loginForm.value).subscribe(
          (x: users[]) => {
            if (x.length == 1){
@@ -31,9 +30,6 @@ export class LoginDisplayComponent implements OnInit {
            }
          }
        );
-     }
-     else {
-       alert("username and password must not be empty")
-     }
-  }
+      }
+
 }

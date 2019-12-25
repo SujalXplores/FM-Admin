@@ -1,7 +1,7 @@
 
 <form class="example-form" (ngSubmit)="OnProductAdd(f)" #f="ngForm">
   <mat-form-field class="example-full-width">
-      <input ngModel name="pro_id" #pro_id="ngModel" matInput type="number" placeholder="Enter Product id:">
+      <input ngModel name="pro_id" #pro_id="ngModel" matInput type="number" placeholder="Enter Product ID">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -10,14 +10,17 @@
 
     <mat-form-field class="example-full-width">
       <input ngModel name="pro_mfg" #pro_mfg="ngModel" type="text" matInput placeholder="Enter Product Manufacturer">
+      <mat-icon matSuffix><i class="fal fa-industry-alt"></i></mat-icon>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <input ngModel name="pro_price" #pro_price="ngModel" type="number" matInput placeholder="Enter Product Price">
+      <mat-icon matSuffix><i class="fal fa-rupee-sign"></i></mat-icon>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <input ngModel name="pro_desc" #pro_desc="ngModel" type="text-area" matInput placeholder="Enter Product Description">
+      <mat-icon matSuffix><i class="fal fa-file-medical"></i></mat-icon>
     </mat-form-field>
 
     <button class="example-full-width" type="submit" mat-raised-button color="accent">Add User</button>

@@ -35,6 +35,8 @@ import { EditdeliveryboyComponent } from './deliveryboy/editdeliveryboy/editdeli
 import { CartComponent } from './cart/cart.component';
 import { AddcartComponent } from './cart/addcart/addcart.component';
 import { EditcartComponent } from './cart/editcart/editcart.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { EditcartComponent } from './cart/editcart/editcart.component';
     EditdeliveryboyComponent,
     CartComponent,
     AddcartComponent,
-    EditcartComponent
+    EditcartComponent,
+    SignupComponent
   ],
   imports: [
     routingArr,
@@ -82,6 +85,7 @@ import { EditcartComponent } from './cart/editcart/editcart.component';
     MatRadioModule,
     MatInputModule,
     MatCheckboxModule,
+    MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule
   ],

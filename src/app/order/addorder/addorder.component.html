@@ -1,7 +1,7 @@
 
 <form class="example-form" (ngSubmit)="OnOrderAdd(f)" #f="ngForm">
   <mat-form-field class="example-full-width">
-      <input ngModel name="order_id" #order_id="ngModel" matInput type="text" placeholder="Enter Order id:">
+      <input ngModel name="order_id" #order_id="ngModel" matInput type="text" placeholder="Enter Order ID">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -9,11 +9,13 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input ngModel name="u_email_id" #u_email_id="ngModel" type="text" matInput placeholder="Enter User Email id:">
+      <input ngModel name="u_email_id" #u_email_id="ngModel" type="text" matInput placeholder="Enter User Email ID">
+      <mat-icon matSuffix><i class="fal fa-envelope"></i></mat-icon>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <input ngModel name="order_date" #order_date="ngModel" type="date" matInput placeholder="Enter Order Date">
+      <mat-icon matSuffix><i class="fal fa-calendar-alt"></i></mat-icon>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">

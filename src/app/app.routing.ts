@@ -18,9 +18,11 @@ import { EditdeliveryboyComponent } from './deliveryboy/editdeliveryboy/editdeli
 import { CartComponent } from './cart/cart.component';
 import { AddcartComponent } from './cart/addcart/addcart.component';
 import { EditcartComponent } from './cart/editcart/editcart.component';
+import { SignupComponent } from './signup/signup.component';
 
 const arr: Routes = [
   {path: 'login', component: LoginDisplayComponent},
+  {path: 'signup', component: SignupComponent},
   {path: 'users', component: UsersComponent},
   {path: 'product', component: ProductComponent},
   {path: 'category', component: CategoryComponent},

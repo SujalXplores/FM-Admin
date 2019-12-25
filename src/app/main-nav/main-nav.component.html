@@ -5,14 +5,15 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list color="primary" class="level">
-      <a mat-list-item routerLink="/login"><i class="nav-icon far fa-sign-in"></i><span>Login</span></a>
-      <a mat-list-item routerLink=""><i class="far fa-user"></i><span>User Management</span></a>
-      <a mat-list-item routerLink="/product"><i class="far fa-capsules"></i><span>Product</span></a>
-      <a mat-list-item routerLink="/cart"><i class="far fa-shopping-cart"></i><span>Cart</span></a>
-      <a mat-list-item routerLink="/category"><i class="far fa-sitemap"></i><span>Category</span></a>
-      <a mat-list-item routerLink="/order"><i class="far fa-clipboard-list-check"></i><span>Orders</span></a>
-      <a mat-list-item routerLink="/deliveryboy"><i class="far fa-truck"></i><span>Delivery Boy</span></a>
-     <a mat-list-item (click)="onLogOut()" style="color: red;"><i class="far fa-sign-out"></i><span>Logout</span></a>
+      <a mat-list-item routerLink="/login"><i class="nav-icon fal fa-sign-in"></i><span>Login</span></a>
+      <a mat-list-item routerLink="/signup"><i class="nav-icon fal fa-user-plus"></i><span>Signup</span></a>
+      <a mat-list-item routerLink=""><i class="fal fa-id-card"></i><span>User Management</span></a>
+      <a mat-list-item routerLink="/product"><i class="fal fa-capsules"></i><span>Product</span></a>
+      <a mat-list-item routerLink="/cart"><i class="fal fa-shopping-cart"></i><span>Cart</span></a>
+      <a mat-list-item routerLink="/category"><i class="fal fa-sitemap"></i><span>Category</span></a>
+      <a mat-list-item routerLink="/order"><i class="fal fa-hand-holding-usd"></i><span>Orders</span></a>
+      <a mat-list-item routerLink="/deliveryboy"><i class="fal fa-person-carry"></i><span>Delivery Boy</span></a>
+     <a mat-list-item (click)="onLogOut()" style="color: red;"><i class="fal fa-sign-out"></i><span>Logout</span></a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
