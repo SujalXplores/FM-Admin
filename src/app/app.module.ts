@@ -37,6 +37,7 @@ import { AddcartComponent } from './cart/addcart/addcart.component';
 import { EditcartComponent } from './cart/editcart/editcart.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { SignupComponent } from './signup/signup.component';
     CartComponent,
     AddcartComponent,
     EditcartComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent
   ],
   imports: [
     routingArr,

@@ -19,10 +19,12 @@ import { CartComponent } from './cart/cart.component';
 import { AddcartComponent } from './cart/addcart/addcart.component';
 import { EditcartComponent } from './cart/editcart/editcart.component';
 import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
 
 const arr: Routes = [
   {path: 'login', component: LoginDisplayComponent},
   {path: 'signup', component: SignupComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'users', component: UsersComponent},
   {path: 'product', component: ProductComponent},
   {path: 'category', component: CategoryComponent},

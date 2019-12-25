@@ -19,10 +19,9 @@
 i {
  size: 40px; 
  color: blue;
- text-align: right;
+ margin-left: auto;
 }
 
 span {
   text-align: right;
-  margin-left: 10px;
 }

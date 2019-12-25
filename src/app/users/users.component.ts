@@ -86,6 +86,5 @@ OnUserEdit(item: users) {
 
 export interface ViewMore {
   u_password: string;
-  u_dob: Date;
   u_address: string;
 }

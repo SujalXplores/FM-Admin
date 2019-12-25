@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
    hide: string = 'false';
   ngOnInit() {
     this.signupForm = new FormGroup({
+      u_name: new FormControl(null),
       u_email_id: new FormControl(null, [Validators.required, Validators.email]),
       u_mobileno: new FormControl(null, [Validators.required]),
       u_password: new FormControl(null, [Validators.required]),

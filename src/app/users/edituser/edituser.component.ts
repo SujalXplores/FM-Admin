@@ -15,10 +15,8 @@ export class EdituserComponent implements OnInit {
 
   user_email: string;
   user_name: string;
-  user_gender: string;
   user_phone: number;
   user_password: string;
-  user_dob: Date;
   user_address:string;
 
   ngOnInit() {
@@ -27,10 +25,8 @@ export class EdituserComponent implements OnInit {
         (data: users) => {
           this.user_email = data[0].u_email_id;
           this.user_name = data[0].u_name;
-          this.user_gender = data[0].u_gender;
           this.user_phone = data[0].u_mobileno;
           this.user_password = data[0].u_password;
-          this.user_dob = data[0].u_dob;
           this.user_address = data[0].u_address;
         }
     );

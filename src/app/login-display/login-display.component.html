@@ -3,18 +3,20 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+				
+				
+			<form class="login100-form validate-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
 			<span class="login100-form-title p-b-48">
-              <i class="fal fa-user-circle"></i>
+				<i class="fab fa-foursquare"></i>
           	</span>
-          <span class="login100-form-title p-b-26">
+          	<span class="login100-form-title p-b-26">
               Future MediSurgico
-          </span>
+			  </span>
 
 			<mat-form-field class="wrap-input100">
 			  <input matInput formControlName="u_email_id" placeholder="Email-ID*">
-			  <mat-icon matSuffix><i class="fal fa-envelope"></i></mat-icon>
+			  <mat-icon matSuffix><i class="far fa-envelope" style="font-size: 20px;"></i></mat-icon>
               <mat-label *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email should not be empty!</mat-label>
               <mat-label *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-label>
               <mat-hint>We don't share your Email to anyone.</mat-hint>
@@ -31,13 +33,11 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-								<button type="submit" class="login100-form-btn">Login</button>
+								<button type="submit" class="login100-form-btn">Sign In</button>
 						</div>
 					</div>
 					<div class="text-center p-t-115">
-						<a class="txt2">
-							Forgot Password?
-						</a>
+						<a class="txt2" href="#">Forgot Password?</a>
 					</div>
 				</form>
 			</div>
