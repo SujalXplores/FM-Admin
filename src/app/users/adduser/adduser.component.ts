@@ -11,16 +11,28 @@ import { Router } from '@angular/router';
 export class AdduserComponent implements OnInit {
   arrUser: users[] = [];
   constructor(private _userdata: UsersdataService, private _router: Router) { }
+  selectedFile:File=null;
   value = '';
   ngOnInit() {
   }
     onUesrAdd(f) {
-      this._userdata.addUsers(f.value).subscribe(
-        (data: any) => {
-          this.arrUser.push(f.value);
-          this._router.navigate(['']);
+          let fd=new FormData();
+          fd.append('u_email_id',f.value.u_email_id);
+          fd.append('u_password',f.value.u_password);
+          fd.append('u_name',f.value.u_name);
+          fd.append('u_mobileno',f.value.u_mobileno);
+          fd.append('u_address',f.value.u_address);
+          fd.append('image',this.selectedFile,this.selectedFile.name);
+
+      this._userdata.addUsers(fd).subscribe(
+        (data: any[]) => {
+
+          console.log(data);
         }
       );
     }
 
+    onChange(f){
+      this.selectedFile=<File>f.target.files[0];
+    }
 }

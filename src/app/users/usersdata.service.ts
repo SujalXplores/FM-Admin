@@ -16,10 +16,12 @@ export class UsersdataService {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.delete(this.url + u_email_id, {headers: x});
    }
-   addUsers(item: users) {
-    let body = JSON.stringify(item);
-    let x = new HttpHeaders().set('Content-Type', 'application/json');
-    return this._http.post(this.url, body, {headers: x});
+   addUsers(item:FormData) {
+     console.log(item)
+    //let body = JSON.stringify(item);
+    //let x = new HttpHeaders().set('Content-Type', 'application/json');
+    //return this._http.post(this.url, body, {headers: x});
+    return this._http.post(this.url,item);
   }
    editUser(u_email_id: string) {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
