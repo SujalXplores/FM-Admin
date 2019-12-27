@@ -14,7 +14,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UsersComponent } from './users/users.component';
-import { MatPaginatorModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
+import { MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { routingArr } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -91,6 +91,7 @@ import { HomeComponent } from './home/home.component';
     MatInputModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     FormsModule,
     ReactiveFormsModule
   ],
