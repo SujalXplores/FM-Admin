@@ -21,7 +21,7 @@ a {
 	font-family: Roboto;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+	color: #000000;
 	margin: 0px;
 }
 
@@ -31,7 +31,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #0022ff;
+  color: #001079;
 }
 
 /*---------------------------------------------*/
@@ -62,7 +62,7 @@ button {
 
 .login100-form-btn:hover {
   cursor: pointer;
-  background-color: #0022ff;
+  background-color: #000f74;
 }
 
 iframe {
@@ -118,7 +118,7 @@ iframe {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  padding: 77px 55px 33px 55px;
+  padding: 40px 40px 33px 40px;
 
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -200,7 +200,7 @@ iframe {
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: #000397;
+  background: #0004ff;
   top: 0;
 }
 

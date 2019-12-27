@@ -1,12 +1,8 @@
 <html>
 <body>
-	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100">
-				
-				
-			<form class="login100-form validate-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-
+			<div class="wrap-login100">		
+			<form class="login100-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
 			<span class="login100-form-title p-b-48">
 				<i class="fab fa-foursquare"></i>
           	</span>
@@ -16,18 +12,20 @@
 
 			<mat-form-field class="wrap-input100">
 			  <input matInput formControlName="u_email_id" placeholder="Email-ID*">
-			  <mat-icon matSuffix><i class="far fa-envelope" style="font-size: 20px;"></i></mat-icon>
+			  <mat-icon matPrefix><i class="far fa-envelope" style="font-size: 20px;"></i></mat-icon>
               <mat-label *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email should not be empty!</mat-label>
               <mat-label *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-label>
               <mat-hint>We don't share your Email to anyone.</mat-hint>
           	</mat-form-field>
 
 			<mat-form-field  class="wrap-input100">
-              <input matInput placeholder="Password*" [type]="hide ? 'password' : 'text'"  formControlName="u_password">
+			  <input matInput placeholder="Password*" [type]="hide ? 'password' : 'text'"  formControlName="u_password">
+			  <mat-icon matPrefix><i class="far fa-lock" style="font-size: 20px;"></i></mat-icon>
 			  <mat-label *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password should not be empty!</mat-label>
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
+			  </button>
+			  <mat-hint align="end"><a class="txt2" href="#">Forgot Password?</a></mat-hint>
           	</mat-form-field>
 
 					<div class="container-login100-form-btn">
@@ -37,11 +35,10 @@
 						</div>
 					</div>
 					<div class="text-center p-t-115">
-						<a class="txt2" href="#">Forgot Password?</a>
+						<a class="txt2" href="#">New here? Sign up</a>
 					</div>
 				</form>
 			</div>
 		</div>
-	</div>
 </body>
 </html>

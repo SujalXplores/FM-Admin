@@ -5,14 +5,33 @@
     </head>
     <body>
         <div class="container">
-            <h1>Oops! &nbsp;<span>:(</span></h1>
-            <p>Error-code: 404</p>
-            <p>Sorry, but the page you were trying to view does not exist.</p>
-            <p>It looks like this was the result of either:</p>
-            <ul>
-                <li>A mistyped address.</li>
-                <li>An out-of-date link.</li>
-            </ul>
+            <section fxLayout="column wrap" fxLayoutGap="60px" fxLayoutAlign="center center">
+                <h1>error-404</h1>
+                <div fxFlex>
+                   We are searching for your page...
+                </div>
+                  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                <div>
+                  ... But we can not find it.
+                </div>
+              </section>
+              <div>
+                <p>It looks like this was the result of either:</p>
+                <ul>
+                    <li>A mistyped address.</li>
+                    <li>An out-of-date link.</li>
+                </ul>
+              </div>
         </div>
     </body>
 </html>
+
+
+1
+2
+3
+4
+5
+6
+7
+
