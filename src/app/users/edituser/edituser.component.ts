@@ -15,7 +15,7 @@ export class EdituserComponent implements OnInit {
 
   user_email: string;
   user_name: string;
-  user_phone: number;
+  user_phone: string;
   user_password: string;
   user_address:string;
 
