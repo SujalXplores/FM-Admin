@@ -1,5 +1,6 @@
 <html>
 <body>
+  <div class="form-group">
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -14,46 +15,50 @@
 
 		  <mat-form-field class="wrap-input100">
 			<input matInput formControlName="u_name" placeholder="Enter Username*">
-			<mat-icon matSuffix><i class="far fa-user" style="font-size: 20px;"></i></mat-icon>
+      <mat-icon matSuffix><i class="far fa-user" style="font-size: 20px;"></i></mat-icon>
+      <mat-hint class="hint" *ngIf="signupForm.get('u_name').hasError('required') && !signupForm.get('u_name').pristine">user name is required</mat-hint>
+      <mat-hint class="hint" *ngIf="signupForm.get('u_name').hasError('pattern') && !signupForm.get('u_name').pristine">Only chars</mat-hint>
 		  </mat-form-field>
 
 			<mat-form-field class="wrap-input100">
 			  <input matInput formControlName="u_email_id" placeholder="Enter Email*">
 			  <mat-icon matSuffix><i class="far fa-envelope" style="font-size: 20px;"></i></mat-icon>
-              <mat-label *ngIf="signupForm.get('u_email_id').hasError('required') && !signupForm.get('u_email_id').pristine">Email should not be empty!</mat-label>
-              <mat-label *ngIf="signupForm.get('u_email_id').hasError('email') && !signupForm.get('u_email_id').pristine">Invalid Email!</mat-label>
-              <mat-hint>We don't share your Email to anyone.</mat-hint>
+              <mat-hint class="hint" *ngIf="signupForm.get('u_email_id').hasError('required') && !signupForm.get('u_email_id').pristine">email is required</mat-hint>
+              <mat-hint class="hint" *ngIf="signupForm.get('u_email_id').hasError('email') && !signupForm.get('u_email_id').pristine">invalid email</mat-hint>
 			</mat-form-field>
 
 			<mat-form-field class="wrap-input100">
 				<span matPrefix>+91 &nbsp;</span>
-				<input type="number" matInput formControlName="u_mobileno" appPhone placeholder="Phone Number*">
+        <input type="text" matInput formControlName="u_mobileno" appPhone placeholder="Phone Number*">
 				<mat-icon matSuffix><i class="far fa-phone" style="font-size: 20px;"></i></mat-icon>
-				<mat-label *ngIf="signupForm.get('u_mobileno').hasError('required') && !signupForm.get('u_mobileno').pristine">Mobile number should not be empty!</mat-label>
+        <mat-hint class="hint" *ngIf="signupForm.get('u_mobileno').hasError('required') && !signupForm.get('u_mobileno').pristine">Mobile number should not be empty!</mat-hint>
+        <mat-hint class="hint" *ngIf="signupForm.get('u_mobileno').hasError('minlength')">Mobile number must be of 10 digits!</mat-hint>
+        <mat-label class="label" *ngIf="signupForm.get('u_mobileno').hasError('pattern')">only digits!</mat-label>
 			</mat-form-field>
 
+      <div formGroupName="password_group">
 			<mat-form-field  class="wrap-input100">
 			  <input matInput formControlName="u_password" placeholder="Password*" [type]="hide ? 'password' : 'text'">
 
-              <mat-label *ngIf="signupForm.get('u_password').hasError('required') && !signupForm.get('u_password').pristine">Password should not be empty!</mat-label>
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
-			</mat-form-field>
+          </mat-form-field>
 
-			<!-- <mat-form-field  class="wrap-input100">
-				<input matInput placeholder="Confirm Password*" [type]="hide ? 'password' : 'text'">
+          <mat-form-field  class="wrap-input100">
+        <input formControlName="u_confirm_password" matInput placeholder="Confirm Password*" [type]="hide ? 'password' : 'text'">
+              <mat-label *ngIf="signupForm.get('password_group').hasError('not same') && !signupForm.get('not same')">Both Password and confirm password sho uld be same!</mat-label>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+        </mat-form-field>
 
-				<mat-label *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password should not be empty!</mat-label>
-				<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-				<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-				</button>
-			  </mat-form-field> -->
+      </div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-								<button type="submit" class="login100-form-btn">SignUp</button>
+								<button [disabled]="!signupForm.valid" type="submit" class="login100-form-btn">SignUp</button>
 						</div>
 					</div>
 					<div class="text-center p-t-115">
@@ -63,6 +68,7 @@
 
 			</div>
 		</div>
-	</div>
+  </div>
+  </div>
 </body>
 </html>
