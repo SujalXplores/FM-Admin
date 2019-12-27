@@ -1,30 +1,36 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title>Edit Valet Info</mat-card-title>
+      <mat-card-content>
+          <form class="example-form" (ngSubmit)="onDeliveryboyEdit(f)" #f="ngForm">
 
-<form class="example-form" (ngSubmit)="onDeliveryboyEdit(f)" #f="ngForm">
+            <mat-form-field class="example-full-width">
+              <input ngModel name="deliveryboy_id" [(ngModel)]=d_id #deliveryboy_id="ngModel" matInput type="number" placeholder="Enter Deliveryboy id">
+            </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <input ngModel name="deliveryboy_id" [(ngModel)]=d_id #deliveryboy_id="ngModel" matInput type="number" placeholder="Enter Deliveryboy id">
-  </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input ngModel name="deliveryboy_name" [(ngModel)]=d_name #deliveryboy_name="ngModel" matInput type="text" placeholder="Enter Deliveryboy Name">
+              <mat-icon matSuffix><i class="far fa-user"></i></mat-icon>
+            </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <input ngModel name="deliveryboy_name" [(ngModel)]=d_name #deliveryboy_name="ngModel" matInput type="text" placeholder="Enter Deliveryboy Name">
-    <mat-icon matSuffix><i class="far fa-user"></i></mat-icon>
-  </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input ngModel name="deliveryboy_address" [(ngModel)]=d_address #deliveryboy_address="ngModel" matInput type="text" placeholder="Enter Deliveryboy Address">
+              <mat-icon matSuffix><i class="far fa-address-card"></i></mat-icon>
+            </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <input ngModel name="deliveryboy_address" [(ngModel)]=d_address #deliveryboy_address="ngModel" matInput type="text" placeholder="Enter Deliveryboy Address">
-    <mat-icon matSuffix><i class="far fa-address-card"></i></mat-icon>
-  </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <span matPrefix>+91 &nbsp;</span>
+              <input ngModel name="deliveryboy_mobileno" [(ngModel)]=d_mobileno #deliveryboy_mobileno="ngModel" type="number" matInput appPhone placeholder="Enter Mobile Number">
+              <mat-icon matSuffix><i class="far fa-phone"></i></mat-icon>
+            </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <span matPrefix>+91 &nbsp;</span>
-    <input ngModel name="deliveryboy_mobileno" [(ngModel)]=d_mobileno #deliveryboy_mobileno="ngModel" type="number" matInput appPhone placeholder="Enter Mobile Number">
-    <mat-icon matSuffix><i class="far fa-phone"></i></mat-icon>
-  </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input ngModel name="deliveryboy_email" [(ngModel)]=d_email #deliveryboy_email="ngModel" matInput type="email" placeholder="Enter Email">
+              <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon>
+            </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <input ngModel name="deliveryboy_email" [(ngModel)]=d_email #deliveryboy_email="ngModel" matInput type="email" placeholder="Enter Email">
-    <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon>
-  </mat-form-field>
-
-  <button class="example-full-width" type="submit" mat-raised-button color="accent">Edit Deliveryboy</button>
-</form>
+            <button class="example-full-width" type="submit" mat-raised-button color="accent">Edit Deliveryboy</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </section>

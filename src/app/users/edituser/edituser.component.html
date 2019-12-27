@@ -1,31 +1,39 @@
-<form class="example-form" (ngSubmit)="OnUserEdit(f)" #f="ngForm">
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title>Edit User</mat-card-title>
+      <mat-card-content>
 
-      <mat-form-field class="example-full-width">
-        <input name="u_email_id" [(ngModel)]=user_email #u_email_id="ngModel" matInput type="email" placeholder="Enter New Email">
-        <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon>
-      </mat-form-field>
+       <form class="example-form" (ngSubmit)="OnUserEdit(f)" #f="ngForm">
 
-      <mat-form-field class="example-full-width">
-        <input name="u_name" [(ngModel)]=user_name #u_name="ngModel"  matInput type="text" placeholder="Enter New Name">
-        <mat-icon matSuffix><i class="far fa-user"></i></mat-icon>
-      </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input name="u_email_id" [(ngModel)]=user_email #u_email_id="ngModel" matInput type="email" placeholder="Enter New Email">
+                <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon>
+              </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <span matPrefix>+91 &nbsp;</span>
-        <input name="u_mobileno" [(ngModel)]=user_phone #u_mobileno="ngModel" type="text" matInput appPhone placeholder="Enter New Mobile Number">
-        <mat-icon matSuffix><i class="far fa-phone"></i></mat-icon>
-      </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input name="u_name" [(ngModel)]=user_name #u_name="ngModel"  matInput type="text" placeholder="Enter New Name">
+                <mat-icon matSuffix><i class="far fa-user"></i></mat-icon>
+              </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <input name="u_password" [(ngModel)]=user_password #u_password="ngModel"  matInput type="text" placeholder="Set New Password">
-        <mat-icon matSuffix><i class="far fa-lock"></i></mat-icon>
-      </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <span matPrefix>+91 &nbsp;</span>
+                <input name="u_mobileno" [(ngModel)]=user_phone #u_mobileno="ngModel" type="text" matInput appPhone placeholder="Enter New Mobile Number">
+                <mat-icon matSuffix><i class="far fa-phone"></i></mat-icon>
+              </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <input name="u_address" [(ngModel)]=user_address #u_address="ngModel" matInput type="text" placeholder="Change Your Address">
-        <mat-icon matSuffix><i class="far fa-address-card"></i></mat-icon>
-      </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input name="u_password" [(ngModel)]=user_password #u_password="ngModel"  matInput type="text" placeholder="Set New Password">
+                <mat-icon matSuffix><i class="far fa-lock"></i></mat-icon>
+              </mat-form-field>
 
-      <button class="example-full-width" type="submit" mat-raised-button color="accent">Update User</button>
-    </form>
+              <mat-form-field class="example-full-width">
+                <input name="u_address" [(ngModel)]=user_address #u_address="ngModel" matInput type="text" placeholder="Change Your Address">
+                <mat-icon matSuffix><i class="far fa-address-card"></i></mat-icon>
+              </mat-form-field>
+
+              <button class="example-full-width" type="submit" mat-raised-button color="accent">Update User</button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </section>
 

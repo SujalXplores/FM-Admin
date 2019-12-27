@@ -39,6 +39,7 @@ import { EditcartComponent } from './cart/editcart/editcart.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { ViewmoreUserComponent } from './users/viewmore-user/viewmore-user.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { HomeComponent } from './home/home.component';
     AddcartComponent,
     EditcartComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    ViewmoreUserComponent
   ],
   imports: [
     routingArr,

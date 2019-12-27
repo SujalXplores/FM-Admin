@@ -1,6 +1,10 @@
 <mat-form-field class="filterClass">
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search User...">
-  </mat-form-field>
+</mat-form-field>
+
+<button routerLink='/addUser' mat-mini-fab matTooltip="To add user manually!" color="accent" class="addbutton">
+  <mat-icon>add</mat-icon>
+</button>
 
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
@@ -42,7 +46,7 @@
         <ng-container matColumnDef="details">
           <th mat-header-cell *matHeaderCellDef> Details </th>
           <td mat-cell *matCellDef="let row">
-            <button mat-icon-button style="color: blue">
+            <button (click)="OnViewMore(row)" mat-icon-button style="color: blue">
               <mat-icon>view_headline</mat-icon>
             </button>
           </td>
@@ -52,7 +56,7 @@
             <th mat-header-cell *matHeaderCellDef> Delete </th>
             <td mat-cell *matCellDef="let row">
             <button (click)="onDelete(row)" mat-icon-button color="warn">
-              <mat-icon>delete</mat-icon>
+              <mat-icon>delete_forever</mat-icon>
             </button>
           </td>
           </ng-container>
@@ -92,6 +96,3 @@
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
   </div>
-  <button routerLink='/addUser' mat-raised-button matTooltip="To add user manually!" color="primary" class="addbutton">
-    <mat-icon>add</mat-icon>Add
-  </button>

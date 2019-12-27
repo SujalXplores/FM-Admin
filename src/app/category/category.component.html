@@ -35,7 +35,7 @@
           <th mat-header-cell *matHeaderCellDef> Delete </th>
           <td mat-cell *matCellDef="let row">
           <button  mat-icon-button color="warn">
-            <mat-icon>delete</mat-icon>
+            <mat-icon>delete_forever</mat-icon>
           </button>
         </td>
         </ng-container>
@@ -54,6 +54,3 @@
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
-<button routerLink='/addProduct' mat-raised-button matTooltip="Add Desired Product Wisely" color="primary" class="addbutton">
-  <mat-icon>add</mat-icon>Add
-</button>

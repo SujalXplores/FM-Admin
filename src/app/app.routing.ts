@@ -1,5 +1,4 @@
 import {RouterModule, Routes } from '@angular/router';
-import {MainNavComponent} from './main-nav/main-nav.component';
 import { EdituserComponent } from './users/edituser/edituser.component';
 import { UsersComponent } from './users/users.component';
 import { AdduserComponent } from './users/adduser/adduser.component';
@@ -20,6 +19,7 @@ import { AddcartComponent } from './cart/addcart/addcart.component';
 import { EditcartComponent } from './cart/editcart/editcart.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { ViewmoreUserComponent } from './users/viewmore-user/viewmore-user.component';
 
 const arr: Routes = [
   {path: 'login', component: LoginDisplayComponent},
@@ -41,6 +41,7 @@ const arr: Routes = [
   {path: 'editorder/:order_id', component: EditorderComponent},
   {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
   {path: 'editcart/:cart_id', component: EditcartComponent},
+  {path: 'viewMoreUser', component: ViewmoreUserComponent},
   {path: 'pagenotfound', component: PagenotfoundComponent},
   {path: '**', redirectTo: '/pagenotfound'}
 ];

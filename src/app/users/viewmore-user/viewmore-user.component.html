@@ -1,0 +1,55 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+        <mat-card-title>User Details</mat-card-title>
+        <mat-card-content>
+
+          <mat-form-field class="example-full-width">
+            <input name="u_email_id" [(ngModel)]=user_email matInput type="email">
+            <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon>
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width">
+            <input name="u_name" [(ngModel)]=user_name matInput type="text" >
+            <mat-icon matSuffix><i class="far fa-user"></i></mat-icon>
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width">
+            <span matPrefix>+91 &nbsp;</span>
+            <input name="u_mobileno" [(ngModel)]=user_phone type="text" matInput>
+            <mat-icon matSuffix><i class="far fa-phone"></i></mat-icon>
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width">
+            <input name="u_password" [(ngModel)]=user_password matInput type="text">
+            <mat-icon matSuffix><i class="far fa-lock"></i></mat-icon>
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width">
+            <input name="u_address" [(ngModel)]=user_address matInput type="text">
+            <mat-icon matSuffix><i class="far fa-address-card"></i></mat-icon>
+          </mat-form-field>
+
+            <!-- <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>Shiba Inu</mat-card-title>
+                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p>
+                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                    bred for hunting.
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button>SHARE</button>
+                </mat-card-actions>
+              </mat-card> -->
+
+
+        </mat-card-content>
+    </mat-card>
+</section>

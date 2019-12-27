@@ -1,6 +1,11 @@
-.hide-btn
+.password
 {
-  font-size: 50px;
+  width:49%;
+}
+.c-password
+{
+  width:49%;
+  margin-left: 10px;
 }
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -126,7 +131,7 @@ iframe {
 }
 
 .wrap-login100 {
-  width: 390px;
+  width: 590px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -167,7 +172,7 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  margin-bottom: 37px;
+  margin-bottom: 10px;
 }
 
 .input100 {

@@ -50,6 +50,10 @@ OnUserEdit(item: users) {
   this._router.navigate(['edituser', item.u_email_id]);
 }
 
+OnViewMore(item: users) {
+  this._router.navigate(['viewMoreUser', item.u_email_id]);
+}
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
