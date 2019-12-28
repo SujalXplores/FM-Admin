@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
-
+  u_email_id:String='';
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -18,9 +18,12 @@ export class MainNavComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver, public router: Router) {}
-  onLogOut() {
-    if (confirm('Are You Sure You Want To Logout ?')) {
-      this.router.navigate(["login"]);
-    }
+  ngOnInit(){
+    this.u_email_id=localStorage.getItem('u_email_id');
+  }
+  onLogOut()
+  {
+    localStorage.clear();
+    this.router.navigate(['']);
   }
 }

@@ -1,4 +1,5 @@
-import {RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { MainNavComponent } from "./main-nav/main-nav.component";
 import { EdituserComponent } from './users/edituser/edituser.component';
 import { UsersComponent } from './users/users.component';
 import { AdduserComponent } from './users/adduser/adduser.component';
@@ -20,30 +21,38 @@ import { EditcartComponent } from './cart/editcart/editcart.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ViewmoreUserComponent } from './users/viewmore-user/viewmore-user.component';
+import { UserAuthGuardService } from "./login-display/user-auth-guard.service";
 
 const arr: Routes = [
-  {path: 'login', component: LoginDisplayComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'users', component: UsersComponent},
-  {path: 'product', component: ProductComponent},
-  {path: 'category', component: CategoryComponent},
-  {path: 'order', component: OrderComponent},
-  {path: 'deliveryboy', component: DeliveryboyComponent},
-  {path: 'cart', component: CartComponent},
-  {path: 'addUser', component: AdduserComponent},
-  {path: 'addProduct', component: AddproductComponent},
-  {path: 'addOrder', component: AddorderComponent},
-  {path: 'adddeliveryboy', component: AdddeliveryboyComponent},
-  {path: 'addcart', component: AddcartComponent},
-  {path: 'edituser/:email', component: EdituserComponent},
-  {path: 'editproduct/:pro_id', component: EditproductComponent},
-  {path: 'editorder/:order_id', component: EditorderComponent},
-  {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
-  {path: 'editcart/:cart_id', component: EditcartComponent},
-  {path: 'viewMoreUser', component: ViewmoreUserComponent},
-  {path: 'pagenotfound', component: PagenotfoundComponent},
-  {path: '**', redirectTo: '/pagenotfound'}
+  { path: '', component: LoginDisplayComponent },
+    {
+      path: '',
+      canActivate: [UserAuthGuardService], 
+      component: MainNavComponent, 
+      children: [     
+      {path: 'home', component: HomeComponent},
+      {path: 'signup', component: SignupComponent},
+      {path: 'users', component: UsersComponent},
+      {path: 'product', component: ProductComponent},
+      {path: 'category', component: CategoryComponent},
+      {path: 'order', component: OrderComponent},
+      {path: 'deliveryboy', component: DeliveryboyComponent},
+      {path: 'cart', component: CartComponent},
+      {path: 'addUser', component: AdduserComponent},
+      {path: 'addProduct', component: AddproductComponent},
+      {path: 'addOrder', component: AddorderComponent},
+      {path: 'adddeliveryboy', component: AdddeliveryboyComponent},
+      {path: 'addcart', component: AddcartComponent},
+      {path: 'edituser/:email', component: EdituserComponent},
+      {path: 'editproduct/:pro_id', component: EditproductComponent},
+      {path: 'editorder/:order_id', component: EditorderComponent},
+      {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
+      {path: 'editcart/:cart_id', component: EditcartComponent},
+      {path: 'viewMoreUser', component: ViewmoreUserComponent},
+      {path: 'pagenotfound', component: PagenotfoundComponent},
+      {path: '**', redirectTo: '/pagenotfound'}
+    ]
+  },
 ];
 
 export const routingArr = RouterModule.forRoot(arr);

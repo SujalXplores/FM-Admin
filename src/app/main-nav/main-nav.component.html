@@ -7,15 +7,14 @@
     <mat-nav-list color="primary">
 
       <a mat-list-item routerLink="/home"><span>Home</span><i class="nav-icon far fa-home"></i></a>
-      <a mat-list-item routerLink="/login"><span>Login</span><i class="nav-icon far fa-sign-in"></i></a>
       <a mat-list-item routerLink="/signup"><span>Signup</span><i class="nav-icon far fa-user-plus"></i></a>
-      <a mat-list-item routerLink=""><span>User Management</span><i class="far fa-id-card"></i></a>
+      <a mat-list-item routerLink="/users"><span>User Management</span><i class="far fa-id-card"></i></a>
       <a mat-list-item routerLink="/product"><span>Product</span><i class="far fa-capsules"></i></a>
       <a mat-list-item routerLink="/cart"><span>Cart</span><i class="far fa-shopping-cart"></i></a>
       <a mat-list-item routerLink="/category"><span>Category</span><i class="far fa-sitemap"></i></a>
       <a mat-list-item routerLink="/order"><span>Orders</span><i class="far fa-hand-holding-usd"></i></a>
       <a mat-list-item routerLink="/deliveryboy"><span>Delivery Boy</span><i class="far fa-person-carry"></i></a>
-     <a mat-list-item (click)="onLogOut()" style="color: red;"><span>Logout</span><i class="far fa-sign-out"></i></a>
+      <a mat-list-item (click)="onLogOut()" style="color: red;"><span>Logout</span><i class="far fa-sign-out"></i></a>
 
     </mat-nav-list>
   </mat-sidenav>
@@ -30,7 +29,9 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Future Medisurgico</span>
+      <h1>Welcome,{{u_email_id}}</h1>
     </mat-toolbar>
+    <!-- Add Content Here -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
