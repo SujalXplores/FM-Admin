@@ -47,7 +47,7 @@ export class OrderComponent implements OnInit {
   }
 
   OnOrderEdit(item: order) {
-    this.router.navigate(['editorder', item.order_id]);
+    this.router.navigate(['/nav/editorder', item.order_id]);
   }
 
 applyFilter(filterValue: string) {

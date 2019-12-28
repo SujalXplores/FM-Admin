@@ -22,9 +22,9 @@
 			  <input matInput placeholder="Password*" [type]="hide ? 'password' : 'text'"  formControlName="u_password">
 			  <mat-icon matPrefix><i class="far fa-lock" style="font-size: 20px;"></i></mat-icon>
 			  <mat-label *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password should not be empty!</mat-label>
-              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-			  </button>
+				<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+					<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+				</button>
 			  <mat-hint align="end"><a class="txt2" href="#">Forgot Password?</a></mat-hint>
           	</mat-form-field>
 
@@ -33,9 +33,6 @@
 							<div class="login100-form-bgbtn"></div>
 								<button type="submit" class="login100-form-btn">Sign In</button>
 						</div>
-					</div>
-					<div class="text-center p-t-115">
-						<a class="txt2" href="#">New here? Sign up</a>
 					</div>
 				</form>
 			</div>

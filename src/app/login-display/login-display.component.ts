@@ -23,11 +23,12 @@ export class LoginDisplayComponent implements OnInit {
       });
   }
   onLogin() {
+    
        this._logindata.login(this.loginForm.value).subscribe(
          (x: users[]) => {
            if (x.length == 1){
                 localStorage.setItem('u_email_id',this.loginForm.get('u_email_id').value);
-                this._router.navigate(['/home']);
+                this._router.navigate(['/nav/']);
            }
            else {
              alert("invalid");

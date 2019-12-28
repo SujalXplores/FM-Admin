@@ -20,7 +20,7 @@ export class AddproductComponent implements OnInit {
     this._productdata.addProduct(f.value).subscribe(
       (data: any) => {
         this.arrproduct.push(f.value);
-        this._router.navigate(['product']);
+        this._router.navigate(['/nav/product']);
       }
     );
   }

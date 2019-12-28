@@ -47,11 +47,11 @@ export class UsersComponent implements OnInit {
    }
 
 OnUserEdit(item: users) {
-  this._router.navigate(['edituser', item.u_email_id]);
+  this._router.navigate(['/nav/edituser', item.u_email_id]);
 }
 
 OnViewMore(item: users) {
-  this._router.navigate(['viewMoreUser', item.u_email_id]);
+  this._router.navigate(['/nav/viewMoreUser', item.u_email_id]);
 }
 
   applyFilter(filterValue: string) {

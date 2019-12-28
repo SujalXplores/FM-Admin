@@ -32,7 +32,7 @@ export class EditproductComponent implements OnInit {
   OnProductEdit(f) {
     this._productdata.updateProduct(f.value).subscribe(
       (data: any) => {
-        this._router.navigate(['product']);
+        this._router.navigate(['/nav/product']);
         console.log(f.value);
       }
   );

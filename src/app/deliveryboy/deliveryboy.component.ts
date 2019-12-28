@@ -46,7 +46,7 @@ export class DeliveryboyComponent implements OnInit {
    }
 
    OnDeliveryboyEdit(item: deliveryboy) {
-    this._router.navigate(['editdeliveryboy', item.deliveryboy_id]);
+    this._router.navigate(['/nav/editdeliveryboy', item.deliveryboy_id]);
   }
    applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

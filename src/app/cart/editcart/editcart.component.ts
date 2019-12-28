@@ -30,7 +30,7 @@ export class EditcartComponent implements OnInit {
   onCartEdit(f) {
     this._cartdata.updateCart(f.value).subscribe(
         (data: any) => {
-          this._router.navigate(['cart']);
+          this._router.navigate(['/nav/cart']);
           console.log(f.value);
         }
     );

@@ -26,7 +26,7 @@ export class AdduserComponent implements OnInit {
 
       this._userdata.addUsers(fd).subscribe(
         (data: any[]) => {
-          this._router.navigate(['']);
+          this._router.navigate(['/nav/users']);
           console.log(data);
         }
       );

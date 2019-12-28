@@ -18,7 +18,7 @@ export class AddcartComponent implements OnInit {
     this._cartdata.addCart(f.value).subscribe(
       (data: any) => {
         this.arrcart.push(f.value);
-        this._router.navigate(['cart']);
+        this._router.navigate(['/nav/cart']);
       }
     );
   }

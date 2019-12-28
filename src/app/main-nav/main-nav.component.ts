@@ -23,7 +23,9 @@ export class MainNavComponent {
   }
   onLogOut()
   {
-    localStorage.clear();
-    this.router.navigate(['']);
+    if (confirm('Are you sure want to LogOut?')) {
+      localStorage.clear();
+      this.router.navigate(['']);
+    }
   }
 }

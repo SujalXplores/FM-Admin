@@ -47,7 +47,7 @@ export class ProductComponent implements OnInit {
   }
 
   OnProductEdit(item: product) {
-    this.router.navigate(['editproduct', item.pro_id]);
+    this.router.navigate(['/nav/editproduct', item.pro_id]);
   }
 
 applyFilter(filterValue: string) {

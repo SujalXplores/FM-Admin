@@ -36,7 +36,7 @@ export class EditorderComponent implements OnInit {
   OnOrderEdit(f) {
     this._orderdata.updateOrder(f.value).subscribe(
       (data: any) => {
-        this._router.navigate(['order']);
+        this._router.navigate(['/nav/order']);
         console.log(f.value);
       }
   );

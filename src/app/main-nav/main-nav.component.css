@@ -17,11 +17,31 @@
 }
 
 i {
- size: 40px; 
- color: blue;
+ color: rgb(0, 38, 255);
  margin-left: auto;
 }
 
+
+.list:hover,
+.list:focus {
+  background-color: rgb(168, 168, 168);
+  color: rgb(255, 255, 255);
+  transition: background-color .5s, color .5s;
+}
+
 span {
-  text-align: right;
+  text-align: left;
+  width: 100%;
+}
+
+.welcome {
+  float: right;
+  font-weight: lighter;
+  font-size: small;
+  margin-right: 10px;
+}
+
+.fa-user-circle {
+  color: rgb(4, 0, 255);
+  font-size: 26px;
 }

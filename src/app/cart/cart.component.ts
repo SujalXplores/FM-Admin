@@ -44,8 +44,9 @@ export class CartComponent implements OnInit {
    }
 
    OnCartEdit(item: cart) {
-    this._router.navigate(['editcart', item.cart_id]);
+    this._router.navigate(['/nav/editcart', item.cart_id]);
   }
+  
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 

@@ -20,7 +20,7 @@ export class AddorderComponent implements OnInit {
     this._orderdata.addOrder(f.value).subscribe(
       (data: any) => {
         this.arrorder.push(f.value);
-        this._router.navigate(['order']);
+        this._router.navigate(['/nav/order']);
       }
     );
   }

@@ -39,7 +39,7 @@ export class EdituserComponent implements OnInit {
   OnUserEdit(f) {
     this._userdata.updateUser(f.value).subscribe(
         (data: any) => {
-          this._router.navigate(['users']);
+          this._router.navigate(['/nav/users']);
           console.log(f.value);
         }
     );

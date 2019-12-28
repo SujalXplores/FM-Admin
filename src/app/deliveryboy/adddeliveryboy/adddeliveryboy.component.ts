@@ -19,7 +19,7 @@ export class AdddeliveryboyComponent implements OnInit {
     this._deliveryboydata.addDeliveryboy(f.value).subscribe(
       (data: any) => {
         this.arrDeliveryboy.push(f.value);
-        this._router.navigate(['deliveryboy']);
+        this._router.navigate(['/nav/deliveryboy']);
       }
     );
   }

@@ -3,18 +3,18 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>Menu<i class="fal fa-user-circle"></i></mat-toolbar>
     <mat-nav-list color="primary">
-
-      <a mat-list-item routerLink="/home"><span>Home</span><i class="nav-icon far fa-home"></i></a>
-      <a mat-list-item routerLink="/signup"><span>Signup</span><i class="nav-icon far fa-user-plus"></i></a>
-      <a mat-list-item routerLink="/users"><span>User Management</span><i class="far fa-id-card"></i></a>
-      <a mat-list-item routerLink="/product"><span>Product</span><i class="far fa-capsules"></i></a>
-      <a mat-list-item routerLink="/cart"><span>Cart</span><i class="far fa-shopping-cart"></i></a>
-      <a mat-list-item routerLink="/category"><span>Category</span><i class="far fa-sitemap"></i></a>
-      <a mat-list-item routerLink="/order"><span>Orders</span><i class="far fa-hand-holding-usd"></i></a>
-      <a mat-list-item routerLink="/deliveryboy"><span>Delivery Boy</span><i class="far fa-person-carry"></i></a>
-      <a mat-list-item (click)="onLogOut()" style="color: red;"><span>Logout</span><i class="far fa-sign-out"></i></a>
+      
+      <a class="list" mat-list-item routerLink="/nav"><span>Dashboard</span><i class="far fa-home"></i></a>
+      <!-- <a class="list" mat-list-item routerLink="/nav/signup"><span>Signup</span><i class="far fa-user-plus"></i></a> -->
+      <a class="list" mat-list-item routerLink="/nav/users"><span>Users</span><i class="far fa-users"></i></a>
+      <a class="list" mat-list-item routerLink="/nav/product"><span>Products</span><i class="far fa-capsules"></i></a>
+      <a class="list" mat-list-item routerLink="/nav/cart"><span>Cart</span><i class="far fa-shopping-cart"></i></a>
+      <a class="list" mat-list-item routerLink="/nav/category"><span>Categories</span><i class=" far fa-sitemap"></i></a>
+      <a class="list" mat-list-item routerLink="/nav/order"><span>Orders</span><i class="far fa-hand-holding-usd"></i></a>
+      <a class="list" mat-list-item routerLink="/nav/deliveryboy"><span>Valets</span><i class="far fa-person-carry"></i></a>
+      <a class="list" mat-list-item (click)="onLogOut()" style="color: red;"><span>Logout</span><i class="far fa-power-off" style="color: red;"></i></a>
 
     </mat-nav-list>
   </mat-sidenav>
@@ -29,7 +29,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Future Medisurgico</span>
-      <h1>Welcome,{{u_email_id}}</h1>
+      <h1 class="welcome">Welcome {{u_email_id}}</h1>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

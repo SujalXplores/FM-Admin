@@ -33,7 +33,7 @@ export class EditdeliveryboyComponent implements OnInit {
   onDeliveryboyEdit(f) {
     this._deliveryboydata.updateDeliveryboy(f.value).subscribe(
         (data: any) => {
-          this._router.navigate(['deliveryboy']);
+          this._router.navigate(['/nav/deliveryboy']);
           console.log(f.value);
         }
     );
