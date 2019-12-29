@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -40,6 +39,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ViewmoreUserComponent } from './users/viewmore-user/viewmore-user.component';
+import { FeatherModule } from 'angular-feather';
+import { allIcons } from 'angular-feather/icons';
 
 @NgModule({
   declarations: [
@@ -72,11 +73,14 @@ import { ViewmoreUserComponent } from './users/viewmore-user/viewmore-user.compo
   imports: [
     routingArr,
     BrowserModule,
-    FlexLayoutModule,
+    FlexLayoutModule, //flex-layout
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     LayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    //angular-material
     MatToolbarModule,
     MatDialogModule,
     MatButtonModule,
@@ -94,8 +98,7 @@ import { ViewmoreUserComponent } from './users/viewmore-user/viewmore-user.compo
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormsModule,
-    ReactiveFormsModule
+    FeatherModule.pick(allIcons) //feather-icons
   ],
   entryComponents: [
     DialogboxComponent

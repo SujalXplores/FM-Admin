@@ -22,6 +22,7 @@
     "@angular/platform-browser": "~8.2.9",
     "@angular/platform-browser-dynamic": "~8.2.9",
     "@angular/router": "~8.2.9",
+    "angular-feather": "^6.0.8",
     "boxicons": "^2.0.4",
     "hammerjs": "^2.0.8",
     "ngx-bootstrap": "^5.2.0",

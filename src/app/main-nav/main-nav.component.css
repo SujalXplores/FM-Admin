@@ -16,21 +16,16 @@
   z-index: 1;
 }
 
-i {
- color: rgb(0, 38, 255);
- margin-left: auto;
+a:hover,
+a:focus {
+  color: rgb(103, 58, 183);
 }
 
-
-.list:hover,
-.list:focus {
-  background-color: rgb(168, 168, 168);
-  color: rgb(255, 255, 255);
-  transition: background-color .5s, color .5s;
+i-feather {
+  margin-right: 10px;
 }
 
 span {
-  text-align: left;
   width: 100%;
 }
 
@@ -42,6 +37,7 @@ span {
 }
 
 .fa-user-circle {
-  color: rgb(4, 0, 255);
+  color: rgb(103, 58, 183);
   font-size: 26px;
+  margin-left: auto;
 }
