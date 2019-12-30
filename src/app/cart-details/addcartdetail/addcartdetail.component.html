@@ -1,0 +1,58 @@
+<!-- <html>
+<body>
+  <div class="form-group">
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+
+			<span class="login100-form-title p-b-48">
+              <i class="fab fa-foursquare"></i>
+          	</span>
+          <span class="login100-form-title p-b-26">
+              Future MediSurgico
+          </span>
+
+		  <mat-form-field class="wrap-input100">
+			<input matInput formControlName="u_name" placeholder="Enter Username*">
+      <mat-icon matPrefix><i class="far fa-user" style="font-size: 20px;"></i></mat-icon>
+      <mat-hint class="hint" *ngIf="signupForm.get('u_name').hasError('required') && !signupForm.get('u_name').pristine">user name is required</mat-hint>
+      <mat-hint class="hint" *ngIf="signupForm.get('u_name').hasError('pattern') && !signupForm.get('u_name').pristine">Only chars</mat-hint>
+		  </mat-form-field>
+
+			<mat-form-field class="wrap-input100">
+			  <input matInput formControlName="u_email_id" placeholder="Enter Email*">
+			  <mat-icon matPrefix><i class="far fa-envelope" style="font-size: 20px;"></i></mat-icon>
+              <mat-hint class="hint" *ngIf="signupForm.get('u_email_id').hasError('required') && !signupForm.get('u_email_id').pristine">email is required</mat-hint>
+              <mat-hint class="hint" *ngIf="signupForm.get('u_email_id').hasError('email') && !signupForm.get('u_email_id').pristine">invalid email</mat-hint>
+			</mat-form-field>
+
+			<mat-form-field class="wrap-input100">
+        <input type="text" matInput formControlName="u_mobileno" appPhone placeholder="Phone Number*">
+        <mat-hint class="hint" *ngIf="signupForm.get('u_mobileno').hasError('required') && !signupForm.get('u_mobileno').pristine">Mobile number should not be empty!</mat-hint>
+      </mat-form-field>
+
+        </form>
+			</div>
+		</div>
+  </div>
+  </div>
+</body>
+</html> -->
+
+
+<form class="example-form" [formGroup]="addcartdetailform" (ngSubmit)="onCartAdd()">
+
+  <mat-form-field class="example-full-width">
+    <input matInput formControlName="qty" placeholder="Enter Quantity">
+    <mat-error *ngIf="addcartdetailform.get('qty').hasError('required') && !addcartdetailform.get('qty').pristine">Quantity is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput formControlName="total" placeholder="Enter Total">
+    <mat-error *ngIf="addcartdetailform.get('total').hasError('required') && !addcartdetailform.get('total').pristine">Tota is required</mat-error>
+  </mat-form-field>
+
+  <button class="example-full-width" type="submit" mat-raised-button color="accent">Add Cart Detail</button>
+</form>
+

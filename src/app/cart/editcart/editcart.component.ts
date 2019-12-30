@@ -12,17 +12,14 @@ export class EditcartComponent implements OnInit {
 
   constructor(private _act_route: ActivatedRoute, private _cartdata: CartdataService, private _router: Router) { }
   cart_id1: number;
-  u_email_id1: string;
-  pro_id1: number;
-  cart_quantity1: number;
+  fk_u_email_id1: string;
+
   ngOnInit() {
     this.cart_id1 = this._act_route.snapshot.params["cart_id"];
     this._cartdata.editCart(this.cart_id1).subscribe(
         (data: cart) => {
           this.cart_id1 = data[0].cart_id;
-          this.u_email_id1 = data[0].u_email_id;
-          this.pro_id1 = data[0].pro_id;
-          this.cart_quantity1 = data[0].cart_quantity;
+          this.fk_u_email_id1 = data[0].fk_u_email_id;
         }
     );
   }
