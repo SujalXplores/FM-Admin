@@ -1,67 +1,100 @@
-<div id="wrapper">
-<div class="content-page">
-  <!-- Start content -->
-  <div class="content">
-      <div class="container-fluid">
-<div class="row">
-  <div class="col-xl-3 col-md-6 m-t-15">
-      <div class="card mini-stat bg-primary">
-          <div class="card-body mini-stat-img">
-              <div class="mini-stat-icon">
-                <i-feather name="box" class="float-right"></i-feather>
-              </div>
-              <div class="text-white">
-                  <h6 class="text-uppercase mb-3">Orders</h6>
-                  <h4 class="mb-4">1,587</h4>
-                  <span class="badge badge-info"> +11% </span> <span class="ml-2">From previous period</span>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="col-xl-3 col-md-6 m-t-15">
-      <div class="card mini-stat bg-primary">
-          <div class="card-body mini-stat-img">
-              <div class="mini-stat-icon">
-                <i-feather name="layers" class="float-right"></i-feather>
-              </div>
-              <div class="text-white">
-                  <h6 class="text-uppercase mb-3">Revenue</h6>
-                  <h4 class="mb-4">$46,782</h4>
-                  <span class="badge badge-danger"> -29% </span> <span class="ml-2">From previous period</span>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="col-xl-3 col-md-6 m-t-15">
-      <div class="card mini-stat bg-primary">
-          <div class="card-body mini-stat-img">
-              <div class="mini-stat-icon">
-                <i-feather name="tag" class="float-right"></i-feather>
-              </div>
-              <div class="text-white">
-                  <h6 class="text-uppercase mb-3">Average Price</h6>
-                  <h4 class="mb-4">$15.9</h4>
-                  <span class="badge badge-warning"> 0% </span> <span class="ml-2">From previous period</span>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="col-xl-3 col-md-6 m-t-15">
-      <div class="card mini-stat bg-primary">
-          <div class="card-body mini-stat-img">
-              <div class="mini-stat-icon">
-                <i-feather name="briefcase" class="float-right"></i-feather>
-              </div>
-              <div class="text-white">
-                  <h6 class="text-uppercase mb-3">Product Sold</h6>
-                  <h4 class="mb-4">1890</h4>
-                  <span class="badge badge-info"> +89% </span> <span class="ml-2">From previous period</span>
-              </div>
-          </div>
-      </div>
-  </div>
+<div fxLayout="row wrap">
+    <div fxFlex="50" fxFlex.xl="16.6" fxFlex.lg="16.6" fxFlex.md="33.3" fxFlex.sm="33.3" class="p-2">        
+        <mat-card class="gradient-green tile p-2"> 
+            <mat-icon>monetization_on</mat-icon> 
+            <h2>₹33500</h2>         
+            <p>profit</p>            
+        </mat-card>
+    </div>
+    <div fxFlex="50" fxFlex.xl="16.6" fxFlex.lg="16.6" fxFlex.md="33.3" fxFlex.sm="33.3" class="p-2">        
+        <mat-card class="gradient-red tile p-2"> 
+            <mat-icon>thumb_up_alt</mat-icon> 
+            <h2>5300</h2>         
+            <p>likes</p>            
+        </mat-card>
+    </div>
+    <div fxFlex="50" fxFlex.xl="16.6" fxFlex.lg="16.6" fxFlex.md="33.3" fxFlex.sm="33.3" class="p-2">
+        <mat-card class="gradient-orange tile p-2">
+            <mat-icon>group</mat-icon> 
+            <h2>14280</h2>         
+            <p>users</p> 
+        </mat-card>
+    </div>
+    <div fxFlex="50" fxFlex.xl="16.6" fxFlex.lg="16.6" fxFlex.md="33.3" fxFlex.sm="33.3" class="p-2">
+        <mat-card class="gradient-pink tile p-2">
+            <mat-icon>shopping_cart</mat-icon> 
+            <h2>7520</h2>         
+            <p>orders</p> 
+        </mat-card>
+    </div>
+    <div fxFlex="50" fxFlex.xl="16.6" fxFlex.lg="16.6" fxFlex.md="33.3" fxFlex.sm="33.3" class="p-2">
+        <mat-card class="gradient-gray tile p-2">
+            <mat-icon>pie_chart</mat-icon> 
+            <h2>₹2700</h2>         
+            <p>tax</p> 
+        </mat-card>
+    </div>  
+    <div fxFlex="50" fxFlex.xl="16.6" fxFlex.lg="16.6" fxFlex.md="33.3" fxFlex.sm="33.3" class="p-2">
+        <mat-card class="gradient-brown tile p-2">
+            <mat-icon>save_alt</mat-icon> 
+            <h2>12700</h2>         
+            <p>downloads</p> 
+        </mat-card>
+    </div>      
 </div>
-</div>
-</div>
-</div>
+
+<div fxLayout="row wrap" #resizedDiv>
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
+        <mat-card class="p-0 gradient-purple">
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>Products profit</p>
+                <div fxLayoutAlign="center center">
+                    <mat-icon class="icon-sm mx-1">trending_up</mat-icon>
+                    <span>38%</span>
+                </div>
+            </div>         
+            <div class="w-100 h-100p">
+                               
+            </div>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
+        <mat-card class="p-0 gradient-teal">
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>Total orders</p>
+                <div fxLayoutAlign="center center">
+                    <mat-icon class="icon-sm mx-1">trending_up</mat-icon>
+                    <span>16%</span>
+                </div>
+            </div>          
+            <div class="w-100 h-100p">                
+            </div>
+        </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
+        <mat-card class="p-0 gradient-indigo">
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>Refunds</p>
+                <div fxLayoutAlign="center center">
+                    <mat-icon class="icon-sm mx-1">trending_down</mat-icon>
+                    <span>-11%</span>
+                </div>
+            </div>          
+            <div class="w-100 h-100p">                   
+            </div>
+        </mat-card>
+    </div>    
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
+        <mat-card class="p-0 gradient-amber">
+            <div class="py-2 px-3" fxLayoutAlign="space-between center">
+                <p>Customers</p>
+                <div fxLayoutAlign="center center">
+                    <mat-icon class="icon-sm mx-1">trending_up</mat-icon>
+                    <span>17%</span>
+                </div>
+            </div>         
+            <div class="w-100 h-100p">                 
+            </div>
+        </mat-card>
+    </div>    
 </div>
