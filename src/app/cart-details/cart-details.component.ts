@@ -2,13 +2,14 @@ import { Component, OnInit , ViewChild} from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { SelectionModel } from '@angular/cdk/collections';
-import { cart } from './cart';
+import { cart_details } from './cart_details';
 import { Router } from '@angular/router';
-import { CartdataService } from './cartdata.service';
+import { CartDetailsdataService } from './cart-detailsdata.service';
+
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
+  selector: 'app-cart-details',
+  templateUrl: './cart-details.component.html',
+  styleUrls: ['./cart-details.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -17,37 +18,38 @@ import { CartdataService } from './cartdata.service';
     ]),
   ],
 })
-export class CartComponent implements OnInit {
-  cartarr: cart[] = [];
+export class CartDetailsComponent implements OnInit {
+  cart_detailsarr: cart_details[] = [];
   expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'cart_id', 'fk_u_email_id' , 'delete', 'edit'];
-  dataSource: MatTableDataSource<cart>;
+  displayedColumns: string[] = ['select', 'fk_cart_id', 'fk_pro_id' , 'details' , 'delete', 'edit'];
+  dataSource: MatTableDataSource<cart_details>;
 
-  selection = new SelectionModel<cart>(true, []);
+  selection = new SelectionModel<cart_details>(true, []);
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private _data: CartdataService, public _dialog: MatDialog, private _router: Router) {
+
+  constructor(private _data: CartDetailsdataService, public _dialog: MatDialog, private _router: Router) {
     this.dataSource = new MatTableDataSource();
   }
 
-  onDelete(item: cart) {
+  onDelete(item: cart_details) {
     if( confirm( "Are You Sure You Want To Delete ?" )) {
-      this._data.deleteCart(item.cart_id).subscribe(
+      this._data.deleteCart(item.cart_detail_id).subscribe(
         (data: any) => {
           console.log(data);
-          this.cartarr.splice(this.cartarr.indexOf(item), 1);
-          this.dataSource.data = this.cartarr;
+          this.cart_detailsarr.splice(this.cart_detailsarr.indexOf(item), 1);
+          this.dataSource.data = this.cart_detailsarr;
         }
       );
     }
    }
 
-   OnCartEdit(item: cart) {
-    this._router.navigate(['/nav/editcart', item.cart_id]);
+   OnCartDetailsEdit(item: cart_details) {
+    this._router.navigate(['/nav/editcart', item.cart_detail_id]);
   }
 
-  applyFilter(filterValue: string) {
+   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
@@ -69,9 +71,9 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._data.getAllCart().subscribe(
-      (data: cart[]) => {
-        this.cartarr = data;
+    this._data.getAllCartDetail().subscribe(
+      (data: cart_details[]) => {
+        this.cart_detailsarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -81,6 +83,6 @@ export class CartComponent implements OnInit {
 
 }
 export interface ViewMore {
-  u_email_id: string;
-  pro_id: number ;
+  qty: number;
+  total: number ;
 }

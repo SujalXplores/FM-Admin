@@ -41,6 +41,8 @@ import { HomeComponent } from './home/home.component';
 import { ViewmoreUserComponent } from './users/viewmore-user/viewmore-user.component';
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
+import { CartDetailsComponent } from './cart-details/cart-details.component';
+import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { allIcons } from 'angular-feather/icons';
     EditcartComponent,
     SignupComponent,
     HomeComponent,
-    ViewmoreUserComponent
+    ViewmoreUserComponent,
+    CartDetailsComponent,
+    AddcartdetailComponent
   ],
   imports: [
     routingArr,

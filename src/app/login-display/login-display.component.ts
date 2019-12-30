@@ -14,8 +14,8 @@ export class LoginDisplayComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private _router:Router, private _logindata: LogindataService) { }
-  
-  hide:string = 'false';
+
+  hide: string = 'false';
   ngOnInit() {
       this.loginForm = new FormGroup({
         u_email_id: new FormControl('sujalshah@gmail.com', [Validators.required, Validators.email]),
@@ -23,7 +23,7 @@ export class LoginDisplayComponent implements OnInit {
       });
   }
   onLogin() {
-    
+
        this._logindata.login(this.loginForm.value).subscribe(
          (x: users[]) => {
            if (x.length == 1){
