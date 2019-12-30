@@ -3,7 +3,10 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu<i class="far fa-user-circle"></i></mat-toolbar>
+
+    <mat-toolbar>
+      <span class="welcome">{{u_email_id}}</span>
+    </mat-toolbar>
     <mat-nav-list color="primary">
 
       <a mat-list-item routerLink="/nav"><i-feather name="layout"></i-feather><span>Dashboard</span></a>
@@ -14,10 +17,11 @@
       <a mat-list-item routerLink="/nav/category"><i-feather name="layers"></i-feather><span>Categories</span></a>
       <a mat-list-item routerLink="/nav/order"><i-feather name="package"></i-feather><span>Orders</span></a>
       <a mat-list-item routerLink="/nav/deliveryboy"><i-feather name="truck"></i-feather><span>Valets</span></a>
-      <a mat-list-item (click)="onLogOut()" style="color: red;"><i-feather name="power"></i-feather><span>Logout</span></a>
+      <a mat-list-item routerLink="/nav/todo"><i-feather name="list"></i-feather><span>ToDo list</span></a>
 
     </mat-nav-list>
   </mat-sidenav>
+
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
@@ -28,8 +32,34 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+
       <span>Future Medisurgico</span>
-      <h1 class="welcome">Welcome {{u_email_id}}</h1>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="ml-xs overflow-visible">
+        <i class="far fa-user-circle"></i>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>account_circle</mat-icon>
+          <span>Profile</span>
+        </button>
+          <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+          <button mat-menu-item>
+          <mat-icon>help</mat-icon>
+          <span>Help</span>
+        </button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item>
+            <a mat-list-item (click)="onLogOut()" style="color: red;">
+              <i-feather name="power"></i-feather>
+              <span>Logout</span>
+            </a>
+        </button>
+      </mat-menu>
+      
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

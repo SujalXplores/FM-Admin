@@ -30,3 +30,21 @@ p{
 .h-100p{
   height: 100px;
 }
+
+/* gradient */
+
+.gradient-green,
+.gradient-orange,
+.gradient-red,
+.gradient-pink, 
+.gradient-brown, 
+.gradient-purple, 
+.gradient-indigo,
+.gradient-teal,
+.gradient-amber, 
+.gradient-gray {
+  background: #7F7FD5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}

@@ -24,6 +24,7 @@ import { ViewmoreUserComponent } from './users/viewmore-user/viewmore-user.compo
 import { UserAuthGuardService } from "./login-display/user-auth-guard.service";
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
 
 
 const arr: Routes = [
@@ -53,6 +54,7 @@ const arr: Routes = [
     {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
     {path: 'editcart/:cart_id', component: EditcartComponent},
     {path: 'viewMoreUser', component: ViewmoreUserComponent},
+    {path: 'todo', component: ToDoListComponent},
   ]
   },
 

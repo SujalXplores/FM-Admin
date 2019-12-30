@@ -13,7 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UsersComponent } from './users/users.component';
-import { MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
+import { MatMenuModule,MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { routingArr } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -43,6 +43,8 @@ import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,8 @@ import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdeta
     HomeComponent,
     ViewmoreUserComponent,
     CartDetailsComponent,
-    AddcartdetailComponent
+    AddcartdetailComponent,
+    ToDoListComponent
   ],
   imports: [
     routingArr,
@@ -86,6 +89,7 @@ import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdeta
     ReactiveFormsModule,
     //angular-material
     MatToolbarModule,
+    MatMenuModule,
     MatDialogModule,
     MatButtonModule,
     MatProgressBarModule,
@@ -102,7 +106,8 @@ import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdeta
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FeatherModule.pick(allIcons) //feather-icons
+    FeatherModule.pick(allIcons),
+    DragDropModule //feather-icons
   ],
   entryComponents: [
     DialogboxComponent
