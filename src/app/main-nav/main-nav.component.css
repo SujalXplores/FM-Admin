@@ -30,8 +30,8 @@ span {
 }
 
 .welcome {
-  font-weight: lighter;
-  font-size: small;
+  font-weight: bold;
+  font-size: medium;
 }
 
 .fa-user-circle {
