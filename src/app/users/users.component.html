@@ -46,53 +46,34 @@
         <ng-container matColumnDef="details">
           <th mat-header-cell *matHeaderCellDef> Details </th>
           <td mat-cell *matCellDef="let row">
-            <button (click)="OnViewMore(row)" mat-icon-button style="color: blue">
+            <button (click)="openDialog()" mat-icon-button style="color: blue">
               <mat-icon>view_headline</mat-icon>
             </button>
           </td>
         </ng-container>
 
-          <ng-container matColumnDef="delete">
-            <th mat-header-cell *matHeaderCellDef> Delete </th>
-            <td mat-cell *matCellDef="let row">
-            <button (click)="onDelete(row)" mat-icon-button color="warn">
-              <mat-icon>delete_forever</mat-icon>
-            </button>
-          </td>
-          </ng-container>
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let row">
+          <button (click)="onDelete(row)" mat-icon-button color="warn">
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+        </td>
+        </ng-container>
 
-          <ng-container matColumnDef="edit">
-            <th mat-header-cell *matHeaderCellDef> Update </th>
-            <td mat-cell *matCellDef="let row">
-            <button (click)="OnUserEdit(row)" mat-icon-button>
-              <mat-icon>edit</mat-icon>
-            </button>
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef> Update </th>
+          <td mat-cell *matCellDef="let row">
+          <button (click)="OnUserEdit(row)" mat-icon-button>
+            <mat-icon>edit</mat-icon>
+          </button>
           </td>
-          </ng-container>
+        </ng-container>
 
-        <ng-container matColumnDef="expandedDetail">
-          <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
-            <div class="example-element-detail"
-                 [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-                <div class="example-element-diagram">
-                  <div>E-mail:  {{element.u_email_id}}</div>
-                <div>&nbsp;</div>
-                 <div>Password:  {{element.u_password}}</div>
-                 <div>&nbsp;</div>
-                 <div>Address: {{element.u_address}}</div>
-                </div>
-            </div>
-          </td>
-         </ng-container>
-
+        
          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-         <tr mat-row *matRowDef="let element; columns: displayedColumns;"
-            class="example-element-row"
-            [class.example-expanded-row]="expandedElement === element"
-            (click)="expandedElement = expandedElement === element ? null : element"></tr>
-         <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
-         <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-         <tr mat-row *matRowDef="let row; columns: displayedColumns;"> -->
+         <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
   </div>

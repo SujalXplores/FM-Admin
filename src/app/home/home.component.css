@@ -18,6 +18,10 @@ p{
   text-transform: uppercase;
   font-size: 15px;
 }
+mat-card {
+  border: 1px solid black;
+  border-radius: 10px;
+}
 
 /* charts */
 .mat-chip.info-chip{
@@ -33,7 +37,7 @@ p{
 
 /* gradient */
 
-.gradient-purple{
+/* .gradient-purple{
   background: #7873f5 !important;
   background: -webkit-linear-gradient(50deg,#ff6ec4,#7873f5) !important;
   background: -o-linear-gradient(50deg,#ff6ec4,#7873f5) !important;
@@ -116,4 +120,4 @@ p{
   background: -o-linear-gradient(50deg,#FDD819,#827717) !important;
   background: linear-gradient(50deg,#FDD819,#827717) !important;
   color: #fff !important;
-}
+} */
