@@ -20,7 +20,6 @@ import { AddcartComponent } from './cart/addcart/addcart.component';
 import { EditcartComponent } from './cart/editcart/editcart.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
-import { ViewmoreUserComponent } from './users/viewmore-user/viewmore-user.component';
 import { UserAuthGuardService } from "./login-display/user-auth-guard.service";
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
@@ -54,8 +53,6 @@ const arr: Routes = [
     {path: 'editorder/:order_id', component: EditorderComponent},
     {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
     {path: 'editcart/:cart_id', component: EditcartComponent},
-    {path: 'editcartdetail/:cart_detail_id', component: EditcartdetailComponent},
-    {path: 'viewMoreUser/:u_email_id', component: ViewmoreUserComponent},
     {path: 'todo', component: ToDoListComponent},
   ]
   },

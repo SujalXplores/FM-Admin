@@ -13,8 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UsersComponent } from './users/users.component';
-import { MatMenuModule,MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule, MatFormFieldModule, MatDialog, MatDialogRef} from '@angular/material';
-import { DialogboxComponent } from './dialogbox/dialogbox.component';
+import { MatTooltipModule,MatMenuModule,MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule, MatFormFieldModule} from '@angular/material';
 import { routingArr } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EdituserComponent } from './users/edituser/edituser.component';
@@ -38,21 +37,19 @@ import { EditcartComponent } from './cart/editcart/editcart.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
-import { ViewmoreUserComponent } from './users/viewmore-user/viewmore-user.component';
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { EditcartdetailComponent } from './cart-details/editcartdetail/editcartdetail.component';
+import { DialogComponent } from './users/dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     UsersComponent,
-    DialogboxComponent,
     EdituserComponent,
     AdduserComponent,
     PhoneDirective,
@@ -73,11 +70,10 @@ import { EditcartdetailComponent } from './cart-details/editcartdetail/editcartd
     EditcartComponent,
     SignupComponent,
     HomeComponent,
-    ViewmoreUserComponent,
     CartDetailsComponent,
     AddcartdetailComponent,
     ToDoListComponent,
-    EditcartdetailComponent
+    DialogComponent
   ],
   imports: [
     routingArr,
@@ -97,6 +93,7 @@ import { EditcartdetailComponent } from './cart-details/editcartdetail/editcartd
     MatFormFieldModule,
     MatProgressBarModule,
     MatSidenavModule,
+    MatTooltipModule,
     MatIconModule,
     MatListModule,
     MatPaginatorModule,
@@ -113,8 +110,7 @@ import { EditcartdetailComponent } from './cart-details/editcartdetail/editcartd
     DragDropModule //feather-icons
   ],
   entryComponents: [
-    DialogboxComponent,
-    ViewmoreUserComponent,
+    DialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

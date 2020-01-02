@@ -1,29 +1,24 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { users } from './users';
+import { MatDialog } from '@angular/material/dialog';
 import { UsersdataService } from './usersdata.service';
-import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { ViewmoreUserComponent } from './viewmore-user/viewmore-user.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
 })
 
 export class UsersComponent implements OnInit {
+  animal: string;
+  name: string;
+
   userarr: users[] = [];
-  expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'u_name', 'u_mobileno' ,'u_image',  'details', 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'u_name', 'u_mobileno', 'u_image', 'details', 'delete', 'edit'];
   dataSource: MatTableDataSource<users>;
 
   selection = new SelectionModel<users>(true, []);
@@ -31,12 +26,18 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: UsersdataService, public _dialog: MatDialog, private _router: Router) {
+  constructor(private _data: UsersdataService, private _router: Router, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
+  openDialog(row) {
+    this.dialog.open(DialogComponent, {
+      data: row
+    });
+  }
+
   onDelete(item: users) {
-    if( confirm( "Are You Sure You Want To Delete ?" )) {
+    if (confirm("Are You Sure You Want To Delete ?")) {
       this._data.deleteUsers(item.u_email_id).subscribe(
         (data: any) => {
           console.log(data);
@@ -45,17 +46,11 @@ export class UsersComponent implements OnInit {
         }
       );
     }
-   }
+  }
 
-OnUserEdit(item: users) {
-  this._router.navigate(['/nav/edituser', item.u_email_id]);
-}
-
-OnViewMore(item) {
-  this._dialog.open(ViewmoreUserComponent, {
-    data: item
-  });
-}
+  OnUserEdit(item: users) {
+    this._router.navigate(['/nav/edituser', item.u_email_id]);
+  }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -71,13 +66,11 @@ OnViewMore(item) {
     return numSelected === numRows;
   }
 
-   /** Selects all rows if they are not all selected; otherwise clear selection. */
-   masterToggle() {
+  masterToggle() {
     this.isAllSelected() ?
-    this.selection.clear() :
-    this.dataSource.data.forEach(row => this.selection.select(row));
+      this.selection.clear() :
+      this.dataSource.data.forEach(row => this.selection.select(row));
   }
-
 
   ngOnInit() {
     this._data.getAllUsers().subscribe(
@@ -89,9 +82,4 @@ OnViewMore(item) {
       }
     );
   }
-}
-
-export interface ViewMore {
-  u_password: string;
-  u_address: string;
 }

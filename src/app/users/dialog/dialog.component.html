@@ -1,0 +1,49 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>User Details</mat-card-title>
+    <mat-card-content>
+<mat-list>
+
+
+  <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon>
+  <mat-list-item>{{user_email}}</mat-list-item>
+
+
+  <mat-divider></mat-divider>
+
+
+    <mat-icon matSuffix><i class="far fa-user"></i></mat-icon>
+  <mat-list-item>{{user_name}}</mat-list-item>
+
+
+  <mat-divider></mat-divider>
+
+
+    <mat-icon matSuffix><i class="far fa-phone"></i></mat-icon>
+  <mat-list-item>{{user_phone}}</mat-list-item>
+
+
+  <mat-divider></mat-divider>
+
+
+    <mat-icon matSuffix><i class="far fa-lock"></i></mat-icon>
+  <mat-list-item>{{user_password}}</mat-list-item>
+
+
+  <mat-divider></mat-divider>
+
+
+    <mat-icon matSuffix><i class="far fa-address-card"></i></mat-icon>
+  <mat-list-item>{{user_address}}</mat-list-item>
+
+
+  <mat-divider></mat-divider>
+</mat-list>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Close</button>
+</div>
+</mat-card-content>
+</mat-card>
+</section>
