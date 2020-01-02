@@ -46,7 +46,7 @@ export class CartDetailsComponent implements OnInit {
    }
 
    OnCartDetailsEdit(item: cart_details) {
-    this._router.navigate(['/nav/editcart', item.cart_detail_id]);
+    this._router.navigate(['/nav/editcartdetail', item.cart_detail_id]);
   }
 
    applyFilter(filterValue: string) {

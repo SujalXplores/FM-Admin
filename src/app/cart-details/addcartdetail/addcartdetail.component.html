@@ -50,7 +50,7 @@
 
   <mat-form-field class="example-full-width">
     <input matInput formControlName="total" placeholder="Enter Total">
-    <mat-error *ngIf="addcartdetailform.get('total').hasError('required') && !addcartdetailform.get('total').pristine">Tota is required</mat-error>
+    <mat-error *ngIf="addcartdetailform.get('total').hasError('required') && !addcartdetailform.get('total').pristine">Total is required</mat-error>
   </mat-form-field>
 
   <button class="example-full-width" type="submit" mat-raised-button color="accent">Add Cart Detail</button>

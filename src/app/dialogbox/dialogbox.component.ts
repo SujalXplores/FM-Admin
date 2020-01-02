@@ -11,8 +11,10 @@ import { UsersdataService } from '../users/usersdata.service';
 export class DialogboxComponent implements OnInit {
   userarr: users[] = [];
   name: string = "";
-  constructor(private _data: UsersdataService,public dialogRef: MatDialogRef<DialogboxComponent>,
+
+  constructor(private _data: UsersdataService, public dialogRef: MatDialogRef<DialogboxComponent>,
     @Inject(MAT_DIALOG_DATA) public data: users, ) { }
+
     onCancelClick() {
       this.dialogRef.close();
     }

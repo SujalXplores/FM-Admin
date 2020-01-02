@@ -5,6 +5,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/m
 import { Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ViewmoreUserComponent } from './viewmore-user/viewmore-user.component';
 
 @Component({
   selector: 'app-users',
@@ -50,8 +51,10 @@ OnUserEdit(item: users) {
   this._router.navigate(['/nav/edituser', item.u_email_id]);
 }
 
-OnViewMore(item: users) {
-  this._router.navigate(['/nav/viewMoreUser', item.u_email_id]);
+OnViewMore(item) {
+  this._dialog.open(ViewmoreUserComponent, {
+    data: item
+  });
 }
 
   applyFilter(filterValue: string) {

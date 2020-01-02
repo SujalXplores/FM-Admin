@@ -25,6 +25,7 @@ import { UserAuthGuardService } from "./login-display/user-auth-guard.service";
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { EditcartdetailComponent } from './cart-details/editcartdetail/editcartdetail.component';
 
 
 const arr: Routes = [
@@ -53,7 +54,8 @@ const arr: Routes = [
     {path: 'editorder/:order_id', component: EditorderComponent},
     {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
     {path: 'editcart/:cart_id', component: EditcartComponent},
-    {path: 'viewMoreUser', component: ViewmoreUserComponent},
+    {path: 'editcartdetail/:cart_detail_id', component: EditcartdetailComponent},
+    {path: 'viewMoreUser/:u_email_id', component: ViewmoreUserComponent},
     {path: 'todo', component: ToDoListComponent},
   ]
   },
