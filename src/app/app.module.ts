@@ -44,6 +44,7 @@ import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdeta
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogComponent } from './users/dialog/dialog.component';
+import { ViewMoreProductComponent } from './product/view-more-product/view-more-product.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { DialogComponent } from './users/dialog/dialog.component';
     CartDetailsComponent,
     AddcartdetailComponent,
     ToDoListComponent,
-    DialogComponent
+    DialogComponent,
+    ViewMoreProductComponent
   ],
   imports: [
     routingArr,
@@ -106,11 +108,12 @@ import { DialogComponent } from './users/dialog/dialog.component';
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FeatherModule.pick(allIcons),
-    DragDropModule //feather-icons
+    FeatherModule.pick(allIcons),//feather-icons
+    DragDropModule 
   ],
   entryComponents: [
-    DialogComponent
+    DialogComponent,
+    ViewMoreProductComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

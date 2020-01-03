@@ -13,6 +13,7 @@ export class DialogComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: users) {}
 
+    user_image: string;
     user_email: string;
     user_name: string;
     user_phone: string;
@@ -20,6 +21,7 @@ export class DialogComponent implements OnInit {
     user_address: string;
 
     ngOnInit() {
+      this.user_image = this.data.u_image;
       this.user_email = this.data.u_email_id;
       this.user_name = this.data.u_name;
       this.user_phone = this.data.u_mobileno;

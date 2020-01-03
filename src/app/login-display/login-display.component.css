@@ -62,7 +62,7 @@ button {
 
 .login100-form-btn:hover {
   cursor: pointer;
-  background-color: #000f74;
+  background-color: #000262;
 }
 
 iframe {
@@ -109,11 +109,9 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;background: rgb(2,0,36);
-  background: #0f0c29;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  padding: 15px;
+  background-image: url(../image/Adobe_Post_20200102_0016100.36885373558910517.png);
+  background-repeat: no-repeat;
 }
 
 .wrap-login100 {
@@ -203,7 +201,7 @@ background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+
   z-index: -1;
   width: 300%;
   height: 100%;
-  background: #0004ff;
+  background-color: rgb(80, 46, 192);
   top: 0;
 }
 

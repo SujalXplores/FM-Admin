@@ -19,7 +19,6 @@ p{
   font-size: 15px;
 }
 mat-card {
-  border: 1px solid black;
   border-radius: 10px;
 }
 
@@ -37,7 +36,7 @@ mat-card {
 
 /* gradient */
 
-/* .gradient-purple{
+.gradient-purple{
   background: #7873f5 !important;
   background: -webkit-linear-gradient(50deg,#ff6ec4,#7873f5) !important;
   background: -o-linear-gradient(50deg,#ff6ec4,#7873f5) !important;
@@ -79,6 +78,7 @@ mat-card {
   background: linear-gradient(50deg,#F59E99,#E91E63) !important;
   color: #fff !important;
 }
+
 .gradient-red{
   background: #D50000 !important;
   background: -webkit-linear-gradient(50deg,#FF9E80, #D50000) !important;
@@ -120,4 +120,4 @@ mat-card {
   background: -o-linear-gradient(50deg,#FDD819,#827717) !important;
   background: linear-gradient(50deg,#FDD819,#827717) !important;
   color: #fff !important;
-} */
+}

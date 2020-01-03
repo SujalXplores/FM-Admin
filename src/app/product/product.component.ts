@@ -1,27 +1,21 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { product } from './product';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Router } from '@angular/router';
 import { ProductdataService } from './productdata.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ViewMoreProductComponent } from './view-more-product/view-more-product.component';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
+  animations: [],
 })
 export class ProductComponent implements OnInit {
 
   productarr: product[] = [];
-  expandedElement: ViewMore | null;
   displayedColumns: string[] = ['select', 'pro_id', 'pro_name', 'pro_price', 'details', 'delete', 'edit'];
   dataSource: MatTableDataSource<product>;
 
@@ -30,8 +24,14 @@ export class ProductComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: ProductdataService, public router: Router) {
+  constructor(private _data: ProductdataService, public router: Router, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
+  }
+
+  openDialog(row) {
+    this.dialog.open(ViewMoreProductComponent, {
+      data: row
+    });
   }
 
   onDelete(item: product) {
@@ -67,9 +67,7 @@ applyFilter(filterValue: string) {
       }
     );
   }
-  // onUserEdit(item: product) {
-  //   this.router.navigate(['editUser', item.email]);
-  // }
+
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
@@ -81,9 +79,4 @@ applyFilter(filterValue: string) {
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
   }
-}
-
-export interface ViewMore {
-  email: string;
-  phone_no: number;
 }
