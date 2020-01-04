@@ -45,6 +45,7 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogComponent } from './users/dialog/dialog.component';
 import { ViewMoreProductComponent } from './product/view-more-product/view-more-product.component';
+import { HealthArticlesComponent } from './health-articles/health-articles.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { ViewMoreProductComponent } from './product/view-more-product/view-more-
     AddcartdetailComponent,
     ToDoListComponent,
     DialogComponent,
-    ViewMoreProductComponent
+    ViewMoreProductComponent,
+    HealthArticlesComponent
   ],
   imports: [
     routingArr,

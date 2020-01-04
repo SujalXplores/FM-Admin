@@ -23,7 +23,6 @@ export class LoginDisplayComponent implements OnInit {
       });
   }
   onLogin() {
-
        this._logindata.login(this.loginForm.value).subscribe(
          (x: users[]) => {
            if (x.length == 1){

@@ -24,6 +24,7 @@ import { UserAuthGuardService } from "./login-display/user-auth-guard.service";
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { HealthArticlesComponent } from './health-articles/health-articles.component';
 
 
 const arr: Routes = [
@@ -32,27 +33,28 @@ const arr: Routes = [
     canActivate: [UserAuthGuardService],
     component: MainNavComponent,
     children: [
-    {path: '', component: HomeComponent},
-    {path: 'signup', component: SignupComponent},
-    {path: 'users', component: UsersComponent},
-    {path: 'product', component: ProductComponent},
-    {path: 'category', component: CategoryComponent},
-    {path: 'order', component: OrderComponent},
-    {path: 'deliveryboy', component: DeliveryboyComponent},
-    {path: 'cart', component: CartComponent},
-    {path: 'cart_details', component: CartDetailsComponent},
-    {path: 'addUser', component: AdduserComponent},
-    {path: 'addProduct', component: AddproductComponent},
-    {path: 'addOrder', component: AddorderComponent},
-    {path: 'adddeliveryboy', component: AdddeliveryboyComponent},
-    {path: 'addcart', component: AddcartComponent},
-    {path: 'addcartdetail', component: AddcartdetailComponent},
-    {path: 'edituser/:email', component: EdituserComponent},
-    {path: 'editproduct/:pro_id', component: EditproductComponent},
-    {path: 'editorder/:order_id', component: EditorderComponent},
-    {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
-    {path: 'editcart/:cart_id', component: EditcartComponent},
-    {path: 'todo', component: ToDoListComponent},
+      {path: '', component: HomeComponent},
+      {path: 'signup', component: SignupComponent},
+      {path: 'users', component: UsersComponent},
+      {path: 'addUser', component: AdduserComponent},
+      {path: 'edituser/:email', component: EdituserComponent},
+      {path: 'product', component: ProductComponent},
+      {path: 'addProduct', component: AddproductComponent},
+      {path: 'editproduct/:pro_id', component: EditproductComponent},
+      {path: 'category', component: CategoryComponent},
+      {path: 'order', component: OrderComponent},
+      {path: 'addOrder', component: AddorderComponent},
+      {path: 'editorder/:order_id', component: EditorderComponent},
+      {path: 'deliveryboy', component: DeliveryboyComponent},
+      {path: 'adddeliveryboy', component: AdddeliveryboyComponent},
+      {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
+      {path: 'cart', component: CartComponent},
+      {path: 'cart_details', component: CartDetailsComponent},
+      {path: 'addcart', component: AddcartComponent},
+      {path: 'addcartdetail', component: AddcartdetailComponent},
+      {path: 'editcart/:cart_id', component: EditcartComponent},
+      {path: 'todo', component: ToDoListComponent},
+      {path: 'h-article', component: HealthArticlesComponent},
   ]
   },
 

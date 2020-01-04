@@ -1,3 +1,9 @@
+/* button */
+.example-full-width {
+  width: 100%;
+  margin-top: 10px;
+}
+
 .hide-btn
 {
   font-size: 50px;
@@ -60,11 +66,6 @@ button {
 	background: transparent;
 }
 
-.login100-form-btn:hover {
-  cursor: pointer;
-  background-color: #000262;
-}
-
 iframe {
 	border: none !important;
 }
@@ -110,7 +111,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-image: url(../image/Adobe_Post_20200102_0016100.36885373558910517.png);
+  background-image: url(../../assets/image/Adobe_Post_20200102_0016100.36885373558910517.png);
   background-repeat: no-repeat;
 }
 
@@ -171,62 +172,6 @@ iframe {
   background: transparent;
   padding: 0 5px;
 }
-
-
-/*------------------------------------------------------------------
-[ Button ]*/
-.container-login100-form-btn {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-top: 13px;
-}
-
-.wrap-login100-form-btn {
-  width: 100%;
-  display: block;
-  position: relative;
-  z-index: 1;
-  border-radius: 25px;
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-.login100-form-bgbtn {
-  position: absolute;
-  z-index: -1;
-  width: 300%;
-  height: 100%;
-  background-color: rgb(80, 46, 192);
-  top: 0;
-}
-
-.login100-form-btn {
-  font-family: Roboto;
-  font-size: 15px;
-  color: #fff;
-  line-height: 1.2;
-
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-  width: 100%;
-  height: 50px;
-}
-
-.wrap-login100-form-btn:hover .login100-form-bgbtn {
-  left: 0;
-}
-
 
 /*------------------------------------------------------------------
 [ Responsive ]*/

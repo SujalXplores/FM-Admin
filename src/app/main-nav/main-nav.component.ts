@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class MainNavComponent {
   u_email_id:String='';
+  u_name:String='';
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -20,6 +21,7 @@ export class MainNavComponent {
   constructor(private breakpointObserver: BreakpointObserver, public router: Router) {}
   ngOnInit(){
     this.u_email_id=localStorage.getItem('u_email_id');
+    this.u_name=localStorage.getItem('u_name');
   }
   onLogOut()
   {
