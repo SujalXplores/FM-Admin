@@ -6,32 +6,41 @@
        <form class="example-form" (ngSubmit)="OnUserEdit(f)" #f="ngForm">
 
               <mat-form-field class="example-full-width">
-                <input name="u_email_id" [(ngModel)]=user_email #u_email_id="ngModel" matInput type="email" placeholder="Enter New Email">
+                <input required name="u_email_id" [(ngModel)]=user_email #u_email_id="ngModel" matInput type="email" placeholder="Enter New Email">
+                <mat-hint class="hint" *ngIf="u_email_id.hasError('required') && !u_email_id.pristine">Email is Required</mat-hint>
                 <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon>
               </mat-form-field>
 
               <mat-form-field class="example-full-width">
-                <input name="u_name" [(ngModel)]=user_name #u_name="ngModel"  matInput type="text" placeholder="Enter New Name">
+                <input required pattern="[a-z A-Z]*" name="u_name" [(ngModel)]=user_name #u_name="ngModel"  matInput type="text" placeholder="Enter New Name">
+                <mat-hint class="hint" *ngIf="u_name.hasError('required') && !u_name.pristine">Name is Required</mat-hint>
+                <mat-hint class="hint" *ngIf="u_name.hasError('pattern') && !u_name.pristine">Only Letters</mat-hint>
                 <mat-icon matSuffix><i class="far fa-user"></i></mat-icon>
               </mat-form-field>
 
               <mat-form-field class="example-full-width">
                 <span matPrefix>+91 &nbsp;</span>
-                <input name="u_mobileno" [(ngModel)]=user_phone #u_mobileno="ngModel" type="text" matInput appPhone placeholder="Enter New Mobile Number">
+                <input required pattern="[0-9]*" name="u_mobileno" [(ngModel)]=user_phone #u_mobileno="ngModel" type="text" matInput appPhone placeholder="Enter New Mobile Number">
+                <mat-hint class="hint" *ngIf="u_mobileno.hasError('required') && !u_mobileno.pristine">Mobile Number is Required</mat-hint>
+                <mat-hint class="hint" *ngIf="u_mobileno.hasError('minlength') && !u_mobileno.pristine">Mobile number must be of 10 digits!</mat-hint>
+                <mat-label class="label" *ngIf="u_mobileno.hasError('pattern') && !u_mobileno.pristine">Only Digits!</mat-label>
                 <mat-icon matSuffix><i class="far fa-phone"></i></mat-icon>
               </mat-form-field>
 
               <mat-form-field class="example-full-width">
-                <input name="u_password" [(ngModel)]=user_password #u_password="ngModel"  matInput type="text" placeholder="Set New Password">
+                <input required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{4,}$" name="u_password" [(ngModel)]=user_password #u_password="ngModel"  matInput type="text" placeholder="Set New Password">
+                <mat-hint class="hint" *ngIf="u_password.hasError('required') && !u_password.pristine">Password is Required</mat-hint>
+                <mat-hint class="hint" *ngIf="u_password.hasError('pattern') && !u_password.pristine">Minimum four characters,at least one letter,one number and one speacial one character!</mat-hint>
                 <mat-icon matSuffix><i class="far fa-lock"></i></mat-icon>
               </mat-form-field>
 
               <mat-form-field class="example-full-width">
-                <input name="u_address" [(ngModel)]=user_address #u_address="ngModel" matInput type="text" placeholder="Change Your Address">
+                <input required name="u_address" [(ngModel)]=user_address #u_address="ngModel" matInput type="text" placeholder="Change Your Address">
+                <mat-hint class="hint" *ngIf="u_address.hasError('required') && !u_address.pristine">Address is Required</mat-hint>
                 <mat-icon matSuffix><i class="far fa-address-card"></i></mat-icon>
               </mat-form-field>
 
-              <button class="example-full-width" type="submit" mat-raised-button color="accent">Update User</button>
+              <button  [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Update User</button>
             </form>
           </mat-card-content>
         </mat-card>
