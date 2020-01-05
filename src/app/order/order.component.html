@@ -2,8 +2,14 @@
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Here">
 </mat-form-field>
 
-<button routerLink='/nav/addOrder' mat-mini-fab matTooltip="Add Desired Product Wisely" color="accent" class="addbutton">
-  <mat-icon>add</mat-icon>
+<button mat-raised-button matTooltip="Delete User" color="warn" class="deletebutton">
+  <span>Delete</span>
+</button>
+
+<button routerLink='/nav/addOrder' mat-raised-button matTooltip="Add Desired Product Wisely" color="accent" class="addbutton">
+  <!-- <mat-icon>add</mat-icon> -->
+  <span>Add</span>
+
 </button>
 
   <div class="mat-elevation-z8">

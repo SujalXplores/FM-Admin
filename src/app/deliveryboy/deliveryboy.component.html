@@ -2,8 +2,13 @@
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search User...">
 </mat-form-field>
 
-<button routerLink='/nav/adddeliveryboy' mat-mini-fab color="accent" matTooltip="To add user manually!" class="addbutton">
-  <mat-icon>add</mat-icon>
+<button mat-raised-button matTooltip="Delete User" color="warn" class="deletebutton">
+  <span>Delete</span>
+</button>
+
+<button routerLink='/nav/adddeliveryboy' mat-raised-button  color="accent" matTooltip="To add user manually!" class="addbutton">
+ <!-- <mat-icon>add</mat-icon> -->
+ <span>Add</span>
 </button>
 
   <div class="mat-elevation-z8">

@@ -10,14 +10,20 @@ td, th {
 }
 .addbutton {
   margin-top: 10px;
-  margin-left: 10px;
+  margin-right: 10px;
+  float: right;
+}
+.deletebutton {
+  margin-top: 10px;
+  margin-right: 10px;
+  float: right;
 }
 .mat-elevation-z8 {
   margin-left: 10px;
   margin-right: 10px;
 }
 .filterClass {
-  margin-left: 25%;
+  margin-left: 10px;
   width: 50%;
 }
 

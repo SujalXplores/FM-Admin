@@ -2,6 +2,15 @@
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Here">
 </mat-form-field>
 
+<button mat-raised-button matTooltip="Delete User" color="warn" class="deletebutton">
+  <span>Delete</span>
+</button>
+
+<button  mat-raised-button  matTooltip="To add user manually!" color="accent" class="addbutton">
+  <!-- <mat-icon>add</mat-icon> -->
+  <span>Add</span>
+</button>
+
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
 
