@@ -15,7 +15,7 @@ export class EditproductComponent implements OnInit {
   pro_id1: number;
   pro_name1 : string;
   pro_mfg1 : string;
-  pro_price1 : number;
+  pro_price1 : string;
   pro_desc1: string;
   ngOnInit() {
     this.pro_id1 = this._act_route.snapshot.params["pro_id"];

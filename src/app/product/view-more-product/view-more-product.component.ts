@@ -15,7 +15,7 @@ export class ViewMoreProductComponent implements OnInit {
     product_id: number;
     product_name: string;
     product_mfg: string;
-    product_price: number;
+    product_price: string;
     product_desc: string;
 
     ngOnInit() {

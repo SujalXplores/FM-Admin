@@ -39,14 +39,14 @@
       	<div formGroupName="password_group">
 			<mat-form-field  class="password">
 			  	<input matInput formControlName="u_password" placeholder="Password*" [type]="hide ? 'password' : 'text'">
-				  <mat-icon matPrefix><i class="far fa-lock" style="font-size: 20px;"></i></mat-icon>	
+				  <mat-icon matPrefix><i class="far fa-lock" style="font-size: 20px;"></i></mat-icon>
 				  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
 						<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
 					</button>
 			</mat-form-field>
 			<mat-form-field class="c-password">
         		<input formControlName="u_confirm_password" matInput placeholder="Confirm Password*" [type]="hide ? 'password' : 'text'">
-				<mat-icon matPrefix><i class="far fa-lock" style="font-size: 20px;"></i></mat-icon> 
+				<mat-icon matPrefix><i class="far fa-lock" style="font-size: 20px;"></i></mat-icon>
 				<mat-label *ngIf="signupForm.get('password_group').hasError('not same') && !signupForm.get('not same')">Both Password and confirm password sho uld be same!</mat-label>
 					<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
 						<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

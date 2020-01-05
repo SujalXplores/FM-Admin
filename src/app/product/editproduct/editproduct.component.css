@@ -9,3 +9,15 @@
 section {
   margin-top: 20px;
 }
+.hint
+{
+  color: red;
+  font-size: 11px;
+  font-weight: bolder;
+}
+.label
+{
+  color: red;
+  font-size: 14px;
+  font-weight: bolder;
+}

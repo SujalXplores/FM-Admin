@@ -30,7 +30,7 @@
 			  <mat-hint align="end"><a class="txt2" href="#">Forgot Password?</a></mat-hint>
           	</mat-form-field>
 
-				<button type="submit" mat-raised-button color="accent" class="example-full-width">Sign In</button>
+				<button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="accent" class="example-full-width">Sign In</button>
 
 				</form>
 			</div>
