@@ -12,23 +12,20 @@ export class EditorderComponent implements OnInit {
 
   constructor(private _act_route: ActivatedRoute, private _orderdata: OrderdataService, private _router: Router) { }
   order_id1: string;
-  pro_name1 : string;
-  u_email_id1 : string;
+  order_amount1 : string;
   order_date1 : Date;
-  order_quantity1: number;
-  order_status1: string;
-  deliveryboy_id1: number;
+  fk_u_email_id1: number;
+  payment_type1: string;
+
   ngOnInit() {
     this.order_id1 = this._act_route.snapshot.params["order_id"];
     this._orderdata.editOrder(this.order_id1).subscribe(
         (data: order) => {
           this.order_id1 = data[0].order_id;
-          this.pro_name1 = data[0].pro_name;
-          this.u_email_id1 = data[0].u_email_id;
+          this.order_amount1 = data[0].order_amount;
           this.order_date1 = data[0].order_date;
-          this.order_quantity1 = data[0].order_quantity;
-          this.order_status1 = data[0].order_status;
-          this.deliveryboy_id1 = data[0].deliveryboy_id;
+          this.fk_u_email_id1 = data[0].fk_u_email_id;
+          this.payment_type1 = data[0].payment_type;
         }
     );
   }

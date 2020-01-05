@@ -9,13 +9,7 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <input ngModel name="pro_name" #pro_name="ngModel" matInput type="text" placeholder="Enter Product Name">
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width">
-              <input ngModel name="u_email_id" #u_email_id="ngModel" type="text" matInput placeholder="Enter User Email ID">
-              <!-- <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon> -->
-              <mat-icon matSuffix> <i-feather name="mail"></i-feather></mat-icon>
+              <input ngModel name="order_amount" #order_amount="ngModel" matInput type="text" placeholder="Enter Order Amount">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
@@ -24,19 +18,14 @@
               <mat-icon matSuffix> <i-feather name="calendar"></i-feather></mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="half-width">
-              <input ngModel name="order_quantity" #order_quantity="ngModel" type="number" matInput placeholder="Enter Quantity Of Order">
-            </mat-form-field>
-
-            <mat-form-field class="half-width-2">
-              <mat-select ngModel name="order_status" #order_status="ngModel" placeholder="Choose Status">
-                <mat-option value="pending">pending</mat-option>
-                <mat-option value="delivered">delivered</mat-option>
-              </mat-select>
-            </mat-form-field>
-
             <mat-form-field class="example-full-width">
-              <input ngModel name="deliveryboy_id" #deliveryboy_id="ngModel" type="number" matInput placeholder="Enter deliveryboy id">
+              <input ngModel name="fk_u_email_id" #fk_u_email_id="ngModel" type="text" matInput placeholder="Enter User Email ID">
+              <!-- <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon> -->
+              <mat-icon matSuffix> <i-feather name="mail"></i-feather></mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="half-width">
+              <input ngModel name="payment_type" #payment_type="ngModel" type="text" matInput placeholder="Enter Method of payment type">
             </mat-form-field>
 
             <button class="example-full-width" type="submit" mat-raised-button color="accent">Add Order</button>
