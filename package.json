@@ -24,6 +24,7 @@
     "@angular/router": "^8.2.14",
     "angular-feather": "^6.0.8",
     "boxicons": "^2.0.4",
+    "caniuse-lite": "^1.0.30001019",
     "hammerjs": "^2.0.8",
     "ngx-bootstrap": "^5.2.0",
     "ngx-charts": "^3.0.2",
@@ -50,6 +51,6 @@
     "protractor": "~5.4.2",
     "ts-node": "~8.5.4",
     "tslint": "~5.20.1",
-    "typescript": "~3.7.4"
+    "typescript": "^3.5.2"
   }
 }
