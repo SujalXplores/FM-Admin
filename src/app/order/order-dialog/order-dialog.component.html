@@ -10,13 +10,16 @@
                 <mat-list-item>Order Amount :{{o_amount}}</mat-list-item>
                 <mat-divider></mat-divider>
 
-                <mat-list-item>Order Date :{{o_date}}</mat-list-item>
+                <mat-list-item>Order Date :{{o_date | slice : 0 : 10}}</mat-list-item>
                 <mat-divider></mat-divider>
 
                 <mat-list-item>User Email id :{{fk_user_id}}</mat-list-item>
                 <mat-divider></mat-divider>
 
                 <mat-list-item>Payment Type  :{{pay_type}}</mat-list-item>
+                <mat-divider></mat-divider>
+
+                <mat-list-item>Order Status  :{{o_status}}</mat-list-item>
                 <mat-divider></mat-divider>
 
               </mat-list>
