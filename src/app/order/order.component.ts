@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { order } from './order';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
 import { OrderdataService } from './orderdata.service';
+import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 
 @Component({
   selector: 'app-order',
@@ -22,7 +23,7 @@ export class OrderComponent implements OnInit {
 
   orderarr: order[] = [];
   expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'order_id', 'pro_name', 'order_quantity', 'details', 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'order_amount', 'order_date', 'fk_u_email_id', 'details', 'delete', 'edit'];
   dataSource: MatTableDataSource<order>;
 
   selection = new SelectionModel<order>(true, []);
@@ -30,9 +31,15 @@ export class OrderComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: OrderdataService, public router: Router) {
+  constructor(private _data: OrderdataService, public router: Router , public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
    }
+
+   openDialog(row) {
+    this.dialog.open(OrderDialogComponent, {
+      data: row
+    });
+  }
 
   onDelete(item: order) {
     if (confirm('Are You Sure You Want To Delete ?')) {

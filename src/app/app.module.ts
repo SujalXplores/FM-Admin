@@ -46,6 +46,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogComponent } from './users/dialog/dialog.component';
 import { ViewMoreProductComponent } from './product/view-more-product/view-more-product.component';
 import { HealthArticlesComponent } from './health-articles/health-articles.component';
+import { OrderDialogComponent } from './order/order-dialog/order-dialog.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { HealthArticlesComponent } from './health-articles/health-articles.compo
     ToDoListComponent,
     DialogComponent,
     ViewMoreProductComponent,
-    HealthArticlesComponent
+    HealthArticlesComponent,
+    OrderDialogComponent
   ],
   imports: [
     routingArr,
@@ -111,11 +113,12 @@ import { HealthArticlesComponent } from './health-articles/health-articles.compo
     MatDatepickerModule,
     MatNativeDateModule,
     FeatherModule.pick(allIcons),//feather-icons
-    DragDropModule 
+    DragDropModule
   ],
   entryComponents: [
     DialogComponent,
-    ViewMoreProductComponent
+    ViewMoreProductComponent,
+    OrderDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
