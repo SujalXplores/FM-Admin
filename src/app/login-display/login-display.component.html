@@ -24,7 +24,7 @@
         <mat-icon matPrefix><i class="far fa-lock" style="font-size: 20px;"></i></mat-icon>
 
 			  <mat-label *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password should not be empty!</mat-label>
-				<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+				<button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
 					<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
 				</button>
 			  <mat-hint align="end"><a class="txt2" href="#">Forgot Password?</a></mat-hint>

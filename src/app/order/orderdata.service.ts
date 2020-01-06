@@ -18,11 +18,11 @@ export class OrderdataService {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.post(this.url, body, {headers: x});
   }
-  deleteOrder(order_id: string) {
+  deleteOrder(order_id: number) {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.delete(this.url + order_id, {headers: x});
   }
-  editOrder(order_id: string) {
+  editOrder(order_id: number) {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.get(this.url + order_id, {headers: x});
   }

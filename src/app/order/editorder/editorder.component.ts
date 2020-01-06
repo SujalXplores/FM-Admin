@@ -11,11 +11,12 @@ import { order } from '../order';
 export class EditorderComponent implements OnInit {
 
   constructor(private _act_route: ActivatedRoute, private _orderdata: OrderdataService, private _router: Router) { }
-  order_id1: string;
+  order_id1: number;
   order_amount1 : string;
   order_date1 : Date;
   fk_u_email_id1: number;
   payment_type1: string;
+  order_status1: string;
 
   ngOnInit() {
     this.order_id1 = this._act_route.snapshot.params["order_id"];
@@ -26,6 +27,7 @@ export class EditorderComponent implements OnInit {
           this.order_date1 = data[0].order_date;
           this.fk_u_email_id1 = data[0].fk_u_email_id;
           this.payment_type1 = data[0].payment_type;
+          this.order_status1 = data[0].order_status;
         }
     );
   }

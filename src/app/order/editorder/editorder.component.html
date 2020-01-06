@@ -4,9 +4,6 @@
       <mat-card-content>
 
           <form class="example-form" (ngSubmit)="OnOrderEdit(f)" #f="ngForm">
-            <mat-form-field class="example-full-width">
-                <input ngModel name="order_id" [(ngModel)]=order_id1 #order_id="ngModel" matInput type="text" placeholder="Enter Order id:">
-              </mat-form-field>
 
               <mat-form-field class="example-full-width">
                 <input ngModel name="order_amount" [(ngModel)]=order_amount1 #order_amount="ngModel" matInput type="number" placeholder="Edit Order Amount">
@@ -24,8 +21,12 @@
                 <mat-icon matSuffix> <i-feather name="mail"></i-feather></mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="half-width">
+              <mat-form-field class="example-full-width">
                 <input ngModel name="payment_type" [(ngModel)]=payment_type1 #payment_type="ngModel" type="text" matInput placeholder="Edit Payment Type">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <input ngModel name="order_status" [(ngModel)]=order_status1 #order_status="ngModel" type="text" matInput placeholder="Edit Order Status">
               </mat-form-field>
 
               <button class="example-full-width" type="submit" mat-raised-button color="accent">Update Order</button>
