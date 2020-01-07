@@ -16,7 +16,7 @@ import { ViewMoreProductComponent } from './view-more-product/view-more-product.
 export class ProductComponent implements OnInit {
 
   productarr: product[] = [];
-  displayedColumns: string[] = ['select', 'pro_id', 'pro_name', 'pro_price', 'details', 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'pro_name', 'pro_price', 'details', 'delete', 'edit'];
   dataSource: MatTableDataSource<product>;
 
   selection = new SelectionModel<product>(true, []);
