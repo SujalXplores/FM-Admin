@@ -5,7 +5,7 @@
       [opened]="(isHandset$ | async) === false">
 
     <mat-toolbar>
-      <span class="welcome">{{u_email_id}}</span>
+      <span>Future MediSurgico</span>
     </mat-toolbar>
     <mat-nav-list color="primary">
 
@@ -33,8 +33,8 @@
         *ngIf="isHandset$ | async">
         <mat-icon mat-mini-fab aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-
-      <span>Future Medisurgico</span>
+   
+      <span>Welcome,{{u_email_id}}</span>
 
       <button mat-icon-button [matMenuTriggerFor]="menu" class="ml-xs overflow-visible">
         <i class="far fa-user-circle"></i>
@@ -44,20 +44,12 @@
           <mat-icon>account_circle</mat-icon>
           <span>Profile</span>
         </button>
-          <button mat-menu-item>
-          <mat-icon>settings</mat-icon>
-          <span>Settings</span>
-        </button>
-          <button mat-menu-item>
-          <mat-icon>help</mat-icon>
-          <span>Help</span>
-        </button>
-          <mat-divider></mat-divider>
-          <button mat-menu-item>
-            <a mat-list-item (click)="onLogOut()" style="color: red;">
-              <i-feather name="power"></i-feather>
-              <span>Logout</span>
-            </a>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <a mat-list-item (click)="onLogOut()" style="color: red;">
+            <i-feather name="power"></i-feather>
+            <span>Logout</span>
+          </a>
         </button>
       </mat-menu>
 

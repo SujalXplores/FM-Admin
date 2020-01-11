@@ -4,7 +4,6 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/m
 import { SelectionModel } from '@angular/cdk/collections';
 import { Router } from '@angular/router';
 import { ProductdataService } from './productdata.service';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ViewMoreProductComponent } from './view-more-product/view-more-product.component';
 
 @Component({

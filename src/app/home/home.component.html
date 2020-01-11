@@ -1,5 +1,5 @@
 <!-- first six widgets -->
-<div fxLayout="row wrap">
+<!-- <div fxLayout="row wrap">
     <div fxFlex="50" fxFlex.xl="16.6" fxFlex.lg="16.6" fxFlex.md="33.3" fxFlex.sm="33.3" class="p-2">        
         <mat-card class="gradient-green tile p-2"> 
             <mat-icon>monetization_on</mat-icon> 
@@ -42,48 +42,52 @@
             <p>downloads</p> 
         </mat-card>
     </div>      
-</div>
+</div> -->
 
 <!-- second four widgets -->
 <div fxLayout="row wrap" #resizedDiv>
     <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
         <mat-card class="secondary-text-color p-4">
-            <div fxLayout="row" fxLayoutAlign="space-between center" class="">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
                 <h2>25,000</h2>
-                <p class="text-truncate mx-1">Overall Performance</p>
+                <p class="text-truncate mx-1">Total Selling</p>
             </div>
             <mat-progress-bar mode="determinate" value="53"></mat-progress-bar>
             <p class="mt-3 text-truncate">53% higher than last month</p>
         </mat-card>
     </div>
+
     <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
         <mat-card class="secondary-text-color p-4">
-            <div fxLayout="row" fxLayoutAlign="space-between center" class="">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
                 <h2>73,500</h2>
-                <p class="text-truncate mx-1">Active Installations</p>
+                <p class="text-truncate mx-1">Daily Visitors</p>
             </div>
             <mat-progress-bar mode="determinate" value="27" color="warn"></mat-progress-bar>
             <p class="mt-3 text-truncate">27% less than last month</p>
         </mat-card>
     </div>
+
     <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
         <mat-card class="secondary-text-color p-4">
-            <div fxLayout="row" fxLayoutAlign="space-between center" class="">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
                 <h2>81,750</h2>
-                <p class="text-truncate mx-1">Total downloads</p>
+                <p class="text-truncate mx-1">Inactive Users</p>
             </div>
             <mat-progress-bar mode="determinate" value="68"></mat-progress-bar>
             <p class="mt-3 text-truncate">68% higher than last month</p>
         </mat-card>
     </div>    
+
     <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
         <mat-card class="secondary-text-color p-4">
-            <div fxLayout="row" fxLayoutAlign="space-between center" class="">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
                 <h2>1,750</h2>
-                <p class="text-truncate mx-1">Total Visitors</p>
+                <p class="text-truncate mx-1">Active Users</p>
             </div>
             <mat-progress-bar mode="determinate" color="accent" value="18"></mat-progress-bar>
             <p class="mt-3 text-truncate">18% higher than last month</p>
         </mat-card>
     </div>    
+
 </div>

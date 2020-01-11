@@ -41,7 +41,6 @@ import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
-import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogComponent } from './users/dialog/dialog.component';
 import { ViewMoreProductComponent } from './product/view-more-product/view-more-product.component';
@@ -75,7 +74,6 @@ import { OrderDialogComponent } from './order/order-dialog/order-dialog.componen
     HomeComponent,
     CartDetailsComponent,
     AddcartdetailComponent,
-    ToDoListComponent,
     DialogComponent,
     ViewMoreProductComponent,
     HealthArticlesComponent,
