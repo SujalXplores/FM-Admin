@@ -111,8 +111,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-image: url(../../assets/image/Adobe_Post_20200102_0016100.36885373558910517.png);
-  background-repeat: no-repeat;
+  background-image: url(../../assets/image/bg.jpg);
 }
 
 .wrap-login100 {
