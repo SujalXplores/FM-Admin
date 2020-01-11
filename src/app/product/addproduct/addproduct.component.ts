@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductdataService } from '../productdata.service';
 import { Router } from '@angular/router';
 import { product } from '../product';
+import { CategorydataService } from 'src/app/category/categorydata.service';
 
 @Component({
   selector: 'app-addproduct',
@@ -11,11 +12,19 @@ import { product } from '../product';
 export class AddproductComponent implements OnInit {
 
   arrproduct: product[] = [] ;
-  constructor(private _productdata: ProductdataService , private _router: Router ) { }
+  catnamearr: product[] = [];
+  fk_cat_id: number;
+
+  constructor(private _productdata: ProductdataService , private _router: Router ,private _catdata: CategorydataService) { }
   value = '';
   ngOnInit() {
+    this._productdata.getAllProducts().subscribe(
+      (data: any[]) => {
+        this.catnamearr = data;
+        console.log(this.catnamearr);
+      }
+    );
   }
-
   OnProductAdd(f) {
     this._productdata.addProduct(f.value).subscribe(
       (data: any) => {

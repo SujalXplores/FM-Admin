@@ -39,6 +39,11 @@
         <td mat-cell *matCellDef="let row"> {{row.pro_name}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="c_name">
+        <th mat-header-cell *matHeaderCellDef> Category Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.c_name}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="pro_price">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
         <td mat-cell *matCellDef="let row"> {{row.pro_price}} </td>

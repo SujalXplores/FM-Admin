@@ -16,7 +16,7 @@ import { ViewMoreProductComponent } from './view-more-product/view-more-product.
 export class ProductComponent implements OnInit {
 
   productarr: product[] = [];
-  displayedColumns: string[] = ['select', 'pro_name', 'pro_price', 'details', 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'pro_name', 'c_name' ,  'pro_price', 'details', 'delete', 'edit'];
   dataSource: MatTableDataSource<product>;
 
   selection = new SelectionModel<product>(true, []);
@@ -60,6 +60,7 @@ applyFilter(filterValue: string) {
   ngOnInit() {
     this._data.getAllProducts().subscribe(
       (data: product[]) => {
+        console.log(data);
         this.productarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
