@@ -27,7 +27,7 @@
 				<button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
 					<mat-icon style="font-size: 20px;" class="material-icons-outlined">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
 				</button>
-			  <mat-hint align="end" routerLink="/forgot"><a class="txt2">Forgot Password?</a></mat-hint>
+			  <mat-hint align="end"><a class="txt2" routerLink="/forgot">Forgot Password?</a></mat-hint>
           	</mat-form-field>
 
 				<button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="accent" class="example-full-width" (click)="openSnackBar('Login Successfully!', 'Dismiss')">Sign In</button>
