@@ -23,10 +23,11 @@ img {
 
 a:hover,
 a:focus {
-  color: rgb(103, 58, 183);
+  color: rgb(66, 58, 183);
+  border-right: 3px solid rgb(66, 58, 183);
 }
 
-i-feather {
+mat-icon {
   margin-right: 10px;
 }
 

@@ -24,6 +24,7 @@ import { UserAuthGuardService } from "./login-display/user-auth-guard.service";
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
 import { HealthArticlesComponent } from './health-articles/health-articles.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 const arr: Routes = [
@@ -56,6 +57,7 @@ const arr: Routes = [
   ]
   },
 
+  {path: 'forgot', component: ForgotPasswordComponent},
   {path: 'pagenotfound', component: PagenotfoundComponent},
   {path: '**', redirectTo: '/pagenotfound'}
 
