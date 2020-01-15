@@ -3,6 +3,10 @@ img {
   width: 20px;
 }
 
+mat-sidenav-content {
+  overflow: hidden;
+}
+
 .sidenav-container {
   height: 100%;
 }

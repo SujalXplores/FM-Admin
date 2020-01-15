@@ -21,7 +21,7 @@
 
 			<mat-form-field  class="wrap-input100">
 			  <input matInput placeholder="Password*" [type]="hide ? 'password' : 'text'"  formControlName="u_password">
-        	<mat-icon matPrefix style="font-size: 20px;"><i class="far fa-lock" ></i></mat-icon>
+        	<mat-icon matPrefix style="font-size: 20px;"><i class="far fa-lock"></i></mat-icon>
 
 			  <mat-label *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password should not be empty!</mat-label>
 				<button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -30,7 +30,7 @@
 			  <mat-hint align="end"><a class="txt2" routerLink="/forgot">Forgot Password?</a></mat-hint>
           	</mat-form-field>
 
-				<button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="accent" class="example-full-width" (click)="openSnackBar('Login Successfully!', 'Dismiss')">Sign In</button>
+				<button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="accent" class="example-full-width" (click)="openSnackBar('Login Successfully!', 'X')">Sign In</button>
 
 				</form>
 			</div>
