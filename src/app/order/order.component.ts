@@ -23,7 +23,7 @@ export class OrderComponent implements OnInit {
 
   orderarr: order[] = [];
   expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'order_amount', 'order_date', 'fk_u_email_id', 'details', 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'order_amount', 'order_date', 'details', 'delete', 'edit'];
   dataSource: MatTableDataSource<order>;
 
   selection = new SelectionModel<order>(true, []);

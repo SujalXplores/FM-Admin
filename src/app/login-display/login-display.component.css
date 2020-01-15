@@ -1,12 +1,12 @@
+img {
+  width: 80px;
+  height: 80px;
+}
+
 /* button */
 .example-full-width {
   width: 100%;
   margin-top: 10px;
-}
-
-.hide-btn
-{
-  font-size: 50px;
 }
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -63,41 +63,20 @@ ul, li {
 button {
 	outline: none !important;
 	border: none;
-	background: transparent;
+  background: transparent;
 }
-
-iframe {
-	border: none !important;
-}
-
 
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
-.txt1 {
-  font-family: Roboto;
-  font-size: 13px;
-  color: #666666;
-  line-height: 1.5;
-}
 
 .txt2 {
   font-family: Roboto;
   font-size: 13px;
   color: #333333;
   line-height: 1.5;
-  text-align: center;
-}
-
-.text-center {
-  text-align: center;
 }
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
-
-.limiter {
-  width: 100%;
-  margin: 0 auto;
-}
 
 .container-login100 {
   width: 100%;
@@ -111,13 +90,13 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-image: url(../../assets/image/bg.jpg);
+  background-color: #2D323D;
 }
 
 .wrap-login100 {
   width: 390px;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   padding: 40px 40px 33px 40px;
 

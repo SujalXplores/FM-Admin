@@ -13,7 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UsersComponent } from './users/users.component';
-import { MatTooltipModule,MatMenuModule,MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule, MatFormFieldModule} from '@angular/material';
+import { MatSnackBarModule,MatTooltipModule,MatMenuModule,MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule, MatFormFieldModule} from '@angular/material';
 import { routingArr } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EdituserComponent } from './users/edituser/edituser.component';
@@ -41,12 +41,12 @@ import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
-import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogComponent } from './users/dialog/dialog.component';
 import { ViewMoreProductComponent } from './product/view-more-product/view-more-product.component';
 import { HealthArticlesComponent } from './health-articles/health-articles.component';
 import { OrderDialogComponent } from './order/order-dialog/order-dialog.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -75,11 +75,11 @@ import { OrderDialogComponent } from './order/order-dialog/order-dialog.componen
     HomeComponent,
     CartDetailsComponent,
     AddcartdetailComponent,
-    ToDoListComponent,
     DialogComponent,
     ViewMoreProductComponent,
     HealthArticlesComponent,
-    OrderDialogComponent
+    OrderDialogComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     routingArr,
@@ -108,6 +108,7 @@ import { OrderDialogComponent } from './order/order-dialog/order-dialog.componen
     MatSelectModule,
     MatCardModule,
     MatRadioModule,
+    MatSnackBarModule,
     MatInputModule,
     MatCheckboxModule,
     MatDatepickerModule,

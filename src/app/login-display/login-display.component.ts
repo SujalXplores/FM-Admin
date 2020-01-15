@@ -3,6 +3,7 @@ import { FormGroup , FormControl , Validators} from '@angular/forms';
 import { LogindataService } from './logindata.service';
 import { users } from '../users/users';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login-display',
@@ -13,7 +14,7 @@ export class LoginDisplayComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private _router:Router, private _logindata: LogindataService) { }
+  constructor(private _router:Router, private _logindata: LogindataService,private _snackBar: MatSnackBar) { }
 
   hide: string = 'false';
   ngOnInit() {
@@ -22,6 +23,13 @@ export class LoginDisplayComponent implements OnInit {
         u_password: new FormControl('1234', [Validators.required]),
       });
   }
+  
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 5000,
+    });
+  }
+
   onLogin() {
        this._logindata.login(this.loginForm.value).subscribe(
          (x: users[]) => {

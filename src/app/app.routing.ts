@@ -23,8 +23,8 @@ import { HomeComponent } from './home/home.component';
 import { UserAuthGuardService } from "./login-display/user-auth-guard.service";
 import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
-import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { HealthArticlesComponent } from './health-articles/health-articles.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 const arr: Routes = [
@@ -53,11 +53,11 @@ const arr: Routes = [
       {path: 'addcart', component: AddcartComponent},
       {path: 'addcartdetail', component: AddcartdetailComponent},
       {path: 'editcart/:cart_id', component: EditcartComponent},
-      {path: 'todo', component: ToDoListComponent},
       {path: 'h-article', component: HealthArticlesComponent},
   ]
   },
 
+  {path: 'forgot', component: ForgotPasswordComponent},
   {path: 'pagenotfound', component: PagenotfoundComponent},
   {path: '**', redirectTo: '/pagenotfound'}
 
