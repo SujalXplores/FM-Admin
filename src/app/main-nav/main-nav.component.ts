@@ -19,15 +19,18 @@ export class MainNavComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver, public router: Router) {}
+  
   ngOnInit(){
-    this.u_email_id=localStorage.getItem('u_email_id');
-    this.u_name=localStorage.getItem('u_name');
+    this.u_email_id = localStorage.getItem('u_email_id');
+    this.u_name = localStorage.getItem('u_name');
   }
+
   onLogOut()
   {
     if (confirm('Are you sure want to LogOut?')) {
       localStorage.clear();
-      this.router.navigate(['']);
+      this.router.navigate(['/']);
     }
   }
+
 }
