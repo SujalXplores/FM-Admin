@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
   name: string;
 
   userarr: users[] = [];
+  del_arr: string[] = [];
   displayedColumns: string[] = ['select', 'u_name', 'u_mobileno', 'details', 'delete', 'edit'];
   dataSource: MatTableDataSource<users>;
 
@@ -35,6 +36,31 @@ export class UsersComponent implements OnInit {
       data: row
     });
   }
+ oncheckboxchange(row: users){
+
+   // tslint:disable-next-line: triple-equals
+   if(this.del_arr.find(x => x == row.u_email_id)){
+      this.del_arr.splice(this.del_arr.indexOf(row.u_email_id),1);
+   }
+   else
+   {
+     this.del_arr.push(row.u_email_id);
+   }
+
+ }
+ ondeleteallclick(){
+   this._data.deleteall(this.del_arr).subscribe(
+     (data)=>{
+       for(let i=0;i<this.del_arr.length;i++){
+         let x=this.userarr.find(x => x.u_email_id == this.del_arr[i]);
+         this.userarr.splice(this.userarr.indexOf(x), 1);
+         this.dataSource.data = this.userarr;
+         this.dataSource.paginator = this.paginator;
+         this.dataSource.sort = this.sort;
+       }
+     }
+   );
+ }
 
   onDelete(item: users) {
     if (confirm("Are You Sure You Want To Delete ?")) {

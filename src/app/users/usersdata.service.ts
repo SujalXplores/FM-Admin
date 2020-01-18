@@ -8,7 +8,13 @@ import { users } from './users';
 export class UsersdataService {
 
   url:string='http://localhost:3000/user/';
+  deleteurl:string= 'http://localhost:3000/userdelete/';
   constructor(private _http:HttpClient) { }
+  deleteall(item: string[]){
+    let body = JSON.stringify(item);
+     let x = new HttpHeaders().set('Content-Type', 'application/json');
+     return this._http.post(this.deleteurl,body , {headers: x} );
+  }
   getAllUsers() {
     return this._http.get(this.url);
   }
