@@ -14,7 +14,8 @@
       <a mat-list-item routerLink="/nav/users"><mat-icon class="material-icons-outlined">account_box</mat-icon><span>Users</span></a>
       <a mat-list-item routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined">sports_motorsports</mat-icon><span>DeliveryBoy</span></a>
       <a mat-list-item routerLink="/nav/product"><mat-icon class="material-icons-outlined">local_pharmacy</mat-icon><span>Products</span></a>
-      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/nav/product_photo"><mat-icon class="material-icons-outlined">local_pharmacy</mat-icon><span>Product Photo</span></a>
+     <mat-divider></mat-divider>
       <a mat-list-item routerLink="/nav/cart"><mat-icon class="material-icons-outlined">shopping_cart</mat-icon><span>Cart</span></a>
       <a mat-list-item routerLink="/nav/cart_details"><mat-icon class="material-icons-outlined">shopping_cart</mat-icon><span>Cart Details</span></a>
       <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">device_hub</mat-icon><span>Category</span></a>
@@ -31,7 +32,7 @@
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      
+
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -40,7 +41,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon mat-mini-fab aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-   
+
       <span>Welcome,{{u_email_id}}</span>
 
     </mat-toolbar>

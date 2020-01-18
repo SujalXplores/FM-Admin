@@ -47,6 +47,8 @@ import { ViewMoreProductComponent } from './product/view-more-product/view-more-
 import { HealthArticlesComponent } from './health-articles/health-articles.component';
 import { OrderDialogComponent } from './order/order-dialog/order-dialog.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ProductPhotoComponent } from './product-photo/product-photo.component';
+import { ViewMoreProductPhotoComponent } from './product-photo/view-more-product-photo/view-more-product-photo.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +81,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ViewMoreProductComponent,
     HealthArticlesComponent,
     OrderDialogComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ProductPhotoComponent,
+    ViewMoreProductPhotoComponent
   ],
   imports: [
     routingArr,
@@ -119,7 +123,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
   entryComponents: [
     DialogComponent,
     ViewMoreProductComponent,
-    OrderDialogComponent
+    OrderDialogComponent,
+    ViewMoreProductPhotoComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

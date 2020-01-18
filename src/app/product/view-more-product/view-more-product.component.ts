@@ -29,6 +29,4 @@ export class ViewMoreProductComponent implements OnInit {
     onCancelClick() {
       this.dialogRef.close();
     }
-
-
 }

@@ -21,7 +21,7 @@ import { CartDetailsdataService } from './cart-detailsdata.service';
 export class CartDetailsComponent implements OnInit {
   cart_detailsarr: cart_details[] = [];
   expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'fk_cart_id', 'fk_pro_id' , 'details' , 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'cart_id', 'pro_id' , 'details' , 'delete', 'edit'];
   dataSource: MatTableDataSource<cart_details>;
 
   selection = new SelectionModel<cart_details>(true, []);

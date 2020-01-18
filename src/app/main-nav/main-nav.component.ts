@@ -19,8 +19,8 @@ export class MainNavComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver, public router: Router) {}
-  
-  ngOnInit(){
+
+  ngOnInit() {
     this.u_email_id = localStorage.getItem('u_email_id');
     this.u_name = localStorage.getItem('u_name');
   }
