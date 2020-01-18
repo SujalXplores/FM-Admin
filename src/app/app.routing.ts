@@ -25,6 +25,7 @@ import { CartDetailsComponent } from './cart-details/cart-details.component';
 import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
 import { HealthArticlesComponent } from './health-articles/health-articles.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ProductPhotoComponent } from './product-photo/product-photo.component';
 
 
 const arr: Routes = [
@@ -39,6 +40,7 @@ const arr: Routes = [
       {path: 'addUser', component: AdduserComponent},
       {path: 'edituser/:email', component: EdituserComponent},
       {path: 'product', component: ProductComponent},
+      {path: 'product_photo', component: ProductPhotoComponent},
       {path: 'addProduct', component: AddproductComponent},
       {path: 'editproduct/:pro_id', component: EditproductComponent},
       {path: 'category', component: CategoryComponent},

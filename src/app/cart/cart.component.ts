@@ -20,7 +20,7 @@ import { CartdataService } from './cartdata.service';
 export class CartComponent implements OnInit {
   cartarr: cart[] = [];
   expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'fk_u_email_id' , 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'u_email_id' , 'delete', 'edit'];
   dataSource: MatTableDataSource<cart>;
 
   selection = new SelectionModel<cart>(true, []);
