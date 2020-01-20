@@ -8,7 +8,14 @@ import { product } from './product';
 export class ProductdataService {
 
   url: string = 'http://localhost:3000/product/';
+  deleteurl:string= 'http://localhost:3000/productdelete/';
   constructor(private http: HttpClient) { }
+  deleteall(item: number[]){
+    let body = JSON.stringify(item);
+     let x = new HttpHeaders().set('Content-Type', 'application/json');
+     return this.http.post(this.deleteurl,body , {headers: x} );
+  }
+
 
   getAllProducts() {
     return this.http.get(this.url);

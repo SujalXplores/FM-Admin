@@ -15,6 +15,7 @@ import { ViewMoreProductComponent } from './view-more-product/view-more-product.
 export class ProductComponent implements OnInit {
 
   productarr: product[] = [];
+  del_arr:number[]=[];
   displayedColumns: string[] = ['select', 'pro_name', 'c_name' ,  'pro_price', 'details', 'delete', 'edit'];
   dataSource: MatTableDataSource<product>;
 
@@ -32,6 +33,32 @@ export class ProductComponent implements OnInit {
       data: row
     });
   }
+  oncheckboxchange(row: product){
+
+    // tslint:disable-next-line: triple-equals
+    if(this.del_arr.find(x => x == row.pro_id)){
+       this.del_arr.splice(this.del_arr.indexOf(row.pro_id),1);
+    }
+    else
+    {
+      this.del_arr.push(row.pro_id);
+    }
+
+  }
+  ondeleteallclick(){
+    this._data.deleteall(this.del_arr).subscribe(
+      (data)=>{
+        for(let i=0;i<this.del_arr.length;i++){
+          let x=this.productarr.find(x => x.pro_id == this.del_arr[i]);
+          this.productarr.splice(this.productarr.indexOf(x), 1);
+          this.dataSource.data = this.productarr;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+      }
+    );
+  }
+
 
   onDelete(item: product) {
     if (confirm('Are You Sure You Want To Delete ?')) {
