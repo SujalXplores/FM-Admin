@@ -5,19 +5,20 @@
       [opened]="(isHandset$ | async) === false">
 
     <mat-toolbar>
-      <span>Future Medisurgico</span>
+      <img src="../../assets/image/logo.svg" align="center" alt="FutureMedisurgico">
     </mat-toolbar>
 
     <mat-nav-list>
 
-      <a mat-list-item routerLink="/nav"><mat-icon class="material-icons-outlined">dashboard</mat-icon><span>Dashboard</span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/nav"><mat-icon class="material-icons-outlined">home</mat-icon><span>Dashboard</span></a>
       <a mat-list-item routerLink="/nav/users"><mat-icon class="material-icons-outlined">account_box</mat-icon><span>Users</span></a>
-      <a mat-list-item routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined">sports_motorsports</mat-icon><span>DeliveryBoy</span></a>
+      <a mat-list-item routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined">local_shipping</mat-icon><span>DeliveryBoy</span></a>
       <a mat-list-item routerLink="/nav/product"><mat-icon class="material-icons-outlined">local_pharmacy</mat-icon><span>Products</span></a>
       <a mat-list-item routerLink="/nav/product_photo"><mat-icon class="material-icons-outlined">local_pharmacy</mat-icon><span>Product Photo</span></a>
-     <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/nav/cart"><mat-icon class="material-icons-outlined">shopping_cart</mat-icon><span>Cart</span></a>
-      <a mat-list-item routerLink="/nav/cart_details"><mat-icon class="material-icons-outlined">shopping_cart</mat-icon><span>Cart Details</span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/nav/cart"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart</span></a>
+      <a mat-list-item routerLink="/nav/cart_details"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart Details</span></a>
       <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">device_hub</mat-icon><span>Category</span></a>
       <mat-divider></mat-divider>
       <a mat-list-item routerLink="/nav/order"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Orders</span></a>
@@ -42,7 +43,7 @@
         <mat-icon mat-mini-fab aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
 
-      <span>Welcome,{{u_email_id}}</span>
+      <span>Welcome {{u_email_id}}</span>
 
     </mat-toolbar>
     <router-outlet></router-outlet>
