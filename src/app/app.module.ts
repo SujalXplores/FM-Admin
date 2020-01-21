@@ -49,6 +49,7 @@ import { OrderDialogComponent } from './order/order-dialog/order-dialog.componen
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { ViewMoreProductPhotoComponent } from './product-photo/view-more-product-photo/view-more-product-photo.component';
+import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { ViewMoreProductPhotoComponent } from './product-photo/view-more-product
     OrderDialogComponent,
     ForgotPasswordComponent,
     ProductPhotoComponent,
-    ViewMoreProductPhotoComponent
+    ViewMoreProductPhotoComponent,
+    AddproductPhotoComponent
   ],
   imports: [
     routingArr,
