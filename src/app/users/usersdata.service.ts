@@ -8,9 +8,9 @@ import { users } from './users';
 export class UsersdataService {
 
   url:string='http://localhost:3000/user/';
-  deleteurl:string= 'http://localhost:3000/userdelete/';
+  deleteurl: string= 'http://localhost:3000/userdelete/';
   constructor(private _http:HttpClient) { }
-  deleteall(item: string[]){
+  deleteall(item: string[]) {
     let body = JSON.stringify(item);
      let x = new HttpHeaders().set('Content-Type', 'application/json');
      return this._http.post(this.deleteurl,body , {headers: x} );
@@ -22,8 +22,8 @@ export class UsersdataService {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.delete(this.url + u_email_id, {headers: x});
    }
-   addUsers(item:FormData) {
-     console.log(item)
+   addUsers(item: FormData) {
+     console.log(item);
     //let body = JSON.stringify(item);
     //let x = new HttpHeaders().set('Content-Type', 'application/json');
     //return this._http.post(this.url, body, {headers: x});

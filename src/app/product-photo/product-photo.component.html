@@ -8,7 +8,7 @@
   <span>Delete</span>
 </button>
 
-<button routerLink='/nav/addProduct' mat-raised-button matTooltip="Add Product" color="accent" class="addbutton">
+<button routerLink='/nav/addProductphoto' mat-raised-button matTooltip="Add Product Photo" color="accent" class="addbutton">
   <span>Add</span>
 </button>
 
@@ -43,7 +43,10 @@
 
       <ng-container matColumnDef="pro_photo">
         <th mat-header-cell *matHeaderCellDef> Product Image </th>
-        <td mat-cell *matCellDef="let row"> {{row.pro_photo}} </td>
+        <td mat-cell *matCellDef="let row">
+          {{row.pro_photo}}
+          <img  height="100" width="100" src="http://localhost:3000/images/product_photos/{{row.pro_photo}}">
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="details">

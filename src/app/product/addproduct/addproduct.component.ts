@@ -15,7 +15,7 @@ export class AddproductComponent implements OnInit {
   catnamearr: product[] = [];
   fk_cat_id: number;
 
-  constructor(private _productdata: ProductdataService , private _router: Router ,private _catdata: CategorydataService) { }
+  constructor(private _productdata: ProductdataService , private _router: Router , private _catdata: CategorydataService) { }
   value = '';
   ngOnInit() {
     this._productdata.getAllProducts().subscribe(

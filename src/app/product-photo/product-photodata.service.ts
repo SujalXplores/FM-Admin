@@ -13,10 +13,12 @@ export class ProductPhotodataService {
   getAllProductPhoto() {
     return this.http.get(this.url);
   }
-  addProductPhoto(item: product_photo) {
-    let body = JSON.stringify(item);
-    let x = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(this.url, body, {headers: x});
+  addProductPhoto(item: FormData) {
+    console.log(item);
+    // let body = JSON.stringify(item);
+    // let x = new HttpHeaders().set('Content-Type', 'application/json');
+    // return this.http.post(this.url, body, {headers: x});
+    return this.http.post(this.url, item);
   }
   deleteProductPhoto(pro_photo_id: number) {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
