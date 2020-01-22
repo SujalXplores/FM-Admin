@@ -5,27 +5,27 @@
 
         <form class="example-form" (ngSubmit)="OnOrderAdd(f)" #f="ngForm">
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
               <input ngModel name="order_amount" #order_amount="ngModel" matInput type="text" placeholder="Enter Order Amount">
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
               <input ngModel name="order_date" #order_date="ngModel" type="date" matInput placeholder="Enter Order Date">
               <!-- <mat-icon matSuffix><i class="far fa-calendar-alt"></i></mat-icon> -->
               <mat-icon matSuffix> <i-feather name="calendar"></i-feather></mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
               <input ngModel name="fk_u_email_id" #fk_u_email_id="ngModel" type="text" matInput placeholder="Enter User Email ID">
               <!-- <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon> -->
               <mat-icon matSuffix> <i-feather name="mail"></i-feather></mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
               <input ngModel name="payment_type" #payment_type="ngModel" type="text" matInput placeholder="Enter Method of payment type">
             </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width" appearance="outline">
               <input ngModel name="order_status" #order_status="ngModel" type="text" matInput placeholder="Enter Status of order">
             </mat-form-field>
 
