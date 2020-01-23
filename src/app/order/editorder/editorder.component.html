@@ -5,27 +5,27 @@
 
           <form class="example-form" (ngSubmit)="OnOrderEdit(f)" #f="ngForm">
 
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" appearance="outline">
                 <input ngModel name="order_amount" [(ngModel)]=order_amount1 #order_amount="ngModel" matInput type="number" placeholder="Edit Order Amount">
               </mat-form-field>
 
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" appearance="outline">
                 <input ngModel name="order_date" [(ngModel)]=order_date1 #order_date="ngModel" type="date" matInput placeholder="Edit Order Date">
                 <!-- <mat-icon matSuffix><i class="far fa-calendar-alt"></i></mat-icon> -->
                 <mat-icon matSuffix> <i-feather name="calendar"></i-feather></mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" appearance="outline">
                 <input ngModel name="fk_u_email_id" [(ngModel)]=fk_u_email_id1 #fk_u_email_id="ngModel" type="text" matInput placeholder="Edit User Email id:">
                 <!-- <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon> -->
                 <mat-icon matSuffix> <i-feather name="mail"></i-feather></mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" appearance="outline">
                 <input ngModel name="payment_type" [(ngModel)]=payment_type1 #payment_type="ngModel" type="text" matInput placeholder="Edit Payment Type">
               </mat-form-field>
 
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" appearance="outline">
                 <input ngModel name="order_status" [(ngModel)]=order_status1 #order_status="ngModel" type="text" matInput placeholder="Edit Order Status">
               </mat-form-field>
 
