@@ -1,5 +1,7 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
     <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <!-- <img  height="100" width="100" align="right" style="border-radius: 50%;" src="http://localhost:3000/images/product_photos/{{row.pro_photo}}"> -->
+      <!-- <img  height="100" width="100" align="right" style="border-radius: 50%;" src="http://localhost:3000/images/user_photos/{{user_image}}"> -->
         <mat-card-title>Product Details</mat-card-title>
             <mat-card-content>
                 <mat-list>
@@ -17,6 +19,11 @@
                   <mat-divider></mat-divider>
 
                   <mat-list-item>Description  :{{product_desc}}</mat-list-item>
+                  <mat-divider></mat-divider>
+
+                  <mat-list-item *ngFor="let item of image_arr">Image :
+                    <img  height="100" width="100" align="right" style="border-radius: 50%;" src="http://localhost:3000/images/product_photos/{{item}}">
+                  </mat-list-item>
                   <mat-divider></mat-divider>
 
                 </mat-list>
