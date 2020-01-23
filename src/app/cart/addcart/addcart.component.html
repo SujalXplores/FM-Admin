@@ -11,5 +11,17 @@
     <mat-icon matSuffix> <i-feather name="mail"></i-feather></mat-icon>
   </mat-form-field>
 
+  <mat-form-field class="example-full-width">
+    <mat-select required ngModel name="fk_pro_id" #fk_pro_id="ngModel" placeholder="Select Product">
+      <mat-option *ngFor="let item of pronamearr" [value]="item.pro_id">
+        {{item.pro_name}}
+      </mat-option>
+     </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input ngModel name="qty" #qty="ngModel" matInput type="number" placeholder="Enter Quantity">
+  </mat-form-field>
+
   <button class="example-full-width" type="submit" mat-raised-button color="accent">Add Cart</button>
 </form>

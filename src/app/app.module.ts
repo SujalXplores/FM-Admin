@@ -13,7 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UsersComponent } from './users/users.component';
-import { MatSnackBarModule,MatTooltipModule,MatMenuModule,MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule, MatFormFieldModule} from '@angular/material';
+import { MatButtonToggleModule,MatSnackBarModule,MatTooltipModule,MatMenuModule,MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule, MatFormFieldModule} from '@angular/material';
 import { routingArr } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EdituserComponent } from './users/edituser/edituser.component';
@@ -50,6 +50,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { ViewMoreProductPhotoComponent } from './product-photo/view-more-product-photo/view-more-product-photo.component';
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
+import { CalenderComponent } from './calender/calender.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addpr
     ForgotPasswordComponent,
     ProductPhotoComponent,
     ViewMoreProductPhotoComponent,
-    AddproductPhotoComponent
+    AddproductPhotoComponent,
+    CalenderComponent
   ],
   imports: [
     routingArr,
@@ -100,6 +102,7 @@ import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addpr
     //angular-material
     MatToolbarModule,
     MatMenuModule,
+    MatButtonToggleModule,
     MatDialogModule,
     MatButtonModule,
     MatFormFieldModule,

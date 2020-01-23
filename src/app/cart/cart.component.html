@@ -35,6 +35,16 @@
         <td mat-cell *matCellDef="let row"> {{row.u_email_id}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="pro_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.pro_name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="qty">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Quantity </th>
+        <td mat-cell *matCellDef="let row"> {{row.qty}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="details">
         <th mat-header-cell *matHeaderCellDef> Details </th>
         <td mat-cell *matCellDef="let row">
