@@ -12,17 +12,14 @@
 
 			<mat-form-field class="wrap-input100" appearance="outline">
 			  <input matInput formControlName="u_email_id" placeholder="Email-ID*">
-        	  <mat-icon matPrefix><i class="far fa-envelope" style="font-size: 20px;"></i></mat-icon>
-
-              <mat-label *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email should not be empty!</mat-label>
-              <mat-label *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-label>
-              <mat-hint>We don't share your Email to anyone.</mat-hint>
+        	  <mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">email</mat-icon>
+              <mat-error *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email should not be empty!</mat-error>
+              <mat-error *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-error>
           	</mat-form-field>
 
 			<mat-form-field  class="wrap-input100" appearance="outline">
 			  <input matInput placeholder="Password*" [type]="hide ? 'password' : 'text'"  formControlName="u_password">
-        	<mat-icon matPrefix style="font-size: 20px;"><i class="far fa-lock"></i></mat-icon>
-
+			  <mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">lock</mat-icon>
 			  <mat-label *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password should not be empty!</mat-label>
 				<button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
 					<mat-icon style="font-size: 20px;" class="material-icons-outlined">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
@@ -30,7 +27,7 @@
 			  <mat-hint align="end"><a class="txt2" routerLink="/forgot">Forgot Password?</a></mat-hint>
           	</mat-form-field>
 
-				<button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="accent" class="example-full-width" (click)="openSnackBar('Login Successfully!', 'X')">Sign In</button>
+				<button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="accent" class="example-full-width">Sign In</button>
 
 				</form>
 			</div>

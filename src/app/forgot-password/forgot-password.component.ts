@@ -13,8 +13,11 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit() {
   }
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
+    this._snackBar.open(message , action, {
       duration: 5000,
+      verticalPosition: 'top', // 'top' | 'bottom'
+      horizontalPosition: 'right', //'start' | 'center' | 'end' | 'left' | 'right'
+      panelClass: ['warning']
     });
   }
 }
