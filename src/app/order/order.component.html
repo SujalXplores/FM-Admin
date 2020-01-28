@@ -1,3 +1,5 @@
+<mat-progress-bar *ngIf="orderarr.length<0" color="warn" mode="indeterminate"></mat-progress-bar>
+
 <mat-form-field class="filterClass">
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Here">
 </mat-form-field>

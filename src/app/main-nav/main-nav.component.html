@@ -1,5 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
+    
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
@@ -46,6 +47,26 @@
         *ngIf="isHandset$ | async">
         <mat-icon mat-mini-fab aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+
+      <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
+        <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+      </button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+        
+        <button mat-menu-item disabled>
+          <mat-icon class="material-icons-outlined">today</mat-icon>
+          <span class="date">Today:{{date | date}}</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <mat-icon class="material-icons-outlined">lock_open</mat-icon>
+          <span>Change Password</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon class="material-icons-outlined">info</mat-icon>
+          <span>Help</span>
+        </button>
+      </mat-menu>
 
     </mat-toolbar>
     <router-outlet></router-outlet>
