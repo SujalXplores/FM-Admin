@@ -46,7 +46,7 @@ export class ProductPhotoComponent implements OnInit {
   }
 
   OnProductEdit(item: product_photo) {
-    this.router.navigate(['/nav/editproduct', item.pro_photo_id]);
+    this.router.navigate(['/nav/editproduct_photo', item.pro_photo_id]);
   }
 
 applyFilter(filterValue: string) {

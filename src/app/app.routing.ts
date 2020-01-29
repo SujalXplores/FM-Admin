@@ -27,6 +27,7 @@ import { HealthArticlesComponent } from './health-articles/health-articles.compo
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
+import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 
 
 const arr: Routes = [
@@ -39,11 +40,12 @@ const arr: Routes = [
       {path: 'signup', component: SignupComponent},
       {path: 'users', component: UsersComponent},
       {path: 'addUser', component: AdduserComponent},
-      {path: 'edituser/:email', component: EdituserComponent},
+      {path: 'edituser/:u_email_id', component: EdituserComponent},
       {path: 'product', component: ProductComponent},
       {path: 'addProduct', component: AddproductComponent},
       {path: 'editproduct/:pro_id', component: EditproductComponent},
       {path: 'product_photo', component: ProductPhotoComponent},
+      {path: 'editproduct_photo/:pro_photo_id', component: EditproductPhotoComponent},
       {path: 'addProductphoto', component: AddproductPhotoComponent},
       {path: 'category', component: CategoryComponent},
       {path: 'order', component: OrderComponent},

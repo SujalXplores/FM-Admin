@@ -28,7 +28,7 @@ export class LoginDisplayComponent implements OnInit {
        this._logindata.login(this.loginForm.value).subscribe(
          (x: users[]) => {
            if (x.length == 1){
-                localStorage.setItem('u_email_id',this.loginForm.get('u_email_id').value);
+                localStorage.setItem('u_email_id', this.loginForm.get('u_email_id').value);
                 this._router.navigate(['/nav/']);
            }
            else {

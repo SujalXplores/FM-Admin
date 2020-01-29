@@ -1,46 +1,50 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
+
       <mat-card-title>Edit User</mat-card-title>
       <mat-card-content>
 
-       <form class="example-form" (ngSubmit)="OnUserEdit(f)" #f="ngForm">
+       <form class="example-form" [formGroup]="user_update" (ngSubmit)="OnUserEdit()">
+
+                <mat-label>{{u_email_id}}</mat-label>
+                <!-- <input formControlName="u_email_id" matInput type="email" placeholder="Enter New Email"> -->
+                <!-- <mat-hint class="hint" *ngIf="user_update.hasError('required') && !user_update.pristine">Email is Required</mat-hint>
+                <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon> -->
 
               <mat-form-field class="example-full-width" appearance="outline">
-                <input required name="u_email_id" [(ngModel)]=user_email #u_email_id="ngModel" matInput type="email" placeholder="Enter New Email">
-                <mat-hint class="hint" *ngIf="u_email_id.hasError('required') && !u_email_id.pristine">Email is Required</mat-hint>
-                <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon>
-              </mat-form-field>
-
-              <mat-form-field class="example-full-width" appearance="outline">
-                <input required pattern="[a-z A-Z]*" name="u_name" [(ngModel)]=user_name #u_name="ngModel"  matInput type="text" placeholder="Enter New Name">
-                <mat-hint class="hint" *ngIf="u_name.hasError('required') && !u_name.pristine">Name is Required</mat-hint>
-                <mat-hint class="hint" *ngIf="u_name.hasError('pattern') && !u_name.pristine">Only Letters</mat-hint>
+                <input formControlName="u_name" matInput type="text" placeholder="Enter New Name">
+                <mat-hint class="hint" *ngIf="user_update.get('u_name').hasError('required') && !user_update.pristine">Name is Required</mat-hint>
+                <mat-hint class="hint" *ngIf="user_update.get('u_name').hasError('pattern') && !user_update.pristine">Only Letters</mat-hint>
                 <mat-icon matSuffix><i class="far fa-user"></i></mat-icon>
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="outline">
                 <span matPrefix>+91 &nbsp;</span>
-                <input required pattern="[0-9]*" name="u_mobileno" [(ngModel)]=user_phone #u_mobileno="ngModel" type="text" matInput appPhone placeholder="Enter New Mobile Number">
-                <mat-hint class="hint" *ngIf="u_mobileno.hasError('required') && !u_mobileno.pristine">Mobile Number is Required</mat-hint>
-                <mat-hint class="hint" *ngIf="u_mobileno.hasError('minlength') && !u_mobileno.pristine">Mobile number must be of 10 digits!</mat-hint>
-                <mat-label class="label" *ngIf="u_mobileno.hasError('pattern') && !u_mobileno.pristine">Only Digits!</mat-label>
+                <input formControlName="u_mobileno" type="text" matInput appPhone placeholder="Enter New Mobile Number">
+                <mat-hint class="hint" *ngIf="user_update.hasError('required') && !user_update.pristine">Mobile Number is Required</mat-hint>
+                <mat-hint class="hint" *ngIf="user_update.hasError('minlength') && !user_update.pristine">Mobile number must be of 10 digits!</mat-hint>
+                <mat-label class="label" *ngIf="user_update.hasError('pattern') && !user_update.pristine">Only Digits!</mat-label>
                 <mat-icon matSuffix><i class="far fa-phone"></i></mat-icon>
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="outline">
-                <input required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{4,}$" name="u_password" [(ngModel)]=user_password #u_password="ngModel"  matInput type="text" placeholder="Set New Password">
+                <input formControlName="u_password" matInput type="text" placeholder="Set New Password">
+                <!-- <input required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{4,}$" name="u_password" [(ngModel)]=user_password #u_password="ngModel"  matInput type="text" placeholder="Set New Password">
                 <mat-hint class="hint" *ngIf="u_password.hasError('required') && !u_password.pristine">Password is Required</mat-hint>
-                <mat-hint class="hint" *ngIf="u_password.hasError('pattern') && !u_password.pristine">Minimum four characters,at least one letter,one number and one speacial one character!</mat-hint>
+                <mat-hint class="hint" *ngIf="u_password.hasError('pattern') && !u_password.pristine">Minimum four characters,at least one letter,one number and one speacial one character!</mat-hint> -->
                 <mat-icon matSuffix><i class="far fa-lock"></i></mat-icon>
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="outline">
-                <input required name="u_address" [(ngModel)]=user_address #u_address="ngModel" matInput type="text" placeholder="Change Your Address">
-                <mat-hint class="hint" *ngIf="u_address.hasError('required') && !u_address.pristine">Address is Required</mat-hint>
+                <input formControlName="u_address" matInput type="text" placeholder="Change Your Address">
+                <!-- <mat-hint class="hint" *ngIf="u_address.hasError('required') && !u_address.pristine">Address is Required</mat-hint> -->
                 <mat-icon matSuffix><i class="far fa-address-card"></i></mat-icon>
               </mat-form-field>
 
-              <button  [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Update User</button>
+              <input type="file" (change)="onChange($event)">
+              <img height="120" width="120" align="left" style="border-radius: 50%;" src="{{image_url}}">
+
+              <button class="example-full-width" type="submit" mat-raised-button color="accent">Update User</button>
             </form>
           </mat-card-content>
         </mat-card>

@@ -9,21 +9,21 @@ export class ProductdataService {
 
   url: string = 'http://localhost:3000/product/';
   photo_url: string = 'http://localhost:3000/pro_photo/';
-  deleteurl:string= 'http://localhost:3000/productdelete/';
+  deleteurl: string= 'http://localhost:3000/productdelete/';
   constructor(private http: HttpClient) { }
 
   deleteall(item: number[]) {
     let body = JSON.stringify(item);
      let x = new HttpHeaders().set('Content-Type', 'application/json');
-     return this.http.post(this.deleteurl,body , {headers: x} );
+     return this.http.post(this.deleteurl , body , {headers: x} );
   }
 
   getAllProducts() {
     return this.http.get(this.url);
   }
 
-  getProductPhoto(pro_id:number) {
-    return this.http.get(this.photo_url+pro_id);
+  getProductPhoto(pro_id: number) {
+    return this.http.get(this.photo_url + pro_id);
   }
 
   addProduct(item: product) {

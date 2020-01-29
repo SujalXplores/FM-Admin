@@ -52,6 +52,7 @@ import { ViewMoreProductPhotoComponent } from './product-photo/view-more-product
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
 import { CalenderComponent } from './calender/calender.component';
 import { ExitDialogComponent } from './main-nav/exit-dialog/exit-dialog.component';
+import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { ExitDialogComponent } from './main-nav/exit-dialog/exit-dialog.componen
     ViewMoreProductPhotoComponent,
     AddproductPhotoComponent,
     CalenderComponent,
-    ExitDialogComponent
+    ExitDialogComponent,
+    EditproductPhotoComponent
   ],
   imports: [
     routingArr,
