@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit {
 
   productarr: product[] = [];
   del_arr: number[] = [];
-  displayedColumns: string[] = ['select', 'pro_name', 'c_name' ,  'pro_price', 'details', 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'pro_name', 'c_name' ,  'pro_price', 'details', 'edit'];
   dataSource: MatTableDataSource<product>;
 
   selection = new SelectionModel<product>(true, []);

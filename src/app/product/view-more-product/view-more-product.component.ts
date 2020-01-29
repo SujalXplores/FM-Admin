@@ -35,8 +35,6 @@ export class ViewMoreProductComponent implements OnInit {
             this.image_arr.push(data[this.i].pro_photo);
           }
           console.log(this.image_arr)
-
-          console.log(this.image_arr)
         }
       );
 

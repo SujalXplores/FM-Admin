@@ -3,6 +3,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { ExitDialogComponent } from './exit-dialog/exit-dialog.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-main-nav',
@@ -19,19 +21,15 @@ export class MainNavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, public router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, public router: Router, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.u_email_id = localStorage.getItem('u_email_id');
     this.u_name = localStorage.getItem('u_name');
   }
-
-  onLogOut()
-  {
-    if (confirm('Are you sure want to LogOut?')) {
-      localStorage.clear();
-      this.router.navigate(['/']);
-    }
+  
+  openDialog() {
+    this.dialog.open(ExitDialogComponent);
   }
 
 }

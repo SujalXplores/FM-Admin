@@ -28,9 +28,9 @@
       <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">category</mat-icon><span>Category</span></a>
       <mat-divider></mat-divider>
       <a mat-list-item routerLink="/nav/order"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Orders</span></a>
-      <!-- <a mat-list-item routerLink="/nav/h-article"><mat-icon>favorite_border</mat-icon><span>Health Articles</span></a> -->
+      <a mat-list-item routerLink="/nav/h-article"><mat-icon>favorite_border</mat-icon><span>Health Articles</span></a>
       <mat-divider></mat-divider>
-      <a mat-list-item (click)='onLogOut()' style="color: red;"><mat-icon>exit_to_app</mat-icon><span>Logout</span></a>
+      
 
     </mat-nav-list>
 
@@ -63,8 +63,11 @@
           <span>Change Password</span>
         </button>
         <button mat-menu-item>
-          <mat-icon class="material-icons-outlined">info</mat-icon>
-          <span>Help</span>
+          <mat-icon class="material-icons-outlined">settings</mat-icon>
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item (click)='openDialog()' >
+          <span style="color: red;"><mat-icon style="color: red;">exit_to_app</mat-icon><span>Logout</span></span>
         </button>
       </mat-menu>
 

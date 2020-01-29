@@ -4,8 +4,13 @@
   font-family: sans-serif;
   font-weight: lighter;
 }
-.menu, button {
+.menu {
   margin-left: auto;
+  border: 0;
+  outline: 0;
+}
+
+button {
   border: 0;
   outline: 0;
 }
@@ -15,7 +20,7 @@ img {
   width: 50px;
   margin-left: 35%;
   border-radius: 50%;
-  border: 5px solid blue;
+  border: 3px solid rgb(53, 100, 255);
 }
 
 mat-sidenav-content {
@@ -56,7 +61,6 @@ span {
 
 .welcome {
   text-align: center;
-  font-weight: bold;
+  font-weight: 400;
   font-size: medium;
-
 }
