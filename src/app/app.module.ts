@@ -51,6 +51,7 @@ import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { ViewMoreProductPhotoComponent } from './product-photo/view-more-product-photo/view-more-product-photo.component';
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
 import { CalenderComponent } from './calender/calender.component';
+import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { CalenderComponent } from './calender/calender.component';
     ProductPhotoComponent,
     ViewMoreProductPhotoComponent,
     AddproductPhotoComponent,
-    CalenderComponent
+    CalenderComponent,
+    EditproductPhotoComponent
   ],
   imports: [
     routingArr,

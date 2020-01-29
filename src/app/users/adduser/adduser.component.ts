@@ -16,7 +16,7 @@ export class AdduserComponent implements OnInit {
   ngOnInit() {
   }
     onUesrAdd(f) {
-          let fd=new FormData();
+          let fd = new FormData();
           fd.append('u_email_id', f.value.u_email_id);
           fd.append('u_password', f.value.u_password);
           fd.append('u_name', f.value.u_name);

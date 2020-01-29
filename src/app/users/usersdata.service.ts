@@ -33,9 +33,9 @@ export class UsersdataService {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.get(this.url + u_email_id, {headers: x});
   }
-  updateUser(item: users) {
-     let body = JSON.stringify(item);
-     let x = new HttpHeaders().set('Content-Type', 'application/json');
-     return this._http.put(this.url + item.u_email_id, body , {headers: x} );
+  updateUser(u_email_id , item) {
+     // let body = JSON.stringify(item);
+     // let x = new HttpHeaders().set('Content-Type', 'application/json');
+     return this._http.put(this.url + u_email_id, item );
   }
 }

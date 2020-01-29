@@ -28,9 +28,9 @@ export class ProductPhotodataService {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.get(this.url + pro_photo_id, {headers: x});
   }
-  updateProductPhoto(item: product_photo) {
-     let body = JSON.stringify(item);
-     let x = new HttpHeaders().set('Content-Type', 'application/json');
-     return this.http.put(this.url + item.pro_photo_id, body , {headers: x} );
+  updateProductPhoto(pro_photo_id , item) {
+    //  let body = JSON.stringify(item);
+    //  let x = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.put(this.url + pro_photo_id, item);
   }
 }
