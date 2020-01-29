@@ -1,3 +1,15 @@
+.date {
+  text-align: center;
+  margin-left: auto;
+  font-family: sans-serif;
+  font-weight: lighter;
+}
+.menu, button {
+  margin-left: auto;
+  border: 0;
+  outline: 0;
+}
+
 img {
   height: 50px;
   width: 50px;

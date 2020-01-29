@@ -13,7 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UsersComponent } from './users/users.component';
-import { MatButtonToggleModule,MatSnackBarModule,MatTooltipModule,MatMenuModule,MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule, MatFormFieldModule} from '@angular/material';
+import { MatExpansionModule,MatButtonToggleModule,MatSnackBarModule,MatTooltipModule,MatMenuModule,MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule, MatFormFieldModule} from '@angular/material';
 import { routingArr } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EdituserComponent } from './users/edituser/edituser.component';
@@ -111,6 +111,7 @@ import { EditproductPhotoComponent } from './product-photo/editproduct-photo/edi
     MatProgressBarModule,
     MatSidenavModule,
     MatTooltipModule,
+    MatExpansionModule,
     MatIconModule,
     MatListModule,
     MatPaginatorModule,

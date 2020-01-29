@@ -19,8 +19,7 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="outline">
-              <span matPrefix>+91 &nbsp;</span>
-              <input required pattern="[0-9]*" minlength="10" ngModel name="u_mobileno" #u_mobileno="ngModel" type="text" matInput appPhone placeholder="Enter Mobile Number">
+              <input required pattern="[0-9]*" minlength="10" ngModel name="u_mobileno" #u_mobileno="ngModel" type="text" matInput appPhone placeholder="+91 Enter Mobile Number">
               <mat-hint class="hint" *ngIf="u_mobileno.hasError('required') && !u_mobileno.pristine">Mobile Number is Required</mat-hint>
               <mat-hint class="hint" *ngIf="u_mobileno.hasError('minlength') && !u_mobileno.pristine">Mobile number must be of 10 digits!</mat-hint>
               <mat-label class="label" *ngIf="u_mobileno.hasError('pattern') && !u_mobileno.pristine">Only Digits!</mat-label>
@@ -40,8 +39,21 @@
               <mat-icon matSuffix><i class="far fa-address-card"></i></mat-icon>
             </mat-form-field>
 
+            <div class="form-group">
+                <div class="rounded p-6">
+                    <div class="media">
+                        <div class="media-body">
+                            <label class="btn btn-sm btn-outline-primary mb-3 ml-2">
+                                Upload photo
+                                <input type="file" class="d-none" name="u_image" (change)="onChange($event)">
+                            </label>
+                            <mat-hint class="small text-muted ml-2">You can upload image, pdf, gif files. Max file size 3mb.</mat-hint>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <input type="file" name="u_image" (change)="onChange($event)">
+            <!-- <input type="file" name="u_image" (change)="onChange($event)"> -->
 
             <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add User</button>
 

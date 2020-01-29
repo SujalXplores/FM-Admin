@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
+  date = new Date();
   u_email_id:String='';
   u_name:String='';
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

@@ -1,5 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
+    
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
@@ -16,21 +17,20 @@
     <mat-nav-list>
 
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/nav"><mat-icon class="material-icons-outlined">home</mat-icon><span>Dashboard</span></a>
+      <a mat-list-item routerLink="/nav"><mat-icon class="material-icons-outlined">dashboard</mat-icon><span>Dashboard</span></a>
       <a mat-list-item routerLink="/nav/users"><mat-icon class="material-icons-outlined">account_box</mat-icon><span>Users</span></a>
       <a mat-list-item routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined">local_shipping</mat-icon><span>DeliveryBoy</span></a>
-      <a mat-list-item routerLink="/nav/product"><mat-icon class="material-icons-outlined">local_pharmacy</mat-icon><span>Products</span></a>
-      <a mat-list-item routerLink="/nav/product_photo"><mat-icon class="material-icons-outlined">local_pharmacy</mat-icon><span>Product Photo</span></a>
+      <a mat-list-item routerLink="/nav/product"><mat-icon class="material-icons-outlined">local_hospital</mat-icon><span>Products</span></a>
+      <a mat-list-item routerLink="/nav/product_photo"><mat-icon class="material-icons-outlined">local_see</mat-icon><span>Product Photo</span></a>
       <mat-divider></mat-divider>
       <a mat-list-item routerLink="/nav/cart"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart</span></a>
       <a mat-list-item routerLink="/nav/cart_details"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart Details</span></a>
-      <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">device_hub</mat-icon><span>Category</span></a>
+      <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">category</mat-icon><span>Category</span></a>
       <mat-divider></mat-divider>
       <a mat-list-item routerLink="/nav/order"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Orders</span></a>
-      <a mat-list-item routerLink="/nav/h-article"><mat-icon>favorite_border</mat-icon><span>Health Articles</span></a>
+      <!-- <a mat-list-item routerLink="/nav/h-article"><mat-icon>favorite_border</mat-icon><span>Health Articles</span></a> -->
       <mat-divider></mat-divider>
       <a mat-list-item (click)='onLogOut()' style="color: red;"><mat-icon>exit_to_app</mat-icon><span>Logout</span></a>
-      <mat-divider></mat-divider>
 
     </mat-nav-list>
 
@@ -48,7 +48,25 @@
         <mat-icon mat-mini-fab aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
 
-      <!-- <span>Welcome {{u_email_id}}</span> -->
+      <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
+        <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+      </button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+        
+        <button mat-menu-item disabled>
+          <mat-icon class="material-icons-outlined">today</mat-icon>
+          <span class="date">Today:{{date | date}}</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+          <mat-icon class="material-icons-outlined">lock_open</mat-icon>
+          <span>Change Password</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon class="material-icons-outlined">info</mat-icon>
+          <span>Help</span>
+        </button>
+      </mat-menu>
 
     </mat-toolbar>
     <router-outlet></router-outlet>
