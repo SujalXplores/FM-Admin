@@ -1,11 +1,12 @@
 <mat-progress-bar *ngIf="userarr.length<0" color="warn" mode="indeterminate"></mat-progress-bar>
 
 <mat-form-field class="filterClass">
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search...">
+  <input matInput (keyup)="applyFilter($event.target.value)">
+  <mat-icon matPrefix>search</mat-icon>
 </mat-form-field>
 
 <button mat-raised-button matTooltip="Delete User" (click)="ondeleteallclick()" color="warn" class="deletebutton">
-  <span>DeleteAll</span>
+  <span>Delete</span>
 </button>
 
 <button routerLink='/nav/addUser' mat-raised-button matTooltip="Add User" color="accent" class="addbutton">
@@ -47,14 +48,6 @@
         <ng-container matColumnDef="u_mobileno">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
           <td mat-cell *matCellDef="let row"> {{row.u_mobileno}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="u_image">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
-          <td mat-cell *matCellDef="let row">
-
-          <img  height="100" width="100" src="http://localhost:3000/images/user_photos/{{row.u_image}}">
-          </td>
         </ng-container>
 
         <ng-container matColumnDef="details">

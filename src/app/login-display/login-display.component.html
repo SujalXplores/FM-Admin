@@ -12,7 +12,8 @@
 
 			<mat-form-field class="wrap-input100" appearance="outline">
 			  <input matInput formControlName="u_email_id" placeholder="Email-ID*">
-        	  <mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">email</mat-icon>
+			  <mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">email</mat-icon>
+			  <mat-hint>We don't share your credentials to anyone.</mat-hint>
               <mat-error *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email should not be empty!</mat-error>
               <mat-error *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-error>
           	</mat-form-field>

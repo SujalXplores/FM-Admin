@@ -7,12 +7,13 @@
 
   <div >
 
-    <img mat-card-image width="50" height="50" src="{{photoUrl}}">
+    <img align=right mat-card-image width="100" height="100" src="{{photoUrl}}">
     <input type="file" (change)="onChange($event)">
 
   </div >
   <br>
   <div>
+    
     <mat-form-field class="example-full-width" appearance="outline">
       <mat-select formControlName="fk_pro_id">
         <mat-option *ngFor="let item of list"  [value]="item.pro_id">
@@ -20,7 +21,9 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+
   </div>
+  
   <br>
   <button class="example-full-width" type="submit" mat-raised-button color="accent">Update Product Photo</button>
  </form>

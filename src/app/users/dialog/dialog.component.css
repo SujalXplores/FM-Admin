@@ -6,3 +6,8 @@
   margin-top: 10px;
    margin-left:10px;
 }
+img{
+  border-radius: 50%;
+  outline: 0;
+  border: 0;
+}

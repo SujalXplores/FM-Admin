@@ -1,12 +1,9 @@
 <mat-progress-bar *ngIf="productarr.length<0" color="warn" mode="indeterminate"></mat-progress-bar>
 
 <mat-form-field class="filterClass">
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Product...">
+  <input matInput (keyup)="applyFilter($event.target.value)">
+  <mat-icon matPrefix>search</mat-icon>
 </mat-form-field>
-
-<button mat-raised-button matTooltip="Delete Product" color="warn" class="deletebutton">
-  <span>Delete</span>
-</button>
 
 <button routerLink='/nav/addProductphoto' mat-raised-button matTooltip="Add Product Photo" color="accent" class="addbutton">
   <span>Add</span>

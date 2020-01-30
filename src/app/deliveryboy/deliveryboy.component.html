@@ -1,17 +1,11 @@
 <mat-progress-bar *ngIf="deliveryboyarr.length<0" color="warn" mode="indeterminate"></mat-progress-bar>
 
 <mat-form-field class="filterClass">
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search User...">
+  <input matInput (keyup)="applyFilter($event.target.value)">
+  <mat-icon matPrefix>search</mat-icon>
 </mat-form-field>
 
-<button mat-raised-button matTooltip="Delete User" color="warn" class="deletebutton">
-  <span>Delete</span>
-</button>
-
-<button routerLink='/nav/adddeliveryboy' mat-raised-button  color="accent" matTooltip="To add user manually!" class="addbutton">
- <!-- <mat-icon>add</mat-icon> -->
- <span>Add</span>
-</button>
+<button routerLink='/nav/adddeliveryboy' mat-raised-button  color="accent" matTooltip="To add user manually!" class="addbutton">Add</button>
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>

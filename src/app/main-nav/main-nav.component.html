@@ -5,15 +5,13 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
 
-    <mat-toolbar>
-      <img src="../../assets/image/logo.svg" align="center" alt="FutureMedisurgico">
-    </mat-toolbar>
-
+      <mat-toolbar>
+        <img src="../../assets/image/logo.svg" align="center" alt="FutureMedisurgico">
+      </mat-toolbar>
       <div class="welcome">
-         Welcome {{u_email_id}}
+        Welcome {{u_email_id}}
       </div>
-
-
+    
     <mat-nav-list>
 
       <mat-divider></mat-divider>
@@ -48,28 +46,32 @@
         <mat-icon mat-mini-fab aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
 
-      <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
-        <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+
+    
+
+    <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
+      <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+    </button>
+
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      
+      <button mat-menu-item disabled>
+        <mat-icon class="material-icons-outlined">today</mat-icon>
+        <span class="date">Today:{{date | date}}</span>
       </button>
-      <mat-menu #beforeMenu="matMenu" xPosition="before">
-        
-        <button mat-menu-item disabled>
-          <mat-icon class="material-icons-outlined">today</mat-icon>
-          <span class="date">Today:{{date | date}}</span>
-        </button>
-        <mat-divider></mat-divider>
-        <button mat-menu-item>
-          <mat-icon class="material-icons-outlined">lock_open</mat-icon>
-          <span>Change Password</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon class="material-icons-outlined">settings</mat-icon>
-          <span>Settings</span>
-        </button>
-        <button mat-menu-item (click)='openDialog()' >
-          <span style="color: red;"><mat-icon style="color: red;">exit_to_app</mat-icon><span>Logout</span></span>
-        </button>
-      </mat-menu>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>
+        <mat-icon class="material-icons-outlined">lock_open</mat-icon>
+        <span>Change Password</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon class="material-icons-outlined">settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <button mat-menu-item (click)='openDialog()' >
+        <span style="color: red;"><mat-icon style="color: red;">exit_to_app</mat-icon><span>Logout</span></span>
+      </button>
+    </mat-menu>
 
     </mat-toolbar>
     <router-outlet></router-outlet>

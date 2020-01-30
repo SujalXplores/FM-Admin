@@ -1,5 +1,6 @@
 <mat-form-field class="filterClass">
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search User...">
+  <input matInput (keyup)="applyFilter($event.target.value)">
+  <mat-icon matPrefix>search</mat-icon>
 </mat-form-field>
 
 <button routerLink='/nav/addcart' mat-mini-fab matTooltip="To add user manually!" color="accent" class="addbutton">

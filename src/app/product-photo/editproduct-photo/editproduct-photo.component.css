@@ -9,3 +9,6 @@
 section {
   margin-top: 20px;
 }
+img {
+  border-radius: 50%;
+}
