@@ -12,7 +12,21 @@
          </mat-select>
        </mat-form-field>
 
-          <input required type="file" name="pro_photo" (change)="onChange($event)">
+       <div class="form-group">
+        <div class="rounded p-6">
+            <div class="media">
+                <div class="media-body">
+                    <label class="btn btn-sm btn-outline-primary mb-3 ml-2">
+                        Upload photo
+                        <input required type="file" class="d-none" name="pro_photo" (change)="onChange($event)">
+                    </label>
+                    <mat-hint class="small text-muted ml-2">You can upload image, pdf, gif files. Max file size 3mb.</mat-hint>
+                </div>
+            </div>
+        </div>
+    </div>
+
+          <!-- <input required type="file" name="pro_photo" (change)="onChange($event)"> -->
 
         <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add Product Photo</button>
   </form>

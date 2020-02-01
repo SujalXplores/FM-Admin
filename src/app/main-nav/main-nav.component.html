@@ -1,6 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
-    
+
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
@@ -11,7 +11,7 @@
       <div class="welcome">
         Welcome {{u_email_id}}
       </div>
-    
+
     <mat-nav-list>
 
       <mat-divider></mat-divider>
@@ -28,7 +28,7 @@
       <a mat-list-item routerLink="/nav/order"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Orders</span></a>
       <a mat-list-item routerLink="/nav/h-article"><mat-icon>favorite_border</mat-icon><span>Health Articles</span></a>
       <mat-divider></mat-divider>
-      
+
 
     </mat-nav-list>
 
@@ -47,14 +47,17 @@
       </button>
 
 
-    
+
+           <span> FutureMediSurgico</span>
+
+
 
     <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
       <mat-icon class="material-icons-outlined">more_vert</mat-icon>
     </button>
 
     <mat-menu #beforeMenu="matMenu" xPosition="before">
-      
+
       <button mat-menu-item disabled>
         <mat-icon class="material-icons-outlined">today</mat-icon>
         <span class="date">Today:{{date | date}}</span>
