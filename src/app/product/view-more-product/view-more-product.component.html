@@ -21,8 +21,8 @@
                   <mat-list-item>Description  :{{product_desc}}</mat-list-item>
                   <mat-divider></mat-divider>
 
-                  <mat-list-item *ngFor="let item of image_arr">Image :
-                    <img  height="100" width="100" align="right" style="border-radius: 50%;" src="http://localhost:3000/images/product_photos/{{item}}">
+                  <mat-list-item>Image :
+                    <img *ngFor="let item of image_arr" height="100" width="100" align="right" style="border-radius: 50%;" src="http://localhost:3000/images/product_photos/{{item}}">
                   </mat-list-item>
                   <mat-divider></mat-divider>
 
