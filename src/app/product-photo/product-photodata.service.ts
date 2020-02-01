@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { product_photo } from './product-photo';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +14,6 @@ export class ProductPhotodataService {
   }
   addProductPhoto(item: FormData) {
     console.log(item);
-    // let body = JSON.stringify(item);
-    // let x = new HttpHeaders().set('Content-Type', 'application/json');
-    // return this.http.post(this.url, body, {headers: x});
     return this.http.post(this.url, item);
   }
   deleteProductPhoto(pro_photo_id: number) {
@@ -29,8 +25,6 @@ export class ProductPhotodataService {
     return this.http.get(this.url + pro_photo_id, {headers: x});
   }
   updateProductPhoto(pro_photo_id , item) {
-    //  let body = JSON.stringify(item);
-    //  let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.put(this.url + pro_photo_id, item);
   }
 }
