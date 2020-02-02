@@ -3,15 +3,16 @@ mat-card-title {
   text-align: center;
 }
 
-.confirm {
+button[type=button] {
+  margin: 10px;
   border: 0;
   outline: 0;
-  background-color: rgb(255, 251, 0);
+  width: 40%;
 }
 
-.no {
-  margin-left: 20px;
-  border: 0;
-  outline: 0;
-  background-color: rgb(255, 0, 0);
+.alert {
+  margin-left: 30%;
+  font-size: 50px;
+  color: red;
+  text-align: center;
 }

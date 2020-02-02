@@ -31,13 +31,13 @@ a {
 	margin: 0px;
 }
 
-a:focus {
+mat-hint:focus {
 	outline: none !important;
 }
 
-a:hover {
+mat-hint:hover {
 	text-decoration: none;
-  color: #001079;
+  color: #0022ff;
 }
 
 /*---------------------------------------------*/
@@ -64,16 +64,6 @@ button {
 	outline: none !important;
 	border: none;
   background: transparent;
-}
-
-/*//////////////////////////////////////////////////////////////////
-[ Utility ]*/
-
-.txt2 {
-  font-family: Roboto;
-  font-size: 13px;
-  color: #333333;
-  line-height: 1.5;
 }
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/

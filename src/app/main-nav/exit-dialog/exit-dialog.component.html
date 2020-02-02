@@ -1,15 +1,12 @@
-<section fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="200px" fxFlex.xs="100%">
-        <mat-card-title>Are you sure you want to Logout?</mat-card-title>
+<section fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="300px" fxFlex.xs="100%">
             <mat-card-content>
+                <mat-icon class="alert">error_outline</mat-icon><br>
+                <mat-card-title style="font-size: medium;">Are you sure you want to Logout?</mat-card-title>
                 <mat-list>
                     
-                    <button type="button" class="confirm" (click)="onYesClick()" mat-mini-fab>
-                        <mat-icon>done</mat-icon>
-                    </button>
+                    <button type="button" color="accent" (click)="onYesClick()" mat-raised-button>Yes</button>
                     
-                    <button type="button" class="no" (click)="onCancelClick()" mat-mini-fab>
-                        <mat-icon>clear</mat-icon>
-                    </button>
+                    <button type="button" color="warn" (click)="onCancelClick()" mat-raised-button>No</button>
                     
                 </mat-list>
         </mat-card-content>

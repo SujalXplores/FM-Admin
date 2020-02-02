@@ -1,10 +1,11 @@
-<section fxLayout="row wrap" fxLayoutAlign="center center">
+<section fxLayout="row" fxLayoutAlign="space-around center" >
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title>ADD Product Photo</mat-card-title>
-      <mat-card-content>
+
+  <mat-card-title>ADD Product Photo</mat-card-title>
+  <mat-card-content>
   <form (ngSubmit)="onProductPhotoAdd(f)" #f="ngForm">
 
-       <mat-form-field class="example-full-width">
+       <mat-form-field class="example-full-width" appearance="outline">
           <mat-select required ngModel name="fk_pro_id" #fk_pro_id="ngModel" placeholder="Select Product Name">
             <mat-option *ngFor="let item of productarr" [value]="item.pro_id">
               {{item.pro_name}}
@@ -20,15 +21,11 @@
                         Upload photo
                         <input required type="file" class="d-none" name="pro_photo" (change)="onChange($event)">
                     </label>
-                    <mat-hint class="small text-muted ml-2">You can upload image, pdf, gif files. Max file size 3mb.</mat-hint>
                 </div>
             </div>
         </div>
     </div>
-
-          <!-- <input required type="file" name="pro_photo" (change)="onChange($event)"> -->
-
-        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add Product Photo</button>
+    <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add Product Photo</button>
   </form>
 </mat-card-content>
 </mat-card>
