@@ -13,6 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { UsersComponent } from './users/users.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatExpansionModule,MatButtonToggleModule,MatSnackBarModule,MatTooltipModule,MatMenuModule,MatPaginatorModule, MatNativeDateModule, MatProgressBarModule, MatSortModule, MatTableModule, MatSelectModule, MatCardModule, MatRadioModule, MatInputModule, MatCheckboxModule, MatDialogModule, MatFormFieldModule} from '@angular/material';
 import { routingArr } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -53,6 +54,7 @@ import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addpr
 import { CalenderComponent } from './calender/calender.component';
 import { ExitDialogComponent } from './main-nav/exit-dialog/exit-dialog.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +93,8 @@ import { EditproductPhotoComponent } from './product-photo/editproduct-photo/edi
     AddproductPhotoComponent,
     CalenderComponent,
     ExitDialogComponent,
-    EditproductPhotoComponent
+    EditproductPhotoComponent,
+    ChangePasswordComponent
   ],
   imports: [
     routingArr,
@@ -103,6 +106,7 @@ import { EditproductPhotoComponent } from './product-photo/editproduct-photo/edi
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
     //angular-material
     MatToolbarModule,
     MatMenuModule,

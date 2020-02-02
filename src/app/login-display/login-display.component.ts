@@ -3,7 +3,7 @@ import { FormGroup , FormControl , Validators} from '@angular/forms';
 import { LogindataService } from './logindata.service';
 import { users } from '../users/users';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material';
+
 
 @Component({
   selector: 'app-login-display',
@@ -11,10 +11,10 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./login-display.component.css']
 })
 export class LoginDisplayComponent implements OnInit {
-
+  toasts: any[] = [];
   loginForm: FormGroup;
 
-  constructor(private _router:Router, private _logindata: LogindataService,private _snackBar: MatSnackBar) { }
+  constructor(private _router:Router, private _logindata: LogindataService) { }
 
   hide: string = 'false';
   ngOnInit() {
@@ -23,7 +23,7 @@ export class LoginDisplayComponent implements OnInit {
         u_password: new FormControl(1234, [Validators.required]),
       });
   }
-  
+
   onLogin() {
        this._logindata.login(this.loginForm.value).subscribe(
          (x: users[]) => {
@@ -32,7 +32,7 @@ export class LoginDisplayComponent implements OnInit {
                 this._router.navigate(['/nav/']);
            }
            else {
-             alert("invalid");
+             alert("Invalid Credentials");
            }
          }
        );

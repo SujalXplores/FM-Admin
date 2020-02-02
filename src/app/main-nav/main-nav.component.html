@@ -26,7 +26,7 @@
       <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">category</mat-icon><span>Category</span></a>
       <mat-divider></mat-divider>
       <a mat-list-item routerLink="/nav/order"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Orders</span></a>
-      <a mat-list-item routerLink="/nav/h-article"><mat-icon>favorite_border</mat-icon><span>Health Articles</span></a>
+      <a mat-list-item routerLink="/nav/h-article"><mat-icon class="material-icons-outlined">favorite_border</mat-icon><span>Health Articles</span></a>
       <mat-divider></mat-divider>
       
     </mat-nav-list>
@@ -48,7 +48,7 @@
     <span> FutureMediSurgico</span>
 
     <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
-      <mat-icon class="material-icons-outlined">more_vert</mat-icon>
+      <mat-icon>more_vert</mat-icon>
     </button>
 
     <mat-menu #beforeMenu="matMenu" xPosition="before">
@@ -58,7 +58,7 @@
         <span class="date">Today:{{date | date}}</span>
       </button>
       <mat-divider></mat-divider>
-      <button mat-menu-item>
+      <button mat-menu-item routerLink='change-pass'>
         <mat-icon class="material-icons-outlined">lock_open</mat-icon>
         <span>Change Password</span>
       </button>

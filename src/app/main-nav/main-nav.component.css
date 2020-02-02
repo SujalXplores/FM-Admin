@@ -46,14 +46,12 @@ mat-sidenav-content {
   z-index: 1;
 }
 
-a:hover,
-a:focus,
-a:active {
-  color: blue;
-}
-
 mat-icon {
   margin-right: 10px;
+}
+
+.material-icons-outlined  {
+  color: blue;
 }
 
 span {

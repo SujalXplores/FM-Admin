@@ -1,3 +1,8 @@
+<div aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active">Product Photo</li>
+  </ol>
+</div>
 <mat-progress-bar *ngIf="productarr.length<0" color="warn" mode="indeterminate"></mat-progress-bar>
 
 <mat-form-field class="filterClass">
@@ -41,7 +46,7 @@
       <ng-container matColumnDef="pro_photo">
         <th mat-header-cell *matHeaderCellDef> Product Image </th>
         <td mat-cell *matCellDef="let row">
-          <img  height="100" width="100" src="http://localhost:3000/images/product_photos/{{row.pro_photo}}">
+          <img  height="100" width="100" src="http://localhost:3000/images/product_photos/{{row.pro_photo}}" style="border-radius: 50%;">
         </td>
       </ng-container>
 

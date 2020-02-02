@@ -28,6 +28,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 const arr: Routes = [
@@ -60,6 +61,7 @@ const arr: Routes = [
       {path: 'addcartdetail', component: AddcartdetailComponent},
       {path: 'editcart/:cart_id', component: EditcartComponent},
       {path: 'h-article', component: HealthArticlesComponent},
+      {path: 'change-pass', component: ChangePasswordComponent}
   ]
   },
 

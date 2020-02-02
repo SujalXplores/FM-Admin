@@ -11,7 +11,7 @@ export class UserAuthGuardService implements CanActivate {
     if (localStorage.getItem('u_email_id') != null) {
       return true;
     }
-    // User Must Have to login firt
+    // User Must Have to login first
     this._router.navigate(['']);
     return false;
   }
