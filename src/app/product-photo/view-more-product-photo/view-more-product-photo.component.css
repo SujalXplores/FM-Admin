@@ -1,0 +1,10 @@
+button {
+    border: 0 !important;
+    outline: 0 !important;
+}
+img {
+  border: 1px solid blue;
+}
+img:hover {
+  transform: scale(1.5); 
+}

@@ -1,37 +1,39 @@
 <html>
 <body>
-		<div class="container-login100">
-			<div class="wrap-login100">
+	<div class="container-login100">
+		<div class="wrap-login100">
 			<form class="login100-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
 			<span class="login100-form-title p-b-48">
 				<img src="../../assets/image/logo.svg">
-          	</span>
-          	<span class="login100-form-title p-b-26">
-              Future MediSurgico
+			</span>
+			<span class="login100-form-title p-b-26">
+				Future MediSurgico
 			</span>
 
 			<mat-form-field class="wrap-input100" appearance="outline">
-			  <input matInput formControlName="u_email_id" placeholder="Email-ID*">
-			  <mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">alternate_email</mat-icon>
-			  <mat-hint>We don't share your credentials to anyone.</mat-hint>
-              <mat-error *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email should not be empty!</mat-error>
-              <mat-error *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-error>
-          	</mat-form-field>
+				<input matInput formControlName="u_email_id" placeholder="Email-ID*">
+				<mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">alternate_email</mat-icon>
+				<mat-label>Email</mat-label>
+				<mat-hint>We don't share your credentials to anyone.</mat-hint>
+				<mat-error *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email should not be empty!</mat-error>
+				<mat-error *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-error>
+			</mat-form-field>
 
 			<mat-form-field  class="wrap-input100" appearance="outline">
-			  <input matInput placeholder="Password*" [type]="hide ? 'password' : 'text'"  formControlName="u_password">
-			  <mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">lock</mat-icon>
-			  <mat-label *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password should not be empty!</mat-label>
+				<input matInput placeholder="Password*" [type]="hide ? 'password' : 'text'"  formControlName="u_password">
+				<mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">lock</mat-icon>
+				<mat-label>Password</mat-label>
+				<mat-error *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password should not be empty!</mat-error>
 				<button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
 					<mat-icon style="font-size: 20px;" class="material-icons-outlined">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
 				</button>
-			  <mat-hint align="end"  routerLink="/forgot">Forgot Password?</mat-hint>
-          	</mat-form-field>
+				<mat-hint align="end" routerLink="/forgot">Forgot Password?</mat-hint>
+			</mat-form-field>
 
 			<button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="accent" class="example-full-width">Sign In</button>
 
 			</form>
-			</div>
 		</div>
+	</div>
 </body>
 </html>

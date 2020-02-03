@@ -40,14 +40,7 @@
 
       <ng-container matColumnDef="fk_pro_id">
         <th mat-header-cell *matHeaderCellDef> Product Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.pro_name}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="pro_photo">
-        <th mat-header-cell *matHeaderCellDef> Product Image </th>
-        <td mat-cell *matCellDef="let row">
-          <img  height="100" width="100" src="http://localhost:3000/images/product_photos/{{row.pro_photo}}" style="border-radius: 50%;">
-        </td>
+        <td mat-cell *matCellDef="let row"> {{row.pro_name | titlecase}} </td>
       </ng-container>
 
       <ng-container matColumnDef="details">
