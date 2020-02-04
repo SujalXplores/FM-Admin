@@ -4,9 +4,6 @@
       <mat-card-content>
 
         <form class="example-form" (ngSubmit)="OnProductEdit(f)" #f="ngForm">
-          <!-- <mat-form-field class="example-full-width">
-              <input name="pro_id" [(ngModel)]=pro_id1 #pro_id="ngModel" matInput type="number" placeholder="Enter Product id:">
-            </mat-form-field> -->
 
             <mat-form-field class="example-full-width" appearance="outline">
               <input required name="pro_name" [(ngModel)]=pro_name1 #pro_name="ngModel" matInput type="text" placeholder="Enter Product Name">
@@ -30,9 +27,8 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="outline">
-              <input required pattern="[a-z A-Z]*" name="pro_desc" [(ngModel)]=pro_desc1 #pro_desc="ngModel" type="text-area" matInput placeholder="Enter Product Description">
+              <input required name="pro_desc" [(ngModel)]=pro_desc1 #pro_desc="ngModel" type="text-area" matInput placeholder="Enter Product Description">
               <mat-hint class="hint" *ngIf="pro_desc.hasError('required') && !pro_desc.pristine">Description is Required</mat-hint>
-              <mat-hint class="hint" *ngIf="pro_desc.hasError('pattern') && !pro_desc.pristine">Only Letters</mat-hint>
               <mat-icon matSuffix><i class="far fa-file-medical"></i></mat-icon>
             </mat-form-field>
 

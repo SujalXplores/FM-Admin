@@ -1,11 +1,8 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
     <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <!-- <img  height="100" width="100" align="right" style="border-radius: 50%;" src="http://localhost:3000/images/product_photos/{{row.pro_photo}}"> -->
-      <!-- <img  height="100" width="100" align="right" style="border-radius: 50%;" src="http://localhost:3000/images/user_photos/{{user_image}}"> -->
         <mat-card-title>Product Details</mat-card-title>
             <mat-card-content>
                 <mat-list>
-
                   <mat-list-item>Product ID :{{product_id}}</mat-list-item>
                   <mat-divider></mat-divider>
 
@@ -18,11 +15,11 @@
                   <mat-list-item>Price :{{product_price | currency:"INR"}}</mat-list-item>
                   <mat-divider></mat-divider>
 
-                  <mat-list-item>Description  :{{product_desc}}</mat-list-item>
+                  <mat-list-item>Description :{{product_desc | titlecase}}</mat-list-item>
                   <mat-divider></mat-divider>
 
-                  <mat-list-item>Image :
-                    <img *ngFor="let item of image_arr" height="100" width="100" align="right" src="http://localhost:3000/images/product_photos/{{item}}">
+                  <mat-list-item style="height: 100px;">Preview :
+                    <img *ngFor="let item of image_arr" height="80px" width="80px" src="http://localhost:3000/images/product_photos/{{item}}">
                   </mat-list-item>
                   <mat-divider></mat-divider>
 
@@ -31,7 +28,6 @@
                 <div mat-dialog-actions>
                   <button mat-button (click)="onCancelClick()">Close</button>
                 </div>
-
         </mat-card-content>
     </mat-card>
 </section>

@@ -9,5 +9,5 @@
 img{
   border-radius: 50%;
   outline: 0;
-  border: 0;
+  border: 1px solid rgb(0, 0, 0);
 }
