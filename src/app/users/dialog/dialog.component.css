@@ -9,9 +9,5 @@
 img{
   border-radius: 50%;
   outline: 0;
-  border: 1px solid blue;
-}
-button {
-  border: 0 !important;
-  outline: 0 !important;
+  border: 1px solid rgb(0, 0, 0);
 }

@@ -25,24 +25,30 @@
 
               <mat-form-field class="example-full-width" appearance="outline">
                 <input formControlName="u_password" matInput type="password" placeholder="Set New Password">
-                <!-- <input required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{4,}$" name="u_password" [(ngModel)]=user_password #u_password="ngModel"  matInput type="text" placeholder="Set New Password">
-                <mat-hint class="hint" *ngIf="u_password.hasError('required') && !u_password.pristine">Password is Required</mat-hint>
-                <mat-hint class="hint" *ngIf="u_password.hasError('pattern') && !u_password.pristine">Minimum four characters,at least one letter,one number and one speacial one character!</mat-hint> -->
                 <mat-icon class="material-icons-outlined" matSuffix>lock</mat-icon>
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="outline">
                 <input formControlName="u_address" matInput type="text" placeholder="Change Your Address">
-                <!-- <mat-hint class="hint" *ngIf="u_address.hasError('required') && !u_address.pristine">Address is Required</mat-hint> -->
                 <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
               </mat-form-field>
 
-              <input type="file" (change)="onChange($event)">
-              <img height="120" width="120" align="left" style="border-radius: 50%;" src="{{image_url}}">
+              <div class="form-group">
+                  <div class="rounded p-6">
+                      <div class="media">
+                          <div class="media-body">
+                              <label class="btn btn-lg btn-outline-primary ml-2">
+                                Upload photo
+                                <input type="file" class="d-none" (change)="onChange($event)">
+                              </label>
+                              <img height="100" width="100" align="right" style="border-radius: 50%;" src="{{image_url}}"> 
+                          </div>
+                      </div>
+                  </div>
+              </div> 
 
               <button class="example-full-width" type="submit" mat-raised-button color="accent">Update User</button>
             </form>
           </mat-card-content>
         </mat-card>
       </section>
-

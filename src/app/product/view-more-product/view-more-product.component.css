@@ -9,10 +9,6 @@
 mat-list-item {
   height: 100%;
 }
-button {
-  border: 0 !important;
-  outline: 0 !important;
-}
 img {
   border-radius: 50%;
   border: 1px solid blue;

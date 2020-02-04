@@ -2,10 +2,13 @@
 <body>
 	<div class="container-login100">
 		<div class="wrap-login100">
+
 			<form class="login100-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+			
 			<span class="login100-form-title p-b-48">
 				<img src="../../assets/image/logo.svg">
 			</span>
+
 			<span class="login100-form-title p-b-26">
 				Future MediSurgico
 			</span>
@@ -31,7 +34,7 @@
 			</mat-form-field>
 
 			<button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="accent" class="example-full-width">Sign In</button>
-
+			
 			</form>
 		</div>
 	</div>

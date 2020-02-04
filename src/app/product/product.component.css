@@ -2,12 +2,6 @@ mat-icon {
   margin: 0;
   padding: 0;
 }
-
-button {
-  outline: none !important;
-  border: 0 !important;
-}
-
 table {
   width: 100%;
 }
