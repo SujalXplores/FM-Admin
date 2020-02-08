@@ -41,9 +41,9 @@ export class ProductdataService {
     return this.http.get(this.url + pro_id, {headers: x});
   }
 
-  updateProduct(item: product) {
+  updateProduct(pro_id: number,item: product) {
      let body = JSON.stringify(item);
      let x = new HttpHeaders().set('Content-Type', 'application/json');
-     return this.http.put(this.url + item.pro_id, body , {headers: x} );
+     return this.http.put(this.url + pro_id, body , {headers: x} );
   }
 }

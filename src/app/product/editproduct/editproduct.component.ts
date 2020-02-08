@@ -19,6 +19,7 @@ export class EditproductComponent implements OnInit {
   pro_desc1: string;
   ngOnInit() {
     this.pro_id1 = this._act_route.snapshot.params["pro_id"];
+    console.log(this.pro_id1);
     this._productdata.editProduct(this.pro_id1).subscribe(
         (data: product) => {
           this.pro_name1 = data[0].pro_name;
@@ -30,7 +31,7 @@ export class EditproductComponent implements OnInit {
   }
 
   OnProductEdit(f) {
-    this._productdata.updateProduct(f.value).subscribe(
+    this._productdata.updateProduct(this.pro_id1,f.value).subscribe(
       (data: any) => {
         this._router.navigate(['/nav/product']);
         console.log(f.value);

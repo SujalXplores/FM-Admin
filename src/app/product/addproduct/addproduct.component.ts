@@ -18,7 +18,7 @@ export class AddproductComponent implements OnInit {
   constructor(private _productdata: ProductdataService , private _router: Router , private _catdata: CategorydataService) { }
   value = '';
   ngOnInit() {
-    this._productdata.getAllProducts().subscribe(
+    this._catdata.getAllCategory().subscribe(
       (data: any[]) => {
         this.catnamearr = data;
         console.log(this.catnamearr);

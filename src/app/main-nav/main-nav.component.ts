@@ -27,7 +27,7 @@ export class MainNavComponent {
     this.u_email_id = localStorage.getItem('u_email_id');
     this.u_name = localStorage.getItem('u_name');
   }
-  
+
   openDialog() {
     this.dialog.open(ExitDialogComponent);
   }
