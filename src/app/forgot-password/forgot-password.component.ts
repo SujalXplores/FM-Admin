@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { EmailService } from './email.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -28,12 +28,12 @@ export class ForgotPasswordComponent implements OnInit {
     });
   }
 
-  onForgetClick() {
-    console.log(this.forgetPasswordForm.value);
-    this.email.emailSend(this.forgetPasswordForm.value).subscribe(
-      (data)=>{
-        this._router.navigate(['']);
-        console.log(data);
-      });
-    }
+onForgetClick() {
+  console.log(this.forgetPasswordForm.value);
+  this.email.emailSend(this.forgetPasswordForm.value).subscribe(
+    (data)=>{
+      this._router.navigate(['']);
+      console.log(data);
+    });
+  }
 }
