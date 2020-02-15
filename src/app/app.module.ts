@@ -159,4 +159,3 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
