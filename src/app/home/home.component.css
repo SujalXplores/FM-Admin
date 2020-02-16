@@ -114,6 +114,11 @@ mat-card {
   background: linear-gradient(50deg,#FA9151,#5D4037) !important;
   color: #fff !important;
 }
+
+.breadcrumb{
+  background: #eee;
+  font-weight: bold;
+}
 .gradient-lime{
   background: #827717 !important;
   background: -webkit-linear-gradient(50deg,#FDD819,#827717) !important;
