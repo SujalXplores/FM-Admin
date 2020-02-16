@@ -2,7 +2,7 @@ import { OnInit } from '@angular/core';
 import { Component, Output, EventEmitter, ViewChild, Renderer2, AfterViewInit } from '@angular/core';
 import { Moment } from 'moment';
 import * as moment from 'moment';
-import { MatCalendar } from '@angular/material';
+import { MatCalendar } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-calender',

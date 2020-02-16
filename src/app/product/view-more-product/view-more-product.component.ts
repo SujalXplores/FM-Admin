@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { product } from '../product';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductPhotodataService } from 'src/app/product-photo/product-photodata.service';
 import { ProductdataService } from '../productdata.service';
 
