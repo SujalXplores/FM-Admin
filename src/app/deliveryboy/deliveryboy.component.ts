@@ -25,7 +25,7 @@ import { DeliveryboydataService } from './deliveryboydata.service';
 export class DeliveryboyComponent implements OnInit {
   deliveryboyarr: deliveryboy[] = [];
   expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'deliveryboy_name' , 'deliveryboy_address', 'details', 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'deliveryboy_name' , 'deliveryboy_address', 'action'];
   dataSource: MatTableDataSource<deliveryboy>;
 
   selection = new SelectionModel<deliveryboy>(true, []);

@@ -46,32 +46,20 @@
         <td mat-cell *matCellDef="let row"> {{row.deliveryboy_address}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="details">
-        <th mat-header-cell *matHeaderCellDef> Details </th>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let row">
           <button mat-icon-button style="color: blue">
             <mat-icon>view_headline_outlined</mat-icon>
           </button>
-        </td>
-      </ng-container>
-
-        <ng-container matColumnDef="delete">
-          <th mat-header-cell *matHeaderCellDef> Delete </th>
-          <td mat-cell *matCellDef="let row">
           <button (click)="onDelete(row)" mat-icon-button color="warn">
             <mat-icon>delete_outlined</mat-icon>
           </button>
-        </td>
-        </ng-container>
-
-        <ng-container matColumnDef="edit">
-          <th mat-header-cell *matHeaderCellDef> Update </th>
-          <td mat-cell *matCellDef="let row">
           <button (click)="OnDeliveryboyEdit(row)" mat-icon-button>
             <mat-icon>edit_outlined</mat-icon>
           </button>
         </td>
-        </ng-container>
+      </ng-container>
 
       <ng-container matColumnDef="expandedDetail">
         <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">

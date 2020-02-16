@@ -26,7 +26,7 @@ export class OrderComponent implements OnInit {
 
   orderarr: order[] = [];
   expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'order_amount', 'order_date', 'details', 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'order_amount', 'order_date', 'action'];
   dataSource: MatTableDataSource<order>;
 
   selection = new SelectionModel<order>(true, []);

@@ -1,36 +1,34 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
-
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-
+      <div class="welcome">
       <mat-toolbar>
         <img src="../../assets/image/logo.svg" align="center" alt="FutureMedisurgico">
       </mat-toolbar>
-      <div class="welcome">
+      
         Welcome {{u_email_id}}
       </div>
 
     <mat-nav-list>
 
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/nav"><mat-icon class="material-icons-outlined">dashboard</mat-icon><span>Dashboard</span></a>
+      <a class="active" mat-list-item routerLink="/nav"><mat-icon class="material-icons-outlined">dashboard</mat-icon><span>Dashboard</span></a>
       <a mat-list-item routerLink="/nav/users"><mat-icon class="material-icons-outlined">account_box</mat-icon><span>Users</span></a>
       <a mat-list-item routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined">local_shipping</mat-icon><span>DeliveryBoy</span></a>
       <a mat-list-item routerLink="/nav/product"><mat-icon class="material-icons-outlined">local_hospital</mat-icon><span>Products</span></a>
       <a mat-list-item routerLink="/nav/product_photo"><mat-icon class="material-icons-outlined">local_see</mat-icon><span>Product Photo</span></a>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/nav/cart"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart</span></a>
-      <a mat-list-item routerLink="/nav/cart_details"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart Details</span></a>
+      <!-- <a mat-list-item routerLink="/nav/cart"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart</span></a>
+      <a mat-list-item routerLink="/nav/cart_details"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart Details</span></a> -->
       <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">account_tree</mat-icon><span>Category</span></a>
       <mat-divider></mat-divider>
       <a mat-list-item routerLink="/nav/order"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Orders</span></a>
-      <a mat-list-item routerLink="/nav/h-article"><mat-icon class="material-icons-outlined">chrome_reader_mode</mat-icon><span>Health Articles</span></a>
+      <!-- <a mat-list-item routerLink="/nav/h-article"><mat-icon class="material-icons-outlined">chrome_reader_mode</mat-icon><span>Health Articles</span></a> -->
       <mat-divider></mat-divider>
 
     </mat-nav-list>
-
   </mat-sidenav>
 
   <mat-sidenav-content>

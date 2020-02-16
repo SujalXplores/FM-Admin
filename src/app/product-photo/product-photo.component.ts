@@ -18,7 +18,7 @@ import { ViewMoreProductPhotoComponent } from './view-more-product-photo/view-mo
 export class ProductPhotoComponent implements OnInit {
 
   productarr: product_photo[] = [];
-  displayedColumns: string[] = ['select', 'fk_pro_id', 'details', 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'fk_pro_id', 'action'];
   dataSource: MatTableDataSource<product_photo>;
 
   selection = new SelectionModel<product_photo>(true, []);
