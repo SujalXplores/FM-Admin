@@ -31,5 +31,4 @@ export class MainNavComponent {
   openDialog() {
     this.dialog.open(ExitDialogComponent);
   }
-
 }

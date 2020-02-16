@@ -11,11 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-display.component.css']
 })
 export class LoginDisplayComponent implements OnInit {
-toasts: any[] = [];
 loginForm: FormGroup;
 
 constructor(private _router:Router, private _logindata: LogindataService) { }
-hide: string = 'false';
+hide: boolean = true;
 ngOnInit() {
     this.loginForm = new FormGroup({
       u_email_id: new FormControl("sujalshah@gmail.com", [Validators.required, Validators.email]),

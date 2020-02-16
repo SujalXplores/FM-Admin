@@ -1,0 +1,23 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+              <form [formGroup]="mailVendorForm" (ngSubmit)="onMailVendor(f)" #f="ngForm">
+              
+                <mat-form-field class="example-full-width">
+                  <input readonly formControlName="email_id" matInput type="text">
+                  <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field><br>
+              
+                <mat-form-field class="example-full-width">
+                  <input formControlName="subject" matInput type="text" placeholder="Enter the subject">
+                  <mat-icon matSuffix>pen</mat-icon>
+                </mat-form-field><br>
+              
+                <mat-form-field class="example-full-width">
+                  <textarea formControlName="message" rows="2" cols="200" matInput style="height:250px !important;"></textarea>
+                </mat-form-field><br>
+              
+                <button class="example-full-width" type="submit" mat-raised-button color="primary">Send</button>
+              
+              </form>
+  </mat-card>
+</section>

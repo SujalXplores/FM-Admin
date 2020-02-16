@@ -31,15 +31,6 @@ a {
 	margin: 0px;
 }
 
-mat-hint:focus {
-	outline: none !important;
-}
-
-mat-hint:hover {
-	text-decoration: none;
-  color: #0022ff;
-}
-
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
@@ -80,23 +71,24 @@ button {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-color: #2D323D;
+  /* background-color: #2D323D; */
+}
+body {
+  background-image: url(../../assets/image/bg.jpg);
+  background-repeat: repeat;
+  background-size: 250px 230px;
 }
 
 .wrap-login100 {
   width: 390px;
-  background: #fff;
+  background: rgb(255, 255, 255);
   border-radius: 5px;
   overflow: hidden;
   padding: 40px 40px 33px 40px;
-
-  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
-  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 5px 8px 118px 35px rgba(119,97,153,0.48);
+  -moz-box-shadow: 5px 8px 118px 35px rgba(119,97,153,0.48);
+  box-shadow: 5px 8px 118px 35px rgba(119,97,153,0.48);
 }
-
 
 /*------------------------------------------------------------------
 [ Form ]*/
@@ -126,6 +118,7 @@ button {
   width: 100%;
   position: relative;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .input100 {

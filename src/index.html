@@ -22,7 +22,14 @@
 <!-- Angular material api -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<!-- jquery cdn -->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
+<script type="text/javascript">
+    $(document).on('click', 'a', function(){
+        $(this).addClass('active').siblings().removeClass('active')
+    })
+</script>
 <!-- Loader css -->
 <style type="text/css">
   #fuse-splash-screen {
