@@ -67,7 +67,6 @@ import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addpr
 import { CalenderComponent } from './calender/calender.component';
 import { ExitDialogComponent } from './main-nav/exit-dialog/exit-dialog.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ValetMailComponent } from './deliveryboy/valet-mail/valet-mail.component';
 
 @NgModule({
@@ -106,7 +105,6 @@ import { ValetMailComponent } from './deliveryboy/valet-mail/valet-mail.componen
     CalenderComponent,
     ExitDialogComponent,
     EditproductPhotoComponent,
-    ChangePasswordComponent,
     ValetMailComponent
   ],
   imports: [

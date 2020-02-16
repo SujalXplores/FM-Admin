@@ -26,7 +26,7 @@ td, th {
   width: 50%;
 }
 .breadcrumb{
-  background: #eee;
+  font-family: sans-serif;
   font-weight: bold;
 }
 

@@ -14,25 +14,25 @@ export class ValetMailComponent implements OnInit {
 
   mailVendorForm:FormGroup;
   constructor(public dialogref:MatDialogRef<ValetMailComponent>,private _mail: SendMailService,
-    @Inject(MAT_DIALOG_DATA)public data: deliveryboy) { }
+  @Inject(MAT_DIALOG_DATA)public data: deliveryboy) { }
 
   ngOnInit():void {
   console.log(this.data);
   this.mailVendorForm=new FormGroup({
     email_id:new FormControl(this.data.deliveryboy_email),
-    subject:new FormControl(null),
-    message:new FormControl(null)
+    subject:new FormControl(null,Validators.required),
+    message:new FormControl(null,Validators.required)
   });
+}
+
+onMailVendor(f){
+  this._mail.generatemail(f.value).subscribe(
+    (data: maildata[])=>{
+    }
+  )
+  this.dialogref.close();
+}
+onClose() {
+  this.dialogref.close();
   }
-
-  onMailVendor(f){
-
-    console.log(f.value);
-    this._mail.generatemail(f.value).subscribe(
-      (data: maildata[])=>{
-        this.dialogref.close();
-      }
-    )
-  }
-
 }
