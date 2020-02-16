@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "mypracticeapp"
+  "defaultProject": "mypracticeapp",
+  "cli": {
+    "analytics": false
+  }
 }
