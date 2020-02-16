@@ -30,7 +30,10 @@ td, th {
   margin-left: 10px;
   width: 50%;
 }
-
+.breadcrumb{
+  background: #eee;
+  font-weight: bold;
+}
 
 
 
