@@ -27,6 +27,10 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="outline">
+              <input required ngModel name="u_type" #u_mobileno="ngModel" type="text" matInput>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
               <input required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{4,}$" ngModel name="u_password" #u_password="ngModel" matInput type="password" placeholder="Enter password">
               <mat-hint class="hint" *ngIf="u_password.hasError('required') && !u_password.pristine">Password is Required</mat-hint>
               <mat-hint class="hint" *ngIf="u_password.hasError('pattern') && !u_password.pristine">Minimum four characters,at least one letter,one number and one speacial one character!</mat-hint>

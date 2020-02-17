@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
 
   userarr: users[] = [];
   del_arr: string[] = [];
-  displayedColumns: string[] = ['select', 'u_name', 'u_mobileno', 'action'];
+  displayedColumns: string[] = ['select', 'u_name', 'u_type', 'u_mobileno', 'action'];
   dataSource: MatTableDataSource<users>;
 
   selection = new SelectionModel<users>(true, []);
