@@ -10,13 +10,13 @@
   <mat-icon matPrefix>search</mat-icon>
 </mat-form-field>
 
-<!-- <button mat-raised-button matTooltip="Delete Selected"(click)="ondeleteallclick()" color="warn" class="deletebutton">
+<button mat-raised-button matTooltip="Delete Selected"(click)="ondeleteallclick()" color="warn" class="deletebutton">
   <span>Delete</span>
 </button>
 
 <button routerLink='/nav/addProduct' mat-raised-button matTooltip="Add Product" color="accent" class="addbutton">
   <span>Add</span>
-</button> -->
+</button>
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
@@ -76,10 +76,6 @@
     </table>
     <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
 </div>
-<button mat-raised-button matTooltip="Delete Selected"(click)="ondeleteallclick()" color="warn" class="deletebutton">
-  <span>Delete</span>
-</button>
 
-<button routerLink='/nav/addProduct' mat-raised-button matTooltip="Add Product" color="accent" class="addbutton">
-  <span>Add</span>
-</button>
+
+
