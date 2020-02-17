@@ -14,8 +14,8 @@ td, th {
 }
 .addbutton {
   margin-top: 10px;
-  margin-left: 10px;
-  float: left;
+  margin-right: 10px;
+  float: right;
 }
 .mat-elevation-z8 {
   margin-left: 10px;
