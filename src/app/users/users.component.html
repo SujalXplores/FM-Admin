@@ -55,11 +55,6 @@
           <td mat-cell *matCellDef="let row"> {{row.u_type | titlecase}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="u_mobileno">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
-          <td mat-cell *matCellDef="let row"> {{row.u_mobileno}} </td>
-        </ng-container>
-
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> Actions </th>
           <td mat-cell *matCellDef="let row">
