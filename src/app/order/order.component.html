@@ -10,11 +10,11 @@
   <mat-icon matPrefix>search</mat-icon>
 </mat-form-field>
 
-<button routerLink='/nav/addOrder' mat-raised-button matTooltip="Add Desired Product Wisely" color="accent" class="addbutton">
-  <!-- <mat-icon>add</mat-icon> -->
+<!-- <button routerLink='/nav/addOrder' mat-raised-button matTooltip="Add Desired Product Wisely" color="accent" class="addbutton">
+
   <span>Add</span>
 
-</button>
+</button> -->
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
@@ -58,13 +58,13 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let row">
-          <button (click)="openDialog(row)" mat-icon-button style="color: blue">
+          <button (click)="openDialog(row)"  matTooltip="View more" mat-icon-button style="color: blue">
             <mat-icon>view_headline_outlined</mat-icon>
           </button>
-          <button (click)="onDelete(row)" mat-icon-button color="warn">
+          <button (click)="onDelete(row)"  matTooltip="Delete" mat-icon-button color="warn">
             <mat-icon>delete_outlined</mat-icon>
           </button>
-          <button (click)="OnOrderEdit(row)" mat-icon-button>
+          <button (click)="OnOrderEdit(row)"  matTooltip="Edit" mat-icon-button>
             <mat-icon>edit_outlined</mat-icon>
           </button>
         </td>
@@ -76,3 +76,6 @@
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
+<button routerLink='/nav/addOrder' mat-raised-button matTooltip="Add Order" color="accent" class="addbutton">
+  <!-- <mat-icon>add</mat-icon> -->
+  <span>Add</span>

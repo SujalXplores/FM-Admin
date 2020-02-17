@@ -29,7 +29,11 @@
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="outline">
-                <input formControlName="u_type" matInput type="text" placeholder="Set New Password">
+                <mat-label>Select Type</mat-label>
+                <mat-select formControlName="u_type">
+                  <mat-option value="admin">admin</mat-option>
+                  <mat-option value="user">user</mat-option>
+                </mat-select>
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="outline">
