@@ -70,6 +70,7 @@ import { CalenderComponent } from './calender/calender.component';
 import { ExitDialogComponent } from './main-nav/exit-dialog/exit-dialog.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     CalenderComponent,
     ExitDialogComponent,
     EditproductPhotoComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    OrderDetailComponent
   ],
   imports: [
     routingArr,

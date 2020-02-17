@@ -1,19 +1,17 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
-import { order } from './order';
+import { Component, OnInit , ViewChild} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { order_detail } from './order_detail';
 import { Router } from '@angular/router';
-import { OrderdataService } from './orderdata.service';
-import { OrderDialogComponent } from './order-dialog/order-dialog.component';
-
+import { OrderDetaildataService } from './order-detaildata.service';
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.css'],
+  selector: 'app-order-detail',
+  templateUrl: './order-detail.component.html',
+  styleUrls: ['./order-detail.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -22,55 +20,45 @@ import { OrderDialogComponent } from './order-dialog/order-dialog.component';
     ]),
   ],
 })
-export class OrderComponent implements OnInit {
+export class OrderDetailComponent implements OnInit {
 
-  orderarr: order[] = [];
-  expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'order_amount', 'order_date', 'details', 'delete', 'edit'];
-  dataSource: MatTableDataSource<order>;
+  orderdetailarr: order_detail[] = [];
+  displayedColumns: string[] = ['select', 'fk_order_id', 'pro_name' ,  'qty' , 'delete', 'edit'];
+  dataSource: MatTableDataSource<order_detail>;
 
-  selection = new SelectionModel<order>(true, []);
+  selection = new SelectionModel<order_detail>(true, []);
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: OrderdataService, public router: Router , public dialog: MatDialog) {
-    this.dataSource = new MatTableDataSource();
-   }
+  constructor(private _data: OrderDetaildataService, public router: Router) { }
 
-   openDialog(row) {
-    this.dialog.open(OrderDialogComponent, {
-      data: row
-    });
-  }
-
-  onDelete(item: order) {
+  onDelete(item: order_detail) {
     if (confirm('Are You Sure You Want To Delete ?')) {
-      this._data.deleteOrder(item.order_id).subscribe(
+      this._data.deleteOrderDetail(item.order_detail_id).subscribe(
         (data: any) => {
           console.log(data);
-          this.orderarr.splice(this.orderarr.indexOf(item), 1);
-          this.dataSource.data = this.orderarr;
+          this.orderdetailarr.splice(this.orderdetailarr.indexOf(item), 1);
+          this.dataSource.data = this.orderdetailarr;
         }
       );
     }
   }
 
-  OnOrderEdit(item: order) {
-    this.router.navigate(['/nav/editorder', item.order_id]);
+  OnOrderDetailEdit(item: order_detail) {
+    this.router.navigate(['/nav/editorder', item.order_detail_id]);
   }
 
-
-applyFilter(filterValue: string) {
+  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {
     this.dataSource.paginator.firstPage();
   }
 }
-  ngOnInit() {
-    this._data.getAllOrder().subscribe(
-      (data: order[]) => {
-        this.orderarr = data;
+  ngOnInit(): void {
+    this._data.getAllOrderDetail().subscribe(
+      (data: order_detail[]) => {
+        this.orderdetailarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -78,9 +66,6 @@ applyFilter(filterValue: string) {
     );
   }
 
-   // onUserEdit(item: product) {
-  //   this.router.navigate(['editUser', item.email]);
-  // }
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
@@ -92,12 +77,5 @@ applyFilter(filterValue: string) {
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
   }
-}
 
-export interface ViewMore {
-  u_email_id: string;
-  order_date: Date;
-  order_status: string;
-  deliveryboy_id: number;
 }
-

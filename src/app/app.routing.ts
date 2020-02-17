@@ -29,6 +29,7 @@ import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 
 const arr: Routes = [
@@ -52,6 +53,7 @@ const arr: Routes = [
       {path: 'order', component: OrderComponent},
       {path: 'addOrder', component: AddorderComponent},
       {path: 'editorder/:order_id', component: EditorderComponent},
+      {path: 'order_detail', component: OrderDetailComponent},
       {path: 'deliveryboy', component: DeliveryboyComponent},
       {path: 'adddeliveryboy', component: AdddeliveryboyComponent},
       {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
