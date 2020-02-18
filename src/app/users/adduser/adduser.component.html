@@ -1,24 +1,26 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title>ADD User</mat-card-title>
+      <mat-card-title align="center">Add User</mat-card-title>
       <mat-card-content>
 
         <form class="example-form" (ngSubmit)="onUesrAdd(f)" #f="ngForm">
 
-            <mat-form-field class="example-full-width" appearance="outline">
-              <input required ngModel name="u_email_id" #u_email_id="ngModel" matInput type="email" placeholder="Enter Email">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <input required ngModel name="u_email_id" #u_email_id="ngModel" matInput type="email">
+              <mat-label>Enter Email</mat-label>
               <mat-hint class="hint" *ngIf="u_email_id.hasError('required') && !u_email_id.pristine">Email is Required</mat-hint>
               <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
-              <input required pattern="[a-z A-Z]*" ngModel name="u_name" #u_name="ngModel" matInput type="text" placeholder="Enter Name">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <input required pattern="[a-z A-Z]*" ngModel name="u_name" #u_name="ngModel" matInput type="text">
+              <mat-label>Enter Name</mat-label>
               <mat-icon class="material-icons-outlined" matSuffix>portrait</mat-icon>
               <mat-hint class="hint" *ngIf="u_name.hasError('required') && !u_name.pristine">Name is Required</mat-hint>
               <mat-hint class="hint" *ngIf="u_name.hasError('pattern') && !u_name.pristine">Only Letters</mat-hint>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <input required pattern="[0-9]*" minlength="10" ngModel name="u_mobileno" #u_mobileno="ngModel" type="text" matInput appPhone placeholder="+91 Enter Mobile Number">
               <mat-hint class="hint" *ngIf="u_mobileno.hasError('required') && !u_mobileno.pristine">Mobile Number is Required</mat-hint>
               <mat-hint class="hint" *ngIf="u_mobileno.hasError('minlength') && !u_mobileno.pristine">Mobile number must be of 10 digits!</mat-hint>
@@ -26,7 +28,7 @@
               <mat-icon class="material-icons-outlined" matSuffix>contact_phone</mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Select Type</mat-label>
               <mat-select required ngModel name="u_type" #u_type="ngModel">
                 <mat-option value="admin">admin</mat-option>
@@ -34,14 +36,14 @@
               </mat-select>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <input required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{4,}$" ngModel name="u_password" #u_password="ngModel" matInput type="password" placeholder="Enter password">
               <mat-hint class="hint" *ngIf="u_password.hasError('required') && !u_password.pristine">Password is Required</mat-hint>
               <mat-hint class="hint" *ngIf="u_password.hasError('pattern') && !u_password.pristine">Minimum four characters,at least one letter,one number and one speacial one character!</mat-hint>
               <mat-icon class="material-icons-outlined" matSuffix>lock</mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <input required ngModel name="u_address" #u_address="ngModel" matInput type="text" placeholder="Enter Your Address">
               <mat-hint class="hint" *ngIf="u_address.hasError('required') && !u_address.pristine">Address is Required</mat-hint>
               <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>

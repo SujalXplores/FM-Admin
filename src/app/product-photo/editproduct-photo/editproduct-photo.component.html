@@ -1,13 +1,12 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-
-      <mat-card-title>Edit Product Photo</mat-card-title>
+      <mat-card-title align="center">Edit Product Photo</mat-card-title>
       <mat-card-content>
           
       <form [formGroup]="photo_update" (ngSubmit)="onPhotoSubmit()">
         <img align=left width="100" height="100" src="{{photoUrl}}">
         <div>
-          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-form-field class="example-full-width" appearance="fill">
             <mat-select formControlName="fk_pro_id">
               <mat-option *ngFor="let item of list"  [value]="item.pro_id">
                 {{item.pro_name}}

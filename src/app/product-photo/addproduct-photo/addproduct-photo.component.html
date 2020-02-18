@@ -1,32 +1,34 @@
 <section fxLayout="row" fxLayoutAlign="space-around center" >
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-
-  <mat-card-title>ADD Product Photo</mat-card-title>
+  <mat-card-title align="center">Add Product Photo</mat-card-title>
   <mat-card-content>
-  <form (ngSubmit)="onProductPhotoAdd(f)" #f="ngForm">
 
-       <mat-form-field class="example-full-width" appearance="outline">
-          <mat-select required ngModel name="fk_pro_id" #fk_pro_id="ngModel" placeholder="Select Product Name">
-            <mat-option *ngFor="let item of productarr" [value]="item.pro_id">
-              {{item.pro_name}}
-            </mat-option>
-         </mat-select>
-       </mat-form-field>
+      <form (ngSubmit)="onProductPhotoAdd(f)" #f="ngForm">
 
-       <div class="form-group">
-        <div class="rounded p-6">
-            <div class="media">
-                <div class="media-body">
-                    <label class="btn btn-sm btn-outline-primary mb-3 ml-2">
-                        Upload photo
-                        <input required type="file" class="d-none" name="pro_photo" (change)="onChange($event)">
-                    </label>
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-select required ngModel name="fk_pro_id" #fk_pro_id="ngModel" placeholder="Select Product Name">
+                <mat-option *ngFor="let item of productarr" [value]="item.pro_id">
+                  {{item.pro_name}}
+                </mat-option>
+            </mat-select>
+            <mat-error>This Field Can't be Empty</mat-error>
+          </mat-form-field>
+
+          <div class="form-group">
+            <div class="rounded p-6">
+                <div class="media">
+                    <div class="media-body">
+                        <label class="btn btn-sm btn-outline-primary mb-3 ml-2">
+                            Upload photo
+                            <input required type="file" class="d-none" name="pro_photo" (change)="onChange($event)">
+                        </label>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add Product Photo</button>
-  </form>
-</mat-card-content>
-</mat-card>
+          </div>
+        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add Product Photo</button>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
 </section>

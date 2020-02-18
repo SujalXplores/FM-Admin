@@ -5,12 +5,14 @@
 </div>
 <mat-progress-bar *ngIf="productarr.length<0" color="warn" mode="indeterminate"></mat-progress-bar>
 
-<mat-form-field class="filterClass">
+<mat-form-field class="filterClass" appearance="fill">
   <input matInput (keyup)="applyFilter($event.target.value)">
-  <mat-icon matPrefix>search</mat-icon>
+  <mat-label>Search</mat-label>
+  <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 
-<button routerLink='/nav/addProductphoto' mat-raised-button matTooltip="Add Product Photo" color="accent" class="addbutton">
+<button routerLink='/nav/addProductphoto' mat-raised-button matTooltip="Add Product Photo" color="primary" class="addbutton">
+  <mat-icon>add</mat-icon>
   <span>Add</span>
 </button>
 
@@ -62,7 +64,7 @@
        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
 
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
 </div>
 <!-- <button routerLink='/nav/addProductphoto' mat-raised-button matTooltip="Add Product Photo" color="accent" class="addbutton">
   <span>Add</span>

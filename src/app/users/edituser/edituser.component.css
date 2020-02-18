@@ -21,3 +21,9 @@ section {
   font-size: 14px;
   font-weight: bolder;
 }
+.email_label {
+  margin-left: 35%;
+}
+mat-icon {
+  font-size: 26px !important;
+}

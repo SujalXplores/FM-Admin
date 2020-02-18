@@ -1,42 +1,40 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title>ADD Valet</mat-card-title>
+      <mat-card-title align="center">Add Valet</mat-card-title>
       <mat-card-content>
         <form class="example-form" (ngSubmit)="onDeliveryboyAdd(f)" #f="ngForm">
 
-          <mat-form-field class="example-full-width" appearance="outline">
-            <input readonly ngModel name="deliveryboy_id" #deliveryboy_id="ngModel" matInput type="number" placeholder="Enter Deliveryboy ID">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input readonly ngModel name="deliveryboy_id" #deliveryboy_id="ngModel" matInput type="number" placeholder="Valet ID assigned Automatically">
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline">
-            <input  required pattern="[a-z A-Z]*" ngModel name="deliveryboy_name" #deliveryboy_name="ngModel" matInput type="text" placeholder="Enter Deliveryboy Name">
-            <!-- <mat-icon matSuffix><i class="far fa-user"></i></mat-icon> -->
-            <mat-icon matSuffix> <i-feather name="user"></i-feather></mat-icon>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input  required pattern="[a-z A-Z]*" ngModel name="deliveryboy_name" #deliveryboy_name="ngModel" matInput type="text" placeholder="Enter Valet Name">
+            <mat-icon class="material-icons-outlined" matSuffix>perm_identity</mat-icon>
             <mat-hint class="hint" *ngIf="deliveryboy_name.hasError('required') && !deliveryboy_name.pristine">Name is Required</mat-hint>
             <mat-hint class="hint" *ngIf="deliveryboy_name.hasError('pattern') && !deliveryboy_name.pristine">Only Letters</mat-hint>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline">
-            <input required ngModel name="deliveryboy_address" #deliveryboy_address="ngModel" matInput type="text" placeholder="Enter Deliveryboy Address">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input required ngModel name="deliveryboy_address" #deliveryboy_address="ngModel" matInput type="text" placeholder="Enter Valet Address">
             <mat-hint class="hint" *ngIf="deliveryboy_address.hasError('required') && !deliveryboy_address.pristine">Address is Required</mat-hint>
-            <mat-icon matSuffix><i class="far fa-address-card"></i></mat-icon>
+            <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-form-field class="example-full-width" appearance="fill">
             <span matPrefix>+91 &nbsp;</span>
-            <input  required pattern="[0-9]*" minlength="10" ngModel name="deliveryboy_mobileno" #deliveryboy_mobileno="ngModel" type="number" matInput appPhone placeholder="Enter Mobile Number">
+            <input required pattern="[0-9]*" minlength="10" ngModel name="deliveryboy_mobileno" #deliveryboy_mobileno="ngModel" type="number" matInput appPhone placeholder="Enter Mobile Number">
             <!-- <mat-icon matSuffix><i class="far fa-phone"></i></mat-icon> -->
             <mat-hint class="hint" *ngIf="deliveryboy_mobileno.hasError('required') && !deliveryboy_mobileno.pristine">Mobile Number is Required</mat-hint>
             <mat-hint class="hint" *ngIf="deliveryboy_mobileno.hasError('minlength') && !deliveryboy_mobileno.pristine">Mobile number must be of 10 digits!</mat-hint>
             <mat-label class="label" *ngIf="deliveryboy_mobileno.hasError('pattern') && !deliveryboy_mobileno.pristine">Only Digits!</mat-label>
-            <mat-icon matSuffix> <i-feather name="phone"></i-feather></mat-icon>
+            <mat-icon matSuffix>phone</mat-icon>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline">
+          <mat-form-field class="example-full-width" appearance="fill">
             <input required ngModel name="deliveryboy_email" #deliveryboy_email="ngModel" matInput type="email" placeholder="Enter Email">
             <mat-hint class="hint" *ngIf="deliveryboy_email.hasError('required') && !deliveryboy_email.pristine">Email is Required</mat-hint>
-            <!-- <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon> -->
-            <mat-icon matSuffix> <i-feather name="mail"></i-feather></mat-icon>
+            <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
           </mat-form-field>
 
           <button  [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add Deliveryboy</button>

@@ -1,35 +1,32 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title>ADD Order</mat-card-title>
+      <mat-card-title align="center">Add New Order</mat-card-title>
       <mat-card-content>
 
         <form class="example-form" (ngSubmit)="OnOrderAdd(f)" #f="ngForm">
-
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <input required ngModel name="order_amount" #order_amount="ngModel" matInput type="text" placeholder="Enter Order Amount">
               <mat-hint class="hint" *ngIf="order_amount.hasError('required') && !order_amount.pristine">Amount is Required</mat-hint>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <input required ngModel name="order_date" #order_date="ngModel" type="date" matInput placeholder="Enter Order Date">
-              <!-- <mat-icon matSuffix><i class="far fa-calendar-alt"></i></mat-icon> -->
               <mat-hint class="hint" *ngIf="order_date.hasError('required') && !order_date.pristine">Date is Required</mat-hint>
-              <mat-icon matSuffix> <i-feather name="calendar"></i-feather></mat-icon>
+              <mat-icon class="material-icons-outlined" matSuffix>event</mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <input required ngModel name="fk_u_email_id" #fk_u_email_id="ngModel" type="text" matInput placeholder="Enter User Email ID">
-              <!-- <mat-icon matSuffix><i class="far fa-envelope"></i></mat-icon> -->
               <mat-hint class="hint" *ngIf="fk_u_email_id.hasError('required') && !fk_u_email_id.pristine">Email is Required</mat-hint>
-              <mat-icon matSuffix> <i-feather name="mail"></i-feather></mat-icon>
+              <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
-              <input  required ngModel name="payment_type" #payment_type="ngModel" type="text" matInput placeholder="Enter Method of payment type">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <input  required ngModel name="payment_type" #payment_type="ngModel" type="text" matInput placeholder="Payment Method">
               <mat-hint class="hint" *ngIf="payment_type.hasError('required') && !payment_type.pristine">Payment type is Required</mat-hint>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <input  required ngModel name="order_status" #order_status="ngModel" type="text" matInput placeholder="Enter Status of order">
               <mat-hint class="hint" *ngIf="order_status.hasError('required') && !order_status.pristine">Order Status is Required</mat-hint>
             </mat-form-field>

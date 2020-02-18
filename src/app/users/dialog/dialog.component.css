@@ -4,10 +4,9 @@
 .example-full-width {
   width: 95%;
   margin-top: 10px;
-   margin-left:10px;
+  margin-left:10px;
 }
 img{
   border-radius: 50%;
   outline: 0;
-  border: 1px solid rgb(0, 0, 0);
 }
