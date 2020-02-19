@@ -1,0 +1,28 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title align="center">Send Your Message</mat-card-title>
+      <form [formGroup]="mailUserForm" (ngSubmit)="onMailUser(f)" #f="ngForm">
+      
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input readonly formControlName="email_id" matInput type="text">
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field><br>
+      
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input formControlName="subject" matInput type="text" placeholder="Enter the subject">
+          <mat-icon matSuffix>edit</mat-icon>
+        </mat-form-field><br>
+      
+        <mat-form-field class="example-full-width" appearance="fill">
+          <textarea formControlName="message" matInput placeholder="Enter message" style="max-height:250px !important;"></textarea>
+        </mat-form-field><br>
+      
+        <button type="button" (click)="onClose()" mat-raised-button>Close</button>
+  
+        <button [disabled]="!f.valid" type="submit" mat-raised-button color="primary" style="margin-left: 10px;">Send
+          <mat-icon style="font-size: 24px;">send</mat-icon>
+        </button>
+      
+      </form>
+    </mat-card>
+  </section>

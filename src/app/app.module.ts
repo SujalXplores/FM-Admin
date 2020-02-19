@@ -72,6 +72,8 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { OrderDetailviewmoreComponent } from './order-detail/order-detailviewmore/order-detailviewmore.component';
 import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MailUserComponent } from './users/mail-user/mail-user.component';
 
 @NgModule({
   declarations: [
@@ -113,6 +115,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     OrderDetailComponent,
     OrderDetailviewmoreComponent,
     MultipleOrderDisplayComponentComponent,
+    MailUserComponent
   ],
   imports: [
     routingArr,
@@ -129,6 +132,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatMenuModule,
     MatButtonToggleModule,
     MatDialogModule,
+    MatBadgeModule,
     MatButtonModule,
     MatFormFieldModule,
     MatProgressBarModule,
@@ -159,7 +163,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ViewMoreProductPhotoComponent,
     ExitDialogComponent,
     ValetMailComponent,
-    OrderDetailviewmoreComponent
+    OrderDetailviewmoreComponent,
+    MailUserComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
