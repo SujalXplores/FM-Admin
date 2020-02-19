@@ -68,6 +68,7 @@ import { CalenderComponent } from './calender/calender.component';
 import { ExitDialogComponent } from './main-nav/exit-dialog/exit-dialog.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 import { ValetMailComponent } from './deliveryboy/valet-mail/valet-mail.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -125,6 +126,7 @@ import { ValetMailComponent } from './deliveryboy/valet-mail/valet-mail.componen
     MatButtonModule,
     MatFormFieldModule,
     MatProgressBarModule,
+    MatProgressSpinnerModule,
     MatSidenavModule,
     MatTooltipModule,
     MatExpansionModule,
