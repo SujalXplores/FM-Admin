@@ -69,6 +69,8 @@ import { ExitDialogComponent } from './main-nav/exit-dialog/exit-dialog.componen
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 import { ValetMailComponent } from './deliveryboy/valet-mail/valet-mail.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { OrderDetailviewmoreComponent } from './order-detail/order-detailviewmore/order-detailviewmore.component';
+import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +110,8 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     EditproductPhotoComponent,
     ValetMailComponent,
     OrderDetailComponent,
+    OrderDetailviewmoreComponent,
+    MultipleOrderDisplayComponentComponent,
   ],
   imports: [
     routingArr,
@@ -152,7 +156,8 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     OrderDialogComponent,
     ViewMoreProductPhotoComponent,
     ExitDialogComponent,
-    ValetMailComponent
+    ValetMailComponent,
+    OrderDetailviewmoreComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

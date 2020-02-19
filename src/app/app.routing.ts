@@ -21,6 +21,7 @@ import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
 
 
 const arr: Routes = [
@@ -44,6 +45,7 @@ const arr: Routes = [
       {path: 'addOrder', component: AddorderComponent},
       {path: 'editorder/:order_id', component: EditorderComponent},
       {path: 'order_detail', component: OrderDetailComponent},
+      { path: 'ordermore/:order_id', component: MultipleOrderDisplayComponentComponent },
       {path: 'deliveryboy', component: DeliveryboyComponent},
       {path: 'adddeliveryboy', component: AdddeliveryboyComponent},
       {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},

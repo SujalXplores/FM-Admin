@@ -8,6 +8,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { order_detail } from './order_detail';
 import { Router } from '@angular/router';
 import { OrderDetaildataService } from './order-detaildata.service';
+import { OrderDetailviewmoreComponent } from './order-detailviewmore/order-detailviewmore.component';
 @Component({
   selector: 'app-order-detail',
   templateUrl: './order-detail.component.html',
@@ -23,7 +24,7 @@ import { OrderDetaildataService } from './order-detaildata.service';
 export class OrderDetailComponent implements OnInit {
 
   orderdetailarr: order_detail[] = [];
-  displayedColumns: string[] = ['select', 'fk_order_id', 'pro_name' ,  'qty' , 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'pro_name' ,  'qty' ,  'action'];
   dataSource: MatTableDataSource<order_detail>;
 
   selection = new SelectionModel<order_detail>(true, []);
@@ -31,7 +32,13 @@ export class OrderDetailComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: OrderDetaildataService, public router: Router) { }
+  constructor(private _data: OrderDetaildataService, public router: Router, public dialog: MatDialog) { }
+
+  openDialog(row) {
+    this.dialog.open(OrderDetailviewmoreComponent, {
+      data: row
+    });
+  }
 
   onDelete(item: order_detail) {
     if (confirm('Are You Sure You Want To Delete ?')) {

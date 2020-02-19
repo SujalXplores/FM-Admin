@@ -1,0 +1,29 @@
+<h1 style="text-align: center;">Order Details</h1>
+<div style="width:33%;border-style:double ;float: left;margin-left: 10px;height:auto;" *ngFor="let item of ordermultiple">
+  <mat-list>
+    Email ID:
+    <mat-list-item>{{item.fk_u_email_id}}</mat-list-item>
+    <mat-divider></mat-divider>
+    Bill Date
+    <mat-list-item>{{item.order_date}}</mat-list-item>
+    <mat-divider></mat-divider>
+    Payment Method
+    <mat-list-item>{{item.payment_type}}</mat-list-item>
+    <mat-divider></mat-divider>
+    Product Name
+    <mat-list-item>{{item.pro_name}}</mat-list-item>
+    <mat-divider></mat-divider>
+
+    <img src="http://localhost:3000/{{item.pro_photo}}" height="100px" width="100px">
+    <mat-divider></mat-divider>
+    Price
+    <mat-list-item>{{item.order_amount}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <!-- Qty
+    <mat-list-item>{{item.}}</mat-list-item>
+    <mat-divider></mat-divider>
+    Total amount
+  <mat-list-item><b>{{item.order_amt}}</b></mat-list-item> -->
+  </mat-list>
+
+</div>

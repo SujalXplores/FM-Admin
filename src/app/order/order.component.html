@@ -58,7 +58,7 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let row">
-          <button (click)="openDialog(row)" mat-icon-button style="color: blue">
+          <button (click)="openDialog(row.order_id)" mat-icon-button style="color: blue">
             <mat-icon>view_headline_outlined</mat-icon>
           </button>
           <button (click)="onDelete(row)" mat-icon-button color="warn">

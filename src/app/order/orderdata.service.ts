@@ -31,4 +31,7 @@ export class OrderdataService {
      let x = new HttpHeaders().set('Content-Type', 'application/json');
      return this.http.put(this.url + item.order_id, body , {headers: x} );
   }
+  getProductById(order_id: number) {
+    return this.http.get(this.url + order_id);
+  }
 }

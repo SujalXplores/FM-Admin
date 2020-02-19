@@ -38,11 +38,13 @@ export class OrderComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
    }
 
-   openDialog(row) {
-    this.dialog.open(OrderDialogComponent, {
-      data: row
-    });
-  }
+   openDialog(order_id){
+    // this._dialog.open(OrderviewmoreComponent,{
+    //   data:row
+    //});
+    this.router.navigate(['/nav/ordermore', order_id]);
+    console.log(order_id);
+ }
 
   onDelete(item: order) {
     if (confirm('Are You Sure You Want To Delete ?')) {
