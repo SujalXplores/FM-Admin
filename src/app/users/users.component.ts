@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
 import { DialogComponent } from './dialog/dialog.component';
+import { MailUserComponent } from './mail-user/mail-user.component';
 
 @Component({
   selector: 'app-users',
@@ -28,7 +29,7 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: UsersdataService, private _router: Router, public dialog: MatDialog) {
+  constructor(private _data: UsersdataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -108,5 +109,10 @@ export class UsersComponent implements OnInit {
         this.dataSource.sort = this.sort;
       }
     );
+  }
+  OnUserMail(row) {
+    this._dialog.open(MailUserComponent,{
+      data:row
+    });
   }
 }

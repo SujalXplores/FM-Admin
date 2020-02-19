@@ -65,3 +65,11 @@ tr.example-element-row:not(.example-expanded-row):active {
   font-weight: lighter;
   margin: 8px;
 }
+.admin {
+  color: green;
+  font-weight: bold;
+}
+.user {
+  color: navy;
+  font-weight: bold;
+}

@@ -68,7 +68,9 @@ import { CalenderComponent } from './calender/calender.component';
 import { ExitDialogComponent } from './main-nav/exit-dialog/exit-dialog.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 import { ValetMailComponent } from './deliveryboy/valet-mail/valet-mail.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MailUserComponent } from './users/mail-user/mail-user.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +108,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     CalenderComponent,
     ExitDialogComponent,
     EditproductPhotoComponent,
-    ValetMailComponent
+    ValetMailComponent,
+    MailUserComponent
   ],
   imports: [
     routingArr,
@@ -123,6 +126,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatMenuModule,
     MatButtonToggleModule,
     MatDialogModule,
+    MatBadgeModule,
     MatButtonModule,
     MatFormFieldModule,
     MatProgressBarModule,
@@ -152,7 +156,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     OrderDialogComponent,
     ViewMoreProductPhotoComponent,
     ExitDialogComponent,
-    ValetMailComponent
+    ValetMailComponent,
+    MailUserComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
