@@ -23,6 +23,13 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 
+<!-- active nav -->
+<script type="text/javascript">
+    $(document).on('click', 'a', function(){
+        $(this).addClass('active').siblings().removeClass('active')
+    })
+</script>
+
 <!-- Loader css -->
 <style type="text/css">
   #fuse-splash-screen {

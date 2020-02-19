@@ -1,3 +1,8 @@
+<div aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active">Category</li>
+  </ol>
+</div>
 <mat-form-field class="filterClass">
   <input matInput (keyup)="applyFilter($event.target.value)">
   <mat-icon matPrefix>search</mat-icon>
@@ -37,18 +42,12 @@
         <td mat-cell *matCellDef="let row"> {{row.c_name | titlecase}} </td>
       </ng-container>
 
-        <ng-container matColumnDef="delete">
-          <th mat-header-cell *matHeaderCellDef> Delete </th>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
           <td mat-cell *matCellDef="let row">
           <button  mat-icon-button color="warn">
             <mat-icon>delete_outlined</mat-icon>
           </button>
-        </td>
-        </ng-container>
-
-        <ng-container matColumnDef="edit">
-          <th mat-header-cell *matHeaderCellDef> Update </th>
-          <td mat-cell *matCellDef="let row">
           <button  mat-icon-button>
             <mat-icon>edit_outlined</mat-icon>
           </button>

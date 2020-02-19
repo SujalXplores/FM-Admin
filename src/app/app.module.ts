@@ -51,7 +51,6 @@ import { CartComponent } from './cart/cart.component';
 import { AddcartComponent } from './cart/addcart/addcart.component';
 import { EditcartComponent } from './cart/editcart/editcart.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
@@ -62,14 +61,13 @@ import { DialogComponent } from './users/dialog/dialog.component';
 import { ViewMoreProductComponent } from './product/view-more-product/view-more-product.component';
 import { HealthArticlesComponent } from './health-articles/health-articles.component';
 import { OrderDialogComponent } from './order/order-dialog/order-dialog.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { ViewMoreProductPhotoComponent } from './product-photo/view-more-product-photo/view-more-product-photo.component';
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
 import { CalenderComponent } from './calender/calender.component';
 import { ExitDialogComponent } from './main-nav/exit-dialog/exit-dialog.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ValetMailComponent } from './deliveryboy/valet-mail/valet-mail.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 @NgModule({
@@ -95,7 +93,6 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     CartComponent,
     AddcartComponent,
     EditcartComponent,
-    SignupComponent,
     HomeComponent,
     CartDetailsComponent,
     AddcartdetailComponent,
@@ -103,15 +100,14 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     ViewMoreProductComponent,
     HealthArticlesComponent,
     OrderDialogComponent,
-    ForgotPasswordComponent,
     ProductPhotoComponent,
     ViewMoreProductPhotoComponent,
     AddproductPhotoComponent,
     CalenderComponent,
     ExitDialogComponent,
     EditproductPhotoComponent,
-    ChangePasswordComponent,
-    OrderDetailComponent
+    ValetMailComponent,
+    OrderDetailComponent,
   ],
   imports: [
     routingArr,
@@ -156,6 +152,7 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     OrderDialogComponent,
     ViewMoreProductPhotoComponent,
     ExitDialogComponent,
+    ValetMailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,7 +23,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class CategoryComponent implements OnInit {
 
   categoryarr: category[] = [];
-  displayedColumns: string[] = ['select', 'c_name', 'delete', 'edit'];
+  displayedColumns: string[] = ['select', 'c_name', 'action'];
   dataSource: MatTableDataSource<category>;
 
   selection = new SelectionModel<category>(true, []);

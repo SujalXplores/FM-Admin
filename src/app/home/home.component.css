@@ -121,3 +121,7 @@ mat-card {
   background: linear-gradient(50deg,#FDD819,#827717) !important;
   color: #fff !important;
 }
+.breadcrumb{
+  font-family: sans-serif;
+  font-weight: bold;
+}
