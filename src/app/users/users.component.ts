@@ -18,10 +18,9 @@ import { DialogComponent } from './dialog/dialog.component';
 export class UsersComponent implements OnInit {
   animal: string;
   name: string;
-
   userarr: users[] = [];
   del_arr: string[] = [];
-  displayedColumns: string[] = ['select', 'u_name', 'u_mobileno', 'action'];
+  displayedColumns: string[] = ['select', 'u_name', 'u_type', 'action'];
   dataSource: MatTableDataSource<users>;
 
   selection = new SelectionModel<users>(true, []);

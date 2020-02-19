@@ -3,13 +3,14 @@
     <li class="breadcrumb-item active">Category</li>
   </ol>
 </div>
-<mat-form-field class="filterClass">
+<mat-form-field class="filterClass" appearance="fill">
   <input matInput (keyup)="applyFilter($event.target.value)">
-  <mat-icon matPrefix>search</mat-icon>
+  <mat-label>Search</mat-label>
+  <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 
-<button  mat-raised-button  matTooltip="To add user manually!" color="accent" class="addbutton">
-  <!-- <mat-icon>add</mat-icon> -->
+<button  mat-raised-button  matTooltip="Add Category" color="primary" class="addbutton">
+  <mat-icon>add</mat-icon>
   <span>Add</span>
 </button>
 
@@ -45,17 +46,18 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> Actions </th>
           <td mat-cell *matCellDef="let row">
-          <button  mat-icon-button color="warn">
+          <button  matTooltip="Delete"  mat-icon-button color="warn">
             <mat-icon>delete_outlined</mat-icon>
           </button>
-          <button  mat-icon-button>
+          <button   matTooltip="Edit" mat-icon-button>
             <mat-icon>edit_outlined</mat-icon>
           </button>
-        </td>
+          </td>
         </ng-container>
 
        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;">
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
 </div>
+

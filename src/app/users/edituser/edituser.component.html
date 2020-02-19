@@ -1,21 +1,21 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
 
-      <mat-card-title>Edit User</mat-card-title>
+      <mat-card-title align="center">Edit User Details</mat-card-title>
       <mat-card-content>
 
        <form class="example-form" [formGroup]="user_update" (ngSubmit)="OnUserEdit()">
 
-              <mat-label>{{u_email_id}}</mat-label>
+              <mat-label class="email_label">{{u_email_id}}</mat-label>
 
-              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-form-field class="example-full-width" appearance="fill">
                 <input formControlName="u_name" matInput type="text" placeholder="Enter New Name">
                 <mat-hint class="hint" *ngIf="user_update.get('u_name').hasError('required') && !user_update.pristine">Name is Required</mat-hint>
                 <mat-hint class="hint" *ngIf="user_update.get('u_name').hasError('pattern') && !user_update.pristine">Only Letters</mat-hint>
                 <mat-icon class="material-icons-outlined" matSuffix>portrait</mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-form-field class="example-full-width" appearance="fill">
                 <input formControlName="u_mobileno" type="text" matInput appPhone placeholder="+91 Enter New Mobile Number">
                 <mat-hint class="hint" *ngIf="user_update.hasError('required') && !user_update.pristine">Mobile Number is Required</mat-hint>
                 <mat-hint class="hint" *ngIf="user_update.hasError('minlength') && !user_update.pristine">Mobile number must be of 10 digits!</mat-hint>
@@ -23,12 +23,20 @@
                 <mat-icon class="material-icons-outlined" matSuffix>contact_phone</mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-form-field class="example-full-width" appearance="fill">
                 <input formControlName="u_password" matInput type="password" placeholder="Set New Password">
                 <mat-icon class="material-icons-outlined" matSuffix>lock</mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="example-full-width" appearance="outline">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Select Type</mat-label>
+                <mat-select formControlName="u_type">
+                  <mat-option value="admin">admin</mat-option>
+                  <mat-option value="user">user</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
                 <input formControlName="u_address" matInput type="text" placeholder="Change Your Address">
                 <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
               </mat-form-field>

@@ -23,6 +23,7 @@ export class AdduserComponent implements OnInit {
           fd.append('u_mobileno', f.value.u_mobileno);
           fd.append('u_address', f.value.u_address);
           fd.append('image', this.selectedFile, this.selectedFile.name);
+          fd.append('u_type', f.value.u_type);
 
       this._userdata.addUsers(fd).subscribe(
         (data: any[]) => {

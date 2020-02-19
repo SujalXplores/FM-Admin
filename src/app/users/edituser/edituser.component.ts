@@ -27,7 +27,8 @@ export class EdituserComponent implements OnInit {
         u_mobileno: new FormControl(null  , [Validators.required , Validators.minLength(10), Validators.pattern('[0-9]*')]),
         u_password: new FormControl(null , [Validators.required]),
         u_address: new FormControl(null , [Validators.required]),
-        u_image: new FormControl(null, [Validators.required])
+        u_image: new FormControl(null, [Validators.required]),
+        u_type : new FormControl(null, [Validators.required])
       });
       this._userdata.editUser(this.u_email_id).subscribe(
         (data: users[]) => {
@@ -48,6 +49,7 @@ export class EdituserComponent implements OnInit {
         u_name: item.u_name,
         u_mobileno: item.u_mobileno,
         u_password: item.u_password,
+        u_type : item.u_type,
         u_address: item.u_address,
       });
   }
@@ -64,6 +66,7 @@ export class EdituserComponent implements OnInit {
     fd.append('u_name', this.user_update.get('u_name').value);
     fd.append('u_mobileno', this.user_update.get('u_mobileno').value);
     fd.append('u_password', this.user_update.get('u_password').value);
+    fd.append('u_type', this.user_update.get('u_type').value);
     fd.append('u_address', this.user_update.get('u_address').value);
 
     this._userdata.updateUser(this.u_email_id, fd).subscribe(

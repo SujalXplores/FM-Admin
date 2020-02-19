@@ -21,3 +21,6 @@ section {
   font-size: 14px;
   font-weight: bolder;
 }
+mat-icon {
+  font-size: 26px !important;
+}

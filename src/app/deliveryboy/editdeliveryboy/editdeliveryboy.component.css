@@ -9,3 +9,6 @@
 section {
   margin-top: 20px;
 }
+mat-icon {
+  font-size: 26px !important;
+}

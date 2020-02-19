@@ -1,30 +1,33 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-
-      <mat-card-title>Edit Product Photo</mat-card-title>
+      <mat-card-title align="center">Edit Product Photo</mat-card-title>
       <mat-card-content>
-          <form [formGroup]="photo_update" (ngSubmit)="onPhotoSubmit()">
-
-  <div >
-
-    <img align=right mat-card-image width="100" height="100" src="{{photoUrl}}">
-    <input type="file" (change)="onChange($event)">
-
-  </div >
-  <br>
-  <div>
-    
-    <mat-form-field class="example-full-width" appearance="outline">
-      <mat-select formControlName="fk_pro_id">
-        <mat-option *ngFor="let item of list"  [value]="item.pro_id">
-          {{item.pro_name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-  </div>
-  
-  <br>
+          
+      <form [formGroup]="photo_update" (ngSubmit)="onPhotoSubmit()">
+        <img align=left width="100" height="100" src="{{photoUrl}}">
+        <div>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-select formControlName="fk_pro_id">
+              <mat-option *ngFor="let item of list"  [value]="item.pro_id">
+                {{item.pro_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div >
+            <div class="form-group">
+              <div class="rounded p-6">
+                  <div class="media">
+                      <div class="media-body">
+                          <label class="btn btn-lg btn-outline-primary ml-2">
+                            Upload photo
+                            <input type="file" class="d-none" (change)="onChange($event)">
+                          </label>
+                      </div>
+                  </div>
+              </div>
+          </div> 
+          </div >
+        </div>
   <button class="example-full-width" type="submit" mat-raised-button color="accent">Update Product Photo</button>
  </form>
 </mat-card-content>

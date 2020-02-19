@@ -11,9 +11,5 @@ mat-list-item {
 }
 img {
   border-radius: 50%;
-  border: 1px solid blue;
   margin-left: 2px;
-}
-img:hover {
-  transform: scale(1.5); 
 }

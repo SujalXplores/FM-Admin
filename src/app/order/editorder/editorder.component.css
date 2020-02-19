@@ -17,3 +17,6 @@ section {
   margin-left: 10px;
   width: 47%;
 }
+mat-icon {
+  font-size: 26px !important;
+}

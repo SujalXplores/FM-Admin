@@ -1,23 +1,23 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title>Edit Product</mat-card-title>
+      <mat-card-title align="center">Edit Product</mat-card-title>
       <mat-card-content>
 
         <form class="example-form" (ngSubmit)="OnProductEdit(f)" #f="ngForm">
 
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <input required name="pro_name" [(ngModel)]=pro_name1 #pro_name="ngModel" matInput type="text" placeholder="Enter Product Name">
               <mat-hint class="hint" *ngIf="pro_name.hasError('required') && !pro_name.pristine">Product Name is Required</mat-hint>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <input required pattern="[a-z -. A-Z]*" name="pro_mfg" [(ngModel)]=pro_mfg1 #pro_mfg="ngModel" type="text" matInput placeholder="Enter Product Manufacturer">
               <mat-hint class="hint" *ngIf="pro_mfg.hasError('required') && !pro_mfg.pristine">Name Of the Manufacturer company is Required</mat-hint>
               <mat-hint class="hint" *ngIf="pro_mfg.hasError('pattern') && !pro_mfg.pristine">Only Letters</mat-hint>
               <mat-icon matSuffix><i class="far fa-industry-alt"></i></mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <input required pattern="[0-9]*" minlength="2" maxlength="15000" name="pro_price" [(ngModel)]=pro_price1 #pro_price="ngModel" type="text" matInput placeholder="Enter Product Price">
               <mat-hint class="hint" *ngIf="pro_price.hasError('required') && !pro_price.pristine">Product Price is Required</mat-hint>
               <mat-hint class="hint" *ngIf="pro_price.hasError('minlength') && !pro_price.pristine">Price must be greater than RS.1!</mat-hint>
@@ -26,7 +26,7 @@
               <mat-icon matSuffix><i class="far fa-rupee-sign"></i></mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-form-field class="example-full-width" appearance="fill">
               <input required name="pro_desc" [(ngModel)]=pro_desc1 #pro_desc="ngModel" type="text-area" matInput placeholder="Enter Product Description">
               <mat-hint class="hint" *ngIf="pro_desc.hasError('required') && !pro_desc.pristine">Description is Required</mat-hint>
               <mat-icon matSuffix><i class="far fa-file-medical"></i></mat-icon>

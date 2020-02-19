@@ -5,15 +5,15 @@
 </div>
 <mat-progress-bar *ngIf="orderarr.length<0" color="warn" mode="indeterminate"></mat-progress-bar>
 
-<mat-form-field class="filterClass">
+<mat-form-field class="filterClass" appearance="fill">
   <input matInput (keyup)="applyFilter($event.target.value)">
-  <mat-icon matPrefix>search</mat-icon>
+  <mat-label>Search</mat-label>
+  <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 
-<button routerLink='/nav/addOrder' mat-raised-button matTooltip="Add Desired Product Wisely" color="accent" class="addbutton">
-  <!-- <mat-icon>add</mat-icon> -->
+<button routerLink='/nav/addOrder' mat-raised-button matTooltip="Add Product" color="primary" class="addbutton">
+  <mat-icon>add</mat-icon>
   <span>Add</span>
-
 </button>
 
   <div class="mat-elevation-z8">
@@ -58,13 +58,13 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let row">
-          <button (click)="openDialog(row.order_id)" mat-icon-button style="color: blue">
+          <button (click)="openDialog(row.order_id)" matTooltip="View more" mat-icon-button style="color: blue">
             <mat-icon>view_headline_outlined</mat-icon>
           </button>
-          <button (click)="onDelete(row)" mat-icon-button color="warn">
+          <button (click)="onDelete(row)"  matTooltip="Delete" mat-icon-button color="warn">
             <mat-icon>delete_outlined</mat-icon>
           </button>
-          <button (click)="OnOrderEdit(row)" mat-icon-button>
+          <button (click)="OnOrderEdit(row)"  matTooltip="Edit" mat-icon-button>
             <mat-icon>edit_outlined</mat-icon>
           </button>
         </td>
@@ -74,5 +74,5 @@
        <tr mat-row *matRowDef="let element; columns: displayedColumns;">
 
     </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
 </div>

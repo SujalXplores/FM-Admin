@@ -71,6 +71,7 @@ import { ValetMailComponent } from './deliveryboy/valet-mail/valet-mail.componen
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { OrderDetailviewmoreComponent } from './order-detail/order-detailviewmore/order-detailviewmore.component';
 import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -131,6 +132,7 @@ import { MultipleOrderDisplayComponentComponent } from './multiple-order-display
     MatButtonModule,
     MatFormFieldModule,
     MatProgressBarModule,
+    MatProgressSpinnerModule,
     MatSidenavModule,
     MatTooltipModule,
     MatExpansionModule,

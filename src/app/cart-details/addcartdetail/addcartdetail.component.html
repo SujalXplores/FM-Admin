@@ -43,12 +43,12 @@
 
 <form class="example-form" [formGroup]="addcartdetailform" (ngSubmit)="onCartAdd()">
 
-  <mat-form-field class="example-full-width" appearance="outline">
+  <mat-form-field class="example-full-width" appearance="fill">
     <input matInput formControlName="qty" placeholder="Enter Quantity">
     <mat-error *ngIf="addcartdetailform.get('qty').hasError('required') && !addcartdetailform.get('qty').pristine">Quantity is required</mat-error>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width" appearance="outline">
+  <mat-form-field class="example-full-width" appearance="fill">
     <input matInput formControlName="total" placeholder="Enter Total">
     <mat-error *ngIf="addcartdetailform.get('total').hasError('required') && !addcartdetailform.get('total').pristine">Total is required</mat-error>
   </mat-form-field>
