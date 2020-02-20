@@ -39,7 +39,7 @@ export class ProductComponent implements OnInit {
   oncheckboxchange(row: product) {
 
     // tslint:disable-next-line: triple-equals
-    if (this.del_arr.find(x => x == row.pro_id)){
+    if (this.del_arr.find(x => x == row.pro_id)) {
        this.del_arr.splice(this.del_arr.indexOf(row.pro_id), 1);
     } else {
       this.del_arr.push(row.pro_id);

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { SelectionModel } from '@angular/cdk/collections';
+import { SelectionModel, DataSource } from '@angular/cdk/collections';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { order_detail } from './order_detail';
 import { Router } from '@angular/router';
@@ -32,7 +32,9 @@ export class OrderDetailComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: OrderDetaildataService, public router: Router, public dialog: MatDialog) { }
+  constructor(private _data: OrderDetaildataService, public router: Router, public dialog: MatDialog) {
+    this.dataSource=new MatTableDataSource()
+   }
 
   openDialog(row) {
     this.dialog.open(OrderDetailviewmoreComponent, {
@@ -65,6 +67,7 @@ export class OrderDetailComponent implements OnInit {
   ngOnInit(): void {
     this._data.getAllOrderDetail().subscribe(
       (data: order_detail[]) => {
+        console.log(data);
         this.orderdetailarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
