@@ -71,7 +71,7 @@ import { ValetMailComponent } from './deliveryboy/valet-mail/valet-mail.componen
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { OrderDetailviewmoreComponent } from './order-detail/order-detailviewmore/order-detailviewmore.component';
 import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MailUserComponent } from './users/mail-user/mail-user.component';
 

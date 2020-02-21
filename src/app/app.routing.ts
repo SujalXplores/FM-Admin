@@ -45,7 +45,7 @@ const arr: Routes = [
       {path: 'addOrder', component: AddorderComponent},
       {path: 'editorder/:order_id', component: EditorderComponent},
       {path: 'order_detail', component: OrderDetailComponent},
-      { path: 'ordermore/:order_id', component: MultipleOrderDisplayComponentComponent },
+      {path: 'ordermore/:order_id', component: MultipleOrderDisplayComponentComponent},
       {path: 'deliveryboy', component: DeliveryboyComponent},
       {path: 'adddeliveryboy', component: AdddeliveryboyComponent},
       {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
