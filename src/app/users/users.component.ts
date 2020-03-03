@@ -51,6 +51,7 @@ export class UsersComponent implements OnInit {
 
  }
  ondeleteallclick(){
+  if (confirm("Are You Sure You Want To Delete ?")){
    this._data.deleteall(this.del_arr).subscribe(
      (data)=>{
        for(let i=0;i<this.del_arr.length;i++){
@@ -63,6 +64,7 @@ export class UsersComponent implements OnInit {
      }
    );
  }
+}
 
   onDelete(item: users) {
     if (confirm("Are You Sure You Want To Delete ?")) {
