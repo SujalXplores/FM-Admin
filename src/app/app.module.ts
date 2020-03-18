@@ -74,6 +74,7 @@ import { MultipleOrderDisplayComponentComponent } from './multiple-order-display
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MailUserComponent } from './users/mail-user/mail-user.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { MailUserComponent } from './users/mail-user/mail-user.component';
     OrderDetailComponent,
     OrderDetailviewmoreComponent,
     MultipleOrderDisplayComponentComponent,
-    MailUserComponent
+    MailUserComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     routingArr,

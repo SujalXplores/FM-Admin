@@ -22,6 +22,7 @@ import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addpr
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 const arr: Routes = [
@@ -51,7 +52,7 @@ const arr: Routes = [
       {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
   ]
   },
-
+  {path: 'forgotPass', component: ForgotPasswordComponent},
   {path: 'pagenotfound', component: PagenotfoundComponent},
   {path: '**', redirectTo: '/pagenotfound'}
 
