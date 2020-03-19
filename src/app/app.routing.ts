@@ -23,6 +23,7 @@ import { EditproductPhotoComponent } from './product-photo/editproduct-photo/edi
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const arr: Routes = [
@@ -31,7 +32,7 @@ const arr: Routes = [
     canActivate: [UserAuthGuardService],
     component: MainNavComponent,
     children: [
-      {path: '', component: HomeComponent},
+      {path: '', component: DashboardComponent},
       {path: 'users', component: UsersComponent},
       {path: 'addUser', component: AdduserComponent},
       {path: 'edituser/:u_email_id', component: EdituserComponent},

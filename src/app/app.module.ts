@@ -75,6 +75,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MailUserComponent } from './users/mail-user/mail-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -117,7 +119,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     OrderDetailviewmoreComponent,
     MultipleOrderDisplayComponentComponent,
     MailUserComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    DashboardComponent
   ],
   imports: [
     routingArr,
@@ -156,7 +159,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MatDatepickerModule,
     MatNativeDateModule,
     FeatherModule.pick(allIcons),//feather-icons
-    DragDropModule
+    DragDropModule, MatGridListModule
   ],
   entryComponents: [
     DialogComponent,
