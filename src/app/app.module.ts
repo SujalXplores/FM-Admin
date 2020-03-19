@@ -77,6 +77,7 @@ import { MailUserComponent } from './users/mail-user/mail-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { AddcategoryComponent } from './category/addcategory/addcategory.component';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MultipleOrderDisplayComponentComponent,
     MailUserComponent,
     ForgotPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddcategoryComponent
   ],
   imports: [
     routingArr,

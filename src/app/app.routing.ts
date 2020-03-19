@@ -24,6 +24,7 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddcategoryComponent } from './category/addcategory/addcategory.component';
 
 
 const arr: Routes = [
@@ -43,6 +44,7 @@ const arr: Routes = [
       {path: 'editproduct_photo/:pro_photo_id', component: EditproductPhotoComponent},
       {path: 'addProductphoto', component: AddproductPhotoComponent},
       {path: 'category', component: CategoryComponent},
+      {path: 'addcategory', component: AddcategoryComponent},
       {path: 'order', component: OrderComponent},
       {path: 'addOrder', component: AddorderComponent},
       {path: 'editorder/:order_id', component: EditorderComponent},

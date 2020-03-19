@@ -41,6 +41,17 @@ export class CategoryComponent implements OnInit {
   }
 }
 
+onDelete(item: category) {
+  if( confirm( "Are You Sure You Want To Delete ?" )) {
+    this._data.deleteCategory(item.c_id).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.categoryarr.splice(this.categoryarr.indexOf(item), 1);
+        this.dataSource.data = this.categoryarr;
+      }
+    );
+  }
+ }
   ngOnInit() {
     this._data.getAllCategory().subscribe(
       (data: category[]) => {

@@ -4,9 +4,9 @@
       <mat-card-content>
         <form class="example-form" (ngSubmit)="onDeliveryboyAdd(f)" #f="ngForm">
 
-          <mat-form-field class="example-full-width" appearance="fill">
+          <!-- <mat-form-field class="example-full-width" appearance="fill">
             <input readonly ngModel name="deliveryboy_id" #deliveryboy_id="ngModel" matInput type="number" placeholder="Valet ID assigned Automatically">
-          </mat-form-field>
+          </mat-form-field> -->
 
           <mat-form-field class="example-full-width" appearance="fill">
             <input  required pattern="[a-z A-Z]*" ngModel name="deliveryboy_name" #deliveryboy_name="ngModel" matInput type="text" placeholder="Enter Valet Name">
@@ -35,6 +35,12 @@
             <input required ngModel name="deliveryboy_email" #deliveryboy_email="ngModel" matInput type="email" placeholder="Enter Email">
             <mat-hint class="hint" *ngIf="deliveryboy_email.hasError('required') && !deliveryboy_email.pristine">Email is Required</mat-hint>
             <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input required ngModel name="password" #password="ngModel" matInput type="password" placeholder="Enter password">
+            <mat-hint class="hint" *ngIf="password.hasError('required') && !password.pristine">Password is Required</mat-hint>
+            <mat-icon class="material-icons-outlined" matSuffix>password</mat-icon>
           </mat-form-field>
 
           <button  [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add Deliveryboy</button>
