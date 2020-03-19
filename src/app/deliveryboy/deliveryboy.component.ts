@@ -8,6 +8,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Router } from '@angular/router';
 import { DeliveryboydataService } from './deliveryboydata.service';
 import { ValetMailComponent } from './valet-mail/valet-mail.component';
+import { ViewMoreDeliveryboyComponent } from './view-more-deliveryboy/view-more-deliveryboy.component';
 @Component({
   selector: 'app-deliveryboy',
   templateUrl: './deliveryboy.component.html',
@@ -23,7 +24,7 @@ export class DeliveryboyComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: DeliveryboydataService, public _dialog: MatDialog, private _router: Router) {
+  constructor(private _data: DeliveryboydataService, public _dialog: MatDialog, private _router: Router,public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -77,6 +78,12 @@ export class DeliveryboyComponent implements OnInit {
   OnDeliveryboyMail(row) {
     this._dialog.open(ValetMailComponent,{
       data:row
+    });
+  }
+
+  openDialog(row) {
+    this.dialog.open(ViewMoreDeliveryboyComponent, {
+      data: row
     });
   }
 }

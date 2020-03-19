@@ -77,7 +77,8 @@ import { MailUserComponent } from './users/mail-user/mail-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { ChartsService } from './dashboard/charts.service';
+import { AddcategoryComponent } from './category/addcategory/addcategory.component';
+import { ViewMoreDeliveryboyComponent } from './deliveryboy/view-more-deliveryboy/view-more-deliveryboy.component';
 
 @NgModule({
   declarations: [
@@ -121,7 +122,9 @@ import { ChartsService } from './dashboard/charts.service';
     MultipleOrderDisplayComponentComponent,
     MailUserComponent,
     ForgotPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddcategoryComponent,
+    ViewMoreDeliveryboyComponent
   ],
   imports: [
     routingArr,

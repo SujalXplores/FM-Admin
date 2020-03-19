@@ -6,5 +6,6 @@ export class deliveryboy {
     public deliveryboy_address: string,
     public deliveryboy_mobileno: number,
     public deliveryboy_email: string,
+    public password: string,
   ) {}
 }
