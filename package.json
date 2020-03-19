@@ -26,6 +26,7 @@
     "angular-feather": "^6.0.8",
     "bootstrap": "^4.4.1",
     "caniuse-lite": "^1.0.30001035",
+    "chart.js": "^2.9.3",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "npm-check-updates": "^4.0.4",

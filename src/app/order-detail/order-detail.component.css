@@ -25,7 +25,9 @@ td, th {
   margin-left: 10px;
   width: 50%;
 }
-
+.grid-container {
+  margin: 20px;
+}
 
 
 

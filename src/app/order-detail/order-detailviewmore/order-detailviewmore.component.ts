@@ -15,7 +15,7 @@ export class OrderDetailviewmoreComponent implements OnInit {
   qty: number;
   pro_name:string;
   constructor(public dialogref: MatDialogRef<OrderDetailviewmoreComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: order_detail) { }
+  @Inject(MAT_DIALOG_DATA) public data: order_detail) { }
 
   ngOnInit() {
     this.od_id = this.data.order_detail_id;
@@ -24,7 +24,8 @@ export class OrderDetailviewmoreComponent implements OnInit {
     this.qty = this.data.qty;
     this.pro_name = this.data.pro_name;
   }
+  
   onCancelClick() {
     this.dialogref.close();
-}
+  }
 }

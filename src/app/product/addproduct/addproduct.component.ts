@@ -17,6 +17,7 @@ export class AddproductComponent implements OnInit {
 
   constructor(private _productdata: ProductdataService , private _router: Router , private _catdata: CategorydataService) { }
   value = '';
+  
   ngOnInit() {
     this._catdata.getAllCategory().subscribe(
       (data: any[]) => {
@@ -25,6 +26,7 @@ export class AddproductComponent implements OnInit {
       }
     );
   }
+
   OnProductAdd(f) {
     this._productdata.addProduct(f.value).subscribe(
       (data: any) => {
@@ -33,5 +35,4 @@ export class AddproductComponent implements OnInit {
       }
     );
   }
-
 }

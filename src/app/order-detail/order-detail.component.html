@@ -1,16 +1,13 @@
-<div aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active">Order Detail</li>
-  </ol>
+<div class="grid-container">
+  <h1 class="mat-h1">Order Details</h1>
 </div>
 <mat-progress-bar *ngIf="orderdetailarr.length<0" color="warn" mode="indeterminate"></mat-progress-bar>
 
-<mat-form-field class="filterClass">
+<mat-form-field class="filterClass" appearance="fill">
   <input matInput (keyup)="applyFilter($event.target.value)">
-  <mat-icon matPrefix>search</mat-icon>
+  <mat-label>Search</mat-label>
+  <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
-
-
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
@@ -38,7 +35,7 @@
 
       <ng-container matColumnDef="pro_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.pro_name}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.pro_name | titlecase}} </td>
       </ng-container>
 
       <ng-container matColumnDef="qty">

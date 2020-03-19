@@ -7,8 +7,10 @@
       <mat-toolbar>
         <img src="../../assets/image/logo.svg" align="center" alt="FutureMedisurgico">
       </mat-toolbar>
-        Welcome 
-        <span style="font-size: small;">{{u_email_id}}</span>
+        Welcome<br>
+        <span style="font-size: medium;">
+          {{u_name | titlecase}}
+        </span>
       </div>
 
       <mat-nav-list>
@@ -16,7 +18,7 @@
         <a mat-list-item routerLink="/nav"><mat-icon class="material-icons-outlined">dashboard</mat-icon><span>Dashboard</span></a>
         <mat-divider></mat-divider>
         <a mat-list-item routerLink="/nav/users"><mat-icon class="material-icons-outlined">account_box</mat-icon><span>Users</span></a>
-        <a mat-list-item routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined">local_shipping</mat-icon><span>DeliveryBoy</span></a>
+        <a mat-list-item routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined">local_shipping</mat-icon><span>DeliveryPartner</span></a>
         <a mat-list-item routerLink="/nav/order"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Orders</span></a>
         <a mat-list-item routerLink="/nav/order_detail"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Order Detail</span></a>
         <mat-divider></mat-divider>
@@ -28,8 +30,8 @@
         <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">account_tree</mat-icon><span>Category</span></a>
         <mat-divider></mat-divider>
         <a mat-list-item (click)='openDialog()'><mat-icon class="material-icons-outlined">exit_to_app</mat-icon><span>Logout</span></a>
-    </mat-nav-list>
-  </mat-sidenav>
+      </mat-nav-list>
+    </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">

@@ -10,13 +10,16 @@ import { ForgotPasswordService } from './forgot-password.service';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
+  
   constructor(private _snackBar: MatSnackBar, private _router: Router, public _mail: ForgotPasswordService) { }
   forgetPasswordForm : FormGroup;
+
   ngOnInit() {
     this.forgetPasswordForm = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.email])
     });
   }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message , action, {
       duration: 5000,
@@ -25,6 +28,7 @@ export class ForgotPasswordComponent implements OnInit {
       panelClass: ['warning']
     });
   }
+
   onForgetClick() {
       if (this.forgetPasswordForm.get('name').value != null) {
           let a = this.forgetPasswordForm.get('name').value;

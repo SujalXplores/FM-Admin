@@ -2,7 +2,6 @@ button {
   outline: none !important;
   border: 0 !important;
 }
-
 table {
   width: 100%;
 }
@@ -31,11 +30,6 @@ td, th {
   margin-left: 10px;
   width: 50%;
 }
-.breadcrumb{
-  font-family: sans-serif;
-  font-weight: bold;
-}
-
 
 
 tr.example-detail-row {
@@ -72,4 +66,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 .user {
   color: navy;
   font-weight: bold;
+}
+.grid-container {
+  margin: 20px;
 }

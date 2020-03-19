@@ -12,8 +12,7 @@ export class AdddeliveryboyComponent implements OnInit {
   arrDeliveryboy: deliveryboy[] = [];
   constructor(private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
   value = '';
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onDeliveryboyAdd(f) {
     this._deliveryboydata.addDeliveryboy(f.value).subscribe(
@@ -23,5 +22,4 @@ export class AdddeliveryboyComponent implements OnInit {
       }
     );
   }
-
 }

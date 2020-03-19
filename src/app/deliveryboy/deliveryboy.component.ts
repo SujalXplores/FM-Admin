@@ -25,9 +25,9 @@ export class DeliveryboyComponent implements OnInit {
 
   constructor(private _data: DeliveryboydataService, public _dialog: MatDialog, private _router: Router) {
     this.dataSource = new MatTableDataSource();
-   }
+  }
 
-   onDelete(item: deliveryboy) {
+  onDelete(item: deliveryboy) {
     if( confirm( "Are You Sure You Want To Delete ?" )) {
       this._data.deleteDeliveryboy(item.deliveryboy_id).subscribe(
         (data: any) => {
@@ -37,14 +37,14 @@ export class DeliveryboyComponent implements OnInit {
         }
       );
     }
-   }
+  }
 
-   OnDeliveryboyEdit(item: deliveryboy) {
+  OnDeliveryboyEdit(item: deliveryboy) {
     this._router.navigate(['/nav/editdeliveryboy', item.deliveryboy_id]);
   }
-   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -56,8 +56,8 @@ export class DeliveryboyComponent implements OnInit {
     return numSelected === numRows;
   }
 
-   /** Selects all rows if they are not all selected; otherwise clear selection. */
-   masterToggle() {
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
     this.isAllSelected() ?
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
@@ -73,10 +73,10 @@ export class DeliveryboyComponent implements OnInit {
       }
     );
   }
+
   OnDeliveryboyMail(row) {
     this._dialog.open(ValetMailComponent,{
       data:row
     });
   }
-
 }

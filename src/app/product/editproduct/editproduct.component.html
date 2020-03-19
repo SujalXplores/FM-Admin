@@ -11,6 +11,14 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
+              <mat-select required [(ngModel)]=pro_category1 name="fk_cat_id" #fk_cat_id="ngModel" placeholder="Select Category Name">
+                <mat-option *ngFor="let item of catnamearr" [value]="item.c_id">
+                  {{item.c_name}}
+                </mat-option>
+               </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
               <input required pattern="[a-z -. A-Z]*" name="pro_mfg" [(ngModel)]=pro_mfg1 #pro_mfg="ngModel" type="text" matInput placeholder="Enter Product Manufacturer">
               <mat-hint class="hint" *ngIf="pro_mfg.hasError('required') && !pro_mfg.pristine">Name Of the Manufacturer company is Required</mat-hint>
               <mat-hint class="hint" *ngIf="pro_mfg.hasError('pattern') && !pro_mfg.pristine">Only Letters</mat-hint>
