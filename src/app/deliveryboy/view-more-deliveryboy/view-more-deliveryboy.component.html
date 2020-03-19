@@ -1,28 +1,18 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-  <!-- <img height="85" width="85" alt="No Image" align="right" src="http://localhost:3000/images/user_photos/{{user_image}}"> -->
-      <mat-card-title>Deliveryboy Details</mat-card-title>
-          <mat-card-content>
-              <mat-list>
+      <mat-card-title>{{delivery_name | titlecase}}'s Details</mat-card-title>
+      <mat-card-content>
+          <mat-list>
+            <mat-list-item>Email ID :  {{delivery_email}}</mat-list-item>
+            <mat-divider></mat-divider>
 
-                <mat-list-item>DeliveryboyName :  {{delivery_name | titlecase}}</mat-list-item>
-                <mat-divider></mat-divider>
+            <mat-list-item>Mobile No :  {{delivery_mobileno}}</mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
 
-                <mat-list-item>Email ID :  {{delivery_email}}</mat-list-item>
-                <mat-divider></mat-divider>
-
-                <mat-list-item>Mobile No :  {{delivery_mobileno}}</mat-list-item>
-                <mat-divider></mat-divider>
-
-
-
-
-              </mat-list>
-
-              <div mat-dialog-actions>
-                <button mat-button (click)="onCancelClick()">Close</button>
-              </div>
-
+          <div mat-dialog-actions>
+            <button mat-button (click)="onCancelClick()">Close</button>
+          </div>
       </mat-card-content>
   </mat-card>
 </section>
