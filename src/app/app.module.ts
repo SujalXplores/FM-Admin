@@ -78,6 +78,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AddcategoryComponent } from './category/addcategory/addcategory.component';
+import { ViewMoreDeliveryboyComponent } from './deliveryboy/view-more-deliveryboy/view-more-deliveryboy.component';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,8 @@ import { AddcategoryComponent } from './category/addcategory/addcategory.compone
     MailUserComponent,
     ForgotPasswordComponent,
     DashboardComponent,
-    AddcategoryComponent
+    AddcategoryComponent,
+    ViewMoreDeliveryboyComponent
   ],
   imports: [
     routingArr,
