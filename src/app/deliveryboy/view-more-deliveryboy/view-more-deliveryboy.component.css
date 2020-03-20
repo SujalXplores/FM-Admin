@@ -1,3 +1,7 @@
 mat-list-item {
   height: 100%;
 }
+img{
+  border-radius: 50%;
+  outline: 0;
+}

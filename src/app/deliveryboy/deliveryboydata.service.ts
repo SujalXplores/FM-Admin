@@ -19,17 +19,18 @@ export class DeliveryboydataService {
     return this._http.delete(this.url + deliveryboy_id, {headers: x});
   }
 
-   addDeliveryboy(item: deliveryboy) {
-    let body = JSON.stringify(item);
-    let x = new HttpHeaders().set('Content-Type', 'application/json');
-    return this._http.post(this.url, body, {headers: x});
+   addDeliveryboy(item:FormData) {
+    // let body = JSON.stringify(item);
+    // let x = new HttpHeaders().set('Content-Type', 'application/json');
+    // return this._http.post(this.url, body, {headers: x});
+       return this._http.post(this.url,item);
   }
 
    editDeliveryboy(deliveryboy_id: number) {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.get(this.url + deliveryboy_id, {headers: x});
   }
-  
+
   updateDeliveryboy(item: deliveryboy) {
      let body = JSON.stringify(item);
      let x = new HttpHeaders().set('Content-Type', 'application/json');

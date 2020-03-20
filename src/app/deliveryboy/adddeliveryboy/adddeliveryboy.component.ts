@@ -11,15 +11,32 @@ import { deliveryboy } from '../deliveryboy';
 export class AdddeliveryboyComponent implements OnInit {
   arrDeliveryboy: deliveryboy[] = [];
   constructor(private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
+  selectedFile: File = null;
   value = '';
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   onDeliveryboyAdd(f) {
-    this._deliveryboydata.addDeliveryboy(f.value).subscribe(
-      (data: any) => {
-        this.arrDeliveryboy.push(f.value);
+    let fd = new FormData();
+    fd.append('deliveryboy_id', f.value. deliveryboy_id);
+    fd.append('deliveryboy_name', f.value.deliveryboy_name);
+    fd.append('deliveryboy_address', f.value.deliveryboy_address);
+    fd.append('deliveryboy_mobileno', f.value.deliveryboy_mobileno);
+    fd.append('deliveryboy_email', f.value.deliveryboy_email);
+    fd.append('password', f.value. password);
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+
+
+    this._deliveryboydata.addDeliveryboy(fd).subscribe(
+      (data: any[]) => {
+        // this.arrDeliveryboy.push(f.value);
         this._router.navigate(['/nav/deliveryboy']);
+        console.log(data);
       }
     );
+  }
+  onChange(f){
+    this.selectedFile=<File>f.target.files[0];
   }
 }

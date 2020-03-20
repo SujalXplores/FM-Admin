@@ -7,5 +7,6 @@ export class deliveryboy {
     public deliveryboy_mobileno: number,
     public deliveryboy_email: string,
     public password: string,
+    public img: string,
   ) {}
 }
