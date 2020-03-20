@@ -124,7 +124,7 @@ import { ViewMoreDeliveryboyComponent } from './deliveryboy/view-more-deliverybo
     ForgotPasswordComponent,
     DashboardComponent,
     AddcategoryComponent,
-    ViewMoreDeliveryboyComponent
+    ViewMoreDeliveryboyComponent,
   ],
   imports: [
     routingArr,

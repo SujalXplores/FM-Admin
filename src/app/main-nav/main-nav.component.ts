@@ -16,6 +16,7 @@ export class MainNavComponent {
   date = new Date();
   u_email_id:string='';
   u_name:string='';
+  u_image:string='';
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(
     map(result => result.matches),
@@ -29,6 +30,7 @@ export class MainNavComponent {
 
       this._user.getUserByEmail(this.u_email_id).subscribe((data) => {
       this.u_name = data[0].u_name;
+      this.u_image = data[0].u_image;
   });
 }
 
