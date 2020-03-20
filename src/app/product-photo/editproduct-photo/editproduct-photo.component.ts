@@ -46,12 +46,13 @@ export class EditproductPhotoComponent implements OnInit {
   onChange(f) {
     this.selectedFile = <File>f.target.files[0];
   }
+  
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message , action, {
       duration: 5000,
       verticalPosition: 'bottom', // 'top' | 'bottom'
       horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['warning']
+      panelClass: ['update']
     });
   }
 
