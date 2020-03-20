@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DeliveryboydataService } from '../deliveryboydata.service';
 import { deliveryboy } from '../deliveryboy';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-editdeliveryboy',
@@ -11,7 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class EditdeliveryboyComponent implements OnInit {
 
-  constructor(private _act_route: ActivatedRoute, private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
+  constructor(private _snackBar: MatSnackBar,private _act_route: ActivatedRoute, private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
   deliveryboy_id: number;
   deliveryPartner_update: FormGroup;
   selectedFile: File = null;
@@ -47,13 +48,21 @@ export class EditdeliveryboyComponent implements OnInit {
       password: item.password,
     });
   }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message , action, {
+      duration: 5000,
+      verticalPosition: 'bottom', // 'top' | 'bottom'
+      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
+      panelClass: ['warning']
+    });
+  }
 
   OnDeliveryPartnerEdit() {
     console.log(this.deliveryPartner_update.get('img').value);
     let fd = new FormData();
     if (this.selectedFile != null) {
       fd.append('image', this.selectedFile, this.selectedFile.name);
-    } 
+    }
     else {
       fd.append('image', this.deliveryPartner_update.get('img').value);
     }

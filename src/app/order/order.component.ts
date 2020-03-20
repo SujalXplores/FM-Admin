@@ -9,6 +9,8 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { Router } from '@angular/router';
 import { OrderdataService } from './orderdata.service';
 import { OrderDialogComponent } from './order-dialog/order-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-order',
@@ -34,7 +36,7 @@ export class OrderComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: OrderdataService, public router: Router , public dialog: MatDialog) {
+  constructor(private _snackBar: MatSnackBar,private _data: OrderdataService, public router: Router , public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
    }
 
@@ -94,6 +96,14 @@ applyFilter(filterValue: string) {
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
   }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message , action, {
+      duration: 5000,
+      verticalPosition: 'bottom', // 'top' | 'bottom'
+      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
+      panelClass: ['warning']
+    });
+  }
 }
 
 export interface ViewMore {
@@ -102,4 +112,5 @@ export interface ViewMore {
   order_status: string;
   deliveryboy_id: number;
 }
+
 

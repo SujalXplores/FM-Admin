@@ -3,6 +3,7 @@ import { ProductdataService } from '../productdata.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { product } from '../product';
 import { CategorydataService } from 'src/app/category/categorydata.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { CategorydataService } from 'src/app/category/categorydata.service';
 })
 export class EditproductComponent implements OnInit {
 
-  constructor(private _catdata: CategorydataService, private _act_route: ActivatedRoute, private _productdata: ProductdataService, private _router: Router) { }
+  constructor(private _snackBar: MatSnackBar,private _catdata: CategorydataService, private _act_route: ActivatedRoute, private _productdata: ProductdataService, private _router: Router) { }
   pro_id1: number;
   pro_name1 : string;
   pro_category1 : string;
@@ -39,6 +40,14 @@ export class EditproductComponent implements OnInit {
         this.catnamearr = data;
       }
     );
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message , action, {
+      duration: 5000,
+      verticalPosition: 'bottom', // 'top' | 'bottom'
+      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
+      panelClass: ['warning']
+    });
   }
 
   OnProductEdit(f) {

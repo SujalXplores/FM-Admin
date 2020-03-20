@@ -8,6 +8,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Router } from '@angular/router';
 import { ProductdataService } from './productdata.service';
 import { ViewMoreProductComponent } from './view-more-product/view-more-product.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product',
@@ -27,7 +28,7 @@ export class ProductComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: ProductdataService, public router: Router, public dialog: MatDialog) {
+  constructor(private _snackBar: MatSnackBar,private _data: ProductdataService, public router: Router, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -109,5 +110,13 @@ applyFilter(filterValue: string) {
     this.isAllSelected() ?
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message , action, {
+      duration: 5000,
+      verticalPosition: 'bottom', // 'top' | 'bottom'
+      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
+      panelClass: ['warning']
+    });
   }
 }

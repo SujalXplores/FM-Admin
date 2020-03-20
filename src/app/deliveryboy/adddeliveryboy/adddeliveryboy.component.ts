@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeliveryboydataService } from '../deliveryboydata.service';
 import { deliveryboy } from '../deliveryboy';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-adddeliveryboy',
@@ -9,9 +10,9 @@ import { deliveryboy } from '../deliveryboy';
   styleUrls: ['./adddeliveryboy.component.css']
 })
 export class AdddeliveryboyComponent implements OnInit {
-  
-  constructor(private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
-  
+
+  constructor(private _snackBar: MatSnackBar,private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
+
   arrDeliveryboy: deliveryboy[] = [];
   selectedFile: File = null;
   value = '';
@@ -40,5 +41,13 @@ export class AdddeliveryboyComponent implements OnInit {
 
   onChange(f){
     this.selectedFile=<File>f.target.files[0];
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message , action, {
+      duration: 5000,
+      verticalPosition: 'bottom', // 'top' | 'bottom'
+      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
+      panelClass: ['warning']
+    });
   }
 }

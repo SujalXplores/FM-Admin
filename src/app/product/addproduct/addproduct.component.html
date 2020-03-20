@@ -44,7 +44,7 @@
               <mat-icon matSuffix><i class="far fa-file-medical"></i></mat-icon>
             </mat-form-field>
 
-            <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add Product</button>
+            <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent"  (click)="openSnackBar('1 Record Added Successfully.','')">Add Product</button>
         </form>
 
         </mat-card-content>

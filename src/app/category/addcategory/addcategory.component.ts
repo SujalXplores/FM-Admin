@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategorydataService } from '../categorydata.service';
 import { Router } from '@angular/router';
 import { category } from '../category';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-addcategory',
@@ -12,7 +13,7 @@ export class AddcategoryComponent implements OnInit {
 
   arrCategory: category[] = [];
 
-  constructor(private _catdata: CategorydataService, private _router: Router) { }
+  constructor(private _snackBar: MatSnackBar,private _catdata: CategorydataService, private _router: Router) { }
   value = '';
 
   ngOnInit(): void {
@@ -25,5 +26,13 @@ export class AddcategoryComponent implements OnInit {
         this._router.navigate(['/nav/category']);
       }
     );
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message , action, {
+      duration: 5000,
+      verticalPosition: 'bottom', // 'top' | 'bottom'
+      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
+      panelClass: ['warning']
+    });
   }
 }

@@ -2,7 +2,7 @@
   <mat-card fxFlex="500px" fxFlex.xs="100%">
       <mat-card-title align="center">Edit Delivery Partner</mat-card-title>
       <mat-card-content>
-      
+
       <form class="example-form"  [formGroup]="deliveryPartner_update" (ngSubmit)="OnDeliveryPartnerEdit()">
 
           <mat-form-field class="example-full-width" appearance="fill">
@@ -39,13 +39,13 @@
                     Upload photo
                     <input type="file" class="d-none" (change)="onChange($event)">
                   </label>
-                  <img height="100" width="100" align="right" style="border-radius: 50%;" src="{{image_url}}"> 
+                  <img height="100" width="100" align="right" style="border-radius: 50%;" src="{{image_url}}">
                 </div>
               </div>
             </div>
           </div>
 
-        <button class="example-full-width" type="submit" mat-raised-button color="accent">Edit Deliveryboy</button>
+        <button class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('1 Record Edited Successfully.','')">Edit Deliveryboy</button>
       </form>
     </mat-card-content>
   </mat-card>

@@ -4,6 +4,7 @@ import { ProductPhotodataService } from '../product-photodata.service';
 import { Router } from '@angular/router';
 import { product } from 'src/app/product/product';
 import { ProductdataService } from 'src/app/product/productdata.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-addproduct-photo',
@@ -13,7 +14,7 @@ import { ProductdataService } from 'src/app/product/productdata.service';
 export class AddproductPhotoComponent implements OnInit {
 
   arrProduct: product_photo[] = [];
-  constructor(private _productdata: ProductPhotodataService, private _router: Router, private _prodata: ProductdataService) { }
+  constructor(private _snackBar: MatSnackBar,private _productdata: ProductPhotodataService, private _router: Router, private _prodata: ProductdataService) { }
   selectedFile: File = null;
   value = '';
 
@@ -46,6 +47,14 @@ export class AddproductPhotoComponent implements OnInit {
 
 onChange(f){
   this.selectedFile = <File>f.target.files[0];
+}
+openSnackBar(message: string, action: string) {
+  this._snackBar.open(message , action, {
+    duration: 5000,
+    verticalPosition: 'bottom', // 'top' | 'bottom'
+    horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
+    panelClass: ['warning']
+  });
 }
 
 }

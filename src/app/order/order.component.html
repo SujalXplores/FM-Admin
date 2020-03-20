@@ -59,7 +59,7 @@
           <button (click)="openDialog(row.order_id)" matTooltip="View more" mat-icon-button style="color: blue">
             <mat-icon>view_headline_outlined</mat-icon>
           </button>
-          <button (click)="onDelete(row)"  matTooltip="Delete" mat-icon-button color="warn">
+          <button (click)="onDelete(row)" (click)="openSnackBar('1 Record Deleted Successfully.','')"  matTooltip="Delete" mat-icon-button color="warn">
             <mat-icon>delete_outlined</mat-icon>
           </button>
           <button (click)="OnOrderEdit(row)"  matTooltip="Edit" mat-icon-button>

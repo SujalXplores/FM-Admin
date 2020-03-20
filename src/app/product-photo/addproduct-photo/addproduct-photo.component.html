@@ -26,7 +26,7 @@
                 </div>
             </div>
           </div>
-        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add Product Photo</button>
+        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('1 Record Added Successfully.','')">Add Product Photo</button>
       </form>
 
     </mat-card-content>

@@ -12,7 +12,7 @@
     <mat-hint class="hint" *ngIf="c_name.hasError('pattern') && !c_name.pristine">Only Letters</mat-hint>
   </mat-form-field>
 
-<button class="example-full-width" type="submit" mat-raised-button color="accent">Add Category</button>
+<button class="example-full-width" type="submit" mat-raised-button color="accent"  (click)="openSnackBar('1 Record Added Successfully.','')">Add Category</button>
 </form>
 </mat-card-content>
 </mat-card>
