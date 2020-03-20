@@ -54,12 +54,13 @@ export class EdituserComponent implements OnInit {
       u_address: item.u_address,
     });
   }
+  
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message , action, {
       duration: 5000,
       verticalPosition: 'bottom', // 'top' | 'bottom'
       horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['warning']
+      panelClass: ['update']
     });
   }
 
