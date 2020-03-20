@@ -43,6 +43,19 @@
             <mat-icon class="material-icons-outlined" matSuffix>password</mat-icon>
           </mat-form-field>
 
+          <div class="form-group">
+            <div class="rounded p-6">
+                <div class="media">
+                    <div class="media-body">
+                        <label class="btn btn-sm btn-outline-primary mb-3 ml-2">
+                            Upload photo
+                            <input type="file" class="d-none" name="img" (change)="onChange($event)">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
           <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add</button>
         </form>
       </mat-card-content>
