@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DeliveryboydataService } from '../deliveryboydata.service';
 import { deliveryboy } from '../deliveryboy';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-editdeliveryboy',
@@ -11,32 +12,66 @@ import { deliveryboy } from '../deliveryboy';
 export class EditdeliveryboyComponent implements OnInit {
 
   constructor(private _act_route: ActivatedRoute, private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
-  d_id: number;
-  d_name: string;
-  d_address: string;
-  d_mobileno: number;
-  d_email: string;
+  deliveryboy_id: number;
+  deliveryPartner_update: FormGroup;
+  selectedFile: File = null;
+  image_url: string = null;
 
   ngOnInit() {
-    this.d_id = this._act_route.snapshot.params["deliveryboy_id"];
-    this._deliveryboydata.editDeliveryboy(this.d_id).subscribe(
-        (data: deliveryboy) => {
-          this.d_id = data[0].deliveryboy_id;
-          this.d_name = data[0].deliveryboy_name;
-          this.d_address = data[0].deliveryboy_address;
-          this.d_mobileno = data[0].deliveryboy_mobileno;
-          this.d_email = data[0].deliveryboy_email;
-        }
+    this.deliveryboy_id = this._act_route.snapshot.params['deliveryboy_id'];
+    console.log(this.deliveryboy_id);
+    this.deliveryPartner_update = new FormGroup({
+      deliveryboy_name: new FormControl(null , [Validators.required]),
+      deliveryboy_address: new FormControl(null, [Validators.required]),
+      deliveryboy_mobileno: new FormControl(null, [Validators.required]),
+      deliveryboy_email: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required]),
+      img : new FormControl(null, [Validators.required])
+    });
+    this._deliveryboydata.editDeliveryboy(this.deliveryboy_id).subscribe(
+      (data: deliveryboy[]) => {
+        this.formDataBind(data[0]);
+        console.log(data[0]);
+      }
     );
   }
 
-  onDeliveryboyEdit(f) {
-    this._deliveryboydata.updateDeliveryboy(f.value).subscribe(
-        (data: any) => {
-          this._router.navigate(['/nav/deliveryboy']);
-          console.log(f.value);
-        }
+  formDataBind(item: deliveryboy) {
+    this.image_url = "http://localhost:3000/images/deliveryboy_photos/" + item.img;
+    console.log(this.image_url);
+    this.deliveryPartner_update.patchValue({
+      deliveryboy_name: item.deliveryboy_name,
+      deliveryboy_address: item.deliveryboy_address,
+      deliveryboy_mobileno: item.deliveryboy_mobileno,
+      deliveryboy_email : item.deliveryboy_email,
+      password: item.password,
+    });
+  }
+
+  OnDeliveryPartnerEdit() {
+    console.log(this.deliveryPartner_update.get('img').value);
+    let fd = new FormData();
+    if (this.selectedFile != null) {
+      fd.append('image', this.selectedFile, this.selectedFile.name);
+    } 
+    else {
+      fd.append('image', this.deliveryPartner_update.get('img').value);
+    }
+
+    fd.append('deliveryboy_name', this.deliveryPartner_update.get('deliveryboy_name').value);
+    fd.append('deliveryboy_address', this.deliveryPartner_update.get('deliveryboy_address').value);
+    fd.append('deliveryboy_mobileno', this.deliveryPartner_update.get('deliveryboy_mobileno').value);
+    fd.append('deliveryboy_email', this.deliveryPartner_update.get('deliveryboy_email').value);
+    fd.append('password', this.deliveryPartner_update.get('password').value);
+
+    this._deliveryboydata.updateDeliveryboy(this.deliveryboy_id, fd).subscribe(
+      (data: deliveryboy) => {
+        this._router.navigate(['/nav/deliveryboy']);
+      }
     );
   }
 
+  onChange(f) {
+    this.selectedFile = <File> f.target.files[0];
+  }
 }

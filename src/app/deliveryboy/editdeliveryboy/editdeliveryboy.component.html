@@ -1,36 +1,52 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title align="center">Edit Valet Info</mat-card-title>
+      <mat-card-title align="center">Edit Delivery Partner</mat-card-title>
       <mat-card-content>
-          <form class="example-form" (ngSubmit)="onDeliveryboyEdit(f)" #f="ngForm">
+      
+      <form class="example-form"  [formGroup]="deliveryPartner_update" (ngSubmit)="OnDeliveryPartnerEdit()">
 
-            <!-- <mat-form-field class="example-full-width">
-              <input ngModel name="deliveryboy_id" [(ngModel)]=d_id #deliveryboy_id="ngModel" matInput type="number" placeholder="Enter Deliveryboy id">
-            </mat-form-field> -->
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input formControlName="deliveryboy_name" matInput type="text" placeholder="Enter Deliveryboy Name">
+            <mat-icon class="material-icons-outlined" matSuffix>perm_identity</mat-icon>
+          </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input ngModel name="deliveryboy_name" [(ngModel)]=d_name #deliveryboy_name="ngModel" matInput type="text" placeholder="Enter Deliveryboy Name">
-              <mat-icon class="material-icons-outlined" matSuffix>perm_identity</mat-icon>
-            </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input formControlName="deliveryboy_address" matInput type="text" placeholder="Enter Deliveryboy Address">
+            <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
+          </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input ngModel name="deliveryboy_address" [(ngModel)]=d_address #deliveryboy_address="ngModel" matInput type="text" placeholder="Enter Deliveryboy Address">
-              <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
-            </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <span matPrefix>+91 &nbsp;</span>
+            <input formControlName="deliveryboy_mobileno" type="number" matInput appPhone placeholder="Enter Mobile Number">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <span matPrefix>+91 &nbsp;</span>
-              <input ngModel name="deliveryboy_mobileno" [(ngModel)]=d_mobileno #deliveryboy_mobileno="ngModel" type="number" matInput appPhone placeholder="Enter Mobile Number">
-              <mat-icon matSuffix>phone</mat-icon>
-            </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input formControlName="deliveryboy_email" matInput type="email" placeholder="Enter Email">
+            <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
+          </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input ngModel name="deliveryboy_email" [(ngModel)]=d_email #deliveryboy_email="ngModel" matInput type="email" placeholder="Enter Email">
-              <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
-            </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input formControlName="password" matInput type="password" placeholder="Enter Password">
+            <mat-icon class="material-icons-outlined" matSuffix>lock</mat-icon>
+          </mat-form-field>
 
-            <button class="example-full-width" type="submit" mat-raised-button color="accent">Edit Deliveryboy</button>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </section>
+          <div class="form-group">
+            <div class="rounded p-6">
+              <div class="media">
+                <div class="media-body">
+                  <label class="btn btn-lg btn-outline-primary ml-2">
+                    Upload photo
+                    <input type="file" class="d-none" (change)="onChange($event)">
+                  </label>
+                  <img height="100" width="100" align="right" style="border-radius: 50%;" src="{{image_url}}"> 
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <button class="example-full-width" type="submit" mat-raised-button color="accent">Edit Deliveryboy</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>

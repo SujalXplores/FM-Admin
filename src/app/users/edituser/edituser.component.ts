@@ -20,22 +20,22 @@ export class EdituserComponent implements OnInit {
   constructor(private _act_route: ActivatedRoute, private _userdata: UsersdataService, private _router: Router) { }
 
   ngOnInit() {
-      this.u_email_id = this._act_route.snapshot.params['u_email_id'];
-      console.log(this.u_email_id);
-      this.user_update = new FormGroup({
-        u_name: new FormControl(null , [Validators.required , Validators.pattern('[a-z A-Z]*')]),
-        u_mobileno: new FormControl(null  , [Validators.required , Validators.minLength(10), Validators.pattern('[0-9]*')]),
-        u_password: new FormControl(null , [Validators.required]),
-        u_address: new FormControl(null , [Validators.required]),
-        u_image: new FormControl(null, [Validators.required]),
-        u_type : new FormControl(null, [Validators.required])
-      });
-      this._userdata.editUser(this.u_email_id).subscribe(
-        (data: users[]) => {
-          this.formDataBind(data [0]);
-          console.log(data[0]);
-        }
-      );
+    this.u_email_id = this._act_route.snapshot.params['u_email_id'];
+    console.log(this.u_email_id);
+    this.user_update = new FormGroup({
+      u_name: new FormControl(null , [Validators.required, Validators.pattern('[a-z A-Z]*')]),
+      u_mobileno: new FormControl(null, [Validators.required, Validators.minLength(10), Validators.pattern('[0-9]*')]),
+      u_password: new FormControl(null, [Validators.required]),
+      u_address: new FormControl(null, [Validators.required]),
+      u_image: new FormControl(null, [Validators.required]),
+      u_type : new FormControl(null, [Validators.required])
+    });
+    this._userdata.editUser(this.u_email_id).subscribe(
+      (data: users[]) => {
+        this.formDataBind(data[0]);
+        console.log(data[0]);
+      }
+    );
   }
 
   onChange(f) {
@@ -43,15 +43,15 @@ export class EdituserComponent implements OnInit {
   }
 
   formDataBind(item: users) {
-      this.image_url = "http://localhost:3000/images/user_photos/" + item.u_image;
-      console.log(this.image_url);
-      this.user_update.patchValue({
-        u_name: item.u_name,
-        u_mobileno: item.u_mobileno,
-        u_password: item.u_password,
-        u_type : item.u_type,
-        u_address: item.u_address,
-      });
+    this.image_url = "http://localhost:3000/images/user_photos/" + item.u_image;
+    console.log(this.image_url);
+    this.user_update.patchValue({
+      u_name: item.u_name,
+      u_mobileno: item.u_mobileno,
+      u_password: item.u_password,
+      u_type : item.u_type,
+      u_address: item.u_address,
+    });
   }
 
   OnUserEdit() {
@@ -59,7 +59,8 @@ export class EdituserComponent implements OnInit {
     let fd = new FormData();
     if (this.selectedFile != null) {
       fd.append('image', this.selectedFile, this.selectedFile.name);
-    } else {
+    } 
+    else {
       fd.append('image', this.user_update.get('u_image').value);
     }
 

@@ -9,12 +9,14 @@ import { deliveryboy } from '../deliveryboy';
   styleUrls: ['./adddeliveryboy.component.css']
 })
 export class AdddeliveryboyComponent implements OnInit {
-  arrDeliveryboy: deliveryboy[] = [];
+  
   constructor(private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
+  
+  arrDeliveryboy: deliveryboy[] = [];
   selectedFile: File = null;
   value = '';
-  ngOnInit() {
 
+  ngOnInit() {
   }
 
   onDeliveryboyAdd(f) {
@@ -27,7 +29,6 @@ export class AdddeliveryboyComponent implements OnInit {
     fd.append('password', f.value. password);
     fd.append('image', this.selectedFile, this.selectedFile.name);
 
-
     this._deliveryboydata.addDeliveryboy(fd).subscribe(
       (data: any[]) => {
         // this.arrDeliveryboy.push(f.value);
@@ -36,6 +37,7 @@ export class AdddeliveryboyComponent implements OnInit {
       }
     );
   }
+
   onChange(f){
     this.selectedFile=<File>f.target.files[0];
   }
