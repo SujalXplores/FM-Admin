@@ -6,10 +6,10 @@
 
 
   <mat-form-field class="example-full-width" appearance="fill">
-    <input required pattern="[a-z A-Z]*" ngModel name="category" #category="ngModel" matInput type="text" placeholder="Enter Category">
+    <input required pattern="[a-z A-Z]*" ngModel name="c_name" #c_name="ngModel" matInput type="text" placeholder="Enter Category">
     <mat-icon class="material-icons-outlined" matSuffix>account_tree</mat-icon>
-    <mat-hint class="hint" *ngIf="category.hasError('required') && !category.pristine">Required</mat-hint>
-    <mat-hint class="hint" *ngIf="category.hasError('pattern') && !category.pristine">Only Letters</mat-hint>
+    <mat-hint class="hint" *ngIf="c_name.hasError('required') && !c_name.pristine">Required</mat-hint>
+    <mat-hint class="hint" *ngIf="c_name.hasError('pattern') && !c_name.pristine">Only Letters</mat-hint>
   </mat-form-field>
 
 <button class="example-full-width" type="submit" mat-raised-button color="accent">Add Category</button>
