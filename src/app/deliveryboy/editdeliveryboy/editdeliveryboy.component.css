@@ -14,7 +14,7 @@ mat-icon {
 }
 
 ::ng-deep .update{
-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 font-family: Roboto;
 font-size: 10px;
 background-color:yellow;
