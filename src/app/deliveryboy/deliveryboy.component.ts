@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { DeliveryboydataService } from './deliveryboydata.service';
 import { ValetMailComponent } from './valet-mail/valet-mail.component';
 import { ViewMoreDeliveryboyComponent } from './view-more-deliveryboy/view-more-deliveryboy.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-deliveryboy',
   templateUrl: './deliveryboy.component.html',
@@ -24,7 +25,7 @@ export class DeliveryboyComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: DeliveryboydataService, public _dialog: MatDialog, private _router: Router,public dialog: MatDialog) {
+  constructor(private _snackBar: MatSnackBar,private _data: DeliveryboydataService, public _dialog: MatDialog, private _router: Router,public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -84,6 +85,14 @@ export class DeliveryboyComponent implements OnInit {
   openDialog(row) {
     this.dialog.open(ViewMoreDeliveryboyComponent, {
       data: row
+    });
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message , action, {
+      duration: 5000,
+      verticalPosition: 'bottom', // 'top' | 'bottom'
+      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
+      panelClass: ['warning']
     });
   }
 }

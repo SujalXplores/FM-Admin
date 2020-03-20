@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderdataService } from '../orderdata.service';
 import { order } from '../order';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-editorder',
@@ -10,7 +11,7 @@ import { order } from '../order';
 })
 export class EditorderComponent implements OnInit {
 
-  constructor(private _act_route: ActivatedRoute, private _orderdata: OrderdataService, private _router: Router) { }
+  constructor(private _snackBar: MatSnackBar,private _act_route: ActivatedRoute, private _orderdata: OrderdataService, private _router: Router) { }
   order_id1: number;
   order_amount1 : string;
   order_date1 : Date;
@@ -30,6 +31,14 @@ export class EditorderComponent implements OnInit {
           this.order_status1 = data[0].order_status;
         }
     );
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message , action, {
+      duration: 5000,
+      verticalPosition: 'bottom', // 'top' | 'bottom'
+      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
+      panelClass: ['warning']
+    });
   }
 
   OnOrderEdit(f) {

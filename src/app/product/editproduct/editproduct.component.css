@@ -21,3 +21,9 @@ section {
   font-size: 14px;
   font-weight: bolder;
 }
+::ng-deep .warning{
+  color: rgb(255, 255, 255);
+  font-family: Roboto;
+  font-size: 10px;
+  background-color:yellow;
+  }
