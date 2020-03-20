@@ -25,7 +25,7 @@ export class ForgotPasswordComponent implements OnInit {
       duration: 5000,
       verticalPosition: 'top', // 'top' | 'bottom'
       horizontalPosition: 'right', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['warning']
+      panelClass: ['success']
     });
   }
 

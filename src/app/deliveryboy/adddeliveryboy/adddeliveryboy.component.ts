@@ -47,7 +47,7 @@ export class AdddeliveryboyComponent implements OnInit {
       duration: 5000,
       verticalPosition: 'bottom', // 'top' | 'bottom'
       horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['warning']
+      panelClass: ['success']
     });
   }
 }
