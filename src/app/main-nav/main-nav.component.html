@@ -4,13 +4,13 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
       <div class="welcome">
-      <mat-toolbar>
-        <img src="../../assets/image/logo.svg" align="center" alt="FutureMedisurgico">
-      </mat-toolbar>
-        Welcome<br>
-        <span style="font-size: medium;">
+        <mat-toolbar>
+          <img style="border-radius: 50%;" height="85" width="85" alt="FutureMediSurgico" align="center" src="http://localhost:3000/images/user_photos/{{u_image}}">
+        </mat-toolbar>
+        <div style="font-size: medium; font-weight: bold;">
           {{u_name | titlecase}}
-        </span>
+        </div>
+        <div class="date">Today:{{date | date}}</div>
       </div>
 
       <mat-nav-list>
@@ -46,17 +46,7 @@
       </button>
 
       <span>FutureMediSurgico</span>
-
-      <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-
-      <mat-menu #beforeMenu="matMenu" xPosition="before">
-        <button mat-menu-item disabled>
-          <mat-icon class="material-icons-outlined">today</mat-icon>
-          <span class="date">Today:{{date | date}}</span>
-        </button>
-      </mat-menu>
+      
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
