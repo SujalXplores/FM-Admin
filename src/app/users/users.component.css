@@ -70,3 +70,9 @@ tr.example-element-row:not(.example-expanded-row):active {
 .grid-container {
   margin: 20px;
 }
+::ng-deep .warning{
+color: rgb(255, 255, 255);
+font-family: Roboto;
+font-size: 10px;
+background-color: rgb(255, 0, 0);
+}

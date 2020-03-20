@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
 import { DialogComponent } from './dialog/dialog.component';
 import { MailUserComponent } from './mail-user/mail-user.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-users',
@@ -29,7 +30,7 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: UsersdataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
+  constructor(private _snackBar: MatSnackBar, private _data: UsersdataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -38,9 +39,8 @@ export class UsersComponent implements OnInit {
       data: row
     });
   }
- oncheckboxchange(row: users){
 
-   // tslint:disable-next-line: triple-equals
+  oncheckboxchange(row: users){
    if(this.del_arr.find(x => x == row.u_email_id)){
       this.del_arr.splice(this.del_arr.indexOf(row.u_email_id),1);
    }
@@ -48,8 +48,8 @@ export class UsersComponent implements OnInit {
    {
      this.del_arr.push(row.u_email_id);
    }
-
  }
+
  ondeleteallclick(){
   if (confirm("Are You Sure You Want To Delete ?")){
    this._data.deleteall(this.del_arr).subscribe(
@@ -60,10 +60,10 @@ export class UsersComponent implements OnInit {
          this.dataSource.data = this.userarr;
          this.dataSource.paginator = this.paginator;
          this.dataSource.sort = this.sort;
-       }
-     }
-   );
- }
+        }
+      }
+    );
+  }
 }
 
   onDelete(item: users) {
@@ -112,9 +112,19 @@ export class UsersComponent implements OnInit {
       }
     );
   }
+
   OnUserMail(row) {
     this._dialog.open(MailUserComponent,{
       data:row
+    });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message , action, {
+      duration: 5000,
+      verticalPosition: 'bottom', // 'top' | 'bottom'
+      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
+      panelClass: ['warning']
     });
   }
 }

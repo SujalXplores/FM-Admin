@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { users } from '../users';
 import { UsersdataService } from '../usersdata.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-adduser',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AdduserComponent implements OnInit {
   arrUser: users[] = [];
-  constructor(private _userdata: UsersdataService, private _router: Router) { }
+  constructor(private _snackBar: MatSnackBar, private _userdata: UsersdataService, private _router: Router) { }
   selectedFile: File = null;
   value = '';
 
@@ -37,5 +38,14 @@ export class AdduserComponent implements OnInit {
 
   onChange(f){
     this.selectedFile=<File>f.target.files[0];
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message , action, {
+      duration: 5000,
+      verticalPosition: 'bottom', // 'top' | 'bottom'
+      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
+      panelClass: ['warning']
+    });
   }
 }
