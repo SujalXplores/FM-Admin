@@ -4,36 +4,41 @@
       <mat-card-content>
 
         <form class="example-form" (ngSubmit)="OnOrderAdd(f)" #f="ngForm">
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input required ngModel name="order_amount" #order_amount="ngModel" matInput type="text" placeholder="Enter Order Amount">
-              <mat-hint class="hint" *ngIf="order_amount.hasError('required') && !order_amount.pristine">Amount is Required</mat-hint>
-            </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Amount</mat-label>
+            <input required ngModel name="order_amount" #order_amount="ngModel" matInput type="text" placeholder="Enter Order Amount">
+            <mat-error class="hint" *ngIf="order_amount.hasError('required') && !order_amount.pristine">Amount is Required</mat-error>
+          </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input required ngModel name="order_date" #order_date="ngModel" type="date" matInput placeholder="Enter Order Date">
-              <mat-hint class="hint" *ngIf="order_date.hasError('required') && !order_date.pristine">Date is Required</mat-hint>
-              <mat-icon class="material-icons-outlined" matSuffix>event</mat-icon>
-            </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Date</mat-label>
+            <input required ngModel name="order_date" #order_date="ngModel" type="date" matInput placeholder="Enter Order Date">
+            <mat-error class="hint" *ngIf="order_date.hasError('required') && !order_date.pristine">Date is Required</mat-error>
+            <mat-icon class="material-icons-outlined" matSuffix>event</mat-icon>
+          </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input required ngModel name="fk_u_email_id" #fk_u_email_id="ngModel" type="text" matInput placeholder="Enter User Email ID">
-              <mat-hint class="hint" *ngIf="fk_u_email_id.hasError('required') && !fk_u_email_id.pristine">Email is Required</mat-hint>
-              <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
-            </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input required ngModel name="fk_u_email_id" #fk_u_email_id="ngModel" type="text" matInput placeholder="Enter User Email ID">
+            <mat-error class="hint" *ngIf="fk_u_email_id.hasError('required') && !fk_u_email_id.pristine">Email is Required</mat-error>
+            <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
+          </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input  required ngModel name="payment_type" #payment_type="ngModel" type="text" matInput placeholder="Payment Method">
-              <mat-hint class="hint" *ngIf="payment_type.hasError('required') && !payment_type.pristine">Payment type is Required</mat-hint>
-            </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Payment Method</mat-label>
+            <input required ngModel name="payment_type" #payment_type="ngModel" type="text" matInput placeholder="Payment Method">
+            <mat-error class="hint" *ngIf="payment_type.hasError('required') && !payment_type.pristine">Payment type is Required</mat-error>
+          </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input  required ngModel name="order_status" #order_status="ngModel" type="text" matInput placeholder="Enter Status of order">
-              <mat-hint class="hint" *ngIf="order_status.hasError('required') && !order_status.pristine">Order Status is Required</mat-hint>
-            </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Status</mat-label>
+            <input required ngModel name="order_status" #order_status="ngModel" type="text" matInput placeholder="Enter Status of order">
+            <mat-error class="hint" *ngIf="order_status.hasError('required') && !order_status.pristine">Order Status is Required</mat-error>
+          </mat-form-field>
 
-            <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add Order</button>
+          <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add Order</button>
         </form>
 
-</mat-card-content>
-</mat-card>
+    </mat-card-content>
+  </mat-card>
 </section>

@@ -13,3 +13,6 @@ img {
   border-radius: 50%;
   margin-left: 2px;
 }
+section{
+  overflow: hidden;
+}

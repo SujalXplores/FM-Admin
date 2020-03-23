@@ -1,4 +1,9 @@
 mat-card {
-    margin: 20px;
-    position: relative;
+margin: 20px;
+position: relative;
+}
+.example-header-image {
+width: 5vw !important;
+height: 10vh !important;
+background-size: cover;
 }

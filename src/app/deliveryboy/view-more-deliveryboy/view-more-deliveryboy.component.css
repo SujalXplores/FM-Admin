@@ -1,7 +1,11 @@
 mat-list-item {
   height: 100%;
 }
-img{
-  border-radius: 50%;
-  outline: 0;
+.example-header-image {
+  width: 5vw !important;
+  height: 10vh !important;
+  background-size: cover;
+}
+section{
+  overflow: hidden;
 }

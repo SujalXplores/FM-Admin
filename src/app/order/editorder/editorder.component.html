@@ -5,24 +5,29 @@
 
           <form class="example-form" (ngSubmit)="OnOrderEdit(f)" #f="ngForm">
               <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Amount</mat-label>
                 <input ngModel name="order_amount" [(ngModel)]=order_amount1 #order_amount="ngModel" matInput type="number" placeholder="Edit Order Amount">
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Date</mat-label>
                 <input ngModel name="order_date" [(ngModel)]=order_date1 #order_date="ngModel" type="date" matInput placeholder="Edit Order Date">
                 <mat-icon class="material-icons-outlined" matSuffix>event</mat-icon>
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
                 <input ngModel name="fk_u_email_id" [(ngModel)]=fk_u_email_id1 #fk_u_email_id="ngModel" type="text" matInput placeholder="Edit User Email id:">
                 <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
-                <input ngModel name="payment_type" [(ngModel)]=payment_type1 #payment_type="ngModel" type="text" matInput placeholder="Edit Payment Type">
+                <mat-label>Payment Method</mat-label>
+                <input ngModel name="payment_type" [(ngModel)]=payment_type1 #payment_type="ngModel" type="text" matInput placeholder="Edit Payment Method">
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Status</mat-label>
                 <input ngModel name="order_status" [(ngModel)]=order_status1 #order_status="ngModel" type="text" matInput placeholder="Edit Order Status">
               </mat-form-field>
 

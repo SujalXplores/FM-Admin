@@ -10,9 +10,9 @@
   outline: 0;
 }
 img {
-  height: 50px;
-  width: 50px;
-  margin-left: 35%;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
 }
 
 mat-sidenav-content {

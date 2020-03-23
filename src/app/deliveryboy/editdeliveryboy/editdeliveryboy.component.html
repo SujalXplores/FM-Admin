@@ -3,31 +3,36 @@
       <mat-card-title align="center">Edit Delivery Partner</mat-card-title>
       <mat-card-content>
 
-      <form class="example-form"  [formGroup]="deliveryPartner_update" (ngSubmit)="OnDeliveryPartnerEdit()">
+      <form class="example-form" [formGroup]="deliveryPartner_update" (ngSubmit)="OnDeliveryPartnerEdit()">
 
           <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Name</mat-label>
             <input formControlName="deliveryboy_name" matInput type="text" placeholder="Enter Deliveryboy Name">
             <mat-icon class="material-icons-outlined" matSuffix>perm_identity</mat-icon>
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Address</mat-label>
             <input formControlName="deliveryboy_address" matInput type="text" placeholder="Enter Deliveryboy Address">
             <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Mobile Number</mat-label>
             <span matPrefix>+91 &nbsp;</span>
             <input formControlName="deliveryboy_mobileno" type="number" matInput appPhone placeholder="Enter Mobile Number">
             <mat-icon matSuffix>phone</mat-icon>
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="fill">
-            <input formControlName="deliveryboy_email" matInput type="email" placeholder="Enter Email">
+            <mat-label>Email</mat-label>
+            <input readonly formControlName="deliveryboy_email" matInput type="email" placeholder="Enter Email">
             <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="fill">
-            <input formControlName="password" matInput type="password" placeholder="Enter Password">
+            <mat-label>Password</mat-label>
+            <input readonly formControlName="password" matInput type="password" placeholder="Enter Password">
             <mat-icon class="material-icons-outlined" matSuffix>lock</mat-icon>
           </mat-form-field>
 
@@ -35,7 +40,7 @@
             <div class="rounded p-6">
               <div class="media">
                 <div class="media-body">
-                  <label class="btn btn-lg btn-outline-primary ml-2">
+                  <label class="btn btn-sm btn-outline-primary ml-2">
                     Upload photo
                     <input type="file" class="d-none" (change)="onChange($event)">
                   </label>

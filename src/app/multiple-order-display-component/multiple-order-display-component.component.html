@@ -1,19 +1,18 @@
 <section fxLayout="row wrap" fxLayoutAlign="space-around" style="float: left; margin-top: 20px; margin-left: 20px;" *ngFor="let item of ordermultiple">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-    <mat-card-title align="center">Order Details</mat-card-title>
+    <mat-card-header>
+      <img src="http://localhost:3000/{{item.pro_photo}}" mat-card-avatar class="example-header-image">
+      <mat-card-title>{{item.pro_name | titlecase}}'s</mat-card-title>
+      <mat-card-subtitle>Details</mat-card-subtitle>
+    </mat-card-header>
   <mat-list>
     <mat-list-item>Email ID: {{item.fk_u_email_id}}</mat-list-item>
     <mat-divider></mat-divider>
-    <mat-list-item>Bill Date: {{item.order_date}}</mat-list-item>
+    <mat-list-item>Bill Date: {{item.order_date | date : 'mediumDate'}}</mat-list-item>
     <mat-divider></mat-divider>
-    <mat-list-item>Payment Method: {{item.payment_type}}</mat-list-item>
+    <mat-list-item>Payment Method: {{item.payment_type | uppercase}}</mat-list-item>
     <mat-divider></mat-divider>
-    <mat-list-item>Product Name: {{item.pro_name}}</mat-list-item>
-    <mat-divider></mat-divider>
-    <img src="http://localhost:3000/{{item.pro_photo}}" height="100px" width="100px" alt="No Image">
-    <mat-divider></mat-divider>
-    <mat-list-item>Price: {{item.order_amount}}</mat-list-item>
-    <mat-divider></mat-divider>
+    <mat-list-item>Price: {{item.order_amount | currency:"INR"}}</mat-list-item>
     <!-- Qty
     <mat-list-item>{{item.}}</mat-list-item>
     <mat-divider></mat-divider>
