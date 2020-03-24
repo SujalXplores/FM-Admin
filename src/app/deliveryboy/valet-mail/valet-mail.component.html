@@ -1,19 +1,32 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-    <mat-card-title align="center">Send Your Message</mat-card-title>
+    <mat-card-header>
+      <img
+        mat-card-avatar
+        class="example-header-image"
+        alt="No Image"
+        src="http://localhost:3000/images/deliveryboy_photos/{{img}}"
+      />
+      <mat-card-title>Send Mail to {{deliveryboy_name | titlecase}}</mat-card-title>
+      <mat-card-subtitle>Delivery Partner</mat-card-subtitle
+      >
+    </mat-card-header>
     <form [formGroup]="mailVendorForm" (ngSubmit)="onMailVendor(f)" #f="ngForm">
     
       <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>E-mail</mat-label>
         <input readonly formControlName="email_id" matInput type="text">
         <mat-icon matSuffix>email</mat-icon>
       </mat-form-field><br>
     
       <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Title/Subject</mat-label>
         <input formControlName="subject" matInput type="text" placeholder="Enter the subject">
-        <mat-icon matSuffix>pen</mat-icon>
+        <mat-icon matSuffix>title</mat-icon>
       </mat-form-field><br>
     
       <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Message</mat-label>
         <textarea formControlName="message" matInput placeholder="Enter message" style="max-height:250px !important;"></textarea>
       </mat-form-field><br>
     

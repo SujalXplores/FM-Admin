@@ -6,9 +6,10 @@
       <form (ngSubmit)="onProductPhotoAdd(f)" #f="ngForm">
 
           <mat-form-field class="example-full-width" appearance="fill">
-              <mat-select required ngModel name="fk_pro_id" #fk_pro_id="ngModel" placeholder="Select Product Name">
+              <mat-label>Select Product</mat-label>
+              <mat-select required ngModel name="fk_pro_id" #fk_pro_id="ngModel">
                 <mat-option *ngFor="let item of productarr" [value]="item.pro_id">
-                  {{item.pro_name}}
+                  {{item.pro_name | titlecase}}
                 </mat-option>
             </mat-select>
             <mat-error>This Field Can't be Empty</mat-error>

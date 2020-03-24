@@ -1,19 +1,20 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-
-      <mat-card-title align="center">Edit User Details</mat-card-title>
       <mat-card-content>
 
       <form class="example-form" [formGroup]="user_update" (ngSubmit)="OnUserEdit()">
-
-          <mat-label class="email_label">{{u_email_id}}</mat-label>
+        <mat-card-header>
+          <img mat-card-avatar src="{{image_url}}">
+          <mat-card-title>Your Profile</mat-card-title>
+          <mat-card-subtitle>{{u_email_id}}</mat-card-subtitle>
+        </mat-card-header>
 
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Userame</mat-label>
             <input formControlName="u_name" matInput type="text" placeholder="Enter New Name">
             <mat-error class="hint" *ngIf="user_update.get('u_name').hasError('required') && !user_update.pristine">Name is Required</mat-error>
             <mat-error class="hint" *ngIf="user_update.get('u_name').hasError('pattern') && !user_update.pristine">Only Letters</mat-error>
-            <mat-icon class="material-icons-outlined" matSuffix>portrait</mat-icon>
+            <mat-icon class="material-icons-outlined" matSuffix>account_circle</mat-icon>
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="fill">
@@ -22,22 +23,22 @@
             <mat-error class="hint" *ngIf="user_update.hasError('required') && !user_update.pristine">Mobile Number is Required</mat-error>
             <mat-error class="hint" *ngIf="user_update.hasError('minlength') && !user_update.pristine">Mobile number must be of 10 digits!</mat-error>
             <mat-error class="label" *ngIf="user_update.hasError('pattern') && !user_update.pristine">Only Digits!</mat-error>
-            <mat-icon class="material-icons-outlined" matSuffix>contact_phone</mat-icon>
+            <mat-icon matSuffix>phone</mat-icon>
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Password</mat-label>
-            <input readonly formControlName="u_password" matInput type="password" placeholder="Set New Password">
-            <mat-icon class="material-icons-outlined" matSuffix>lock</mat-icon>
+            <input formControlName="u_password" matInput type="password" placeholder="Set New Password">
+            <mat-icon class="material-icons-outlined" matSuffix>vpn_key</mat-icon>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Choose Role</mat-label>
-            <mat-select formControlName="u_type">
+          <!-- <mat-form-field class="example-full-width" appearance="fill">
+            <mat-select disabled formControlName="u_type">
               <mat-option value="admin">Admin</mat-option>
               <mat-option value="user">User</mat-option>
             </mat-select>
-          </mat-form-field>
+            <mat-error>This Field Can't be Empty</mat-error>
+          </mat-form-field> -->
 
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Address</mat-label>
@@ -53,13 +54,12 @@
                       Upload photo
                     <input type="file" class="d-none" (change)="onChange($event)">
                   </label>
-                  <img height="100" width="100" align="right" style="border-radius: 50%;" src="{{image_url}}">
                 </div>
               </div>
             </div>
           </div>
 
-        <button class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('1 Record Edited Successfully.','')">Update User</button>
+        <button class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('1 Record Edited Successfully.','')">Update</button>
       </form>
     </mat-card-content>
   </mat-card>

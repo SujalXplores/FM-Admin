@@ -73,6 +73,7 @@ import { OrderDetailviewmoreComponent } from './order-detail/order-detailviewmor
 import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatTreeModule } from '@angular/material/tree';
 import { MailUserComponent } from './users/mail-user/mail-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -138,6 +139,7 @@ import { ViewMoreDeliveryboyComponent } from './deliveryboy/view-more-deliverybo
     ReactiveFormsModule,
     //angular-material
     MatToolbarModule,
+    MatTreeModule,
     MatMenuModule,
     MatButtonToggleModule,
     MatDialogModule,
@@ -163,7 +165,8 @@ import { ViewMoreDeliveryboyComponent } from './deliveryboy/view-more-deliverybo
     MatDatepickerModule,
     MatNativeDateModule,
     FeatherModule.pick(allIcons),//feather-icons
-    DragDropModule, MatGridListModule
+    DragDropModule,
+    MatGridListModule,
   ],
   entryComponents: [
     DialogComponent,

@@ -13,6 +13,8 @@ import { maildata } from './valetMail';
 export class ValetMailComponent implements OnInit {
 
   mailVendorForm:FormGroup;
+  deliveryboy_name: string;
+  img: string;
   constructor(public dialogref:MatDialogRef<ValetMailComponent>,private _mail: SendMailService,
   @Inject(MAT_DIALOG_DATA)public data: deliveryboy) { }
 
@@ -23,6 +25,8 @@ export class ValetMailComponent implements OnInit {
     subject:new FormControl(null,Validators.required),
     message:new FormControl(null,Validators.required)
   });
+  this.deliveryboy_name=this.data.deliveryboy_name;
+  this.img=this.data.img;
 }
 
 onMailVendor(f){
@@ -32,6 +36,7 @@ onMailVendor(f){
   )
   this.dialogref.close();
 }
+
 onClose() {
   this.dialogref.close();
   }

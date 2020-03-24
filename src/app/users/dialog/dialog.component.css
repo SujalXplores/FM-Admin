@@ -1,19 +1,17 @@
 .example-header-image {
-  width: 5vw !important;
-  height: 10vh !important;
-  background-size: cover;
+background-size: cover;
 }
 .example-card {
-  max-width: 400px;
+max-width: 400px;
 }
 section {
-  overflow: hidden;
+overflow: hidden;
 }
 .admin {
-  color: green;
-  font-weight: bold;
+color: green;
+font-weight: bold;
 }
 .user {
-  color: navy;
-  font-weight: bold;
+color: navy;
+font-weight: bold;
 }

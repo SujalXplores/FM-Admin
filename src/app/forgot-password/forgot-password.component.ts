@@ -33,7 +33,10 @@ export class ForgotPasswordComponent implements OnInit {
       if (this.forgetPasswordForm.get('name').value != null) {
           let a = this.forgetPasswordForm.get('name').value;
           this._mail.getUserByEmail(a).subscribe((data) => {
-          this._mail.passwordMail(a, "Reset Password","Hi! "+data[0].u_name+", Your password is "+data[0].u_password+" Don't share your credentials to anyone. We recommend you to reset your Password.").subscribe((data) => {
+          this._mail.passwordMail(a, "Reset Password", "Hi! " + data[0].u_name + 
+          ",\n\n\nYour password is " + data[0].u_password + 
+          "\nDon't share your credentials to anyone.\nWe recommend you to change your Password." + 
+          "\n\n\n\n\n\n\n\n\n\nThank you,\nTeam FutureMediSurgico.").subscribe((data) => {
         });
       });
       this._router.navigate(['']);

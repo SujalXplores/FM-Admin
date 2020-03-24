@@ -2,18 +2,19 @@
   <mat-card fxFlex="500px" fxFlex.xs="100%">
       <mat-card-title align="center">Add Caregory</mat-card-title>
       <mat-card-content>
-<form class="example-form" (ngSubmit)="onCategoryAdd(f)" #f="ngForm">
+        <form class="example-form" (ngSubmit)="onCategoryAdd(f)" #f="ngForm">
 
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Category Name</mat-label>
+            <input required pattern="[a-z A-Z]*" ngModel name="c_name" #c_name="ngModel" matInput type="text" placeholder="e.g. (Eyecare, Headache)">
+            <mat-icon class="material-icons-outlined" matSuffix>account_tree</mat-icon>
+            <mat-hint class="hint" *ngIf="c_name.hasError('required') && !c_name.pristine">Required</mat-hint>
+            <mat-hint class="hint" *ngIf="c_name.hasError('pattern') && !c_name.pristine">Only Letters</mat-hint>
+          </mat-form-field>
 
-  <mat-form-field class="example-full-width" appearance="fill">
-    <input required pattern="[a-z A-Z]*" ngModel name="c_name" #c_name="ngModel" matInput type="text" placeholder="Enter Category">
-    <mat-icon class="material-icons-outlined" matSuffix>account_tree</mat-icon>
-    <mat-hint class="hint" *ngIf="c_name.hasError('required') && !c_name.pristine">Required</mat-hint>
-    <mat-hint class="hint" *ngIf="c_name.hasError('pattern') && !c_name.pristine">Only Letters</mat-hint>
-  </mat-form-field>
+          <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent"  (click)="openSnackBar('1 Record Added Successfully.','')">Add Category</button>
 
-<button  [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent"  (click)="openSnackBar('1 Record Added Successfully.','')">Add Category</button>
-</form>
-</mat-card-content>
-</mat-card>
+        </form>
+      </mat-card-content>
+    </mat-card>
 </section>

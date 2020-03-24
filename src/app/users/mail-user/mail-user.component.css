@@ -1,6 +1,17 @@
 .example-full-width {
-    width: 100%;
+width: 100%;
 }
 section {
-    overflow: hidden;
+overflow: hidden;
+}
+.admin {
+color: green;
+font-weight: bold;
+}
+.user {
+color: navy;
+font-weight: bold;
+}
+.example-header-image {
+background-size: cover;
 }

@@ -33,6 +33,10 @@ export class MainNavComponent {
     });
   }
 
+  OnUserEdit() {
+    this.router.navigate(['/nav/edituser', this.u_email_id]);
+  }
+
   openDialog() {
     this.dialog.open(ExitDialogComponent);
   }

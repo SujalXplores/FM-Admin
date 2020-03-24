@@ -2,8 +2,6 @@ mat-list-item {
   height: 100%;
 }
 .example-header-image {
-  width: 5vw !important;
-  height: 10vh !important;
   background-size: cover;
 }
 section{

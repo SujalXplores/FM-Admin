@@ -1,6 +1,6 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title align="center">Edit Product</mat-card-title>
+      <mat-card-title align="center">Edit {{pro_name1}}</mat-card-title>
       <mat-card-content>
 
         <form class="example-form" (ngSubmit)="OnProductEdit(f)" #f="ngForm">
@@ -8,7 +8,7 @@
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Product Name</mat-label>
               <input required name="pro_name" [(ngModel)]=pro_name1 #pro_name="ngModel" matInput type="text" placeholder="Enter Product Name">
-              <mat-hint class="hint" *ngIf="pro_name.hasError('required') && !pro_name.pristine">Product Name is Required</mat-hint>
+              <mat-error class="hint" *ngIf="pro_name.hasError('required') && !pro_name.pristine">Product Name is Required</mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
@@ -18,34 +18,35 @@
                   {{item.c_name}}
                 </mat-option>
                </mat-select>
+               <mat-error>Must have to select atleast 1 Product</mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Manufacturer</mat-label>
               <input required pattern="[a-z -. A-Z]*" name="pro_mfg" [(ngModel)]=pro_mfg1 #pro_mfg="ngModel" type="text" matInput placeholder="Enter Product Manufacturer">
-              <mat-hint class="hint" *ngIf="pro_mfg.hasError('required') && !pro_mfg.pristine">Name Of the Manufacturer company is Required</mat-hint>
-              <mat-hint class="hint" *ngIf="pro_mfg.hasError('pattern') && !pro_mfg.pristine">Only Letters</mat-hint>
+              <mat-error class="hint" *ngIf="pro_mfg.hasError('required') && !pro_mfg.pristine">Name Of the Manufacturer company is Required</mat-error>
+              <mat-error class="hint" *ngIf="pro_mfg.hasError('pattern') && !pro_mfg.pristine">Only Letters</mat-error>
               <mat-icon matSuffix><i class="far fa-industry-alt"></i></mat-icon>
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Product Price</mat-label>
               <input required pattern="[0-9]*" minlength="2" maxlength="15000" name="pro_price" [(ngModel)]=pro_price1 #pro_price="ngModel" type="text" matInput placeholder="Enter Product Price">
-              <mat-hint class="hint" *ngIf="pro_price.hasError('required') && !pro_price.pristine">Product Price is Required</mat-hint>
-              <mat-hint class="hint" *ngIf="pro_price.hasError('minlength') && !pro_price.pristine">Price must be greater than RS.1!</mat-hint>
-              <mat-hint class="hint" *ngIf="pro_price.hasError('maxlength') && !pro_price.pristine">Price must be less than RS.15000!</mat-hint>
-              <mat-label class="label" *ngIf="pro_price.hasError('pattern') && !pro_price.pristine">Only Digits!</mat-label>
+              <mat-error class="hint" *ngIf="pro_price.hasError('required') && !pro_price.pristine">Product Price is Required</mat-error>
+              <mat-error class="hint" *ngIf="pro_price.hasError('minlength') && !pro_price.pristine">Price must be greater than RS.1!</mat-error>
+              <mat-error class="hint" *ngIf="pro_price.hasError('maxlength') && !pro_price.pristine">Price must be less than RS.15000!</mat-error>
+              <mat-error class="label" *ngIf="pro_price.hasError('pattern') && !pro_price.pristine">Only Digits!</mat-error>
               <mat-icon matSuffix><i class="far fa-rupee-sign"></i></mat-icon>
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Description</mat-label>
               <input required name="pro_desc" [(ngModel)]=pro_desc1 #pro_desc="ngModel" type="text-area" matInput placeholder="Enter Product Description">
-              <mat-hint class="hint" *ngIf="pro_desc.hasError('required') && !pro_desc.pristine">Description is Required</mat-hint>
+              <mat-error class="hint" *ngIf="pro_desc.hasError('required') && !pro_desc.pristine">Description is Required</mat-error>
               <mat-icon matSuffix><i class="far fa-file-medical"></i></mat-icon>
             </mat-form-field>
 
-            <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('1 Record Edited Successfully.','')">Update Product</button>
+            <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('Changes Saved Successfully.','')">Update Product</button>
         </form>
 
         </mat-card-content>

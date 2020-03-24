@@ -36,14 +36,15 @@ export class ProductdataService {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.delete(this.url + pro_id, {headers: x});
   }
+
   editProduct(pro_id: number) {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.get(this.url + pro_id, {headers: x});
   }
 
   updateProduct(pro_id: number,item: product) {
-     let body = JSON.stringify(item);
-     let x = new HttpHeaders().set('Content-Type', 'application/json');
-     return this.http.put(this.url + pro_id, body , {headers: x} );
+    let body = JSON.stringify(item);
+    let x = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.put(this.url + pro_id, body , {headers: x} );
   }
 }

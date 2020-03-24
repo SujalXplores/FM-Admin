@@ -1,6 +1,11 @@
 .example-full-width {
-    width: 100%;
+width: 100%;
 }
+
 section {
-    overflow: hidden;
+overflow: hidden;
+}
+
+mat-card-subtitle{
+color: rgb(72, 0, 139);
 }

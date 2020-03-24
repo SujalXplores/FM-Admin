@@ -40,7 +40,7 @@
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Password</mat-label>
             <input readonly formControlName="password" matInput type="password" placeholder="Enter Password">
-            <mat-icon class="material-icons-outlined" matSuffix>lock</mat-icon>
+            <mat-icon class="material-icons-outlined" matSuffix>vpn_key</mat-icon>
             <mat-hint class="hint" *ngIf="deliveryPartner_update.get('password').hasError('required') && !deliveryPartner_update.pristine">Password is Required</mat-hint>
           </mat-form-field>
 
@@ -58,7 +58,7 @@
             </div>
           </div>
 
-        <button class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('1 Record Edited Successfully.','')">Edit Deliveryboy</button>
+        <button class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('Changes Saved Successfully.','')">Save</button>
       </form>
     </mat-card-content>
   </mat-card>
