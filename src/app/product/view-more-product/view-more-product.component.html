@@ -8,15 +8,15 @@
       <mat-list>
         <mat-divider></mat-divider>
 
-        <mat-list-item>Description : {{product_desc | titlecase}}</mat-list-item>
-        <mat-divider></mat-divider>
-
         <mat-list-item>Price : {{product_price | currency:"INR"}}</mat-list-item>
         <mat-divider></mat-divider>
 
         <mat-list-item style="height: 100px;">Preview :
           <img *ngFor="let item of image_arr" height="80px" width="80px" src="http://localhost:3000/images/product_photos/{{item}}">
         </mat-list-item>
+
+        <mat-divider></mat-divider>
+        <mat-list-item style="height: auto;">Description :<br><br>{{product_desc | titlecase}}</mat-list-item>
         <mat-divider></mat-divider>
       </mat-list>
     </mat-card-content>
