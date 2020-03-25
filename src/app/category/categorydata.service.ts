@@ -26,9 +26,9 @@ export class CategorydataService {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.get(this.url+c_id,{headers: x});
   }
-  updateCategory(item: category) {
+  updateCategory(c_id: number , item: category) {
     let body = JSON.stringify(item);
     let x = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.put(this.url+item.c_id,body,{headers: x});
+    return this.http.put(this.url + c_id , body , {headers: x});
   }
 }
