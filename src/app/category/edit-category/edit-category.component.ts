@@ -19,14 +19,14 @@ export class EditCategoryComponent implements OnInit {
     console.log(this.c_id1);
     this._categorydata.editCategory(this.c_id1).subscribe(
       (data: category) => {
-        this. c_id1 = data[0].c_id;
-        this. c_name1 = data[0].c_name;
+        this.c_id1 = data[0].c_id;
+        this.c_name1 = data[0].c_name;
       }
     );
   }
 
   OnCategoryEdit(f) {
-    this._categorydata.updateCategory(f.value).subscribe(
+    this._categorydata.updateCategory(this.c_id1,f.value).subscribe(
       (data: any) => {
         this._router.navigate(['/nav/category']);
         console.log(f.value);
