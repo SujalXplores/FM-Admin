@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { OrderBoyAssign } from '../orderboyassign';
 import { deliverdetails } from '../deliverydetail';
 import { DeliverydetailsdataService } from '../deliverydetailsdata.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-assigned-orders',
@@ -19,7 +20,7 @@ export class AddAssignedOrdersComponent implements OnInit {
   SelectedDboyId: string;
   dataSourceDelivery: MatTableDataSource<deliverdetails>;
 
-  constructor(private _orderAssign: DeliverydetailsdataService) {
+  constructor(private _orderAssign: DeliverydetailsdataService, private _router: Router) {
     this.dataSourceOrder = new MatTableDataSource();
     this.dataSourceDelivery = new MatTableDataSource();
   }
@@ -55,7 +56,8 @@ export class AddAssignedOrdersComponent implements OnInit {
             alert('Successfully Assgined');
           }
         });
-    }
+      }
+    this._router.navigate(['/nav/deliverdetails']);
   }
 
   onCheckboxChangeOrder(item: OrderBoyAssign) {
@@ -65,5 +67,4 @@ export class AddAssignedOrdersComponent implements OnInit {
       this.selrectedOrderArr.push(item.order_id);
     }
   }
-
 }

@@ -23,7 +23,6 @@ export class MultipleOrderDisplayComponentComponent implements OnInit {
       (data: any[]) => {
         console.log(data);
         this.ordermultiple = data;
-     //   this.order_total=
       }
     )
   }

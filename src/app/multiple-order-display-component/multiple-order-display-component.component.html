@@ -1,7 +1,7 @@
 <section fxLayout="row wrap" fxLayoutAlign="space-around" style="float: left; margin-top: 20px; margin-left: 20px;" *ngFor="let item of ordermultiple">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
     <mat-card-header>
-      <img src="http://localhost:3000/{{item.pro_photo}}" mat-card-avatar class="example-header-image">
+      <img src="http://localhost:3000/images/product_photos/{{item.pro_photo}}" mat-card-avatar>
       <mat-card-title>{{item.pro_name | titlecase}}'s</mat-card-title>
       <mat-card-subtitle>Details</mat-card-subtitle>
     </mat-card-header>
@@ -13,6 +13,8 @@
     <mat-list-item>Payment Method: {{item.payment_type | uppercase}}</mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item>Price: {{item.order_amount | currency:"INR"}}</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Order Status: {{item.order_status | titlecase}}</mat-list-item>
     <!-- Qty
     <mat-list-item>{{item.}}</mat-list-item>
     <mat-divider></mat-divider>
