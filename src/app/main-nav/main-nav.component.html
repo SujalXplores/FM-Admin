@@ -5,34 +5,34 @@
       [opened]="(isHandset$ | async) === false">
       <div class="welcome">
         <mat-toolbar>
-          <img style="border-radius: 50%;" height="85" width="85" alt="FutureMediSurgico" align="center" src="http://localhost:3000/images/user_photos/{{u_image}}">
+          <img class="mx-auto d-block" alt="FutureMediSurgico" align="center" src="http://localhost:3000/images/user_photos/{{u_image}}">
         </mat-toolbar>
-        <div style="font-size: medium; font-weight: bold;">
+        <div style="font-size: medium;">
           {{u_name | titlecase}}
         </div>
         <div class="date">Today:{{date | date}}</div>
       </div>
 
-      <mat-nav-list>
-        <mat-divider></mat-divider>
-        <a mat-list-item routerLink="/nav"><mat-icon class="material-icons-outlined">dashboard</mat-icon><span>Dashboard</span></a>
-        <mat-divider></mat-divider>
-        <a mat-list-item routerLink="/nav/users"><mat-icon class="material-icons-outlined">account_box</mat-icon><span>Users</span></a>
-        <a mat-list-item routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined">local_shipping</mat-icon><span>DeliveryPartner</span></a>
-        <a mat-list-item routerLink="/nav/deliverdetails"><mat-icon class="material-icons-outlined">local_shipping</mat-icon><span>DeliveryDetail</span></a>
-        <a mat-list-item routerLink="/nav/order"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Orders</span></a>
-        <a mat-list-item routerLink="/nav/order_detail"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Order Detail</span></a>
-        <mat-divider></mat-divider>
-        <a mat-list-item routerLink="/nav/product"><mat-icon class="material-icons-outlined">local_hospital</mat-icon><span>Products</span></a>
-        <a mat-list-item routerLink="/nav/product_photo"><mat-icon class="material-icons-outlined">local_see</mat-icon><span>Product Photo</span></a>
-        <mat-divider></mat-divider>
-        <!-- <a mat-list-item routerLink="/nav/cart"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart</span></a>
-        <a mat-list-item routerLink="/nav/cart_details"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart Details</span></a> -->
-        <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">account_tree</mat-icon><span>Category</span></a>
-        <mat-divider></mat-divider>
-        <a mat-list-item (click)='openDialog()'><mat-icon class="material-icons-outlined">exit_to_app</mat-icon><span>Logout</span></a>
-      </mat-nav-list>
-    </mat-sidenav>
+    <mat-nav-list>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/nav"><mat-icon class="material-icons-outlined">dashboard</mat-icon><span>Dashboard</span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/nav/users"><mat-icon class="material-icons-outlined">account_box</mat-icon><span>Users</span></a>
+      <a mat-list-item routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined">local_shipping</mat-icon><span>DeliveryPartner</span></a>
+      <a mat-list-item routerLink="/nav/deliverdetails"><mat-icon class="material-icons-outlined">local_shipping</mat-icon><span>DeliveryDetail</span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/nav/order"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Orders</span></a>
+      <a mat-list-item routerLink="/nav/order_detail"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Order Detail</span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/nav/product"><mat-icon class="material-icons-outlined">local_hospital</mat-icon><span>Products</span></a>
+      <a mat-list-item routerLink="/nav/product_photo"><mat-icon class="material-icons-outlined">local_see</mat-icon><span>Product Photo</span></a>
+      <mat-divider></mat-divider>
+      <!-- <a mat-list-item routerLink="/nav/cart"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart</span></a>
+      <a mat-list-item routerLink="/nav/cart_details"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart Details</span></a> -->
+      <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">account_tree</mat-icon><span>Category</span></a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
@@ -47,6 +47,22 @@
       </button>
 
       <span>FutureMediSurgico</span>
+
+      <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+
+        <button (click)='OnUserEdit()' mat-menu-item>
+          <mat-icon class="material-icons-outlined">account_circle</mat-icon>
+          <span>My Profile</span>
+        </button>
+        <button mat-menu-item (click)='openDialog()' >
+          <span style="color: red;"><mat-icon style="color: red;">exit_to_app</mat-icon><span>Logout</span></span>
+        </button>
+
+      </mat-menu>
 
     </mat-toolbar>
     <router-outlet></router-outlet>

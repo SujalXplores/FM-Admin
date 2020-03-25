@@ -1,12 +1,17 @@
-.example-form {
-  width:100%;
+.example-header-image {
+background-size: cover;
 }
-.example-full-width {
-  width: 95%;
-  margin-top: 10px;
-  margin-left:10px;
+.example-card {
+max-width: 400px;
 }
-img{
-  border-radius: 50%;
-  outline: 0;
+section {
+overflow: hidden;
+}
+.admin {
+color: green;
+font-weight: bold;
+}
+.user {
+color: navy;
+font-weight: bold;
 }

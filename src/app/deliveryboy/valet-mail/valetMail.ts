@@ -4,4 +4,4 @@ export class maildata {
      public subject:String,
      public message:String,
      ){}
-  }
+}

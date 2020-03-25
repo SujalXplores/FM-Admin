@@ -10,24 +10,23 @@ import { deliveryboy } from '../deliveryboy';
 export class ViewMoreDeliveryboyComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<ViewMoreDeliveryboyComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: deliveryboy) {}
+  public dialogRef: MatDialogRef<ViewMoreDeliveryboyComponent>,
+  @Inject(MAT_DIALOG_DATA) public data: deliveryboy) {}
 
+  delivery_img: string;
+  delivery_email: string;
+  delivery_name: string;
+  delivery_mobileno: number;
+  deliveryboy_address: string;
 
-    delivery_img: string;
-    delivery_email: string;
-    delivery_name: string;
-    delivery_mobileno: number
-
-
-    ngOnInit() {
-      this.delivery_img = this.data.img;
-      this.delivery_email = this.data.deliveryboy_email;
-      this.delivery_name = this.data.deliveryboy_name;
-      this.delivery_mobileno = this.data.deliveryboy_mobileno;
-
-    }
-    onCancelClick() {
-      this.dialogRef.close();
-    }
+  ngOnInit() {
+    this.delivery_img = this.data.img;
+    this.delivery_email = this.data.deliveryboy_email;
+    this.delivery_name = this.data.deliveryboy_name;
+    this.delivery_mobileno = this.data.deliveryboy_mobileno;
+    this.deliveryboy_address = this.data.deliveryboy_address;
+  }
+  onCancelClick() {
+    this.dialogRef.close();
+  }
 }

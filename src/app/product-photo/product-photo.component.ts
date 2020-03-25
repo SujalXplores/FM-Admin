@@ -28,10 +28,10 @@ export class ProductPhotoComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(private _snackBar: MatSnackBar,private _data: ProductPhotodataService, public router: Router, public dialog: MatDialog) {
-       this.dataSource = new MatTableDataSource();
-   }
+    this.dataSource = new MatTableDataSource();
+  }
 
-   openDialog(row) {
+  openDialog(row) {
     this.dialog.open(ViewMoreProductPhotoComponent, {
       data: row
     });
@@ -53,12 +53,12 @@ export class ProductPhotoComponent implements OnInit {
     this.router.navigate(['/nav/editproduct_photo', item.pro_photo_id]);
   }
 
-applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-    this.dataSource.paginator.firstPage();
+  applyFilter(filterValue: string) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+      if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
-}
 
   ngOnInit() {
     this._data.getAllProductPhoto().subscribe(
@@ -83,6 +83,7 @@ applyFilter(filterValue: string) {
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
   }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message , action, {
       duration: 5000,
@@ -91,5 +92,4 @@ applyFilter(filterValue: string) {
       panelClass: ['warning']
     });
   }
-
 }

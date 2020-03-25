@@ -1,71 +1,87 @@
 mat-icon {
-  margin: 0;
-  padding: 0;
+margin: 0;
+padding: 0;
 }
 table {
-  width: 100%;
+width: 100%;
 }
 .mat-form-field {
-  font-size: 16px;
-  width: 100%;
+font-size: 16px;
+width: 100%;
 }
 td, th {
-  width: 15%;
+width: 15%;
 }
 .addbutton {
-  margin-top: 10px;
-  margin-right: 10px;
-  float: right;
+margin-top: 10px;
+margin-right: 10px;
+float: right;
 }
 .deletebutton {
-  margin-top: 10px;
-  margin-right: 10px;
-  float: right;
+margin-top: 10px;
+margin-right: 10px;
+float: right;
 }
 .mat-elevation-z8 {
-  margin-left: 10px;
-  margin-right: 10px;
+margin-left: 10px;
+margin-right: 10px;
 }
 .filterClass {
-  margin-left: 10px;
-  width: 50%;
+margin-left: 10px;
+width: 50%;
 }
 .grid-container {
-  margin: 20px;
+margin: 20px;
 }
 
 
 
 tr.example-detail-row {
-  height: 0;
+height: 0;
 }
 
 tr.example-element-row:not(.example-expanded-row):hover {
-  background: #777;
+background: #777;
 }
 
 tr.example-element-row:not(.example-expanded-row):active {
-  background: #efefef;
+background: #efefef;
 }
 
 .example-element-row td {
-  border-bottom-width: 0;
+border-bottom-width: 0;
 }
 
 .example-element-detail {
-  overflow: hidden;
-  display: flex;
+overflow: hidden;
+display: flex;
 }
 
 .example-element-diagram {
-  min-width: 80px;
-  padding: 8px;
-  font-weight: lighter;
-  margin: 8px;
+min-width: 80px;
+padding: 8px;
+font-weight: lighter;
+margin: 8px;
 }
+
 ::ng-deep .warning{
-  color: rgb(255, 255, 255);
-  font-family: Roboto;
-  font-size: 10px;
-  background-color: rgb(255, 0, 0);
-  }
+color: rgb(255, 255, 255);
+font-family: Roboto;
+font-size: 10px;
+background-color: rgb(255, 0, 0);
+}
+
+.high{
+color:rgb(30, 128, 0);
+font-weight: bold;
+}
+
+.medium{
+color:rgb(0, 4, 255);
+font-weight: bold;
+}
+
+.low{
+color:red;
+font-weight: bold;
+}

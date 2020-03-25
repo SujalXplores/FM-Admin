@@ -1,20 +1,38 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
     <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title align="center">Send Your Message</mat-card-title>
+      <mat-card-header>
+        <img
+          mat-card-avatar
+          class="example-header-image"
+          alt="No Image"
+          src="http://localhost:3000/images/user_photos/{{ u_image }}"
+        />
+        <mat-card-title>Send Mail to{{ u_name | titlecase }}</mat-card-title>
+        <mat-card-subtitle
+          [ngClass]="{
+            admin: u_type == 'admin',
+            user: u_type == 'user'
+          }"
+          >{{ u_type | titlecase }}</mat-card-subtitle
+        >
+      </mat-card-header>
       <form [formGroup]="mailUserForm" (ngSubmit)="onMailUser(f)" #f="ngForm">
       
         <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
           <input readonly formControlName="email_id" matInput type="text">
-          <mat-icon matSuffix>email</mat-icon>
+          <mat-icon class="material-icons-outlined" matSuffix>email</mat-icon>
         </mat-form-field><br>
       
         <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Title/Subject</mat-label>
           <input formControlName="subject" matInput type="text" placeholder="Enter the subject">
-          <mat-icon matSuffix>edit</mat-icon>
+          <mat-icon class="material-icons-outlined" matSuffix>title</mat-icon>
         </mat-form-field><br>
       
         <mat-form-field class="example-full-width" appearance="fill">
-          <textarea formControlName="message" matInput placeholder="Enter message" style="max-height:250px !important;"></textarea>
+          <mat-label>Mesage</mat-label>
+          <textarea formControlName="message" matInput placeholder="Enter message" rows="7"></textarea>
         </mat-form-field><br>
       
         <button type="button" (click)="onClose()" mat-raised-button>Close</button>

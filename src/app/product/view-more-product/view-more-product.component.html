@@ -1,33 +1,29 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
-    <mat-card fxFlex="500px" fxFlex.xs="100%">
-        <mat-card-title>Product Details</mat-card-title>
-            <mat-card-content>
-                <mat-list>
-                  <!-- <mat-list-item>Product ID :{{product_id}}</mat-list-item>
-                  <mat-divider></mat-divider> -->
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-header>
+      <mat-card-title>{{product_name | titlecase}}</mat-card-title>
+      <mat-card-subtitle>Manufacturer: {{product_mfg | titlecase}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-divider></mat-divider>
 
-                  <mat-list-item>Product Name :{{product_name | titlecase}}</mat-list-item>
-                  <mat-divider></mat-divider>
+        <mat-list-item>Description : {{product_desc | titlecase}}</mat-list-item>
+        <mat-divider></mat-divider>
 
-                  <mat-list-item>Product Manufacturer :{{product_mfg | titlecase}}</mat-list-item>
-                  <mat-divider></mat-divider>
+        <mat-list-item>Price : {{product_price | currency:"INR"}}</mat-list-item>
+        <mat-divider></mat-divider>
 
-                  <mat-list-item>Price :{{product_price | currency:"INR"}}</mat-list-item>
-                  <mat-divider></mat-divider>
-
-                  <mat-list-item>Description :{{product_desc | titlecase}}</mat-list-item>
-                  <mat-divider></mat-divider>
-
-                  <mat-list-item style="height: 100px;">Preview :
-                    <img *ngFor="let item of image_arr" height="80px" width="80px" src="http://localhost:3000/images/product_photos/{{item}}">
-                  </mat-list-item>
-                  <mat-divider></mat-divider>
-
-                </mat-list>
-
-                <div mat-dialog-actions>
-                  <button mat-button (click)="onCancelClick()">Close</button>
-                </div>
-        </mat-card-content>
-    </mat-card>
+        <mat-list-item style="height: 100px;">Preview :
+          <img *ngFor="let item of image_arr" height="80px" width="80px" src="http://localhost:3000/images/product_photos/{{item}}">
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <div mat-dialog-actions>
+        <button mat-button (click)="onCancelClick()">Close</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
 </section>

@@ -27,6 +27,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddcategoryComponent } from './category/addcategory/addcategory.component';
 import { DeliverydetailComponent } from './deliverydetail/deliverydetail.component';
 import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders/add-assigned-orders.component';
+import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 
 
 const arr: Routes = [
@@ -47,6 +48,7 @@ const arr: Routes = [
       {path: 'addProductphoto', component: AddproductPhotoComponent},
       {path: 'category', component: CategoryComponent},
       {path: 'addcategory', component: AddcategoryComponent},
+      {path: 'editcategory/:c_id', component: EditCategoryComponent},
       {path: 'order', component: OrderComponent},
       {path: 'addOrder', component: AddorderComponent},
       {path: 'editorder/:order_id', component: EditorderComponent},

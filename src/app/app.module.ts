@@ -73,6 +73,7 @@ import { OrderDetailviewmoreComponent } from './order-detail/order-detailviewmor
 import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatTreeModule } from '@angular/material/tree';
 import { MailUserComponent } from './users/mail-user/mail-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -81,6 +82,7 @@ import { AddcategoryComponent } from './category/addcategory/addcategory.compone
 import { ViewMoreDeliveryboyComponent } from './deliveryboy/view-more-deliveryboy/view-more-deliveryboy.component';
 import { DeliverydetailComponent } from './deliverydetail/deliverydetail.component';
 import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders/add-assigned-orders.component';
+import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -129,6 +131,7 @@ import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders
     ViewMoreDeliveryboyComponent,
     DeliverydetailComponent,
     AddAssignedOrdersComponent,
+    EditCategoryComponent,
   ],
   imports: [
     routingArr,
@@ -142,6 +145,7 @@ import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders
     ReactiveFormsModule,
     //angular-material
     MatToolbarModule,
+    MatTreeModule,
     MatMenuModule,
     MatButtonToggleModule,
     MatDialogModule,
@@ -167,7 +171,8 @@ import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders
     MatDatepickerModule,
     MatNativeDateModule,
     FeatherModule.pick(allIcons),//feather-icons
-    DragDropModule, MatGridListModule
+    DragDropModule,
+    MatGridListModule,
   ],
   entryComponents: [
     DialogComponent,

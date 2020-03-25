@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { order } from './order';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -8,9 +8,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
 import { OrderdataService } from './orderdata.service';
-import { OrderDialogComponent } from './order-dialog/order-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 
 @Component({
   selector: 'app-order',
@@ -65,12 +63,13 @@ export class OrderComponent implements OnInit {
   }
 
 
-applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-    this.dataSource.paginator.firstPage();
+  applyFilter(filterValue: string) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+      if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
-}
+
   ngOnInit() {
     this._data.getAllOrder().subscribe(
       (data: order[]) => {
@@ -82,9 +81,6 @@ applyFilter(filterValue: string) {
     );
   }
 
-   // onUserEdit(item: product) {
-  //   this.router.navigate(['editUser', item.email]);
-  // }
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
@@ -96,6 +92,7 @@ applyFilter(filterValue: string) {
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
   }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message , action, {
       duration: 5000,

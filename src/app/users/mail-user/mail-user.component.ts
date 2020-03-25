@@ -13,6 +13,9 @@ import { maildata } from 'src/app/deliveryboy/valet-mail/valetMail';
 export class MailUserComponent implements OnInit {
 
   mailUserForm:FormGroup;
+  u_name:string;
+  u_type:string;
+  u_image:string;
   constructor(public dialogref:MatDialogRef<MailUserComponent>,private _mail: SendMailService,
   @Inject(MAT_DIALOG_DATA)public data: users) { }
 
@@ -23,6 +26,9 @@ export class MailUserComponent implements OnInit {
     subject:new FormControl(null,Validators.required),
     message:new FormControl(null,Validators.required)
   });
+  this.u_name=this.data.u_name;
+  this.u_type=this.data.u_type;
+  this.u_image=this.data.u_image;
 }
 
 onMailUser(f){
@@ -32,8 +38,8 @@ onMailUser(f){
   )
   this.dialogref.close();
 }
+
 onClose() {
   this.dialogref.close();
   }
-
 }
