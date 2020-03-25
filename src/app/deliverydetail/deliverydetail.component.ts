@@ -15,7 +15,7 @@ import { DeliverydetailsdataService } from './deliverydetailsdata.service';
 })
 export class DeliverydetailComponent implements OnInit {
 
-  displayedColumns: string[] = ['check', 'order_id', 'deliveryboy_name', 'deliveryboy_id', 'date', 'Action'];
+  displayedColumns: string[] = ['order_id', 'deliveryboy_name', 'deliveryboy_id', 'date'];
   dataSource: MatTableDataSource<OrderBoyAssign>;
   ordersArr: OrderBoyAssign[] = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
