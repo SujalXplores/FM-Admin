@@ -29,7 +29,7 @@ export class UsersdataService {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.get(this.url + u_email_id, {headers: x});
   }
-  updateUser(u_email_id , item) {
-     return this._http.put(this.url + u_email_id, item );
+  updateUser(u_email_id, item) {
+    return this._http.put(this.url + u_email_id, item);
   }
 }

@@ -22,16 +22,17 @@ export class EditorderComponent implements OnInit {
   ngOnInit() {
     this.order_id1 = this._act_route.snapshot.params["order_id"];
     this._orderdata.editOrder(this.order_id1).subscribe(
-        (data: order) => {
-          this.order_id1 = data[0].order_id;
-          this.order_amount1 = data[0].order_amount;
-          this.order_date1 = data[0].order_date;
-          this.fk_u_email_id1 = data[0].fk_u_email_id;
-          this.payment_type1 = data[0].payment_type;
-          this.order_status1 = data[0].order_status;
-        }
+      (data: order) => {
+        this.order_id1 = data[0].order_id;
+        this.order_amount1 = data[0].order_amount;
+        this.order_date1 = data[0].order_date;
+        this.fk_u_email_id1 = data[0].fk_u_email_id;
+        this.payment_type1 = data[0].payment_type;
+        this.order_status1 = data[0].order_status;
+      }
     );
   }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message , action, {
       duration: 5000,
@@ -47,7 +48,6 @@ export class EditorderComponent implements OnInit {
         this._router.navigate(['/nav/order']);
         console.log(f.value);
       }
-  );
+    );
   }
-
 }
