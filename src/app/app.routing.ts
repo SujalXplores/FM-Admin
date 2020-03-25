@@ -25,6 +25,8 @@ import { MultipleOrderDisplayComponentComponent } from './multiple-order-display
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddcategoryComponent } from './category/addcategory/addcategory.component';
+import { DeliverydetailComponent } from './deliverydetail/deliverydetail.component';
+import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders/add-assigned-orders.component';
 
 
 const arr: Routes = [
@@ -51,6 +53,8 @@ const arr: Routes = [
       {path: 'order_detail', component: OrderDetailComponent},
       {path: 'ordermore/:order_id', component: MultipleOrderDisplayComponentComponent},
       {path: 'deliveryboy', component: DeliveryboyComponent},
+      {path: 'deliverdetails', component: DeliverydetailComponent},
+      {path: 'addassignedorders', component: AddAssignedOrdersComponent},
       {path: 'adddeliveryboy', component: AdddeliveryboyComponent},
       {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
   ]

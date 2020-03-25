@@ -12,6 +12,8 @@ export class MultipleOrderDisplayComponentComponent implements OnInit {
 
   order_id: number;
   order_total:number;
+  pro_photo: string;
+
   ordermultiple: any[] = [];
   constructor(public orderService: OrderdataService, public _activated_routes: ActivatedRoute) { }
 

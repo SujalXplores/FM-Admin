@@ -1,0 +1,51 @@
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+<div class="mat-elevation-z8">
+  <button mat-raised-button id="Add Record" (click)="onAddClick()" color="primary" aria-label="ADD USER">
+    <mat-icon>add</mat-icon>ADD/Edit
+  </button>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="check">
+      <th mat-header-cell *matHeaderCellDef>Check</th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (change)="onchecheckboxchange(row)"></mat-checkbox>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="order_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Id </th>
+      <td mat-cell *matCellDef="let row"> {{row.order_id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="deliveryboy_name">
+      <th mat-header-cell *matHeaderCellDef>Delivery Boy</th>
+      <td mat-cell *matCellDef="let row"> {{row.deliveryboy_name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="deliveryboy_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DeliveryBoy's Id</th>
+      <td mat-cell *matCellDef="let row"> {{row.deliveryboy_id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+      <td mat-cell *matCellDef="let row"> {{row.date}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+      <td mat-cell *matCellDef="let row">
+        <button (click)="onDelete(row)" mat-mini-fab color="warn" aria-label="Example icon-button with a heart icon">
+          <mat-icon>delete</mat-icon>
+        </button> |
+        <button (click)="onViewMore(row)"  mat-mini-fab color="primary" aria-label="Example icon-button with a heart icon">
+            <mat-icon>more</mat-icon>
+        </button>|
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10,25,100]"></mat-paginator>
+  <button mat-raised-button (click)="onDeleteAll()" class="mybtn" color="warn" aria-label="Example icon-button with a heart icon">
+    <mat-icon>delete</mat-icon>DELETE ALL
+  </button>
+</div>

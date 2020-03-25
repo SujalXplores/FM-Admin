@@ -79,6 +79,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AddcategoryComponent } from './category/addcategory/addcategory.component';
 import { ViewMoreDeliveryboyComponent } from './deliveryboy/view-more-deliveryboy/view-more-deliveryboy.component';
+import { DeliverydetailComponent } from './deliverydetail/deliverydetail.component';
+import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders/add-assigned-orders.component';
 
 @NgModule({
   declarations: [
@@ -125,6 +127,8 @@ import { ViewMoreDeliveryboyComponent } from './deliveryboy/view-more-deliverybo
     DashboardComponent,
     AddcategoryComponent,
     ViewMoreDeliveryboyComponent,
+    DeliverydetailComponent,
+    AddAssignedOrdersComponent,
   ],
   imports: [
     routingArr,
