@@ -7,7 +7,7 @@
           alt="No Image"
           src="http://localhost:3000/images/user_photos/{{ u_image }}"
         />
-        <mat-card-title>Send Mail to{{ u_name | titlecase }}</mat-card-title>
+        <mat-card-title>Send Mail to {{ u_name | titlecase }}</mat-card-title>
         <mat-card-subtitle
           [ngClass]="{
             admin: u_type == 'admin',

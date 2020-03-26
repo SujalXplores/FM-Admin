@@ -184,10 +184,9 @@
         </table>
       </div>
     </mat-card-content>
+    <button mat-raised-button (click)="onSubmit()" [disabled]="this.dataSourceOrder.data.length<=0" color="primary">
+      <mat-icon>check</mat-icon>&nbsp;Assign
+    </button>
   </mat-card>
-
-  <button mat-raised-button class="btn" (click)="onSubmit()" [disabled]="this.dataSourceOrder.data.length<=0" color="primary" aria-label="Example icon-button with a heart icon">
-    <mat-icon>check</mat-icon>&nbsp;Assign
-  </button>
 
 </section>
