@@ -27,3 +27,11 @@ font-family: Roboto;
 font-size: 10px;
 background-color:yellow;
 }
+mat-label{
+color: darkblue;
+}
+.edit{
+height: 30px;
+width: 30px;
+margin-right: 20px;
+}

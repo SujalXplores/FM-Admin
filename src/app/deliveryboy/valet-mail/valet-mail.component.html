@@ -10,13 +10,14 @@
       <mat-card-title>Send Mail to {{deliveryboy_name | titlecase}}</mat-card-title>
       <mat-card-subtitle>Delivery Partner</mat-card-subtitle
       >
+      <img class="gmail" src="../../../assets/image/gmail.png">
     </mat-card-header>
     <form [formGroup]="mailVendorForm" (ngSubmit)="onMailVendor(f)" #f="ngForm">
     
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>E-mail</mat-label>
         <input readonly formControlName="email_id" matInput type="text">
-        <mat-icon matSuffix>email</mat-icon>
+        <mat-icon matSuffix>alternate_email</mat-icon>
       </mat-form-field><br>
     
       <mat-form-field class="example-full-width" appearance="fill">

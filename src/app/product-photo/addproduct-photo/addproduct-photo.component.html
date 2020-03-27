@@ -1,6 +1,8 @@
 <section fxLayout="row" fxLayoutAlign="space-around center" >
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-  <mat-card-title align="center">Add Product Photo</mat-card-title>
+  <mat-card-title align="center">
+    <img class="product" src="../../../assets/image/addImage.png">
+    Add Product Photo</mat-card-title>
   <mat-card-content>
 
       <form (ngSubmit)="onProductPhotoAdd(f)" #f="ngForm">
@@ -19,7 +21,7 @@
             <div class="rounded p-6">
                 <div class="media">
                     <div class="media-body">
-                        <label class="btn btn-sm btn-outline-primary mb-3 ml-2">
+                        <label class="btn btn-sm btn-outline-secondary mb-3 ml-2">
                             Upload photo
                             <input required type="file" class="d-none" name="pro_photo" (change)="onChange($event)">
                         </label>

@@ -1,6 +1,8 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title align="center">Edit {{pro_name1}}</mat-card-title>
+    <mat-card-title align="center">
+        <img class="edit" src="../../../assets/image/edit.png">
+        {{pro_name1 | titlecase}}</mat-card-title>
       <mat-card-content>
 
         <form class="example-form" (ngSubmit)="OnProductEdit(f)" #f="ngForm">
@@ -46,7 +48,7 @@
               <mat-icon matSuffix><i class="far fa-file-medical"></i></mat-icon>
             </mat-form-field>
 
-            <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('Changes Saved Successfully.','')">Update Product</button>
+            <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('Changes Saved Successfully.','')">Update</button>
         </form>
 
         </mat-card-content>

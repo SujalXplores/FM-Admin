@@ -1,6 +1,8 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title align="center">Add Product</mat-card-title>
+      <mat-card-title align="center">
+        <img class="product" src="../../../assets/image/product.png">
+        Add New Product</mat-card-title>
       <mat-card-content>
 
         <form class="example-form" (ngSubmit)="OnProductAdd(f)" #f="ngForm">

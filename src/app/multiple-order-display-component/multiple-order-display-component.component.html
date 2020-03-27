@@ -5,21 +5,18 @@
       <mat-card-title>{{item.pro_name | titlecase}}'s</mat-card-title>
       <mat-card-subtitle>Details</mat-card-subtitle>
     </mat-card-header>
-  <mat-list>
-    <mat-list-item>Email ID: {{item.fk_u_email_id}}</mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>Bill Date: {{item.order_date | date : 'mediumDate'}}</mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>Payment Method: {{item.payment_type | uppercase}}</mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>Price: {{item.order_amount | currency:"INR"}}</mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item>Order Status: {{item.order_status | titlecase}}</mat-list-item>
-    <!-- Qty
-    <mat-list-item>{{item.}}</mat-list-item>
-    <mat-divider></mat-divider>
-    Total amount
-  <mat-list-item><b>{{item.order_amt}}</b></mat-list-item> -->
-  </mat-list>
-</mat-card>
+    <mat-list>
+      <mat-list-item>Email ID: {{item.fk_u_email_id}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Bill Date: {{item.order_date | date : 'mediumDate'}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Payment Method: {{item.payment_type | uppercase}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Qty:  x{{item.qty}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Order Status: {{item.order_status | titlecase}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Total Price: {{item.order_amount | currency:"INR"}}</mat-list-item>
+    </mat-list>
+  </mat-card>
 </section>

@@ -9,7 +9,7 @@
   <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 
-<button mat-raised-button matTooltip="Delete Selected"(click)="ondeleteallclick()"   (click)="openSnackBar('1 Record Deleted Successfully.','')" color="warn" class="deletebutton">
+<button [disabled]="del_arr.length==0" mat-raised-button matTooltip="Delete Selected"(click)="ondeleteallclick()"   (click)="openSnackBar('1 Record Deleted Successfully.','')" color="warn" class="deletebutton">
   <mat-icon>delete_outlined</mat-icon>
   <span>Delete</span>
 </button>

@@ -1,6 +1,8 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title align="center">Hire Delivery Partner</mat-card-title>
+    <mat-card-title align="center">
+      <img class="del_partner" src="../../../assets/image/hiring.png">
+        Hire Delivery Partner</mat-card-title>
       <mat-card-content>
         <form class="example-form" (ngSubmit)="onDeliveryboyAdd(f)" #f="ngForm">
 
@@ -51,7 +53,7 @@
             <div class="rounded p-6">
                 <div class="media">
                     <div class="media-body">
-                        <label class="btn btn-sm btn-outline-primary mb-3 ml-2">
+                        <label class="btn btn-sm btn btn-outline-secondary mb-3 ml-2">
                             Upload photo
                             <input type="file" class="d-none" name="img" (change)="onChange($event)">
                         </label>

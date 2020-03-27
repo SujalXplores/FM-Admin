@@ -11,6 +11,6 @@ export class PhoneDirective {
     const input = x.target as HTMLInputElement;
     if (input.value.length > 10) {
       input.value = input.value.substr(0, 10);
-  }
+    }
   }
 }

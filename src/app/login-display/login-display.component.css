@@ -3,6 +3,15 @@ img {
   height: 80px;
 }
 
+.forgot{
+color: blue;
+text-decoration: underline;
+}
+
+.forgot:hover{
+cursor: pointer;
+}
+
 /* button */
 .example-full-width {
   width: 100%;
