@@ -83,6 +83,8 @@ import { ViewMoreDeliveryboyComponent } from './deliveryboy/view-more-deliverybo
 import { DeliverydetailComponent } from './deliverydetail/deliverydetail.component';
 import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders/add-assigned-orders.component';
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
+import { AutoFocusDirective } from './auto-focus.directive';
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -132,6 +134,7 @@ import { EditCategoryComponent } from './category/edit-category/edit-category.co
     DeliverydetailComponent,
     AddAssignedOrdersComponent,
     EditCategoryComponent,
+    AutoFocusDirective,
   ],
   imports: [
     routingArr,
@@ -173,6 +176,11 @@ import { EditCategoryComponent } from './category/edit-category/edit-category.co
     FeatherModule.pick(allIcons),//feather-icons
     DragDropModule,
     MatGridListModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: false,
+    }),
   ],
   entryComponents: [
     DialogComponent,

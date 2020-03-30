@@ -10,7 +10,7 @@
   <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 
-<button [disabled]="del_arr.length==0" mat-raised-button matTooltip="Delete User" (click)="openSnackBar('1 Record Deleted Successfully.','')" (click)="ondeleteallclick()" color="warn" class="deletebutton">
+<button [disabled]="del_arr.length==0" mat-raised-button matTooltip="Delete User" (click)="ondeleteallclick()" color="warn" class="deletebutton">
   <mat-icon>delete_outlined</mat-icon>
   <span>Delete</span>
 </button>
@@ -24,13 +24,7 @@
   <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
 
     <ng-container matColumnDef="select">
-      <th mat-header-cell *matHeaderCellDef>
-        <mat-checkbox (change)="$event ? masterToggle() : null"
-                      [checked]="selection.hasValue() && isAllSelected()"
-                      [indeterminate]="selection.hasValue() && !isAllSelected()"
-                      >
-        </mat-checkbox>
-      </th>
+      <th mat-header-cell *matHeaderCellDef>Select</th>
       <td mat-cell *matCellDef="let row">
         <mat-checkbox (click)="$event.stopPropagation()"
                       (change)="$event ? selection.toggle(row) : null"

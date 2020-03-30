@@ -6,11 +6,11 @@
       <mat-card-content>
         <form class="example-form" (ngSubmit)="onDeliveryboyAdd(f)" #f="ngForm">
 
-          <!-- <mat-form-field class="example-full-width" appearance="fill">
+          <!-- <mat-form-field class="example-full-width" appearance="outline">
             <input readonly ngModel name="deliveryboy_id" #deliveryboy_id="ngModel" matInput type="number" placeholder="Valet ID assigned Automatically">
           </mat-form-field> -->
 
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Name</mat-label>
             <input  required pattern="[a-z A-Z]*" ngModel name="deliveryboy_name" #deliveryboy_name="ngModel" matInput type="text" placeholder="Enter Valet Name">
             <mat-icon class="material-icons-outlined" matSuffix>perm_identity</mat-icon>
@@ -18,31 +18,31 @@
             <mat-error class="hint" *ngIf="deliveryboy_name.hasError('pattern') && !deliveryboy_name.pristine">Only Letters</mat-error>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Address</mat-label>
             <input required ngModel name="deliveryboy_address" #deliveryboy_address="ngModel" matInput type="text" placeholder="Enter Valet Address">
             <mat-error class="hint" *ngIf="deliveryboy_address.hasError('required') && !deliveryboy_address.pristine">Address is Required</mat-error>
             <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>+91 Mobile Number</mat-label>
-            <input required pattern="[0-9]*" minlength="10" ngModel name="deliveryboy_mobileno" #deliveryboy_mobileno="ngModel" type="number" matInput appPhone placeholder="Enter Mobile Number">
-            <!-- <mat-icon matSuffix><i class="far fa-phone"></i></mat-icon> -->
+            <input required pattern="[0-9]*" #input maxlength="10" ngModel name="deliveryboy_mobileno" #deliveryboy_mobileno="ngModel" type="number" matInput appPhone placeholder="Enter Mobile Number">
+            <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
             <mat-error class="hint" *ngIf="deliveryboy_mobileno.hasError('required') && !deliveryboy_mobileno.pristine">Mobile Number is Required</mat-error>
             <mat-error class="hint" *ngIf="deliveryboy_mobileno.hasError('minlength') && !deliveryboy_mobileno.pristine">Mobile number must be of 10 digits!</mat-error>
             <mat-error class="label" *ngIf="deliveryboy_mobileno.hasError('pattern') && !deliveryboy_mobileno.pristine">Only Digits!</mat-error>
             <mat-icon matSuffix>phone</mat-icon>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>E-mail</mat-label>
             <input required ngModel name="deliveryboy_email" #deliveryboy_email="ngModel" matInput type="email" placeholder="Enter Email">
             <mat-error class="hint" *ngIf="deliveryboy_email.hasError('required') && !deliveryboy_email.pristine">Email is Required</mat-error>
             <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
           </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="fill">
+          <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Password</mat-label>
             <input required ngModel name="password" #password="ngModel" matInput type="password" placeholder="Enter password">
             <mat-error class="hint" *ngIf="password.hasError('required') && !password.pristine">Password is Required</mat-error>
@@ -62,7 +62,7 @@
             </div>
         </div>
 
-          <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('Changes Saved Successfully.','')">Hire</button>
+          <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Hire</button>
         </form>
       </mat-card-content>
     </mat-card>

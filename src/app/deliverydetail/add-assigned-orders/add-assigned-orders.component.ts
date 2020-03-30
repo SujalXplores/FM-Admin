@@ -4,6 +4,7 @@ import { OrderBoyAssign } from '../orderboyassign';
 import { deliverdetails } from '../deliverydetail';
 import { DeliverydetailsdataService } from '../deliverydetailsdata.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-assigned-orders',
@@ -20,7 +21,7 @@ export class AddAssignedOrdersComponent implements OnInit {
   SelectedDboyId: string;
   dataSourceDelivery: MatTableDataSource<deliverdetails>;
 
-  constructor(private _orderAssign: DeliverydetailsdataService, private _router: Router) {
+  constructor(private toaster: ToastrService, private _orderAssign: DeliverydetailsdataService, private _router: Router) {
     this.dataSourceOrder = new MatTableDataSource();
     this.dataSourceDelivery = new MatTableDataSource();
   }
@@ -29,7 +30,7 @@ export class AddAssignedOrdersComponent implements OnInit {
     this._orderAssign.getnotAssignedOrders().subscribe(
       (dataOrders: OrderBoyAssign[]) => {
         this.dataSourceOrder.data = dataOrders;
-        console.log(this.dataSourceOrder.data)
+        console.log(this.dataSourceOrder.data);
       }
     );
     this._orderAssign.getAllDboy().subscribe(
@@ -51,19 +52,23 @@ export class AddAssignedOrdersComponent implements OnInit {
         'selectedDBoyId': this.SelectedDboyId
       };
       this._orderAssign.addOrderAssigned(objOrderAssigned).subscribe(
-        (x: any) => {
-          if (x.insertId > 0) {
-            alert('Successfully Assgined');
-          }
-        });
-      }
-    this._router.navigate(['/nav/deliverdetails']);
+      (x: any) => {
+        if (x.insertId > 0) {
+          this.toaster.success('Order has been assigned.','Success');
+          this._router.navigate(['/nav/deliverdetails']);
+        }
+        else {
+          this.toaster.info('Then assign to partner','Please select order first.');
+        }
+      });
+    }
   }
 
   onCheckboxChangeOrder(item: OrderBoyAssign) {
     if (this.selrectedOrderArr.find(x => x == item.order_id)) {
       this.selrectedOrderArr.splice(this.selrectedOrderArr.indexOf(item.order_id), 1);
-    } else {
+    } 
+    else {
       this.selrectedOrderArr.push(item.order_id);
     }
   }

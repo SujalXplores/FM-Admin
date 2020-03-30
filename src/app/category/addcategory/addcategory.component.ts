@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CategorydataService } from '../categorydata.service';
 import { Router } from '@angular/router';
 import { category } from '../category';
@@ -15,6 +15,11 @@ export class AddcategoryComponent implements OnInit {
 
   constructor(private _snackBar: MatSnackBar,private _catdata: CategorydataService, private _router: Router) { }
   value = '';
+  
+  @ViewChild('focus') private elementRef: ElementRef;
+  public ngAfterViewInit(): void {
+    this.elementRef.nativeElement.focus();
+  }
 
   ngOnInit(): void {
   }

@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UsersdataService } from '../usersdata.service';
 import { users } from '../users';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edituser',
@@ -18,7 +18,7 @@ export class EdituserComponent implements OnInit {
   selectedFile: File = null;
   image_url: string = null;
 
-  constructor(private _snackBar: MatSnackBar,private _act_route: ActivatedRoute, private _userdata: UsersdataService, private _router: Router) { }
+  constructor(private toaster: ToastrService, private _act_route: ActivatedRoute, private _userdata: UsersdataService, private _router: Router) { }
 
   ngOnInit() {
     this.u_email_id = this._act_route.snapshot.params['u_email_id'];
@@ -54,15 +54,6 @@ export class EdituserComponent implements OnInit {
       u_address: item.u_address,
     });
   }
-  
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'bottom', // 'top' | 'bottom'
-      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['update']
-    });
-  }
 
   OnUserEdit() {
     console.log(this.user_update.get('u_image').value);
@@ -85,5 +76,6 @@ export class EdituserComponent implements OnInit {
         this._router.navigate(['/nav/users']);
       }
     );
+    this.toaster.success('Profile has been updated.','Success');
   }
 }

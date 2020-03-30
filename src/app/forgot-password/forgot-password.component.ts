@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ForgotPasswordService } from './forgot-password.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-forgot-password',
@@ -11,21 +11,12 @@ import { ForgotPasswordService } from './forgot-password.service';
 })
 export class ForgotPasswordComponent implements OnInit {
   
-  constructor(private _snackBar: MatSnackBar, private _router: Router, public _mail: ForgotPasswordService) { }
+  constructor(private toaster: ToastrService, private _router: Router, public _mail: ForgotPasswordService) { }
   forgetPasswordForm : FormGroup;
 
   ngOnInit() {
     this.forgetPasswordForm = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.email])
-    });
-  }
-
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'top', // 'top' | 'bottom'
-      horizontalPosition: 'right', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['success']
     });
   }
 
@@ -40,6 +31,7 @@ export class ForgotPasswordComponent implements OnInit {
         });
       });
       this._router.navigate(['']);
+      this.toaster.info('Check your inbox.','Password has been sent.');
     }
     else {
       alert("Please provide your Email first!");

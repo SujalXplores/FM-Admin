@@ -14,21 +14,20 @@
     </mat-card-header>
     <form [formGroup]="mailVendorForm" (ngSubmit)="onMailVendor(f)" #f="ngForm">
     
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>E-mail</mat-label>
         <input readonly formControlName="email_id" matInput type="text">
         <mat-icon matSuffix>alternate_email</mat-icon>
       </mat-form-field><br>
     
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Title/Subject</mat-label>
         <input formControlName="subject" matInput type="text" placeholder="Enter the subject">
-        <mat-icon matSuffix>title</mat-icon>
       </mat-form-field><br>
     
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Message</mat-label>
-        <textarea formControlName="message" matInput placeholder="Enter message" style="max-height:250px !important;"></textarea>
+        <textarea rows="6" formControlName="message" matInput placeholder="Enter message"></textarea>
       </mat-form-field><br>
     
       <button type="button" (click)="onClose()" mat-raised-button>Close</button>

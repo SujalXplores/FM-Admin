@@ -1,15 +1,14 @@
-<section fxLayout="row wrap" fxLayoutAlign="center center">
+<section fxLayout="row wrap" fxLayoutAlign="center center" class="mt-5">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title align="center">Edit Product Photo</mat-card-title>
-      <mat-card-content>
-
+    <mat-card-title align="center">Edit Product Photo</mat-card-title>
+    <mat-card-content>
       <form [formGroup]="photo_update" (ngSubmit)="onPhotoSubmit()">
         <img align=left width="100" height="100" src="{{photoUrl}}">
         <div>
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-select formControlName="fk_pro_id">
-              <mat-option *ngFor="let item of list"  [value]="item.pro_id">
-                {{item.pro_name}}
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-select appAutoFocus formControlName="fk_pro_id">
+              <mat-option *ngFor="let item of list" [value]="item.pro_id">
+                {{item.pro_name | titlecase}}
               </mat-option>
             </mat-select>
             <mat-error>This Field Can't be Empty</mat-error>
@@ -17,20 +16,20 @@
           <div >
             <div class="form-group">
               <div class="rounded p-6">
-                  <div class="media">
-                      <div class="media-body">
-                          <label class="btn btn-sm btn-outline-primary ml-2">
-                            Upload photo
-                            <input type="file" class="d-none" (change)="onChange($event)">
-                          </label>
-                      </div>
+                <div class="media">
+                  <div class="media-body">
+                    <label class="btn btn-sm btn-outline-primary ml-2">
+                      Upload photo
+                      <input type="file" class="d-none" (change)="onChange($event)">
+                    </label>
                   </div>
+                </div>
               </div>
-          </div>
+            </div>
           </div >
         </div>
-  <button  class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('1 Record Edited Successfully.','')">Update Product Photo</button>
- </form>
-</mat-card-content>
-</mat-card>
+        <button  class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('1 Record Edited Successfully.','')">Update Product Photo</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </section>

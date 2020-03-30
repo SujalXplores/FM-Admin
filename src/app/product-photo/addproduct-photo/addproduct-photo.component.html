@@ -1,4 +1,4 @@
-<section fxLayout="row" fxLayoutAlign="space-around center" >
+<section fxLayout="row" fxLayoutAlign="space-around center" class="mt-5">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
   <mat-card-title align="center">
     <img class="product" src="../../../assets/image/addImage.png">
@@ -7,12 +7,12 @@
 
       <form (ngSubmit)="onProductPhotoAdd(f)" #f="ngForm">
 
-          <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Select Product</mat-label>
-              <mat-select required ngModel name="fk_pro_id" #fk_pro_id="ngModel">
-                <mat-option *ngFor="let item of productarr" [value]="item.pro_id">
-                  {{item.pro_name | titlecase}}
-                </mat-option>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Select Product</mat-label>
+            <mat-select appAutoFocus required ngModel name="fk_pro_id" #fk_pro_id="ngModel">
+              <mat-option *ngFor="let item of productarr" [value]="item.pro_id">
+                {{item.pro_name | titlecase}}
+              </mat-option>
             </mat-select>
             <mat-error>This Field Can't be Empty</mat-error>
           </mat-form-field>

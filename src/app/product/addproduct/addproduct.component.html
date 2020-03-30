@@ -10,13 +10,13 @@
               <input ngModel name="pro_id" #pro_id="ngModel" matInput type="number" placeholder="Enter Product ID">
             </mat-form-field> -->
 
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Product Name</mat-label>
               <input required ngModel name="pro_name" #pro_name="ngModel" matInput type="text" placeholder="Enter Product Name">
               <mat-error class="hint" *ngIf="pro_name.hasError('required') && !pro_name.pristine">Product Name is Required</mat-error>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Category Name</mat-label>
               <mat-select required ngModel name="fk_cat_id" #fk_cat_id="ngModel" placeholder="Select Category Name">
                 <mat-option *ngFor="let item of catnamearr" [value]="item.c_id">
@@ -25,7 +25,7 @@
                </mat-select>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Manufacturer</mat-label>
               <input required pattern="[a-z -. A-Z]*" ngModel name="pro_mfg" #pro_mfg="ngModel" type="text" matInput placeholder="Enter Product Manufacturer">
               <mat-error class="hint" *ngIf="pro_mfg.hasError('required') && !pro_mfg.pristine">Name Of the Manufacturer company is Required</mat-error>
@@ -33,7 +33,7 @@
               <mat-icon matSuffix><i class="far fa-industry-alt"></i></mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Price</mat-label>
               <input required pattern="[0-9]*" minlength="2" maxlength="15000" ngModel name="pro_price" #pro_price="ngModel" type="text" matInput placeholder="Enter Product Price">
               <mat-error class="hint" *ngIf="pro_price.hasError('required') && !pro_price.pristine">Product Price is Required</mat-error>
@@ -43,7 +43,7 @@
               <mat-icon matSuffix><i class="far fa-rupee-sign"></i></mat-icon>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Description</mat-label>
               <input required pattern="[a-z A-Z]*" ngModel name="pro_desc" #pro_desc="ngModel" type="text-area" matInput placeholder="Enter Product Description">
               <mat-error class="hint" *ngIf="pro_desc.hasError('required') && !pro_desc.pristine">Description is Required</mat-error>

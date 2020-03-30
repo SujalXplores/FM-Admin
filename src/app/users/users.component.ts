@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
 import { DialogComponent } from './dialog/dialog.component';
 import { MailUserComponent } from './mail-user/mail-user.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users',
@@ -30,7 +30,7 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _snackBar: MatSnackBar, private _data: UsersdataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
+  constructor(private toaster: ToastrService, private _data: UsersdataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -63,6 +63,7 @@ export class UsersComponent implements OnInit {
           }
         }
       );
+      this.toaster.success('Selected Records Deleted.','Success');
     }
   }
 
@@ -116,15 +117,6 @@ export class UsersComponent implements OnInit {
   OnUserMail(row) {
     this._dialog.open(MailUserComponent,{
       data:row
-    });
-  }
-
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'bottom', // 'top' | 'bottom'
-      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['warning']
     });
   }
 }

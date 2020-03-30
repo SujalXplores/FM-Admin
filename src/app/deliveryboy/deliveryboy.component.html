@@ -10,27 +10,11 @@
 </mat-form-field>
 
 <button routerLink='/nav/adddeliveryboy' mat-raised-button color="primary" matTooltip="Add Valet" class="addbutton">
-  <mat-icon>add</mat-icon>Add
+  <mat-icon class="material-icons-outlined">how_to_reg</mat-icon>&nbsp;Add
 </button>
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
-
-      <ng-container matColumnDef="select">
-        <th mat-header-cell *matHeaderCellDef>
-          <mat-checkbox (change)="$event ? masterToggle() : null"
-                        [checked]="selection.hasValue() && isAllSelected()"
-                        [indeterminate]="selection.hasValue() && !isAllSelected()">
-          </mat-checkbox>
-        </th>
-
-        <td mat-cell *matCellDef="let row">
-          <mat-checkbox (click)="$event.stopPropagation()"
-                        (change)="$event ? selection.toggle(row) : null"
-                        [checked]="selection.isSelected(row)">
-          </mat-checkbox>
-        </td>
-      </ng-container>
 
       <ng-container matColumnDef="deliveryboy_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
@@ -50,16 +34,16 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let row">
-          <button  (click)="openDialog(row)"  matTooltip="View more" mat-icon-button style="color: blue">
+          <button  (click)="openDialog(row)" matTooltip="View more" mat-icon-button style="color: blue">
             <mat-icon>view_headline_outlined</mat-icon>
           </button>
-          <button (click)="OnDeliveryboyMail(row)"  matTooltip="Mail" mat-icon-button style="color: rgb(217, 48, 37);">
+          <button (click)="OnDeliveryboyMail(row)" matTooltip="Mail" mat-icon-button style="color: rgb(217, 48, 37);">
             <mat-icon>mail</mat-icon>
           </button>
-          <button (click)="OnDeliveryboyEdit(row)"  matTooltip="Edit" mat-icon-button>
+          <button (click)="OnDeliveryboyEdit(row)" matTooltip="Edit" mat-icon-button>
             <mat-icon>edit_outlined</mat-icon>
           </button>
-          <button (click)="onDelete(row)" (click)="openSnackBar('1 Record Deleted Successfully.','')"  matTooltip="Delete" mat-icon-button color="warn">
+          <button (click)="onDelete(row)" matTooltip="Delete" mat-icon-button color="warn">
             <mat-icon>delete_outlined</mat-icon>
           </button>
         </td>

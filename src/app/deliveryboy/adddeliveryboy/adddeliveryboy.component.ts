@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeliveryboydataService } from '../deliveryboydata.service';
 import { deliveryboy } from '../deliveryboy';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-adddeliveryboy',
@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AdddeliveryboyComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar,private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
+  constructor(private toaster: ToastrService, private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
 
   arrDeliveryboy: deliveryboy[] = [];
   selectedFile: File = null;
@@ -37,17 +37,10 @@ export class AdddeliveryboyComponent implements OnInit {
         console.log(data);
       }
     );
+    this.toaster.success('Your record has been added.','Success');
   }
 
   onChange(f){
     this.selectedFile=<File>f.target.files[0];
-  }
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'bottom', // 'top' | 'bottom'
-      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['success']
-    });
   }
 }
