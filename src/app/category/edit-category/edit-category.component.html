@@ -11,7 +11,7 @@
                   <mat-error class="hint" *ngIf="c_name.hasError('required') && !c_name.pristine">Name is Required</mat-error>
                 </mat-form-field>
 
-                <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent" >Update</button>
+                <button [disabled]="!f.valid" class="example-full-width" type="submit" (click)="openSnackBar('1 Record Edited Successfully.','')" mat-raised-button color="accent" >Update</button>
 
             </form>
 
