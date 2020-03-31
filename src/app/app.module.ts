@@ -85,6 +85,7 @@ import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 import { AutoFocusDirective } from './auto-focus.directive';
 import { ToastrModule } from "ngx-toastr";
+import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.component';
 
 @NgModule({
   declarations: [
@@ -135,6 +136,7 @@ import { ToastrModule } from "ngx-toastr";
     AddAssignedOrdersComponent,
     EditCategoryComponent,
     AutoFocusDirective,
+    TrackingdisplayComponent,
   ],
   imports: [
     routingArr,

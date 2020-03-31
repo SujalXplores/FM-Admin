@@ -28,7 +28,7 @@ import { AddcategoryComponent } from './category/addcategory/addcategory.compone
 import { DeliverydetailComponent } from './deliverydetail/deliverydetail.component';
 import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders/add-assigned-orders.component';
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
-
+import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.component';
 
 const arr: Routes = [
   { path: '', component: LoginDisplayComponent },
@@ -59,6 +59,7 @@ const arr: Routes = [
       {path: 'addassignedorders', component: AddAssignedOrdersComponent},
       {path: 'adddeliveryboy', component: AdddeliveryboyComponent},
       {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
+      {path: 'trackingdisplay', component: TrackingdisplayComponent},
   ]
   },
   {path: 'forgotPass', component: ForgotPasswordComponent},
