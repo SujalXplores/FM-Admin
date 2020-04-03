@@ -23,3 +23,15 @@ border-radius: 5px;
 background: rgb(200, 197, 197);
 border-radius: 5px;
 }
+
+/*To Remove Arrows Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

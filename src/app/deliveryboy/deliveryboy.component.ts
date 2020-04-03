@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { DeliveryboydataService } from './deliveryboydata.service';
 import { ValetMailComponent } from './valet-mail/valet-mail.component';
 import { ViewMoreDeliveryboyComponent } from './view-more-deliveryboy/view-more-deliveryboy.component';
-import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-deliveryboy',
@@ -26,7 +26,7 @@ export class DeliveryboyComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private toaster: ToastrService, private _data: DeliveryboydataService, public _dialog: MatDialog, private _router: Router,public dialog: MatDialog) {
+  constructor(private notificationService: NotificationService, private _data: DeliveryboydataService, public _dialog: MatDialog, private _router: Router,public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -39,7 +39,7 @@ export class DeliveryboyComponent implements OnInit {
           this.dataSource.data = this.deliveryboyarr;
         }
       );
-      this.toaster.success('1 Record Deleted.','Success');
+      this.notificationService.success('Record deleted successfully !');
     }
   }
 

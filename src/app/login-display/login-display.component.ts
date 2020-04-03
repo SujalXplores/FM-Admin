@@ -17,7 +17,7 @@ constructor(private _router:Router, private _logindata: LogindataService) { }
 hide: boolean = true;
 ngOnInit() {
     this.loginForm = new FormGroup({
-      u_email_id: new FormControl("sujalshah@gmail.com", [Validators.required, Validators.email]),
+      u_email_id: new FormControl("shahc9437@gmail.com", [Validators.required, Validators.email]),
       u_password: new FormControl("1234", [Validators.required]),
     });
 }

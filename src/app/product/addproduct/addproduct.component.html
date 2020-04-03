@@ -12,13 +12,13 @@
 
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Product Name</mat-label>
-              <input required ngModel name="pro_name" #pro_name="ngModel" matInput type="text" placeholder="Enter Product Name">
+              <input appAutoFocus required ngModel name="pro_name" #pro_name="ngModel" matInput type="text">
               <mat-error class="hint" *ngIf="pro_name.hasError('required') && !pro_name.pristine">Product Name is Required</mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="outline">
-              <mat-label>Category Name</mat-label>
-              <mat-select required ngModel name="fk_cat_id" #fk_cat_id="ngModel" placeholder="Select Category Name">
+              <mat-label>Select Category</mat-label>
+              <mat-select required ngModel name="fk_cat_id" #fk_cat_id="ngModel">
                 <mat-option *ngFor="let item of catnamearr" [value]="item.c_id">
                   {{item.c_name | titlecase}}
                 </mat-option>
@@ -27,7 +27,7 @@
 
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Manufacturer</mat-label>
-              <input required pattern="[a-z -. A-Z]*" ngModel name="pro_mfg" #pro_mfg="ngModel" type="text" matInput placeholder="Enter Product Manufacturer">
+              <input required pattern="[a-z -. A-Z]*" ngModel name="pro_mfg" #pro_mfg="ngModel" type="text" matInput>
               <mat-error class="hint" *ngIf="pro_mfg.hasError('required') && !pro_mfg.pristine">Name Of the Manufacturer company is Required</mat-error>
               <mat-error class="hint" *ngIf="pro_mfg.hasError('pattern') && !pro_mfg.pristine">Only Letters</mat-error>
               <mat-icon matSuffix><i class="far fa-industry-alt"></i></mat-icon>
@@ -35,23 +35,23 @@
 
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Price</mat-label>
-              <input required pattern="[0-9]*" minlength="2" maxlength="15000" ngModel name="pro_price" #pro_price="ngModel" type="text" matInput placeholder="Enter Product Price">
+              <input required pattern="^[1-9][0-9]*" minlength="1" maxlength="5" ngModel name="pro_price" #pro_price="ngModel" type="text" matInput placeholder="Enter Product Price">
               <mat-error class="hint" *ngIf="pro_price.hasError('required') && !pro_price.pristine">Product Price is Required</mat-error>
               <mat-error class="hint" *ngIf="pro_price.hasError('minlength') && !pro_price.pristine">Price must be greater than RS.1!</mat-error>
               <mat-error class="hint" *ngIf="pro_price.hasError('maxlength') && !pro_price.pristine">Price must be less than RS.15000!</mat-error>
-              <mat-error class="label" *ngIf="pro_price.hasError('pattern') && !pro_price.pristine">Only Digits!</mat-error>
+              <mat-error class="label" *ngIf="pro_price.hasError('pattern') && !pro_price.pristine">Invalid Price</mat-error>
               <mat-icon matSuffix><i class="far fa-rupee-sign"></i></mat-icon>
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="outline">
               <mat-label>Description</mat-label>
-              <input required pattern="[a-z A-Z]*" ngModel name="pro_desc" #pro_desc="ngModel" type="text-area" matInput placeholder="Enter Product Description">
+              <input required pattern="[a-z A-Z]*" ngModel name="pro_desc" #pro_desc="ngModel" type="text-area" matInput>
               <mat-error class="hint" *ngIf="pro_desc.hasError('required') && !pro_desc.pristine">Description is Required</mat-error>
               <mat-error class="hint" *ngIf="pro_desc.hasError('pattern') && !pro_desc.pristine">Only Letters</mat-error>
               <mat-icon matSuffix><i class="far fa-file-medical"></i></mat-icon>
             </mat-form-field>
 
-            <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent"  (click)="openSnackBar('Changes Saved Successfully.','')">Add</button>
+            <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add</button>
         </form>
 
         </mat-card-content>

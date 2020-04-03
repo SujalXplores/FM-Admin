@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { users } from '../users';
 import { SendMailService } from 'src/app/deliveryboy/valet-mail/send-mail.service';
 import { maildata } from 'src/app/deliveryboy/valet-mail/valetMail';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-mail-user',
@@ -16,7 +17,7 @@ export class MailUserComponent implements OnInit {
   u_name:string;
   u_type:string;
   u_image:string;
-  constructor(public dialogref:MatDialogRef<MailUserComponent>,private _mail: SendMailService,
+  constructor(private notificationService: NotificationService, public dialogref:MatDialogRef<MailUserComponent>,private _mail: SendMailService,
   @Inject(MAT_DIALOG_DATA)public data: users) { }
 
   ngOnInit():void {
@@ -37,6 +38,7 @@ onMailUser(f){
     }
   )
   this.dialogref.close();
+  this.notificationService.success('Mail has been sent to '+ this.u_name);
 }
 
 onClose() {

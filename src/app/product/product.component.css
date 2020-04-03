@@ -64,13 +64,6 @@ font-weight: lighter;
 margin: 8px;
 }
 
-::ng-deep .warning{
-color: rgb(255, 255, 255);
-font-family: Roboto;
-font-size: 10px;
-background-color: rgb(255, 0, 0);
-}
-
 .high{
 color:rgb(30, 128, 0);
 font-weight: bold;
@@ -82,6 +75,6 @@ font-weight: bold;
 }
 
 .low{
-color:red;
+color:darkred;
 font-weight: bold;
 }

@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { TrackdataService } from './trackdata.service';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-trackingdisplay',
@@ -23,7 +24,7 @@ export class TrackingdisplayComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _trackdata: TrackdataService , public _router: Router) {
+  constructor(private notificationService: NotificationService, private _trackdata: TrackdataService, public _router: Router) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -71,10 +72,10 @@ export class TrackingdisplayComponent implements OnInit {
     );
   }
 
-  OnTrackingEdit(track_id){
-    console.log(track_id);
-    this._router.navigate(['/nav/edittrack',track_id]);
-  }
+  // OnTrackingEdit(track_id){
+  //   console.log(track_id);
+  //   this._router.navigate(['/nav/edittrack',track_id]);
+  // }
 
   onDelete(row){
     if (confirm("Are you sure you want to delete?")) {
@@ -84,6 +85,7 @@ export class TrackingdisplayComponent implements OnInit {
           this.dataSource.data = this.trackingarr;
         }
       );
+      this.notificationService.success('Selected Records Deleted !');
     }
   }
 

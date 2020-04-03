@@ -22,13 +22,6 @@ mat-icon {
   font-size: 26px !important;
 }
 
-::ng-deep .success{
-color: rgb(255, 255, 255);
-font-family: Roboto;
-font-size: 10px;
-background-color: rgb(54, 194, 36);
-}
-
 mat-label{
 color: darkblue;
 }

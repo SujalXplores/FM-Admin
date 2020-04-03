@@ -28,7 +28,7 @@
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef>Delete</th>
         <td mat-cell *matCellDef="let row">
-          <button (click)="onDelete(row)" (click)="openSnackBar('1 Record Deleted Successfully.','')" matTooltip="Delete"  mat-icon-button color="warn">
+          <button (click)="onDelete(row)" matTooltip="Delete"  mat-icon-button color="warn">
             <mat-icon>delete_outlined</mat-icon>
           </button>
         </td>

@@ -84,8 +84,8 @@ import { DeliverydetailComponent } from './deliverydetail/deliverydetail.compone
 import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders/add-assigned-orders.component';
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 import { AutoFocusDirective } from './auto-focus.directive';
-import { ToastrModule } from "ngx-toastr";
 import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.component';
+import { ViewMoreComponent } from './deliverydetail/view-more/view-more.component';
 
 @NgModule({
   declarations: [
@@ -137,6 +137,7 @@ import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.comp
     EditCategoryComponent,
     AutoFocusDirective,
     TrackingdisplayComponent,
+    ViewMoreComponent,
   ],
   imports: [
     routingArr,
@@ -178,11 +179,6 @@ import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.comp
     FeatherModule.pick(allIcons),//feather-icons
     DragDropModule,
     MatGridListModule,
-    ToastrModule.forRoot({
-      timeOut: 5000,
-      positionClass: 'toast-top-right',
-      preventDuplicates: false,
-    }),
   ],
   entryComponents: [
     DialogComponent,
@@ -192,7 +188,8 @@ import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.comp
     ExitDialogComponent,
     ValetMailComponent,
     OrderDetailviewmoreComponent,
-    MailUserComponent
+    MailUserComponent,
+    ViewMoreComponent,//assigned order details
   ],
   providers: [],
   bootstrap: [AppComponent]

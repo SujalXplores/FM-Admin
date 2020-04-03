@@ -33,15 +33,6 @@ export class EditorderComponent implements OnInit {
     );
   }
 
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'bottom', // 'top' | 'bottom'
-      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['update']
-    });
-  }
-
   OnOrderEdit(f) {
     this._orderdata.updateOrder(f.value).subscribe(
       (data: any) => {

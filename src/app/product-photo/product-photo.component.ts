@@ -8,7 +8,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Router } from '@angular/router';
 import { ProductPhotodataService } from './product-photodata.service';
 import { ViewMoreProductPhotoComponent } from './view-more-product-photo/view-more-product-photo.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-product-photo',
@@ -27,7 +27,7 @@ export class ProductPhotoComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _snackBar: MatSnackBar,private _data: ProductPhotodataService, public router: Router, public dialog: MatDialog) {
+  constructor(private notificationService: NotificationService,private _data: ProductPhotodataService, public router: Router, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -46,6 +46,7 @@ export class ProductPhotoComponent implements OnInit {
           this.dataSource.data = this.productarr;
         }
       );
+      this.notificationService.success('Photo has been deleted !');
     }
   }
 
@@ -82,14 +83,5 @@ export class ProductPhotoComponent implements OnInit {
     this.isAllSelected() ?
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
-  }
-
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'bottom', // 'top' | 'bottom'
-      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['warning']
-    });
   }
 }

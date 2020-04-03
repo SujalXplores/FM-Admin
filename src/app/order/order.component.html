@@ -48,6 +48,15 @@
         <td mat-cell *matCellDef="let row"> {{row.order_amount | currency:"INR"}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="order_status">
+        <th mat-header-cell *matHeaderCellDef> Order Status </th>
+        <td mat-cell *matCellDef="let row"
+        [ngClass]="{
+        'packing' : row.order_status == 'packing',
+        'ontheway' : row.order_status == 'on the way',
+        'delivered' : row.order_status == 'delivered'}"> {{row.order_status | titlecase}} </td>
+      </ng-container>
+
       <!-- <ng-container matColumnDef="fk_u_email_id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> User Email id </th>
         <td mat-cell *matCellDef="let row"> {{row.fk_u_email_id}} </td>
@@ -57,14 +66,14 @@
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let row">
           <button (click)="openDialog(row.order_id)" matTooltip="View more" mat-icon-button style="color: blue">
-            <mat-icon>view_headline_outlined</mat-icon>
+            <mat-icon>launch</mat-icon>
           </button>
-          <button (click)="onDelete(row)" (click)="openSnackBar('1 Record Deleted Successfully.','')"  matTooltip="Delete" mat-icon-button color="warn">
+          <button (click)="onDelete(row)" matTooltip="Delete" mat-icon-button color="warn">
             <mat-icon>delete_outlined</mat-icon>
           </button>
-          <button (click)="OnOrderEdit(row)" matTooltip="Edit" mat-icon-button>
+          <!-- <button (click)="OnOrderEdit(row)" matTooltip="Edit" mat-icon-button>
             <mat-icon>edit_outlined</mat-icon>
-          </button>
+          </button> -->
         </td>
       </ng-container>
 

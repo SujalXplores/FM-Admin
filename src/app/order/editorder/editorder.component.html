@@ -36,7 +36,7 @@
                 <mat-error class="hint" *ngIf="order_status.hasError('required') && !order_status.pristine">Order Status is Required</mat-error>
               </mat-form-field>
 
-              <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('1 Record Edited Successfully.','')">Update</button>
+              <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Update</button>
           </form>
 
       </mat-card-content>

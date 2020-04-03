@@ -21,12 +21,6 @@ section {
   font-size: 14px;
   font-weight: bolder;
 }
-::ng-deep .update{
-color: rgb(0, 0, 0);
-font-family: Roboto;
-font-size: 10px;
-background-color:yellow;
-}
 mat-label{
 color: darkblue;
 }

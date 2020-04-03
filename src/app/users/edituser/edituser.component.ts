@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UsersdataService } from '../usersdata.service';
 import { users } from '../users';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-edituser',
@@ -17,8 +17,8 @@ export class EdituserComponent implements OnInit {
   user_update: FormGroup;
   selectedFile: File = null;
   image_url: string = null;
-
-  constructor(private toaster: ToastrService, private _act_route: ActivatedRoute, private _userdata: UsersdataService, private _router: Router) { }
+  hide: boolean = true;
+  constructor(private notificationService: NotificationService, private _act_route: ActivatedRoute, private _userdata: UsersdataService, private _router: Router) { }
 
   ngOnInit() {
     this.u_email_id = this._act_route.snapshot.params['u_email_id'];
@@ -76,6 +76,6 @@ export class EdituserComponent implements OnInit {
         this._router.navigate(['/nav/users']);
       }
     );
-    this.toaster.success('Profile has been updated.','Success');
+    this.notificationService.success('Profile updated successfully !');
   }
 }

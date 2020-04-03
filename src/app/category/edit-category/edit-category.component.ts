@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategorydataService } from '../categorydata.service';
 import { category } from '../category';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-edit-category',
@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EditCategoryComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar,private _act_route: ActivatedRoute, private _categorydata: CategorydataService, private _router: Router) { }
+  constructor(private notificationService: NotificationService, private _act_route: ActivatedRoute, private _categorydata: CategorydataService, private _router: Router) { }
   c_id1: number;
   c_name1: string;
 
@@ -33,13 +33,6 @@ export class EditCategoryComponent implements OnInit {
         console.log(f.value);
       }
     );
-  }
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'bottom', // 'top' | 'bottom'
-      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['warning']
-    });
+    this.notificationService.success('Changes has been saved.');
   }
 }

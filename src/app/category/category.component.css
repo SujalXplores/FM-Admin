@@ -57,10 +57,3 @@ margin: 8px;
 mat-icon {
 font-size: 26px !important;
 }
-
-::ng-deep .warning{
-color: rgb(255, 255, 255);
-font-family: Roboto;
-font-size: 10px;
-background-color: rgb(255, 0, 0);
-}

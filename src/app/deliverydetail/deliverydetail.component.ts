@@ -5,8 +5,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { DeliveryboydataService } from '../deliveryboy/deliveryboydata.service';
 import { DeliverydetailsdataService } from './deliverydetailsdata.service';
+import { ViewMoreComponent } from './view-more/view-more.component';
 
 @Component({
   selector: 'app-deliverydetail',
@@ -15,13 +15,13 @@ import { DeliverydetailsdataService } from './deliverydetailsdata.service';
 })
 export class DeliverydetailComponent implements OnInit {
 
-  displayedColumns: string[] = ['order_id', 'deliveryboy_name', 'deliveryboy_id', 'date'];
+  displayedColumns: string[] = ['deliveryboy_name', 'deliveryboy_id', 'date', 'actions'];
   dataSource: MatTableDataSource<OrderBoyAssign>;
   ordersArr: OrderBoyAssign[] = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: DeliverydetailsdataService, public _routes: Router, public _dailog: MatDialog) {
+  constructor(public dialog: MatDialog, private _data: DeliverydetailsdataService, public _routes: Router, public _dailog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -46,16 +46,10 @@ export class DeliverydetailComponent implements OnInit {
   onAddClick() {
     this._routes.navigate(['/nav/addassignedorders']);
   }
-  onDelete(item) {
 
-  }
-  onchecheckboxchange(row) {
-
-  }
-  onViewMore(row) {
-
-  }
-  onDeleteAll() {
-
+  openDialog(row) {
+    this.dialog.open(ViewMoreComponent, {
+      data: row
+    });
   }
 }

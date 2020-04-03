@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CategorydataService } from '../categorydata.service';
 import { Router } from '@angular/router';
 import { category } from '../category';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-addcategory',
@@ -13,7 +13,7 @@ export class AddcategoryComponent implements OnInit {
 
   arrCategory: category[] = [];
 
-  constructor(private _snackBar: MatSnackBar,private _catdata: CategorydataService, private _router: Router) { }
+  constructor(private notificationService: NotificationService, private _catdata: CategorydataService, private _router: Router) { }
   value = '';
   
   @ViewChild('focus') private elementRef: ElementRef;
@@ -31,13 +31,6 @@ export class AddcategoryComponent implements OnInit {
         this._router.navigate(['/nav/category']);
       }
     );
-  }
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'bottom', // 'top' | 'bottom'
-      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['success']
-    });
+    this.notificationService.success('Record added successfully');
   }
 }

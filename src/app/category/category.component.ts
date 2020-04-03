@@ -6,7 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Router } from '@angular/router';
 import { CategorydataService } from './categorydata.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-category',
@@ -23,7 +23,7 @@ export class CategoryComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private _snackBar: MatSnackBar, private _data: CategorydataService, private router: Router) {
+  constructor(private notificationService: NotificationService, private _data: CategorydataService, private router: Router) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -47,6 +47,7 @@ export class CategoryComponent implements OnInit {
           this.dataSource.data = this.categoryarr;
         }
       );
+      this.notificationService.success('Record has been deleted !');
     }
   }
 
@@ -71,14 +72,5 @@ export class CategoryComponent implements OnInit {
     this.isAllSelected() ?
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
-  }
-
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'bottom', // 'top' | 'bottom'
-      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['warning']
-    });
   }
 }

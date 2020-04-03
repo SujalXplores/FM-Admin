@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { SelectionModel } from '@angular/cdk/collections';
 import { DialogComponent } from './dialog/dialog.component';
 import { MailUserComponent } from './mail-user/mail-user.component';
-import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-users',
@@ -30,7 +30,7 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private toaster: ToastrService, private _data: UsersdataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
+  constructor(private notificationService: NotificationService, private _data: UsersdataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -63,7 +63,7 @@ export class UsersComponent implements OnInit {
           }
         }
       );
-      this.toaster.success('Selected Records Deleted.','Success');
+      this.notificationService.success('Selected Records Deleted !');
     }
   }
 

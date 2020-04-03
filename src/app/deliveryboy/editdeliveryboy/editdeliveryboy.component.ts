@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DeliveryboydataService } from '../deliveryboydata.service';
 import { deliveryboy } from '../deliveryboy';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-editdeliveryboy',
@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EditdeliveryboyComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar,private _act_route: ActivatedRoute, private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
+  constructor(private notificationService: NotificationService, private _act_route: ActivatedRoute, private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
   deliveryboy_id: number;
   deliveryPartner_update: FormGroup;
   selectedFile: File = null;
@@ -48,14 +48,6 @@ export class EditdeliveryboyComponent implements OnInit {
       password: item.password,
     });
   }
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'bottom', // 'top' | 'bottom'
-      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['update']
-    });
-  }
 
   OnDeliveryPartnerEdit() {
     console.log(this.deliveryPartner_update.get('img').value);
@@ -78,6 +70,7 @@ export class EditdeliveryboyComponent implements OnInit {
         this._router.navigate(['/nav/deliveryboy']);
       }
     );
+    this.notificationService.success('Your changes has been saved.');
   }
 
   onChange(f) {

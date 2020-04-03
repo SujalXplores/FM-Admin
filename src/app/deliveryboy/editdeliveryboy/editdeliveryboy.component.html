@@ -9,7 +9,7 @@
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Name</mat-label>
-            <input formControlName="deliveryboy_name" matInput type="text" placeholder="Enter Deliveryboy Name">
+            <input appAutoFocus formControlName="deliveryboy_name" matInput type="text" placeholder="Enter Deliveryboy Name">
             <mat-icon class="material-icons-outlined" matSuffix>perm_identity</mat-icon>
             <mat-hint class="hint" *ngIf="deliveryPartner_update.get('deliveryboy_name').hasError('required') && !deliveryPartner_update.pristine">Name is Required</mat-hint>
             <mat-hint class="hint" *ngIf="deliveryPartner_update.get('deliveryboy_name').hasError('pattern') && !deliveryPartner_update.pristine">Only Letters</mat-hint>
@@ -60,7 +60,7 @@
             </div>
           </div>
 
-        <button class="example-full-width" type="submit" mat-raised-button color="accent" (click)="openSnackBar('Changes Saved Successfully.','')">Save</button>
+        <button class="example-full-width" type="submit" mat-raised-button color="accent">Save</button>
       </form>
     </mat-card-content>
   </mat-card>

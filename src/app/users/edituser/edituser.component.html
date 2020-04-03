@@ -11,7 +11,7 @@
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Userame</mat-label>
-            <input formControlName="u_name" matInput type="text" placeholder="Enter New Name">
+            <input appAutoFocus formControlName="u_name" matInput type="text" placeholder="Enter New Name">
             <mat-error class="hint" *ngIf="user_update.get('u_name').hasError('required') && !user_update.pristine">Name is Required</mat-error>
             <mat-error class="hint" *ngIf="user_update.get('u_name').hasError('pattern') && !user_update.pristine">Only Letters</mat-error>
             <mat-icon class="material-icons-outlined" matSuffix>account_circle</mat-icon>
@@ -23,14 +23,16 @@
             <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
             <mat-error class="hint" *ngIf="user_update.hasError('required') && !user_update.pristine">Mobile Number is Required</mat-error>
             <mat-error class="hint" *ngIf="user_update.hasError('minlength') && !user_update.pristine">Mobile number must be of 10 digits!</mat-error>
-            <mat-error class="label" *ngIf="user_update.hasError('pattern') && !user_update.pristine">Only Digits!</mat-error>
+            <mat-error class="hint" *ngIf="user_update.hasError('pattern') && !user_update.pristine">Only Digits!</mat-error>
             <mat-icon matSuffix>phone</mat-icon>
-          </mat-form-field>
+          </mat-form-field> 
 
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Password</mat-label>
-            <input formControlName="u_password" matInput type="password" placeholder="Set New Password">
-            <mat-icon class="material-icons-outlined" matSuffix>vpn_key</mat-icon>
+            <mat-label>Change Password</mat-label>
+            <input [type]="hide ? 'password' : 'text'" formControlName="u_password" matInput type="password" placeholder="Set New Password">
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+							<mat-icon class="material-icons-outlined">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
+						</button>
           </mat-form-field>
 
           <!-- <mat-form-field class="example-full-width" appearance="outline">
@@ -53,7 +55,7 @@
                 <div class="media-body">
                   <label class="btn btn-sm btn-outline-secondary ml-2">
                       Upload photo
-                    <input type="file" class="d-none" (change)="onChange($event)">
+                    <input formControlName="u_image" type="file" class="d-none" (change)="onChange($event)">
                   </label>
                 </div>
               </div>

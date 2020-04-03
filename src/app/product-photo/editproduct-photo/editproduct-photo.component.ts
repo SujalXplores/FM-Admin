@@ -5,7 +5,7 @@ import { ProductPhotodataService } from '../product-photodata.service';
 import { product_photo } from '../product-photo';
 import { product } from 'src/app/product/product';
 import { ProductdataService } from 'src/app/product/productdata.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-editproduct-photo',
@@ -21,7 +21,7 @@ export class EditproductPhotoComponent implements OnInit {
 
   list: product[] = [];
 
-  constructor(private _snackBar: MatSnackBar,public _activated_routes: ActivatedRoute, public _ser: ProductPhotodataService, public _router: Router, public _prodata: ProductdataService) { }
+  constructor(private notificationService: NotificationService, public _activated_routes: ActivatedRoute, public _ser: ProductPhotodataService, public _router: Router, public _prodata: ProductdataService) { }
 
   ngOnInit() {
     this.pro_photo_id = this._activated_routes.snapshot.params['pro_photo_id'];
@@ -45,15 +45,6 @@ export class EditproductPhotoComponent implements OnInit {
 
   onChange(f) {
     this.selectedFile = <File>f.target.files[0];
-  }
-  
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'bottom', // 'top' | 'bottom'
-      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['update']
-    });
   }
 
   formDataBind(item: product_photo) {
@@ -84,5 +75,6 @@ export class EditproductPhotoComponent implements OnInit {
         this._router.navigate(['/nav/product_photo']);
       }
     );
-   }
+    this.notificationService.success('Changes has been saved.');
+  }
 }

@@ -54,9 +54,3 @@ padding: 8px;
 font-weight: lighter;
 margin: 8px;
 }
-::ng-deep .warning{
-color: rgb(255, 255, 255);
-font-family: Roboto;
-font-size: 10px;
-background-color: rgb(255, 0, 0);
-}

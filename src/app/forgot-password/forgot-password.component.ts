@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ForgotPasswordService } from './forgot-password.service';
-import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ForgotPasswordComponent implements OnInit {
   
-  constructor(private toaster: ToastrService, private _router: Router, public _mail: ForgotPasswordService) { }
+  constructor(private notificationService: NotificationService,private _router: Router, public _mail: ForgotPasswordService) { }
   forgetPasswordForm : FormGroup;
 
   ngOnInit() {
@@ -31,10 +31,7 @@ export class ForgotPasswordComponent implements OnInit {
         });
       });
       this._router.navigate(['']);
-      this.toaster.info('Check your inbox.','Password has been sent.');
-    }
-    else {
-      alert("Please provide your Email first!");
+      this.notificationService.success('Mail has been sent on you registered mail. Check inbox.');
     }
   }
 }

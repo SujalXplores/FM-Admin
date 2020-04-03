@@ -14,7 +14,7 @@
 					<!-- email -->
 					<mat-form-field class="wrap-input100">
 						<mat-label>Email</mat-label>
-						<input matInput formControlName="u_email_id" placeholder="Email-ID*">
+						<input appAutoFocus matInput formControlName="u_email_id" required>
 						<mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">email_outlined</mat-icon>
 						<mat-error *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email should not be empty!</mat-error>
 						<mat-error *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-error>
@@ -22,8 +22,8 @@
 					<!-- password -->
 					<mat-form-field class="wrap-input100">
 						<mat-label>Password</mat-label>
-						<input matInput placeholder="Password*" [type]="hide ? 'password' : 'text'"  formControlName="u_password">
-						<mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">vpn_key</mat-icon>
+						<input matInput [type]="hide ? 'password' : 'text'" formControlName="u_password" required>
+						<mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">lock</mat-icon>
 						<mat-error *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password should not be empty!</mat-error>
 						<button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
 							<mat-icon style="font-size: 20px;" class="material-icons-outlined">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
@@ -31,7 +31,7 @@
 						<mat-hint align="end" class="forgot" routerLink="/forgotPass">Forgot Password?</mat-hint>
 					</mat-form-field>
 					<!-- signin -->
-					<button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="accent" class="example-full-width">Sign In</button>
+					<button [disabled]="!loginForm.valid" type="submit" mat-raised-button color="accent" class="example-full-width">Login</button>
 				</form>
 			</div>
 		</div>

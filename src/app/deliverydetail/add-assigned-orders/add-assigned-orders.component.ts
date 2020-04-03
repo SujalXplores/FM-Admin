@@ -4,7 +4,7 @@ import { OrderBoyAssign } from '../orderboyassign';
 import { deliverdetails } from '../deliverydetail';
 import { DeliverydetailsdataService } from '../deliverydetailsdata.service';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-add-assigned-orders',
@@ -21,7 +21,7 @@ export class AddAssignedOrdersComponent implements OnInit {
   SelectedDboyId: string;
   dataSourceDelivery: MatTableDataSource<deliverdetails>;
 
-  constructor(private toaster: ToastrService, private _orderAssign: DeliverydetailsdataService, private _router: Router) {
+  constructor(private notificationService: NotificationService, private _orderAssign: DeliverydetailsdataService, private _router: Router) {
     this.dataSourceOrder = new MatTableDataSource();
     this.dataSourceDelivery = new MatTableDataSource();
   }
@@ -54,11 +54,11 @@ export class AddAssignedOrdersComponent implements OnInit {
       this._orderAssign.addOrderAssigned(objOrderAssigned).subscribe(
       (x: any) => {
         if (x.insertId > 0) {
-          this.toaster.success('Order has been assigned.','Success');
+          this.notificationService.success('Selected Order is assigned to '+ this.SelectedDboyId);
           this._router.navigate(['/nav/deliverdetails']);
         }
         else {
-          this.toaster.info('Then assign to partner','Please select order first.');
+          this.notificationService.success('Select order first, and assign it to Partner !');
         }
       });
     }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeliveryboydataService } from '../deliveryboydata.service';
 import { deliveryboy } from '../deliveryboy';
-import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-adddeliveryboy',
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AdddeliveryboyComponent implements OnInit {
 
-  constructor(private toaster: ToastrService, private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
+  constructor(private notificationService: NotificationService, private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
 
   arrDeliveryboy: deliveryboy[] = [];
   selectedFile: File = null;
@@ -37,7 +37,7 @@ export class AdddeliveryboyComponent implements OnInit {
         console.log(data);
       }
     );
-    this.toaster.success('Your record has been added.','Success');
+    this.notificationService.success('Record added successfully !');
   }
 
   onChange(f){

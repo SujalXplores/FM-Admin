@@ -8,7 +8,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router } from '@angular/router';
 import { OrderdataService } from './orderdata.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-order',
@@ -26,7 +26,7 @@ export class OrderComponent implements OnInit {
 
   orderarr: order[] = [];
   expandedElement: ViewMore | null;
-  displayedColumns: string[] = ['select', 'order_amount', 'order_date', 'action'];
+  displayedColumns: string[] = ['order_date', 'order_amount', 'order_status', 'action'];
   dataSource: MatTableDataSource<order>;
 
   selection = new SelectionModel<order>(true, []);
@@ -34,20 +34,17 @@ export class OrderComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _snackBar: MatSnackBar,private _data: OrderdataService, public router: Router , public dialog: MatDialog) {
+  constructor(private notificationService: NotificationService, private _data: OrderdataService, public router: Router , public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
    }
 
    openDialog(order_id){
-    // this._dialog.open(OrderviewmoreComponent,{
-    //   data:row
-    //});
     this.router.navigate(['/nav/ordermore', order_id]);
     console.log(order_id);
  }
 
   onDelete(item: order) {
-    if (confirm('Are You Sure You Want To Delete ?')) {
+    if (confirm('Are you sure you want to delete ?')) {
       this._data.deleteOrder(item.order_id).subscribe(
         (data: any) => {
           console.log(data);
@@ -55,13 +52,13 @@ export class OrderComponent implements OnInit {
           this.dataSource.data = this.orderarr;
         }
       );
+      this.notificationService.success('Selected record deleted !');
     }
   }
 
   OnOrderEdit(item: order) {
     this.router.navigate(['/nav/editorder', item.order_id]);
   }
-
 
   applyFilter(filterValue: string) {
       this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -73,6 +70,7 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
     this._data.getAllOrder().subscribe(
       (data: order[]) => {
+        console.log(data);
         this.orderarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
@@ -92,15 +90,6 @@ export class OrderComponent implements OnInit {
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
   }
-
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message , action, {
-      duration: 5000,
-      verticalPosition: 'bottom', // 'top' | 'bottom'
-      horizontalPosition: 'center', //'start' | 'center' | 'end' | 'left' | 'right'
-      panelClass: ['warning']
-    });
-  }
 }
 
 export interface ViewMore {
@@ -109,5 +98,3 @@ export interface ViewMore {
   order_status: string;
   deliveryboy_id: number;
 }
-
-
