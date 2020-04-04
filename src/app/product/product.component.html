@@ -9,7 +9,18 @@
   <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 
-<button [disabled]="del_arr.length==0" mat-raised-button matTooltip="Delete Selected"(click)="ondeleteallclick()" color="warn" class="deletebutton">
+<button
+  [disabled]="del_arr.length==0" 
+  mat-raised-button 
+  mwlConfirmationPopover 
+  popoverTitle="Record Delete Confirmation"
+  popoverMessage="Do you really want to delete?"
+  placement="left"
+  (confirm)="ondeleteallclick()"
+  (cancel)="cancleClicked = true"
+  matTooltip="Delete Selected"
+  color="warn" 
+  class="deletebutton">
   <mat-icon>delete_outlined</mat-icon>
   <span>Delete</span>
 </button>

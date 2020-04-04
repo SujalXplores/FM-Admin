@@ -86,6 +86,7 @@ import { EditCategoryComponent } from './category/edit-category/edit-category.co
 import { AutoFocusDirective } from './auto-focus.directive';
 import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.component';
 import { ViewMoreComponent } from './deliverydetail/view-more/view-more.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 @NgModule({
   declarations: [
@@ -179,6 +180,9 @@ import { ViewMoreComponent } from './deliverydetail/view-more/view-more.componen
     FeatherModule.pick(allIcons),//feather-icons
     DragDropModule,
     MatGridListModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger'
+    }),
   ],
   entryComponents: [
     DialogComponent,

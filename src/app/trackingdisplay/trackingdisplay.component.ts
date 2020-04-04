@@ -15,7 +15,9 @@ import { NotificationService } from '../notification.service';
 })
 export class TrackingdisplayComponent implements OnInit {
 
+  cancleClicked: boolean = false;
   trackingarr: tracking[] = [];
+  del_arr: number[] = [];
   displayedColumns: string[] = ['track_id' , 'status', 'fk_detail_id', 'action'];
   dataSource: MatTableDataSource<tracking>;
 
@@ -39,8 +41,6 @@ export class TrackingdisplayComponent implements OnInit {
       }
     );
   }
-
-  del_arr: number[] = [];
 
   onCheckBoxChange(row) {
     if (this.del_arr.find(x => x == row.track_id)) {
@@ -78,15 +78,13 @@ export class TrackingdisplayComponent implements OnInit {
   // }
 
   onDelete(row){
-    if (confirm("Are you sure you want to delete?")) {
-      this._trackdata.deleteTrack(row.track_id).subscribe(
-        (data: any) => {
-          this.trackingarr.splice(this.trackingarr.indexOf(row), 1);
-          this.dataSource.data = this.trackingarr;
-        }
-      );
-      this.notificationService.success('Selected Records Deleted !');
-    }
+    this._trackdata.deleteTrack(row.track_id).subscribe(
+      (data: any) => {
+        this.trackingarr.splice(this.trackingarr.indexOf(row), 1);
+        this.dataSource.data = this.trackingarr;
+      }
+    );
+    this.notificationService.success('Selected Records Deleted !');
   }
 
   applyFilter(filterValue: string) {

@@ -17,6 +17,8 @@ import { NotificationService } from '../notification.service';
   styleUrls: ['./deliveryboy.component.css'],
 })
 export class DeliveryboyComponent implements OnInit {
+
+  cancleClicked: boolean = false;
   deliveryboyarr: deliveryboy[] = [];
   displayedColumns: string[] = ['deliveryboy_name' , 'deliveryboy_address', 'action'];
   dataSource: MatTableDataSource<deliveryboy>;
@@ -31,16 +33,14 @@ export class DeliveryboyComponent implements OnInit {
   }
 
   onDelete(item: deliveryboy) {
-    if( confirm( "Are You Sure You Want To Delete ?" )) {
-      this._data.deleteDeliveryboy(item.deliveryboy_id).subscribe(
-        (data: any) => {
-          console.log(data);
-          this.deliveryboyarr.splice(this.deliveryboyarr.indexOf(item), 1);
-          this.dataSource.data = this.deliveryboyarr;
-        }
-      );
-      this.notificationService.success('Record deleted successfully !');
-    }
+    this._data.deleteDeliveryboy(item.deliveryboy_id).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.deliveryboyarr.splice(this.deliveryboyarr.indexOf(item), 1);
+        this.dataSource.data = this.deliveryboyarr;
+      }
+    );
+    this.notificationService.success('Record deleted successfully !');
   }
 
   OnDeliveryboyEdit(item: deliveryboy) {

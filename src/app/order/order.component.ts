@@ -14,16 +14,10 @@ import { NotificationService } from '../notification.service';
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
 })
 export class OrderComponent implements OnInit {
 
+  cancleClicked: boolean = false;
   orderarr: order[] = [];
   expandedElement: ViewMore | null;
   displayedColumns: string[] = ['order_date', 'order_amount', 'order_status', 'action'];
@@ -44,16 +38,14 @@ export class OrderComponent implements OnInit {
  }
 
   onDelete(item: order) {
-    if (confirm('Are you sure you want to delete ?')) {
-      this._data.deleteOrder(item.order_id).subscribe(
-        (data: any) => {
-          console.log(data);
-          this.orderarr.splice(this.orderarr.indexOf(item), 1);
-          this.dataSource.data = this.orderarr;
-        }
-      );
-      this.notificationService.success('Selected record deleted !');
-    }
+    this._data.deleteOrder(item.order_id).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.orderarr.splice(this.orderarr.indexOf(item), 1);
+        this.dataSource.data = this.orderarr;
+      }
+    );
+    this.notificationService.success('Selected record deleted !');
   }
 
   OnOrderEdit(item: order) {

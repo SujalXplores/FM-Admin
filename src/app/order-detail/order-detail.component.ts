@@ -16,6 +16,7 @@ import { NotificationService } from '../notification.service';
 })
 export class OrderDetailComponent implements OnInit {
 
+  cancleClicked: boolean = false;
   orderdetailarr: order_detail[] = [];
   displayedColumns: string[] = ['select', 'pro_name' ,  'qty' ,  'action'];
   dataSource: MatTableDataSource<order_detail>;
@@ -36,16 +37,14 @@ export class OrderDetailComponent implements OnInit {
   }
 
   onDelete(item: order_detail) {
-    if (confirm('Are You Sure You Want To Delete ?')) {
-      this._data.deleteOrderDetail(item.order_detail_id).subscribe(
-        (data: any) => {
-          console.log(data);
-          this.orderdetailarr.splice(this.orderdetailarr.indexOf(item), 1);
-          this.dataSource.data = this.orderdetailarr;
-        }
-      );
-      this.notificationService.success('Selected record deleted !');
-    }
+    this._data.deleteOrderDetail(item.order_detail_id).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.orderdetailarr.splice(this.orderdetailarr.indexOf(item), 1);
+        this.dataSource.data = this.orderdetailarr;
+      }
+    );
+    this.notificationService.success('Selected record deleted !');
   }
 
   OnOrderDetailEdit(item: order_detail) {

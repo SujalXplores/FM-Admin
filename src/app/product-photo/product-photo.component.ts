@@ -18,6 +18,7 @@ import { NotificationService } from '../notification.service';
 })
 export class ProductPhotoComponent implements OnInit {
 
+  cancleClicked: boolean = false;
   productarr: product_photo[] = [];
   displayedColumns: string[] = ['select', 'fk_pro_id', 'action'];
   dataSource: MatTableDataSource<product_photo>;
@@ -38,16 +39,14 @@ export class ProductPhotoComponent implements OnInit {
   }
 
   onDelete(item: product_photo) {
-    if (confirm('Are You Sure You Want To Delete ?')) {
-      this._data.deleteProductPhoto(item.pro_photo_id).subscribe(
-        (data: any) => {
-          console.log(data);
-          this.productarr.splice(this.productarr.indexOf(item), 1);
-          this.dataSource.data = this.productarr;
-        }
-      );
-      this.notificationService.success('Photo has been deleted !');
-    }
+    this._data.deleteProductPhoto(item.pro_photo_id).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.productarr.splice(this.productarr.indexOf(item), 1);
+        this.dataSource.data = this.productarr;
+      }
+    );
+    this.notificationService.success('Photo has been deleted !');
   }
 
   OnProductEdit(item: product_photo) {

@@ -15,6 +15,7 @@ import { NotificationService } from '../notification.service';
 })
 export class CategoryComponent implements OnInit {
 
+  cancleClicked: boolean = false;
   categoryarr: category[] = [];
   displayedColumns: string[] = ['c_id','c_name', 'delete','edit'];
   dataSource: MatTableDataSource<category>;
@@ -39,16 +40,14 @@ export class CategoryComponent implements OnInit {
   }
 
   onDelete(item: category) {
-    if( confirm( "Are You Sure You Want To Delete ?" )) {
-      this._data.deleteCategory(item.c_id).subscribe(
-        (data: any) => {
-          console.log(data);
-          this.categoryarr.splice(this.categoryarr.indexOf(item), 1);
-          this.dataSource.data = this.categoryarr;
-        }
-      );
-      this.notificationService.success('Record has been deleted !');
-    }
+    this._data.deleteCategory(item.c_id).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.categoryarr.splice(this.categoryarr.indexOf(item), 1);
+        this.dataSource.data = this.categoryarr;
+      }
+    );
+    this.notificationService.success('Record has been deleted !');
   }
 
   ngOnInit() {

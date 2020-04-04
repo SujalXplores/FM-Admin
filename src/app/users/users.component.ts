@@ -18,6 +18,7 @@ import { NotificationService } from '../notification.service';
 })
 
 export class UsersComponent implements OnInit {
+  cancleClicked: boolean = false;
   animal: string;
   name: string;
   userarr: users[] = [];
@@ -44,39 +45,34 @@ export class UsersComponent implements OnInit {
    if(this.del_arr.find(x => x == row.u_email_id)){
       this.del_arr.splice(this.del_arr.indexOf(row.u_email_id),1);
    }
-   else
-   {
+   else{
      this.del_arr.push(row.u_email_id);
    }
  }
 
  ondeleteallclick(){
-  if (confirm("Are You Sure You Want To Delete ?")){
-    this._data.deleteall(this.del_arr).subscribe(
-      (data)=>{
-        for(let i=0;i<this.del_arr.length;i++){
-          let x=this.userarr.find(x => x.u_email_id == this.del_arr[i]);
-          this.userarr.splice(this.userarr.indexOf(x), 1);
-          this.dataSource.data = this.userarr;
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-          }
+  this._data.deleteall(this.del_arr).subscribe(
+    (data)=>{
+      for(let i=0;i<this.del_arr.length;i++){
+        let x=this.userarr.find(x => x.u_email_id == this.del_arr[i]);
+        this.userarr.splice(this.userarr.indexOf(x), 1);
+        this.dataSource.data = this.userarr;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
         }
-      );
-      this.notificationService.success('Selected Records Deleted !');
-    }
+      }
+    );
+    this.notificationService.success('Selected Records Deleted !');
   }
 
   onDelete(item: users) {
-    if (confirm("Are You Sure You Want To Delete ?")) {
-      this._data.deleteUsers(item.u_email_id).subscribe(
-        (data: any) => {
-          console.log(data);
-          this.userarr.splice(this.userarr.indexOf(item), 1);
-          this.dataSource.data = this.userarr;
-        }
-      );
-    }
+    this._data.deleteUsers(item.u_email_id).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.userarr.splice(this.userarr.indexOf(item), 1);
+        this.dataSource.data = this.userarr;
+      }
+    );
   }
 
   OnUserEdit(item: users) {
@@ -85,7 +81,6 @@ export class UsersComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -99,8 +94,8 @@ export class UsersComponent implements OnInit {
 
   masterToggle() {
     this.isAllSelected() ?
-      this.selection.clear() :
-      this.dataSource.data.forEach(row => this.selection.select(row));
+    this.selection.clear() :
+    this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
   ngOnInit() {

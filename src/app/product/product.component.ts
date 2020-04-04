@@ -18,6 +18,7 @@ import { NotificationService } from '../notification.service';
 })
 export class ProductComponent implements OnInit {
 
+  cancleClicked: boolean = false;
   productarr: product[] = [];
   del_arr: number[] = [];
   displayedColumns: string[] = ['select', 'pro_name', 'c_name' ,  'pro_price', 'action'];
@@ -48,33 +49,29 @@ export class ProductComponent implements OnInit {
   }
 
   ondeleteallclick() {
-    if (confirm('Are You Sure You Want To Delete ?')){
-      this._data.deleteall(this.del_arr).subscribe(
-        (data) => {
-          for (let i=0;i<this.del_arr.length;i++) {
-            let x = this.productarr.find(x => x.pro_id == this.del_arr[i]);
-            this.productarr.splice(this.productarr.indexOf(x), 1);
-            this.dataSource.data = this.productarr;
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-          }
+    this._data.deleteall(this.del_arr).subscribe(
+      (data) => {
+        for (let i=0;i<this.del_arr.length;i++) {
+          let x = this.productarr.find(x => x.pro_id == this.del_arr[i]);
+          this.productarr.splice(this.productarr.indexOf(x), 1);
+          this.dataSource.data = this.productarr;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }
-      );
-      this.notificationService.success('Selected record has been deleted !');
-    }
+      }
+    );
+    this.notificationService.success('Selected record has been deleted !');
   }
 
   onDelete(item: product) {
-    if (confirm('Are You Sure You Want To Delete ?')) {
-      this._data.deleteProduct(item.pro_id).subscribe(
-        (data: any) => {
-          console.log(data);
-          this.productarr.splice(this.productarr.indexOf(item), 1);
-          this.dataSource.data = this.productarr;
-        }
-      );
-      this.notificationService.success('Selected record has been deleted !');
-    }
+    this._data.deleteProduct(item.pro_id).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.productarr.splice(this.productarr.indexOf(item), 1);
+        this.dataSource.data = this.productarr;
+      }
+    );
+    this.notificationService.success('Selected record has been deleted !');
   }
 
   OnProductEdit(item: product) {
