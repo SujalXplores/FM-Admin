@@ -30,7 +30,6 @@
       <!-- <a mat-list-item routerLink="/nav/cart"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart</span></a>
       <a mat-list-item routerLink="/nav/cart_details"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart Details</span></a> -->
       <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">apps</mat-icon><span>Category</span></a>
-      <mat-divider></mat-divider>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -53,16 +52,11 @@
       </button>
 
       <mat-menu #beforeMenu="matMenu" xPosition="before">
-
-        <div mat-menu-item class="date">
-          <mat-icon class="material-icons-outlined">today</mat-icon>
-          {{date | date}}
-        </div>
-        <mat-divider></mat-divider>
         <button (click)='OnUserEdit()' mat-menu-item>
           <mat-icon class="material-icons-outlined">account_circle</mat-icon>
           <span>My Profile</span>
         </button>
+        <mat-divider></mat-divider>
         <button mat-menu-item (click)='openDialog()' >
           <span style="color: red;"><mat-icon style="color: red;">exit_to_app</mat-icon><span>Logout</span></span>
         </button>
