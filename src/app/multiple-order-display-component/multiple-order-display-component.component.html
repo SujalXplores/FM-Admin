@@ -1,22 +1,26 @@
-<section fxLayout="row wrap" fxLayoutAlign="space-around" style="float: left; margin-top: 20px; margin-left: 20px;" *ngFor="let item of ordermultiple">
+<section fxLayout="row wrap" fxLayoutAlign="space-around" style="float: left; margin-top: 20px; margin-left: 20px;">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-    <mat-card-header>
+    <mat-list>
+      <img src="../../assets/image/orderdetails.png"><br><br>
+      <mat-card-title>Order Details</mat-card-title>
+      <mat-list-item>Email ID: {{fk_u_email_id}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Bill Date: {{order_date | date : 'mediumDate'}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Payment Method: {{payment_type | uppercase}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Order Status: {{order_status | titlecase}}</mat-list-item>
+    </mat-list>
+  </mat-card>
+</section>
+<section fxLayout="row wrap" fxLayoutAlign="space-around" style="float: left; margin-top: 20px; margin-left: 20px;">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-header *ngFor="let item of ordermultiple">
       <img src="http://localhost:3000/images/product_photos/{{item.pro_photo}}" mat-card-avatar>
       <mat-card-title>{{item.pro_name | titlecase}}'s</mat-card-title>
-      <mat-card-subtitle>Details</mat-card-subtitle>
+      <mat-card-subtitle>Qty:  x{{item.qty}}</mat-card-subtitle>
     </mat-card-header>
-    <mat-list>
-      <mat-list-item>Email ID: {{item.fk_u_email_id}}</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>Bill Date: {{item.order_date | date : 'mediumDate'}}</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>Payment Method: {{item.payment_type | uppercase}}</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>Qty:  x{{item.qty}}</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>Order Status: {{item.order_status | titlecase}}</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>Total Price: {{item.order_amount | currency:"INR"}}</mat-list-item>
-    </mat-list>
+    <hr>
+    <h6>Total Price: {{order_amount | currency:"INR"}}</h6>
   </mat-card>
 </section>

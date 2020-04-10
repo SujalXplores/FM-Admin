@@ -71,10 +71,9 @@ export class EditproductPhotoComponent implements OnInit {
     this._ser.updateProductPhoto(this.pro_photo_id,fd).subscribe(
       (data: product_photo) => {
         console.log(data)
-        alert("Sucessfully edited");
+        this.notificationService.success('Changes has been saved.');
         this._router.navigate(['/nav/product_photo']);
       }
     );
-    this.notificationService.success('Changes has been saved.');
   }
 }

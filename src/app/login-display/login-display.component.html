@@ -14,7 +14,7 @@
 					<!-- email -->
 					<mat-form-field class="wrap-input100">
 						<mat-label>Email</mat-label>
-						<input appAutoFocus matInput formControlName="u_email_id" required>
+						<input matInput formControlName="u_email_id" required>
 						<mat-icon matPrefix class="material-icons-outlined" style="margin-right: 10px;">email_outlined</mat-icon>
 						<mat-error *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email should not be empty!</mat-error>
 						<mat-error *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-error>

@@ -6,7 +6,7 @@
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Enter Category Name</mat-label>
-            <input required pattern="[a-z A-Z]*" ngModel name="c_name" #focus #c_name="ngModel" matInput type="text" placeholder="e.g. (Eyecare, Headache)">
+            <input required pattern="[a-z A-Z]*" ngModel name="c_name" #focus #c_name="ngModel" matInput type="text" placeholder="e.g. (Eyecare, Skincare)">
             <mat-icon class="material-icons-outlined" matSuffix>edit</mat-icon>
             <mat-hint class="hint" *ngIf="c_name.hasError('required') && !c_name.pristine">Required</mat-hint>
             <mat-hint class="hint" *ngIf="c_name.hasError('pattern') && !c_name.pristine">Only Letters</mat-hint>
