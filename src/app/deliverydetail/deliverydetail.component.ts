@@ -32,6 +32,7 @@ export class DeliverydetailComponent implements OnInit {
         console.log(data);
         this.ordersArr = data;
         this.dataSource.data = this.ordersArr;
+        this.dataSource.sort = this.sort;
       }
     )
   }

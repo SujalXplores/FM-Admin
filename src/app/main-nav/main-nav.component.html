@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" [class.alternative]="isTrue">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -14,22 +14,22 @@
 
     <mat-nav-list>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/nav"><mat-icon class="material-icons-outlined">insert_chart</mat-icon><span>Dashboard</span></a>
-      <a mat-list-item routerLink="/nav/users"><mat-icon class="material-icons-outlined">account_box</mat-icon><span>Users</span></a>
-      <a mat-list-item routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined">local_shipping</mat-icon><span>DeliveryPartner</span></a>
+      <a mat-list-item routerLink="/nav"><mat-icon class="material-icons-outlined" color="primary">insert_chart</mat-icon><span>Dashboard</span></a>
+      <a mat-list-item routerLink="/nav/users"><mat-icon class="material-icons-outlined" color="primary">account_box</mat-icon><span>Users</span></a>
+      <a mat-list-item routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined" color="primary">local_shipping</mat-icon><span>DeliveryPartner</span></a>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/nav/deliverdetails"><mat-icon class="material-icons-outlined">assignment_turned_in</mat-icon><span>Assign Order</span></a>
-      <a mat-list-item routerLink="/nav/trackingdisplay"><mat-icon class="material-icons-outlined">room</mat-icon><span>Tracking</span></a>
+      <a mat-list-item routerLink="/nav/deliverdetails"><mat-icon class="material-icons-outlined" color="primary">assignment_turned_in</mat-icon><span>Assign Order</span></a>
+      <a mat-list-item routerLink="/nav/trackingdisplay"><mat-icon class="material-icons-outlined" color="primary">room</mat-icon><span>Tracking</span></a>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/nav/order"><mat-icon class="material-icons-outlined">shopping_basket</mat-icon><span>Orders</span></a>
-      <!-- <a mat-list-item routerLink="/nav/order_detail"><mat-icon class="material-icons-outlined">local_offer</mat-icon><span>Order Detail</span></a> -->
+      <a mat-list-item routerLink="/nav/order"><mat-icon class="material-icons-outlined" color="primary">shopping_basket</mat-icon><span>Orders</span></a>
+      <!-- <a mat-list-item routerLink="/nav/order_detail"><mat-icon class="material-icons-outlined" color="primary">local_offer</mat-icon><span>Order Detail</span></a> -->
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/nav/product"><mat-icon class="material-icons-outlined">local_hospital</mat-icon><span>Products</span></a>
-      <a mat-list-item routerLink="/nav/product_photo"><mat-icon class="material-icons-outlined">add_photo_alternate</mat-icon><span>Product Photo</span></a>
+      <a mat-list-item routerLink="/nav/product"><mat-icon class="material-icons-outlined" color="primary">local_hospital</mat-icon><span>Products</span></a>
+      <a mat-list-item routerLink="/nav/product_photo"><mat-icon class="material-icons-outlined" color="primary">add_photo_alternate</mat-icon><span>Product Photo</span></a>
       <mat-divider></mat-divider>
-      <!-- <a mat-list-item routerLink="/nav/cart"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart</span></a>
-      <a mat-list-item routerLink="/nav/cart_details"><mat-icon class="material-icons-outlined">local_mall</mat-icon><span>Cart Details</span></a> -->
-      <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined">apps</mat-icon><span>Category</span></a>
+      <!-- <a mat-list-item routerLink="/nav/cart"><mat-icon class="material-icons-outlined" color="primary">local_mall</mat-icon><span>Cart</span></a>
+      <a mat-list-item routerLink="/nav/cart_details"><mat-icon class="material-icons-outlined" color="primary">local_mall</mat-icon><span>Cart Details</span></a> -->
+      <a mat-list-item routerLink="/nav/category"><mat-icon class="material-icons-outlined" color="primary">apps</mat-icon><span>Category</span></a>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -47,20 +47,24 @@
 
       <span>FutureMediSurgico</span>
 
+      <button (click)="changeTheme()" type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'brightness_medium' : 'brightness_high'}}</mat-icon>
+      </button>
+
       <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
         <mat-icon>more_vert</mat-icon>
       </button>
 
       <mat-menu #beforeMenu="matMenu" xPosition="before">
         <button (click)='OnUserEdit()' mat-menu-item>
-          <mat-icon class="material-icons-outlined">account_circle</mat-icon>
+          <mat-icon class="material-icons-outlined" color="primary">account_circle</mat-icon>
           <span>My Profile</span>
         </button>
         <mat-divider></mat-divider>
         <button mat-menu-item (click)='openDialog()' >
-          <span style="color: red;"><mat-icon style="color: red;">exit_to_app</mat-icon><span>Logout</span></span>
-        </button>
-
+          <mat-icon color="warn">exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>     
       </mat-menu>
 
     </mat-toolbar>

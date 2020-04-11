@@ -1,4 +1,4 @@
-<section fxLayout="row wrap" fxLayoutAlign="space-around" style="float: left; margin-top: 20px;">
+<section fxLayout="row wrap" fxFlexFill fxLayoutAlign="space-around">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
     <mat-card-header>
       <mat-card-subtitle>
@@ -68,9 +68,15 @@
         </table>
       </div>
     </mat-card-content>
-    <button mat-raised-button (click)="onSubmit()" [disabled]="this.dataSourceOrder.data.length<=0" color="primary">
+
+    <button mat-raised-button (click)="onBack()">
+      <mat-icon>arrow_back</mat-icon>&nbsp;Back
+    </button>
+    &nbsp;
+    <button mat-raised-button (click)="onSubmit()" color="primary">
       <mat-icon>check</mat-icon>&nbsp;Assign
     </button>
+    
   </mat-card>
 
 </section>

@@ -61,10 +61,13 @@ margin: 8px;
 }
 .packing {
 color: navy;
+font-weight: bold;
 }
 .ontheway{
 color: fuchsia;
+font-weight: bold;
 }
 .delivered {
 color: green;
+font-weight: bold;
 }

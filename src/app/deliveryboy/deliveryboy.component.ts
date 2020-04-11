@@ -20,7 +20,7 @@ export class DeliveryboyComponent implements OnInit {
 
   cancleClicked: boolean = false;
   deliveryboyarr: deliveryboy[] = [];
-  displayedColumns: string[] = ['deliveryboy_name' , 'deliveryboy_address', 'action'];
+  displayedColumns: string[] = ['deliveryboy_name', 'deliveryboy_address', 'action'];
   dataSource: MatTableDataSource<deliveryboy>;
 
   selection = new SelectionModel<deliveryboy>(true, []);

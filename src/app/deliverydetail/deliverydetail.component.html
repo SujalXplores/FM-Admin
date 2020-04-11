@@ -1,7 +1,9 @@
 <div class="grid-container">
   <h1 class="mat-h1">Assigned Orders</h1>
 </div>
+
 <mat-progress-bar *ngIf="ordersArr.length<0" color="warn" mode="indeterminate"></mat-progress-bar>
+
 <mat-form-field class="filterClass" appearance="fill">
   <input matInput (keyup)="applyFilter($event.target.value)">
   <mat-label>Search</mat-label>
@@ -37,7 +39,7 @@
     </ng-container>
 
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+      <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let row">
         <button  (click)="openDialog(row)" matTooltip="View more" mat-icon-button style="color: blue">
           <mat-icon>launch</mat-icon>

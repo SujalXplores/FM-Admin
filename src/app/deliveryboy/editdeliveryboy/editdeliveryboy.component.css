@@ -1,14 +1,13 @@
 .example-form {
 width:100%;
 }
+
 .example-full-width {
 width: 95%;
 margin-top: 10px;
   margin-left:10px;
 }
-section {
-margin-top: 20px;
-}
+
 .hint
 {
 color: red;
@@ -26,9 +25,11 @@ font-weight: bolder;
 mat-icon {
 font-size: 26px !important;
 }
+
 mat-label{
 color: darkblue;
 }
+
 .edit{
 height: 30px;
 width: 30px;

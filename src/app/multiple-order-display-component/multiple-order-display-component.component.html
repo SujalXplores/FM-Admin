@@ -1,4 +1,4 @@
-<section fxLayout="row wrap" fxLayoutAlign="space-around" style="float: left; margin-top: 20px; margin-left: 20px;">
+<section fxLayout="row wrap" fxLayoutAlign="space-around" fxFlexFill>
   <mat-card fxFlex="500px" fxFlex.xs="100%">
     <mat-list>
       <img src="../../assets/image/orderdetails.png"><br><br>
@@ -12,15 +12,16 @@
       <mat-list-item>Order Status: {{order_status | titlecase}}</mat-list-item>
     </mat-list>
   </mat-card>
-</section>
-<section fxLayout="row wrap" fxLayoutAlign="space-around" style="float: left; margin-top: 20px; margin-left: 20px;">
+
   <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title>Products</mat-card-title>
+    <mat-card-subtitle>Ordered products listed below with quantity</mat-card-subtitle>
     <mat-card-header *ngFor="let item of ordermultiple">
       <img src="http://localhost:3000/images/product_photos/{{item.pro_photo}}" mat-card-avatar>
       <mat-card-title>{{item.pro_name | titlecase}}'s</mat-card-title>
       <mat-card-subtitle>Qty:  x{{item.qty}}</mat-card-subtitle>
     </mat-card-header>
     <hr>
-    <h6>Total Price: {{order_amount | currency:"INR"}}</h6>
+    <h6>Grand Total: {{order_amount | currency:"INR"}}</h6>
   </mat-card>
 </section>

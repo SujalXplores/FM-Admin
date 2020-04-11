@@ -12,7 +12,7 @@
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Name</mat-label>
-            <input  required pattern="[a-z A-Z]*" ngModel name="deliveryboy_name" #deliveryboy_name="ngModel" matInput type="text" placeholder="Enter Valet Name">
+            <input appAutoFocus required pattern="[a-z A-Z]*" ngModel name="deliveryboy_name" #deliveryboy_name="ngModel" matInput type="text" placeholder="Enter Valet Name">
             <mat-icon class="material-icons-outlined" matSuffix>perm_identity</mat-icon>
             <mat-error class="hint" *ngIf="deliveryboy_name.hasError('required') && !deliveryboy_name.pristine">Name is Required</mat-error>
             <mat-error class="hint" *ngIf="deliveryboy_name.hasError('pattern') && !deliveryboy_name.pristine">Only Letters</mat-error>

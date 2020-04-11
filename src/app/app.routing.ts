@@ -15,7 +15,6 @@ import { EditorderComponent } from './order/editorder/editorder.component';
 import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
 import { AdddeliveryboyComponent } from './deliveryboy/adddeliveryboy/adddeliveryboy.component';
 import { EditdeliveryboyComponent } from './deliveryboy/editdeliveryboy/editdeliveryboy.component';
-import { HomeComponent } from './home/home.component';
 import { UserAuthGuardService } from "./login-display/user-auth-guard.service";
 import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';

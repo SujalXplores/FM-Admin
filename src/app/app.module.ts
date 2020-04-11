@@ -30,6 +30,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { routingArr } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EdituserComponent } from './users/edituser/edituser.component';
@@ -59,7 +60,6 @@ import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdeta
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogComponent } from './users/dialog/dialog.component';
 import { ViewMoreProductComponent } from './product/view-more-product/view-more-product.component';
-import { HealthArticlesComponent } from './health-articles/health-articles.component';
 import { OrderDialogComponent } from './order/order-dialog/order-dialog.component';
 import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { ViewMoreProductPhotoComponent } from './product-photo/view-more-product-photo/view-more-product-photo.component';
@@ -116,7 +116,6 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     AddcartdetailComponent,
     DialogComponent,
     ViewMoreProductComponent,
-    HealthArticlesComponent,
     OrderDialogComponent,
     ProductPhotoComponent,
     ViewMoreProductPhotoComponent,
@@ -177,6 +176,7 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSlideToggleModule,
     FeatherModule.pick(allIcons),//feather-icons
     DragDropModule,
     MatGridListModule,

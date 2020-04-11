@@ -72,4 +72,8 @@ export class AddAssignedOrdersComponent implements OnInit {
       this.selrectedOrderArr.push(item.order_id);
     }
   }
+
+  onBack(){
+    this._router.navigate(['/nav/deliverdetails']);
+  }
 }

@@ -13,6 +13,8 @@ import { GetUserService } from './get-user.service';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
+  hide: boolean = true;
+  isTrue: boolean = false;
   date = new Date();
   u_email_id:string='';
   u_name:string='';
@@ -40,5 +42,9 @@ export class MainNavComponent {
 
   openDialog() {
     this.dialog.open(ExitDialogComponent);
+  }
+
+  changeTheme(){
+    this.isTrue = !this.isTrue;
   }
 }
