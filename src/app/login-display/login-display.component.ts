@@ -3,7 +3,7 @@ import { FormGroup , FormControl , Validators} from '@angular/forms';
 import { LogindataService } from './logindata.service';
 import { users } from '../users/users';
 import { Router } from '@angular/router';
-
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-login-display',
@@ -13,24 +13,28 @@ import { Router } from '@angular/router';
 export class LoginDisplayComponent implements OnInit {
 loginForm: FormGroup;
 
-constructor(private _router:Router, private _logindata: LogindataService) { }
+constructor(private notificationService: NotificationService, private _router:Router, private _logindata: LogindataService) { }
+
 hide: boolean = true;
-ngOnInit() {
+buttonText: string = 'Login';
+
+  ngOnInit(){
     this.loginForm = new FormGroup({
       u_email_id: new FormControl("shahc9437@gmail.com", [Validators.required, Validators.email]),
       u_password: new FormControl("1234", [Validators.required]),
     });
-}
+  }
 
-onLogin() {
+  onLogin() {
     this._logindata.login(this.loginForm.value).subscribe(
       (x: users[]) => {
         if (x.length == 1){
-            localStorage.setItem('u_email_id', this.loginForm.get('u_email_id').value);
-            this._router.navigate(['/nav/']);
+          localStorage.setItem('u_email_id', this.loginForm.get('u_email_id').value);
+          this.buttonText = 'Logging In, Please Wait...';
+          this._router.navigate(['/nav/']);
         }
         else {
-          alert("Please Check Your Credentials!");
+          this.notificationService.success('Sorry, Please check your credentials!!!');
         }
       }
     );

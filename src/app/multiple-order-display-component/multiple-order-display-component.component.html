@@ -3,13 +3,13 @@
     <mat-list>
       <img src="../../assets/image/orderdetails.png"><br><br>
       <mat-card-title>Order Details</mat-card-title>
-      <mat-list-item>Email ID: {{fk_u_email_id}}</mat-list-item>
+      <mat-list-item><b>Email ID:</b>&emsp;{{fk_u_email_id}}</mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item>Bill Date: {{order_date | date : 'mediumDate'}}</mat-list-item>
+      <mat-list-item><b>Bill Date:</b>&emsp;{{order_date | date : 'mediumDate'}}</mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item>Payment Method: {{payment_type | uppercase}}</mat-list-item>
+      <mat-list-item><b>Payment Method:</b>&emsp;{{payment_type | uppercase}}</mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item>Order Status: {{order_status | titlecase}}</mat-list-item>
+      <mat-list-item><b>Order Status:</b>&emsp;{{order_status | titlecase}}</mat-list-item>
     </mat-list>
   </mat-card>
 

@@ -74,6 +74,7 @@ export class EdituserComponent implements OnInit {
     this._userdata.updateUser(this.u_email_id, fd).subscribe(
       (data: users) => {
         this._router.navigate(['/nav/users']);
+        location.reload();
       }
     );
     this.notificationService.success('Profile updated successfully !');
