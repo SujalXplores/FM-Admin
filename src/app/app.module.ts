@@ -87,6 +87,10 @@ import { AutoFocusDirective } from './auto-focus.directive';
 import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.component';
 import { ViewMoreComponent } from './deliverydetail/view-more/view-more.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
+
+
 
 @NgModule({
   declarations: [
@@ -183,6 +187,7 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger'
     }),
+    ChartsModule,
   ],
   entryComponents: [
     DialogComponent,

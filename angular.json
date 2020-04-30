@@ -24,6 +24,9 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "src/theme.scss",
               "src/styles.css"
             ],
@@ -89,6 +92,9 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "src/theme.scss",
               "src/styles.css"
             ],
