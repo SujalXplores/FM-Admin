@@ -2,7 +2,7 @@
   <h1 class="mat-h1">Dashboard</h1>
 
   <mat-grid-list cols="2" rowHeight="385px">
-    
+
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -90,17 +90,11 @@
             <kendo-chart>
               <kendo-chart-title text="Units sold"></kendo-chart-title>
               <kendo-chart-category-axis>
-                <kendo-chart-category-axis-item [categories]="['Week1', 'Week2', 'Week3', 'Week4']">
+                <kendo-chart-category-axis-item [categories]="bill_data_name_display">
                 </kendo-chart-category-axis-item>
               </kendo-chart-category-axis>
               <kendo-chart-series>
-                <kendo-chart-series-item type="bar" [gap]="2" [spacing]=".25" [data]="[100, 123, 234, 343]">
-                </kendo-chart-series-item>
-                <kendo-chart-series-item type="bar" [data]="[120, 67, 231, 196]">
-                </kendo-chart-series-item>
-                <kendo-chart-series-item type="bar" [data]="[45, 124, 189, 143]">
-                </kendo-chart-series-item>
-                <kendo-chart-series-item type="bar" [data]="[87, 154, 210, 215]">
+                <kendo-chart-series-item type="bar" [gap]="2" [spacing]=".25" [data]="bill_data_display">
                 </kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Chart } from 'chart.js';
+import { DashboarddataService } from './dashboarddata.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,6 +8,24 @@ import { Chart } from 'chart.js';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+
+  constructor(public _data: DashboarddataService) {}
+
+  public bill_data: any[];
+  public bill_data_display: any[] = [];
+  public bill_data_name_display: any[] = [];
+
+  ngOnInit() {
+    this._data.getTopOrder().subscribe((data1: any[]) => {
+      this.bill_data = data1;
+      for (let i = 0; i < data1.length; i++) {
+        this.bill_data_display.push(this.bill_data[i].pro_price);
+        this.bill_data_name_display.push(this.bill_data[i].pro_name);
+      }
+      console.log(this.bill_data_display);
+    });
+  }
+
 //   LineChart=[];
 //   BarChart=[];
 //   PieChart=[];
@@ -26,7 +45,7 @@ export class DashboardComponent {
 //     borderColor:"red",
 //     borderWidth: 1
 //   }]
-//   }, 
+//   },
 //   options: {
 //   title:{
 //     text:"Line Chart",
@@ -68,7 +87,7 @@ export class DashboardComponent {
 //     ],
 //     borderWidth: 1
 //   }]
-// }, 
+// },
 // options: {
 //   title:{
 //     text:"Bar Chart",
@@ -110,7 +129,7 @@ export class DashboardComponent {
 //     ],
 //     borderWidth: 1
 //  }]
-// }, 
+// },
 // options: {
 //  title:{
 //   text:"Bar Chart",
