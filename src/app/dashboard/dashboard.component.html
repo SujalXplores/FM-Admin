@@ -114,7 +114,7 @@
             <kendo-chart [categoryAxis]="{ categories: categories }">
               <kendo-chart-title text="Month wise sales"></kendo-chart-title>
               <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
-              <kendo-chart-tooltip format="{0}%"></kendo-chart-tooltip>
+              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
               <kendo-chart-series>
                 <kendo-chart-series-item *ngFor="let item of series" type="line" [data]="item.data"
                   [name]="item.name">
