@@ -106,13 +106,13 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            Monthly Report
+            Sales Report
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <div>
             <kendo-chart [categoryAxis]="{ categories: categories }">
-              <kendo-chart-title text="Month wise sales"></kendo-chart-title>
+              <kendo-chart-title text="Sales"></kendo-chart-title>
               <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
               <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
               <kendo-chart-series>
@@ -125,5 +125,36 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Sales Report
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <kendo-chart>
+              <kendo-chart-title text="Units sold"></kendo-chart-title>
+              <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
+              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+              <kendo-chart-category-axis>
+                  <kendo-chart-category-axis-item
+                      [categories]="order_date">
+                  </kendo-chart-category-axis-item>
+              </kendo-chart-category-axis>
+              <kendo-chart-series>
+                <kendo-chart-series-item type="line" [data]="order_amount">
+                </kendo-chart-series-item>
+
+              </kendo-chart-series>
+            </kendo-chart>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
   </mat-grid-list>
 </div>
