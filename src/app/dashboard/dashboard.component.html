@@ -50,8 +50,65 @@
 
   </mat-grid-list>
 </div> -->
+
+
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
+    
+  <div fxLayout="row wrap" #resizedDiv>
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
+      <mat-card class="p-0 gradient-purple">
+        <div class="py-2 px-3" fxLayoutAlign="space-between center">
+            <p>Products profit</p>
+            <div fxLayoutAlign="center center">
+                <mat-icon class="icon-sm mx-1">trending_up</mat-icon>
+                <span>38%</span>
+            </div>
+        </div>         
+        <div class="w-100 h-100p"></div>
+      </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
+      <mat-card class="p-0 gradient-teal">
+        <div class="py-2 px-3" fxLayoutAlign="space-between center">
+          <p>Total orders</p>
+          <div fxLayoutAlign="center center">
+              <mat-icon class="icon-sm mx-1">trending_up</mat-icon>
+              <span>16%</span>
+          </div>
+        </div>          
+        <div class="w-100 h-100p">                 
+        </div>
+      </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
+      <mat-card class="p-0 gradient-indigo">
+        <div class="py-2 px-3" fxLayoutAlign="space-between center">
+          <p>Refunds</p>
+          <div fxLayoutAlign="center center">
+              <mat-icon class="icon-sm mx-1">trending_down</mat-icon>
+              <span>-11%</span>
+          </div>
+        </div>          
+        <div class="w-100 h-100p">                    
+        </div>
+      </mat-card>
+    </div>    
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2"> 
+      <mat-card class="p-0 gradient-amber">
+        <div class="py-2 px-3" fxLayoutAlign="space-between center">
+          <p>Customers</p>
+          <div fxLayoutAlign="center center">
+              <mat-icon class="icon-sm mx-1">trending_up</mat-icon>
+              <span>17%</span>
+          </div>
+        </div>         
+        <div class="w-100 h-100p">                   
+        </div>
+      </mat-card>
+    </div>    
+  </div>
+
   <mat-grid-list cols="2" rowHeight="500px">
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">
@@ -138,7 +195,7 @@
             <kendo-chart>
               <kendo-chart-title text="Units sold"></kendo-chart-title>
               <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
-              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+              <kendo-chart-tooltip format="₹{0}"></kendo-chart-tooltip>
               <kendo-chart-category-axis>
                   <kendo-chart-category-axis-item
                       [categories]="order_date">

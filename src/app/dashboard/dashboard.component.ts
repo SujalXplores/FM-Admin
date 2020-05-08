@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild, ElementRef } from "@angular/core";
 import { Chart } from "chart.js";
 import { DashboarddataService } from "./dashboarddata.service";
 
@@ -8,6 +8,7 @@ import { DashboarddataService } from "./dashboarddata.service";
   styleUrls: ["./dashboard.component.css"],
 })
 export class DashboardComponent {
+  @ViewChild('resizedDiv') resizedDiv:ElementRef;
   constructor(public _data: DashboarddataService) {}
 
   public order_data: any[];
@@ -16,9 +17,9 @@ export class DashboardComponent {
   public bill_data_name_display: any[] = [];
   public order_date: any[] = [];
   public order_amount: any[] = [];
-  // public paypalAmount: number=0;
-  // public Cash_On_Dlivery_Amount: number=120;
-  // public card_Amount: number=500;
+  public paypalAmount: number=0;
+  public Cash_On_Dlivery_Amount: number=120;
+  public card_Amount: number=500;
 
   ngOnInit() {
     this._data.getAllorder().subscribe((data1: any[]) => {
@@ -39,42 +40,42 @@ export class DashboardComponent {
       console.log(this.bill_data_display);
     });
 
-    // this._data.getInvoiceByMode("Paypal").subscribe((data: any) => {
-    //   console.log(data);
-    //   console.log(data[0].total);
-    //   if (data[0].total) {
-    //     this.paypalAmount = data[0].total;
-    //   } else {
-    //     this.paypalAmount = 0;
-    //   }
-    //   console.log(this.paypalAmount);
-    // });
+    this._data.getInvoiceByMode("paypal").subscribe((data: any) => {
+      console.log(data);
+      console.log(data[0].total);
+      if (data[0].total) {
+        this.paypalAmount = data[0].total;
+      } else {
+        this.paypalAmount = 0;
+      }
+      console.log(this.paypalAmount);
+    });
 
-    // this._data.getInvoiceByMode("Cash On Delivery").subscribe((data: any) => {
-    //   console.log(data);
-    //   if (data[0].total) {
-    //     this.Cash_On_Dlivery_Amount = data[0].total;
-    //   } else {
-    //     this.Cash_On_Dlivery_Amount = 0;
-    //   }
-    //   console.log(this.Cash_On_Dlivery_Amount);
-    // });
+    this._data.getInvoiceByMode("cod").subscribe((data: any) => {
+      console.log(data);
+      if (data[0].total) {
+        this.Cash_On_Dlivery_Amount = data[0].total;
+      } else {
+        this.Cash_On_Dlivery_Amount = 0;
+      }
+      console.log(this.Cash_On_Dlivery_Amount);
+    });
 
-    // this._data.getInvoiceByMode("Card").subscribe((data: any) => {
-    //   console.log(data);
-    //   if (data[0].total) {
-    //     this.card_Amount = data[0].total;
-    //   } else {
-    //     this.card_Amount = 0;
-    //   }
-    //   console.log(this.card_Amount);
-    // });
+    this._data.getInvoiceByMode("card").subscribe((data: any) => {
+      console.log(data);
+      if (data[0].total) {
+        this.card_Amount = data[0].total;
+      } else {
+        this.card_Amount = 0;
+      }
+      console.log(this.card_Amount);
+    });
   }
 
   public pieData: any[] = [
-    { category: "Cash On Delivery", value: 40 },
-    { category: "Paypal", value: 30 },
-    { category: "Card", value: 30 },
+    { category: "cod", value: this.Cash_On_Dlivery_Amount },
+    { category: "paypal", value: this.paypalAmount },
+    { category: "card", value: this.card_Amount },
   ];
 
   public series: any[] = [
