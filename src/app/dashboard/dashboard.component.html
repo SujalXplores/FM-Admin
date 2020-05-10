@@ -122,13 +122,7 @@
             <kendo-chart>
               <kendo-chart-legend position="bottom"></kendo-chart-legend>
               <kendo-chart-series>
-                <kendo-chart-series-item
-                  type="pie"
-                  [data]="pieData"
-                  field="value"
-                  categoryField="category"
-                >
-                </kendo-chart-series-item>
+                <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category"></kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>
           </div>
@@ -151,8 +145,7 @@
                 </kendo-chart-category-axis-item>
               </kendo-chart-category-axis>
               <kendo-chart-series>
-                <kendo-chart-series-item type="bar" [gap]="2" [spacing]=".25" [data]="bill_data_display">
-                </kendo-chart-series-item>
+                <kendo-chart-series-item type="bar" [gap]="1" [spacing]=".50" [data]="bill_data_display"></kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>
           </div>
@@ -173,9 +166,7 @@
               <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
               <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
               <kendo-chart-series>
-                <kendo-chart-series-item *ngFor="let item of series" type="line" [data]="item.data"
-                  [name]="item.name">
-                </kendo-chart-series-item>
+                <kendo-chart-series-item *ngFor="let item of series" type="line" [data]="item.data" [name]="item.name" color="green" opacity="0.5"></kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>
           </div>
@@ -202,9 +193,7 @@
                   </kendo-chart-category-axis-item>
               </kendo-chart-category-axis>
               <kendo-chart-series>
-                <kendo-chart-series-item type="line" [data]="order_amount">
-                </kendo-chart-series-item>
-
+                <kendo-chart-series-item type="area" [data]="order_amount" color="blue" opacity="0.5"></kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>
 

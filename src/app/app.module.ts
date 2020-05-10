@@ -89,6 +89,9 @@ import { ViewMoreComponent } from './deliverydetail/view-more/view-more.componen
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
+import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
+import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
+
 
 
 
@@ -142,6 +145,7 @@ import 'hammerjs';
     AutoFocusDirective,
     TrackingdisplayComponent,
     ViewMoreComponent,
+    PdfTableComponent,
   ],
   imports: [
     routingArr,
@@ -188,6 +192,7 @@ import 'hammerjs';
       confirmButtonType: 'danger'
     }),
     ChartsModule,
+    PDFExportModule,
   ],
   entryComponents: [
     DialogComponent,

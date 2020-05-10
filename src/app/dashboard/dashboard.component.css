@@ -25,3 +25,27 @@ mat-icon{
 .h-100p{
   height: 50px;
 }
+
+.gradient-purple {
+  background: #7873f5!important;
+  background: linear-gradient(50deg,#ff6ec4,#7873f5)!important;
+  color: #fff!important;
+}
+
+.gradient-teal {
+  background: #00796b!important;
+  background: linear-gradient(50deg,#a9dc7b,#00796b)!important;
+  color: #fff!important;
+}
+
+.gradient-indigo {
+  background: #303f9f!important;
+  background: linear-gradient(50deg,#2ec6ff,#303f9f)!important;
+  color: #fff!important;
+}
+
+.gradient-amber {
+    background: #e65100!important;
+    background: linear-gradient(50deg,#ffba3a,#e65100)!important;
+    color: #fff!important;
+}

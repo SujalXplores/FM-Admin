@@ -15,11 +15,13 @@ export class DashboardComponent {
   public bill_data: any[];
   public bill_data_display: any[] = [];
   public bill_data_name_display: any[] = [];
+
   public order_date: any[] = [];
   public order_amount: any[] = [];
-  public paypalAmount: number=0;
-  public Cash_On_Dlivery_Amount: number=120;
-  public card_Amount: number=500;
+
+  public paypalAmount: number=5;
+  public Cash_On_Dlivery_Amount: number=10;
+  public card_Amount: number=2;
 
   ngOnInit() {
     this._data.getAllorder().subscribe((data1: any[]) => {
@@ -41,34 +43,34 @@ export class DashboardComponent {
     });
 
     this._data.getInvoiceByMode("paypal").subscribe((data: any) => {
-      console.log(data);
+      console.log("Paypal="+data.value);
       console.log(data[0].total);
       if (data[0].total) {
         this.paypalAmount = data[0].total;
       } else {
         this.paypalAmount = 0;
       }
-      console.log(this.paypalAmount);
+      console.log("paypal amt"+this.paypalAmount);
     });
 
     this._data.getInvoiceByMode("cod").subscribe((data: any) => {
-      console.log(data);
+      console.log("COD="+data.value);
       if (data[0].total) {
         this.Cash_On_Dlivery_Amount = data[0].total;
       } else {
         this.Cash_On_Dlivery_Amount = 0;
       }
-      console.log(this.Cash_On_Dlivery_Amount);
+      console.log("COD amt"+this.Cash_On_Dlivery_Amount);
     });
 
     this._data.getInvoiceByMode("card").subscribe((data: any) => {
-      console.log(data);
+      console.log("Card="+data.value);
       if (data[0].total) {
         this.card_Amount = data[0].total;
       } else {
         this.card_Amount = 0;
       }
-      console.log(this.card_Amount);
+      console.log("Card amt"+this.card_Amount);
     });
   }
 

@@ -28,6 +28,7 @@ import { DeliverydetailComponent } from './deliverydetail/deliverydetail.compone
 import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders/add-assigned-orders.component';
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.component';
+import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
 
 const arr: Routes = [
   { path: '', component: LoginDisplayComponent },
@@ -59,6 +60,7 @@ const arr: Routes = [
       {path: 'adddeliveryboy', component: AdddeliveryboyComponent},
       {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
       {path: 'trackingdisplay', component: TrackingdisplayComponent},
+      {path: 'pdfProduct', component: PdfTableComponent}
   ]
   },
   {path: 'forgotPass', component: ForgotPasswordComponent},
