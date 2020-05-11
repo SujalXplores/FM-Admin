@@ -10,6 +10,7 @@ export class DashboarddataService {
   order_url: string = 'http://localhost:3000/ordersbyDate/';
   invoice_url: string = 'http://localhost:3000/invoicemode/';
   revenue_url: string = 'http://localhost:3000/revenue/';
+  totalorder_url: string = 'http://localhost:3000/totalorders/';
 
   constructor(public _http: HttpClient) { }
 
@@ -28,5 +29,9 @@ export class DashboarddataService {
 
   getRevenue(){
     return this._http.get(this.revenue_url);
+  }
+
+  getTotalOrder(){
+    return this._http.get(this.totalorder_url);
   }
 }
