@@ -8,7 +8,8 @@ export class DashboarddataService {
 
   url: string = 'http://localhost:3000/dashboardTrendingPro/';
   order_url: string = 'http://localhost:3000/ordersbyDate/';
-  invoice_url: string = 'http://localhost:3000/invoicemode/'
+  invoice_url: string = 'http://localhost:3000/invoicemode/';
+  revenue_url: string = 'http://localhost:3000/revenue/';
 
   constructor(public _http: HttpClient) { }
 
@@ -23,5 +24,9 @@ export class DashboarddataService {
   getInvoiceByMode(PaymentMODE)
   {
     return this._http.get(this.invoice_url+PaymentMODE);
+  }
+
+  getRevenue(){
+    return this._http.get(this.revenue_url);
   }
 }
