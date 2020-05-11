@@ -23,7 +23,13 @@ export class DashboardComponent {
   public Cash_On_Dlivery_Amount: number=10;
   public card_Amount: number=2;
 
+  public revenue: any[]=[];
+
   ngOnInit() {
+    this._data.getRevenue().subscribe((data2: any[]) => {
+      this.revenue = data2[0].revenue;
+    });
+
     this._data.getAllorder().subscribe((data1: any[]) => {
       this.order_data = data1;
       for (let i = 0; i < data1.length; i++) {
