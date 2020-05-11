@@ -25,9 +25,28 @@ export class DashboardComponent {
 
   public revenue: any[]=[];
 
+  public total_order: any [] = [];
+
+  public customers: any [] = [];
+
+  public delivery_partners: any [] = [];
+
   ngOnInit() {
+
     this._data.getRevenue().subscribe((data2: any[]) => {
       this.revenue = data2[0].revenue;
+    });
+
+    this._data.getTotalOrder().subscribe((data3: any[]) => {
+      this.total_order = data3[0].total_order;
+    });
+
+    this._data.getCustomer().subscribe((data4: any[]) => {
+      this.customers = data4[0].customers;
+    });
+
+    this._data.getDeliveryPartner().subscribe((data5: any[]) => {
+      this.delivery_partners = data5[0].delivery_partners;
     });
 
     this._data.getAllorder().subscribe((data1: any[]) => {

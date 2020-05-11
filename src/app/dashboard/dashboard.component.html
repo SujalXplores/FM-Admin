@@ -20,20 +20,7 @@
           <p>Total orders</p>
           <div fxLayoutAlign="center center">
               <mat-icon class="icon-sm mx-1">trending_up</mat-icon>
-              <span>16%</span>
-          </div>
-        </div>
-        <div class="w-100 h-100p">
-        </div>
-      </mat-card>
-    </div>
-    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
-      <mat-card class="p-0 gradient-indigo">
-        <div class="py-2 px-3" fxLayoutAlign="space-between center">
-          <p>Refunds</p>
-          <div fxLayoutAlign="center center">
-              <mat-icon class="icon-sm mx-1">trending_down</mat-icon>
-              <span>-11%</span>
+              <span>{{total_order}}</span>
           </div>
         </div>
         <div class="w-100 h-100p">
@@ -46,7 +33,20 @@
           <p>Customers</p>
           <div fxLayoutAlign="center center">
               <mat-icon class="icon-sm mx-1">trending_up</mat-icon>
-              <span>17%</span>
+              <span>{{customers}}</span>
+          </div>
+        </div>
+        <div class="w-100 h-100p">
+        </div>
+      </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
+      <mat-card class="p-0 gradient-indigo">
+        <div class="py-2 px-3" fxLayoutAlign="space-between center">
+          <p>Delivery Partners</p>
+          <div fxLayoutAlign="center center">
+              <mat-icon class="icon-sm mx-1">trending_down</mat-icon>
+              <span>{{delivery_partners}}</span>
           </div>
         </div>
         <div class="w-100 h-100p">
@@ -55,7 +55,7 @@
     </div>
   </div>
   <!-- small widgets end -->
-  
+
   <mat-grid-list cols="2" rowHeight="500px">
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ThumbsDown } from 'angular-feather/icons';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ export class DashboarddataService {
   invoice_url: string = 'http://localhost:3000/invoicemode/';
   revenue_url: string = 'http://localhost:3000/revenue/';
   totalorder_url: string = 'http://localhost:3000/totalorders/';
+  customer_url: string = 'http://localhost:3000/customers/';
+  delivery_partner_url: string = 'http://localhost:3000/delivery_partner/';
 
   constructor(public _http: HttpClient) { }
 
@@ -33,5 +36,13 @@ export class DashboarddataService {
 
   getTotalOrder(){
     return this._http.get(this.totalorder_url);
+  }
+
+  getCustomer(){
+    return this._http.get(this.customer_url);
+  }
+
+  getDeliveryPartner(){
+    return this._http.get(this.delivery_partner_url);
   }
 }
