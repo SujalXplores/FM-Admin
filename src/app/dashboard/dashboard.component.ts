@@ -42,6 +42,17 @@ export class DashboardComponent {
       console.log(this.bill_data_display);
     });
 
+    this._data.getInvoiceByMode("cod").subscribe((data: any) => {
+      console.log("COD="+data.value);
+      console.log(data[0].total);
+      if (data[0].total) {
+        this.Cash_On_Dlivery_Amount = data[0].total;
+      } else {
+        this.Cash_On_Dlivery_Amount = 0;
+      }
+      console.log("COD amt"+this.Cash_On_Dlivery_Amount);
+    });
+
     this._data.getInvoiceByMode("paypal").subscribe((data: any) => {
       console.log("Paypal="+data.value);
       console.log(data[0].total);
@@ -53,18 +64,9 @@ export class DashboardComponent {
       console.log("paypal amt"+this.paypalAmount);
     });
 
-    this._data.getInvoiceByMode("cod").subscribe((data: any) => {
-      console.log("COD="+data.value);
-      if (data[0].total) {
-        this.Cash_On_Dlivery_Amount = data[0].total;
-      } else {
-        this.Cash_On_Dlivery_Amount = 0;
-      }
-      console.log("COD amt"+this.Cash_On_Dlivery_Amount);
-    });
-
     this._data.getInvoiceByMode("card").subscribe((data: any) => {
       console.log("Card="+data.value);
+      console.log(data[0].total);
       if (data[0].total) {
         this.card_Amount = data[0].total;
       } else {
