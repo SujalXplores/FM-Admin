@@ -43,6 +43,7 @@
     "npm-check-updates": "^5.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.5",
+    "rxjs-compat": "^6.5.5",
     "tslib": "^1.11.2",
     "zone.js": "~0.10.3"
   },

@@ -1,57 +1,3 @@
-<!-- <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-
-  <mat-grid-list cols="2" rowHeight="385px">
-
-    <mat-grid-tile colspan="1" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            Line Chart
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div style="text-align:center">
-            <canvas id="lineChart"></canvas>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            Bar Chart
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div style="text-align:center">
-            <canvas id="barChart"></canvas>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-
-    <mat-grid-tile colspan="1" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            Pie Chart
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div style="text-align:center">
-            <canvas id="pieChart"></canvas>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-
-  </mat-grid-list>
-</div> -->
-
-
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
   <!-- small widgets start -->
@@ -109,6 +55,7 @@
     </div>    
   </div>
   <!-- small widgets end -->
+  
   <mat-grid-list cols="2" rowHeight="500px">
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">
@@ -121,6 +68,7 @@
           <div>
             <kendo-chart>
               <kendo-chart-legend position="bottom"></kendo-chart-legend>
+              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
               <kendo-chart-series>
                 <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category"></kendo-chart-series-item>
               </kendo-chart-series>
@@ -129,6 +77,7 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -144,29 +93,9 @@
                 <kendo-chart-category-axis-item [categories]="bill_data_name_display">
                 </kendo-chart-category-axis-item>
               </kendo-chart-category-axis>
-              <kendo-chart-series>
-                <kendo-chart-series-item type="bar" [gap]="1" [spacing]=".50" [data]="bill_data_display"></kendo-chart-series-item>
-              </kendo-chart-series>
-            </kendo-chart>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            Sales Report
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>
-            <kendo-chart [categoryAxis]="{ categories: categories }">
-              <kendo-chart-title text="Sales"></kendo-chart-title>
-              <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
               <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
               <kendo-chart-series>
-                <kendo-chart-series-item *ngFor="let item of series" type="line" [data]="item.data" [name]="item.name" color="green" opacity="0.5"></kendo-chart-series-item>
+                <kendo-chart-series-item type="bar" [gap]="1" [spacing]=".50" [data]="bill_data_display"></kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>
           </div>
@@ -178,7 +107,7 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            Sales Report
+            Daily Sales Report
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
