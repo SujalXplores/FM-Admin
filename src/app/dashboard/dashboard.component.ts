@@ -31,6 +31,10 @@ export class DashboardComponent {
 
   public delivery_partners: any [] = [];
 
+  public type_data: any[] = [];
+  public type: any [] = [];
+  public count: any [] = [];
+
   ngOnInit() {
 
     this._data.getRevenue().subscribe((data2: any[]) => {
@@ -67,38 +71,67 @@ export class DashboardComponent {
       console.log(this.bill_data_display);
     });
 
-    this._data.getInvoiceByMode("cod").subscribe((data: any) => {
-      console.log("COD="+data.value);
-      console.log(data[0].total);
-      if (data[0].total) {
-        this.Cash_On_Dlivery_Amount = data[0].total;
-      } else {
-        this.Cash_On_Dlivery_Amount = 0;
+    this._data.getInvoiceByMode("card").subscribe((data: any[]) => {
+      this.type_data = data;
+      for (let i = 0; i < data.length; i++) {
+        this.type.push(this.type_data[i].Payment_Type);
+        this.count.push(this.type_data[i].total);
       }
-      console.log("COD amt"+this.Cash_On_Dlivery_Amount);
+      console.log(this.type);
+      console.log(this.count);
     });
 
-    this._data.getInvoiceByMode("paypal").subscribe((data: any) => {
-      console.log("Paypal="+data.value);
-      console.log(data[0].total);
-      if (data[0].total) {
-        this.paypalAmount = data[0].total;
-      } else {
-        this.paypalAmount = 0;
+    this._data.getInvoiceByMode("cod").subscribe((data: any[]) => {
+      this.type_data = data;
+      for (let i = 0; i < data.length; i++) {
+        this.type.push(this.type_data[i].Payment_Type);
+        this.count.push(this.type_data[i].total);
       }
-      console.log("paypal amt"+this.paypalAmount);
+      console.log(this.type);
+      console.log(this.count);
     });
 
-    this._data.getInvoiceByMode("card").subscribe((data: any) => {
-      console.log("Card="+data.value);
-      console.log(data[0].total);
-      if (data[0].total) {
-        this.card_Amount = data[0].total;
-      } else {
-        this.card_Amount = 0;
+    this._data.getInvoiceByMode("paypal").subscribe((data: any[]) => {
+      this.type_data = data;
+      for (let i = 0; i < data.length; i++) {
+        this.type.push(this.type_data[i].Payment_Type);
+        this.count.push(this.type_data[i].total);
       }
-      console.log("Card amt"+this.card_Amount);
+      console.log(this.type);
+      console.log(this.count);
     });
+    // this._data.getInvoiceByMode("cod").subscribe((data: any) => {
+    //   console.log("COD="+data.value);
+    //   console.log(data[0].total);
+    //   if (data[0].total) {
+    //     this.Cash_On_Dlivery_Amount = data[0].total;
+    //   } else {
+    //     this.Cash_On_Dlivery_Amount = 0;
+    //   }
+    //   console.log("COD amt"+this.Cash_On_Dlivery_Amount);
+    // });
+
+    // this._data.getInvoiceByMode("paypal").subscribe((data: any) => {
+    //   console.log("Paypal="+data.value);
+    //   console.log(data[0].total);
+    //   if (data[0].total) {
+    //     this.paypalAmount = data[0].total;
+    //   } else {
+    //     this.paypalAmount = 0;
+    //   }
+    //   console.log("paypal amt"+this.paypalAmount);
+    // });
+
+    // this._data.getInvoiceByMode("card").subscribe((data: any) => {
+    //   console.log("Card="+data.value);
+    //   console.log(data[0].total);
+    //   if (data[0].total) {
+    //     this.card_Amount = data[0].total;
+    //   } else {
+    //     this.card_Amount = 0;
+    //   }
+    //   console.log("Card amt"+this.card_Amount);
+    // });
   }
 
   public pieData: any[] = [

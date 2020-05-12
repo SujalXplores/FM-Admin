@@ -91,6 +91,7 @@ import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
+import { PrescriptionComponent } from './prescription/prescription.component';
 
 
 
@@ -146,6 +147,7 @@ import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
     TrackingdisplayComponent,
     ViewMoreComponent,
     PdfTableComponent,
+    PrescriptionComponent,
   ],
   imports: [
     routingArr,

@@ -78,6 +78,32 @@
       </mat-card>
     </mat-grid-tile>
 
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Payment methods
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <kendo-chart>
+              <kendo-chart-title text="Payment Type"></kendo-chart-title>
+              <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="type">
+                </kendo-chart-category-axis-item>
+              </kendo-chart-category-axis>
+              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+              <kendo-chart-series>
+                <kendo-chart-series-item type="bar" [gap]="1" [spacing]=".50" [data]="count"></kendo-chart-series-item>
+              </kendo-chart-series>
+            </kendo-chart>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
