@@ -1,5 +1,4 @@
 import { Component, ViewChild, ElementRef } from "@angular/core";
-import { Chart } from "chart.js";
 import { DashboarddataService } from "./dashboarddata.service";
 
 @Component({
@@ -19,16 +18,12 @@ export class DashboardComponent {
   public order_date: any[] = [];
   public order_amount: any[] = [];
 
-  public paypalAmount: number=5;
-  public Cash_On_Dlivery_Amount: number=10;
-  public card_Amount: number=2;
+  public paypalAmount: number = 0;
+  public Cash_On_Dlivery_Amount: number = 0;
 
-  public revenue: any[]=[];
-
+  public revenue: any[] = [];
   public total_order: any [] = [];
-
   public customers: any [] = [];
-
   public delivery_partners: any [] = [];
 
   public type_data: any[] = [];
@@ -36,7 +31,6 @@ export class DashboardComponent {
   public count: any [] = [];
 
   ngOnInit() {
-
     this._data.getRevenue().subscribe((data2: any[]) => {
       this.revenue = data2[0].revenue;
     });
@@ -70,94 +64,27 @@ export class DashboardComponent {
       }
       console.log(this.bill_data_display);
     });
-
-    this._data.getInvoiceByMode("card").subscribe((data: any[]) => {
-      this.type_data = data;
-      for (let i = 0; i < data.length; i++) {
-        this.type.push(this.type_data[i].Payment_Type);
-        this.count.push(this.type_data[i].total);
+    
+    this._data.getInvoiceByMode("cod").subscribe((data: any) => {
+      console.log("COD="+data.value);
+      console.log(data[0].total);
+      if (data[0].total) {
+        this.Cash_On_Dlivery_Amount = data[0].total;
+      } else {
+        this.Cash_On_Dlivery_Amount = 0;
       }
-      console.log(this.type);
-      console.log(this.count);
+      console.log("COD amt"+this.Cash_On_Dlivery_Amount);
     });
 
-    this._data.getInvoiceByMode("cod").subscribe((data: any[]) => {
-      this.type_data = data;
-      for (let i = 0; i < data.length; i++) {
-        this.type.push(this.type_data[i].Payment_Type);
-        this.count.push(this.type_data[i].total);
+    this._data.getInvoiceByMode("paypal").subscribe((data: any) => {
+      console.log("Paypal="+data.value);
+      console.log(data[0].total);
+      if (data[0].total) {
+        this.paypalAmount = data[0].total;
+      } else {
+        this.paypalAmount = 0;
       }
-      console.log(this.type);
-      console.log(this.count);
+      console.log("paypal amt"+this.paypalAmount);
     });
-
-    this._data.getInvoiceByMode("paypal").subscribe((data: any[]) => {
-      this.type_data = data;
-      for (let i = 0; i < data.length; i++) {
-        this.type.push(this.type_data[i].Payment_Type);
-        this.count.push(this.type_data[i].total);
-      }
-      console.log(this.type);
-      console.log(this.count);
-    });
-    // this._data.getInvoiceByMode("cod").subscribe((data: any) => {
-    //   console.log("COD="+data.value);
-    //   console.log(data[0].total);
-    //   if (data[0].total) {
-    //     this.Cash_On_Dlivery_Amount = data[0].total;
-    //   } else {
-    //     this.Cash_On_Dlivery_Amount = 0;
-    //   }
-    //   console.log("COD amt"+this.Cash_On_Dlivery_Amount);
-    // });
-
-    // this._data.getInvoiceByMode("paypal").subscribe((data: any) => {
-    //   console.log("Paypal="+data.value);
-    //   console.log(data[0].total);
-    //   if (data[0].total) {
-    //     this.paypalAmount = data[0].total;
-    //   } else {
-    //     this.paypalAmount = 0;
-    //   }
-    //   console.log("paypal amt"+this.paypalAmount);
-    // });
-
-    // this._data.getInvoiceByMode("card").subscribe((data: any) => {
-    //   console.log("Card="+data.value);
-    //   console.log(data[0].total);
-    //   if (data[0].total) {
-    //     this.card_Amount = data[0].total;
-    //   } else {
-    //     this.card_Amount = 0;
-    //   }
-    //   console.log("Card amt"+this.card_Amount);
-    // });
   }
-
-  public pieData: any[] = [
-    { category: "cod", value: this.Cash_On_Dlivery_Amount },
-    { category: "paypal", value: this.paypalAmount },
-    { category: "card", value: this.card_Amount },
-  ];
-
-  public series: any[] = [
-    {
-      name: "Medicines",
-      data: [200, 500, 750, 300, 200, 100, 50, 80, 86, 80, 124, 321],
-    },
-  ];
-  public categories: string[] = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
 }

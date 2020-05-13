@@ -1,109 +1,48 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
+
   <!-- small widgets start -->
   <div fxLayout="row wrap" #resizedDiv>
     <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
-      <mat-card class="p-0 gradient-purple">
+      <mat-card class="card border-left-success p-0">
         <div class="py-2 px-3" fxLayoutAlign="space-between center">
-            <p>Revenue</p>
-            <div fxLayoutAlign="center center">
-                <mat-icon class="icon-sm mx-1">trending_up</mat-icon>
-                <span>{{revenue | currency:'INR'}}</span>
-            </div>
+            <div class="text-xs font-weight-bold text-success mb-1">Revenue</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{revenue | currency:"INR"}}</div>
         </div>
         <div class="w-100 h-100p"></div>
       </mat-card>
     </div>
     <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
-      <mat-card class="p-0 gradient-teal">
+      <mat-card class="card border-left-primary p-0">
         <div class="py-2 px-3" fxLayoutAlign="space-between center">
-          <p>Total orders</p>
-          <div fxLayoutAlign="center center">
-              <mat-icon class="icon-sm mx-1">trending_up</mat-icon>
-              <span>{{total_order}}</span>
-          </div>
+            <div class="text-xs font-weight-bold text-primary mb-1">Total orders</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_order}}</div>
         </div>
-        <div class="w-100 h-100p">
-        </div>
+        <div class="w-100 h-100p"></div>
       </mat-card>
     </div>
     <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
-      <mat-card class="p-0 gradient-amber">
+      <mat-card class="card border-left-warning p-0">
         <div class="py-2 px-3" fxLayoutAlign="space-between center">
-          <p>Customers</p>
-          <div fxLayoutAlign="center center">
-              <mat-icon class="icon-sm mx-1">trending_up</mat-icon>
-              <span>{{customers}}</span>
-          </div>
+            <div class="text-xs font-weight-bold text-warning mb-1">Customers</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{customers}}</div>
         </div>
-        <div class="w-100 h-100p">
-        </div>
+        <div class="w-100 h-100p"></div>
       </mat-card>
     </div>
     <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
-      <mat-card class="p-0 gradient-indigo">
+      <mat-card class="card border-left-info p-0">
         <div class="py-2 px-3" fxLayoutAlign="space-between center">
-          <p>Delivery Partners</p>
-          <div fxLayoutAlign="center center">
-              <mat-icon class="icon-sm mx-1">trending_down</mat-icon>
-              <span>{{delivery_partners}}</span>
-          </div>
+            <div class="text-xs font-weight-bold text-info mb-1">Delivery Partners</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{delivery_partners}}</div>
         </div>
-        <div class="w-100 h-100p">
-        </div>
+        <div class="w-100 h-100p"></div>
       </mat-card>
     </div>
   </div>
   <!-- small widgets end -->
 
   <mat-grid-list cols="2" rowHeight="500px">
-    <mat-grid-tile colspan="1" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            Payment Methods
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>
-            <kendo-chart>
-              <kendo-chart-legend position="bottom"></kendo-chart-legend>
-              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-              <kendo-chart-series>
-                <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category"></kendo-chart-series-item>
-              </kendo-chart-series>
-            </kendo-chart>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-
-
-    <mat-grid-tile colspan="1" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            Payment methods
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>
-            <kendo-chart>
-              <kendo-chart-title text="Payment Type"></kendo-chart-title>
-              <kendo-chart-category-axis>
-                <kendo-chart-category-axis-item [categories]="type">
-                </kendo-chart-category-axis-item>
-              </kendo-chart-category-axis>
-              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-              <kendo-chart-series>
-                <kendo-chart-series-item type="bar" [gap]="1" [spacing]=".50" [data]="count"></kendo-chart-series-item>
-              </kendo-chart-series>
-            </kendo-chart>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -124,6 +63,41 @@
                 <kendo-chart-series-item type="bar" [gap]="1" [spacing]=".50" [data]="bill_data_display"></kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Payment methods
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Payment Mode</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Paypal</td>
+                  <td>{{paypalAmount}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>COD</td>
+                  <td>{{Cash_On_Dlivery_Amount}}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </mat-card-content>
       </mat-card>
