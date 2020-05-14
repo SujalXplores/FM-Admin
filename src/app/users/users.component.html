@@ -52,10 +52,8 @@
 
     <ng-container matColumnDef="u_type">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
-      <td mat-cell *matCellDef="let row"
-      [ngClass]="{
-        'admin' : row.u_type == 'admin',
-        'user' : row.u_type == 'user'}"> {{row.u_type | titlecase}} </td>
+      <td mat-cell *matCellDef="let row"> 
+      <span [class]="'customer-badge status-' + row.u_type">{{row.u_type | titlecase}} </span></td>
     </ng-container>
 
     <ng-container matColumnDef="action">

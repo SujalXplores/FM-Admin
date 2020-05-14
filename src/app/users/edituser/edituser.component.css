@@ -24,3 +24,10 @@ font-size: 26px !important;
 mat-label{
 color: darkblue;
 }
+input[type="password"],input[type="password"]:focus{
+    background-color:transparent;
+    outline: 0 none !important;
+    border: 0;
+    height: 0;
+    outline-style: none;
+}

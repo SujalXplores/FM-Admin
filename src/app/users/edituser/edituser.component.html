@@ -29,7 +29,7 @@
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Change Password</mat-label>
-            <input [type]="hide ? 'password' : 'text'" formControlName="u_password" matInput type="password" placeholder="Set New Password">
+            <input pPassword [type]="hide ? 'password' : 'text'" formControlName="u_password" matInput type="password" placeholder="Set New Password">
             <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
 							<mat-icon class="material-icons-outlined">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
 						</button>
