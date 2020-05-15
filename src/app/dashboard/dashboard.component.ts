@@ -15,7 +15,7 @@ export class DashboardComponent {
   public bill_data_display: any[] = [];
   public bill_data_name_display: any[] = [];
 
-  public order_date: any[] = [];
+  public month: any[] = [];
   public order_amount: any[] = [];
 
   public paypalAmount: number = 0;
@@ -50,7 +50,7 @@ export class DashboardComponent {
     this._data.getAllorder().subscribe((data1: any[]) => {
       this.order_data = data1;
       for (let i = 0; i < data1.length; i++) {
-        this.order_date.push(this.order_data[i].order_date);
+        this.month.push(this.order_data[i].month);
         this.order_amount.push(this.order_data[i].order_amount);
       }
       console.log(this.order_data);
@@ -64,7 +64,7 @@ export class DashboardComponent {
       }
       console.log(this.bill_data_display);
     });
-    
+
     this._data.getInvoiceByMode("cod").subscribe((data: any) => {
       console.log("COD="+data.value);
       console.log(data[0].total);
