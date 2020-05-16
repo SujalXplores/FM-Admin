@@ -53,7 +53,6 @@ export class DashboardComponent {
         this.month.push(this.order_data[i].month);
         this.order_amount.push(this.order_data[i].order_amount);
       }
-      console.log(this.order_data);
     });
 
     this._data.getTopOrder().subscribe((data1: any[]) => {
@@ -62,7 +61,6 @@ export class DashboardComponent {
         this.bill_data_display.push(this.bill_data[i].pro_price);
         this.bill_data_name_display.push(this.bill_data[i].pro_name);
       }
-      console.log(this.bill_data_display);
     });
 
     this._data.getInvoiceByMode("cod").subscribe((data: any) => {
@@ -73,7 +71,6 @@ export class DashboardComponent {
       } else {
         this.Cash_On_Dlivery_Amount = 0;
       }
-      console.log("COD amt"+this.Cash_On_Dlivery_Amount);
     });
 
     this._data.getInvoiceByMode("paypal").subscribe((data: any) => {
@@ -84,7 +81,11 @@ export class DashboardComponent {
       } else {
         this.paypalAmount = 0;
       }
-      console.log("paypal amt"+this.paypalAmount);
     });
+
+    // To fetch data every minute
+    setTimeout(() => {
+      this.ngOnInit();
+    }, 60000);
   }
 }
