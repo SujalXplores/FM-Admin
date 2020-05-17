@@ -7,11 +7,21 @@ max-width: 400px;
 section {
 overflow: hidden;
 }
-.admin {
-color: green;
-font-weight: bold;
+.customer-badge {
+border-radius: 2px;
+padding: .25em .5em;
+text-transform: uppercase;
+font-weight: 700;
+font-size: 12px;
+letter-spacing: .3px;
 }
-.user {
-color: navy;
-font-weight: bold;
+
+.status-user {
+background-color: #C8E6C9;
+color: #256029;
+}
+
+.status-admin {
+background-color: #FFCDD2;
+color: #C63737;
 }

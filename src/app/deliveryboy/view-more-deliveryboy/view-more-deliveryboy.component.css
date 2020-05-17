@@ -7,6 +7,13 @@ background-size: cover;
 section{
 overflow: hidden;
 }
-mat-card-subtitle{
+.customer-badge {
+border-radius: 2px;
+padding: .25em .5em;
+text-transform: uppercase;
+font-weight: 700;
+font-size: 12px;
+letter-spacing: .3px;
 color: rgb(72, 0, 139);
+background-color: #C8E6C9;
 }

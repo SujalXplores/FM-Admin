@@ -8,8 +8,7 @@
         src="http://localhost:3000/images/deliveryboy_photos/{{img}}"
       />
       <mat-card-title>Send Mail to {{deliveryboy_name | titlecase}}</mat-card-title>
-      <mat-card-subtitle>Delivery Partner</mat-card-subtitle
-      >
+      <mat-card-subtitle><span class="customer-badge">Delivery Partner</span></mat-card-subtitle>
       <img class="gmail" src="../../../assets/image/gmail.png">
     </mat-card-header>
     <form [formGroup]="mailVendorForm" (ngSubmit)="onMailVendor(f)" #f="ngForm">

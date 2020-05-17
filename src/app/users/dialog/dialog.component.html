@@ -8,13 +8,9 @@
         src="http://localhost:3000/images/user_photos/{{ user_image }}"
       />
       <mat-card-title>{{ user_name | titlecase }}'s Details</mat-card-title>
-      <mat-card-subtitle
-        [ngClass]="{
-          admin: user_type == 'admin',
-          user: user_type == 'user'
-        }"
-        >{{ user_type | titlecase }}</mat-card-subtitle
-      >
+      <mat-card-subtitle>
+        <span [class]="'customer-badge status-' + user_type">{{ user_type | titlecase }}</span>
+      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <mat-list>

@@ -20,8 +20,8 @@ buttonText: string = 'Login';
 
   ngOnInit(){
     this.loginForm = new FormGroup({
-      u_email_id: new FormControl("shahc9436@gmail.com", [Validators.required, Validators.email]),
-      u_password: new FormControl("admin@1234", [Validators.required]),
+      u_email_id: new FormControl("shahc9437@gmail.com", [Validators.required, Validators.email]),
+      u_password: new FormControl("1234", [Validators.required]),
     });
   }
 
