@@ -14,6 +14,7 @@ export class DashboarddataService {
   totalorder_url: string = 'http://localhost:3000/totalorders/';
   customer_url: string = 'http://localhost:3000/customers/';
   delivery_partner_url: string = 'http://localhost:3000/delivery_partner/';
+  status_url: string = 'http://localhost:3000/track_status';
 
   constructor(public _http: HttpClient) { }
 
@@ -21,8 +22,8 @@ export class DashboarddataService {
     return this._http.get(this.url);
   }
 
-  getAllorder(){
-    return this._http.get(this.order_url);
+  getAllorder(selectedYear: number){
+    return this._http.get(this.order_url + selectedYear);
   }
 
   getInvoiceByMode(PaymentMODE)
@@ -44,5 +45,9 @@ export class DashboarddataService {
 
   getDeliveryPartner(){
     return this._http.get(this.delivery_partner_url);
+  }
+
+  getStatus(){
+    return this._http.get(this.status_url);
   }
 }

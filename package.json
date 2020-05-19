@@ -38,6 +38,7 @@
     "bootstrap": "^4.4.1",
     "caniuse-lite": "^1.0.30001054",
     "chart.js": "^2.9.3",
+    "dateformat": "^3.0.3",
     "hammerjs": "^2.0.8",
     "jquery": "^3.5.1",
     "moment": "^2.25.3",

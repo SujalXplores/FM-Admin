@@ -111,6 +111,60 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
+            Line Chart Demo
+            <select (change)="onYearChange()" [(ngModel)]="selectedYear">
+
+              <option [ngValue]="item" *ngFor="let item of yearArray">{{item}}</option>
+            </select>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <kendo-chart>
+              <kendo-chart-title text="Customer data"></kendo-chart-title>
+              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+              <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="['Apr','May','Jun']" [title]="{ text: 'Months' }">
+                </kendo-chart-category-axis-item>
+              </kendo-chart-category-axis>
+              <kendo-chart-series>
+                <kendo-chart-series-item type="line" [data]="orderData">
+                </kendo-chart-series-item>
+
+              </kendo-chart-series>
+            </kendo-chart>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Pie Chart
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <kendo-chart title="Status">
+              <kendo-chart-legend position="bottom"></kendo-chart-legend>
+              <kendo-chart-series>
+                <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category"
+                  [labels]="{ visible: true, content: labelContent1 }">
+                </kendo-chart-series-item>
+              </kendo-chart-series>
+            </kendo-chart>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- <mat-grid-tile colspan="2" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
             Monthly Sales Report
           </mat-card-title>
         </mat-card-header>
@@ -133,7 +187,7 @@
           </div>
         </mat-card-content>
       </mat-card>
-    </mat-grid-tile>
+    </mat-grid-tile> -->
 
   </mat-grid-list>
 </div>
