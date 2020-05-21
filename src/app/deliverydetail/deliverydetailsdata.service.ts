@@ -14,8 +14,13 @@ export class DeliverydetailsdataService {
   urlorderNotAssigned: string = 'http://localhost:3000/orderNotAssigned/';
   urlDboy: string = 'http://localhost:3000/deliveryboy/';
   urlAddAsignOrders = 'http://localhost:3000/AddAssignedOrder/';
+  urltrack = 'http://localhost:3000/track/';
 
   constructor(private _http: HttpClient) { }
+
+  addTrack(item) {
+    return this._http.post(this.urltrack, item);
+  }
 
   deleteAll(item: number[]) {
     console.log(item);

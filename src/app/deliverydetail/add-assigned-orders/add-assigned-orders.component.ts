@@ -55,6 +55,16 @@ export class AddAssignedOrdersComponent implements OnInit {
       (x: any) => {
         if (x.insertId > 0) {
           this.notificationService.success('Selected Order is assigned to '+ this.SelectedDboyId);
+          let trackObject = {
+            status: "packing",
+            fk_detail_id: x.insertId,
+          };
+          console.log(trackObject);
+          this._orderAssign.addTrack(trackObject).subscribe(
+            (y:any)=>{
+                console.log(y);
+            }
+          );
           this._router.navigate(['/nav/deliverdetails']);
         }
         else {
@@ -67,7 +77,7 @@ export class AddAssignedOrdersComponent implements OnInit {
   onCheckboxChangeOrder(item: OrderBoyAssign) {
     if (this.selrectedOrderArr.find(x => x == item.order_id)) {
       this.selrectedOrderArr.splice(this.selrectedOrderArr.indexOf(item.order_id), 1);
-    } 
+    }
     else {
       this.selrectedOrderArr.push(item.order_id);
     }
