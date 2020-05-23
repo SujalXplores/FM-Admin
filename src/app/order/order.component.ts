@@ -32,10 +32,10 @@ export class OrderComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
    }
 
-   openDialog(order_id){
+  openDialog(order_id){
     this.router.navigate(['/nav/ordermore', order_id]);
     console.log(order_id);
- }
+  }
 
   onDelete(item: order) {
     this._data.deleteOrder(item.order_id).subscribe(

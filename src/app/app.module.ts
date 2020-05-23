@@ -94,7 +94,6 @@ import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
 import { PrescriptionComponent } from './prescription/prescription.component';
 import { PasswordModule } from 'primeng/password';
 
-
 @NgModule({
   declarations: [
     AppComponent,

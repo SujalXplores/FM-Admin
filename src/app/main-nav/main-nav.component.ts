@@ -16,6 +16,7 @@ export class MainNavComponent {
   hide: boolean = true;
   isTrue: boolean = false;
   date = new Date();
+
   u_email_id:string='';
   u_name:string='';
   u_image:string='';
@@ -26,7 +27,6 @@ export class MainNavComponent {
   );
 
   constructor(private _user: GetUserService,private breakpointObserver: BreakpointObserver, public router: Router, public dialog: MatDialog) {}
-
   ngOnInit() {
       this.u_email_id = localStorage.getItem('u_email_id');
       this._user.getUserByEmail(this.u_email_id).subscribe((data) => {

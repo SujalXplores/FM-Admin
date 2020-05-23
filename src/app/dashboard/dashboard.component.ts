@@ -43,8 +43,8 @@ export class DashboardComponent {
   public months: any[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
   startyr: number = 2019;
 
-  selectedYear;
   currentYear = now.getFullYear();
+  selectedYear: number = this.currentYear;
   yearArray = [];
 
   public DonutData: any[] = [];

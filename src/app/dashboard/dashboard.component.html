@@ -1,46 +1,92 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
 
-  <!-- small widgets start -->
-  <div fxLayout="row wrap" #resizedDiv>
-    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
-      <mat-card class="card border-left-success p-0">
-        <div class="py-2 px-3" fxLayoutAlign="space-between center">
-            <div class="text-xs font-weight-bold text-success mb-1">Revenue</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{revenue | currency:"INR"}}</div>
+  <div class="row">
+    <!-- Column -->
+    <div class="col-sm-12 col-md-6 col-xl-3">
+        <div class="card bg-danger m-b-30">
+            <div class="card-body">
+                <div class="d-flex row">
+                    <div class="col-3 align-self-center">
+                        <div class="round">
+                          <i class="material-icons" style="font-size: 48px;color: rgba(255, 255, 255, 1);">group_add</i>
+                        </div>
+                    </div>
+                    <div class="col-8 ml-auto align-self-center text-center">
+                        <div class="m-l-10 text-white float-right">
+                            <h5 class="mt-0 round-inner">{{customers}}</h5>
+                            <p class="mb-0 ">New Users</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="w-100 h-100p"></div>
-      </mat-card>
     </div>
-    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
-      <mat-card class="card border-left-primary p-0">
-        <div class="py-2 px-3" fxLayoutAlign="space-between center">
-            <div class="text-xs font-weight-bold text-primary mb-1">Total orders</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_order}}</div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="card bg-info m-b-30">
+            <div class="card-body">
+                <div class="d-flex row">
+                    <div class="col-3 align-self-center">
+                        <div class="round">
+                          <i class="material-icons" style="font-size: 48px;color: rgba(255, 255, 255, 1);">local_shipping</i>
+                        </div>
+                    </div>
+                    <div class="col-8 text-center ml-auto align-self-center">
+                        <div class="m-l-10 text-white float-right">
+                            <h5 class="mt-0 round-inner">{{delivery_partners}}</h5>
+                            <p class="mb-0 ">Delivery Boys</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="w-100 h-100p"></div>
-      </mat-card>
     </div>
-    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
-      <mat-card class="card border-left-warning p-0">
-        <div class="py-2 px-3" fxLayoutAlign="space-between center">
-            <div class="text-xs font-weight-bold text-warning mb-1">Customers</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{customers}}</div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="card bg-success m-b-30">
+            <div class="card-body">
+                <div class="d-flex row">
+                    <div class="col-3 align-self-center">
+                        <div class="round ">
+                          <i class="material-icons" style="font-size: 48px;color: rgba(255, 255, 255, 1);">shopping_basket</i>
+                        </div>
+                    </div>
+                    <div class="col-8 ml-auto align-self-center text-center">
+                        <div class="m-l-10 text-white float-right">
+                            <h5 class="mt-0 round-inner">{{total_order}}</h5>
+                            <p class="mb-0 ">New Orders</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="w-100 h-100p"></div>
-      </mat-card>
     </div>
-    <div fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" class="p-2">
-      <mat-card class="card border-left-info p-0">
-        <div class="py-2 px-3" fxLayoutAlign="space-between center">
-            <div class="text-xs font-weight-bold text-info mb-1">Delivery Partners</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800">{{delivery_partners}}</div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        <div class="card bg-primary m-b-30">
+            <div class="card-body">
+                <div class="d-flex row">
+                    <div class="col-3 align-self-center">
+                        <div class="round">
+                          <i class="material-icons" style="font-size: 48px;color: rgba(255, 255, 255, 1);">account_balance_wallet</i>
+                        </div>
+                    </div>
+                    <div class="col-8 ml-auto align-self-center text-center">
+                        <div class="m-l-10 text-white float-right">
+                            <h5 class="mt-0 round-inner">₹ {{revenue}}</h5>
+                            <p class="mb-0">Total Sales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="w-100 h-100p"></div>
-      </mat-card>
     </div>
-  </div>
-  <!-- small widgets end -->
+    <!-- Column -->
+</div>
 
   <mat-grid-list cols="2" rowHeight="500px">
     <mat-grid-tile colspan="1" rowspan="1">
@@ -123,7 +169,7 @@
               <kendo-chart-title text="Customer data"></kendo-chart-title>
               <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
               <kendo-chart-category-axis>
-                <kendo-chart-category-axis-item [categories]="['Apr','May','Jun']" [title]="{ text: 'Months' }">
+                <kendo-chart-category-axis-item [categories]="['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']">
                 </kendo-chart-category-axis-item>
               </kendo-chart-category-axis>
               <kendo-chart-series>
@@ -145,7 +191,7 @@
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <div>
-            <kendo-chart title="Status">
+            <kendo-chart>
               <kendo-chart-legend position="bottom"></kendo-chart-legend>
               <kendo-chart-series>
                 <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category"
@@ -157,34 +203,6 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-
-    <!-- <mat-grid-tile colspan="2" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            Monthly Sales Report
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>
-            <kendo-chart>
-              <kendo-chart-title text="Units sold"></kendo-chart-title>
-              <kendo-chart-legend position="bottom" orientation="horizontal"></kendo-chart-legend>
-              <kendo-chart-tooltip format="₹{0}"></kendo-chart-tooltip>
-              <kendo-chart-category-axis>
-                  <kendo-chart-category-axis-item
-                      [categories]="month">
-                  </kendo-chart-category-axis-item>
-              </kendo-chart-category-axis>
-              <kendo-chart-series>
-                <kendo-chart-series-item type="area" [data]="order_amount" color="blue" opacity="0.5"></kendo-chart-series-item>
-              </kendo-chart-series>
-            </kendo-chart>
-
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile> -->
 
   </mat-grid-list>
 </div>
