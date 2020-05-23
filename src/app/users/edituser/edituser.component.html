@@ -4,7 +4,7 @@
 
       <form class="example-form" [formGroup]="user_update" (ngSubmit)="OnUserEdit()">
         <mat-card-header>
-          <img mat-card-avatar src="{{image_url}}">
+          <img mat-card-avatar src="{{image_url}}" onerror="this.src='../../../assets/image/default-avatar.png';">
           <mat-card-title>Your Profile</mat-card-title>
           <mat-card-subtitle>{{u_email_id}}</mat-card-subtitle>
         </mat-card-header>

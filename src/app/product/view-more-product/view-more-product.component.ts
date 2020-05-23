@@ -14,7 +14,6 @@ export class ViewMoreProductComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<ViewMoreProductComponent>,
   @Inject(MAT_DIALOG_DATA) public data: product,public _product_ser:ProductdataService) {}
 
-
   product_id: number;
   product_name: string;
   product_mfg: string;

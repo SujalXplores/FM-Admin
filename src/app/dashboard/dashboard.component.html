@@ -111,9 +111,8 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            Line Chart Demo
+            Monthly Product Selling
             <select (change)="onYearChange()" [(ngModel)]="selectedYear">
-
               <option [ngValue]="item" *ngFor="let item of yearArray">{{item}}</option>
             </select>
           </mat-card-title>
@@ -130,10 +129,8 @@
               <kendo-chart-series>
                 <kendo-chart-series-item type="line" [data]="orderData">
                 </kendo-chart-series-item>
-
               </kendo-chart-series>
             </kendo-chart>
-
           </div>
         </mat-card-content>
       </mat-card>
@@ -143,7 +140,7 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            Pie Chart
+            Current Status
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
