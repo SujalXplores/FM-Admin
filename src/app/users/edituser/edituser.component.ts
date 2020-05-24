@@ -4,6 +4,7 @@ import { UsersdataService } from '../usersdata.service';
 import { users } from '../users';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NotificationService } from 'src/app/notification.service';
+import { GetUserService } from 'src/app/main-nav/get-user.service';
 
 @Component({
   selector: 'app-edituser',
@@ -14,9 +15,11 @@ export class EdituserComponent implements OnInit {
 
 
   u_email_id: string;
+  u_image: string;
   user_update: FormGroup;
   hide: boolean = true;
-  constructor(private notificationService: NotificationService, private _act_route: ActivatedRoute, private _userdata: UsersdataService, private _router: Router) { }
+  isShow: boolean = false;
+  constructor(private _user: GetUserService,private notificationService: NotificationService, private _act_route: ActivatedRoute, private _userdata: UsersdataService, private _router: Router) { }
 
   OnUserEdit() {
     this._userdata.updateUser(this.u_email_id, this.user_update.value).subscribe(
@@ -45,6 +48,10 @@ export class EdituserComponent implements OnInit {
         console.log(data[0]);
       }
     );
+
+    this._user.getUserByEmail(this.u_email_id).subscribe((data) => {
+      this.u_image = data[0].u_image;
+    });
   }
 
   formDataBind(item: users) {
@@ -55,5 +62,9 @@ export class EdituserComponent implements OnInit {
       u_password: item.u_password,
       u_address: item.u_address,
     });
+  }
+
+  onImgClick(){
+    this.isShow = true;
   }
 }

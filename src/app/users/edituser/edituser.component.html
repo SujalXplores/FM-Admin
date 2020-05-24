@@ -1,14 +1,14 @@
-<section fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
-  <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-content>
-
-      <form class="example-form" [formGroup]="user_update" (ngSubmit)="OnUserEdit()">
-        <mat-card-header>
-          <!-- <img mat-card-avatar src="{{image_url}}"> -->
-          <mat-card-title>Your Profile</mat-card-title>
-          <mat-card-subtitle>{{u_email_id}}</mat-card-subtitle>
-        </mat-card-header>
-
+<section fxLayout="row wrap" fxLayoutAlign="space-around">
+  <mat-card fxFlex="500px" fxFlex.xs="100%">    
+    <mat-card-content>
+      <div>
+        <form class="example-form" [formGroup]="user_update" (ngSubmit)="OnUserEdit()">
+          <mat-card-header>
+            <img class="img" matTooltip="Click here to change profile photo" (click)="onImgClick()" mat-card-avatar src="http://localhost:3000/images/user_photos/{{u_image}}" onerror="this.src='../../../assets/image/default-avatar.png';"/>
+            <mat-card-title>Your Profile</mat-card-title>
+            <mat-card-subtitle>{{u_email_id}}</mat-card-subtitle>
+          </mat-card-header>
+  
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Userame</mat-label>
             <input appAutoFocus formControlName="u_name" matInput type="text" placeholder="Enter New Name">
@@ -31,39 +31,28 @@
             <mat-label>Change Password</mat-label>
             <input pPassword class="pPassword" [type]="hide ? 'password' : 'text'" formControlName="u_password" matInput type="password" placeholder="Set New Password">
             <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-							<mat-icon class="material-icons-outlined">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
-						</button>
+              <mat-icon class="material-icons-outlined">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
+            </button>
           </mat-form-field>
-
-          <!-- <mat-form-field class="example-full-width" appearance="outline">
-            <mat-select disabled formControlName="u_type">
-              <mat-option value="admin">Admin</mat-option>
-              <mat-option value="user">User</mat-option>
-            </mat-select>
-            <mat-error>This Field Can't be Empty</mat-error>
-          </mat-form-field> -->
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Address</mat-label>
             <input formControlName="u_address" matInput type="text" placeholder="Change Your Address">
             <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
           </mat-form-field>
-
-          <!-- <div class="form-group">
-            <div class="rounded p-6">
-              <div class="media">
-                <div class="media-body">
-                  <label class="btn btn-sm btn-outline-secondary ml-2">
-                      Upload photo
-                    <input formControlName="u_image" type="file" class="d-none" (change)="onChange($event)">
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-        <button class="example-full-width" type="submit" mat-raised-button color="accent">Update</button>
-      </form>
+  
+          <button class="example-full-width" type="submit" mat-raised-button color="accent">Update</button>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="isShow" fxFlex="300px" fxFlex.xs="100%">
+    <mat-card-header>
+      <mat-card-title>Profile Photo</mat-card-title>
+      <mat-card-subtitle>Only jpg,png & jpeg format is allowed.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content">
+      <app-edituserimage></app-edituserimage>
     </mat-card-content>
   </mat-card>
 </section>

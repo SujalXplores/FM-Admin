@@ -114,8 +114,4 @@ export class UsersComponent implements OnInit {
       data:row
     });
   }
-
-  onImageEdit(row) {
-    this._router.navigate(['/nav/edituserimage', row.u_email_id]);
-  }
 }

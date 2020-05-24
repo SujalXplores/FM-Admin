@@ -31,3 +31,6 @@ border: 0;
 height: 0;
 outline-style: none;
 }
+.img{
+cursor: pointer;
+}

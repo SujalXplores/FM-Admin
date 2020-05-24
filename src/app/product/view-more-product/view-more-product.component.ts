@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { product } from '../product';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ProductPhotodataService } from 'src/app/product-photo/product-photodata.service';
 import { ProductdataService } from '../productdata.service';
 
 @Component({
@@ -30,11 +29,9 @@ export class ViewMoreProductComponent implements OnInit {
     this.product_desc = this.data.pro_desc;
     this._product_ser.getProductPhoto(this.product_id).subscribe(
       (data:any[])=>{
-        // console.log(data)
         for(this.i=0;this.i<data.length;this.i++){
           this.image_arr.push(data[this.i].pro_photo);
         }
-        console.log(this.image_arr)
       }
     );
   }

@@ -1,8 +1,18 @@
-<div id="editimg" >
-  <form [formGroup]="updateuserpic" (ngSubmit)="onuserimageupdate()" >
-    <img mat-card-image width="50" height="50" src="{{userurl}}" >
-    <input type="file" name="u_img" (change)="onChange($event)"  ><br><br>
-    <button type="submit" mat-button  color="primary" id="btn1" > UPDATE </button>
-    <button routerLink="/nav/user"  type="submit" mat-button  color="primary" id="btn2" > Cancel </button>
-  </form>
+<form [formGroup]="updateuserpic" (ngSubmit)="onuserimageupdate()" >
+  <img src="{{userurl}}" class="center" onerror="this.src='../../../assets/image/default-avatar.png';">
+  <br><br>
+  <div class="form-group">
+    <div class="rounded p-6">
+      <div class="media">
+        <div class="media-body">
+          <label class="btn btn-sm btn-outline-primary ml-2">
+              {{img_text}}
+              <input type="file" class="d-none" name="u_img" (change)="onChange($event)">
+          </label>
+        </div>
+      </div>
+    </div>
   </div>
+  <button type="submit" mat-raised-button color="accent">Update</button>
+  <button routerLink="/nav/users" type="button" mat-button>Cancel</button>
+</form>
