@@ -4,7 +4,7 @@
 
       <form class="example-form" [formGroup]="user_update" (ngSubmit)="OnUserEdit()">
         <mat-card-header>
-          <img mat-card-avatar src="{{image_url}}">
+          <!-- <img mat-card-avatar src="{{image_url}}"> -->
           <mat-card-title>Your Profile</mat-card-title>
           <mat-card-subtitle>{{u_email_id}}</mat-card-subtitle>
         </mat-card-header>
@@ -25,7 +25,7 @@
             <mat-error class="hint" *ngIf="user_update.hasError('minlength') && !user_update.pristine">Mobile number must be of 10 digits!</mat-error>
             <mat-error class="hint" *ngIf="user_update.hasError('pattern') && !user_update.pristine">Only Digits!</mat-error>
             <mat-icon matSuffix>phone</mat-icon>
-          </mat-form-field> 
+          </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Change Password</mat-label>
@@ -49,7 +49,7 @@
             <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
           </mat-form-field>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <div class="rounded p-6">
               <div class="media">
                 <div class="media-body">
@@ -60,7 +60,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
         <button class="example-full-width" type="submit" mat-raised-button color="accent">Update</button>
       </form>

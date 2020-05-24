@@ -94,6 +94,7 @@ import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
 import { PrescriptionComponent } from './prescription/prescription.component';
 import { NglModule } from 'ng-lightning';
 import { PasswordModule } from 'primeng/password';
+import { EdituserimageComponent } from './users/edituserimage/edituserimage.component';
 
 
 @NgModule({
@@ -148,6 +149,7 @@ import { PasswordModule } from 'primeng/password';
     ViewMoreComponent,
     PdfTableComponent,
     PrescriptionComponent,
+    EdituserimageComponent,
   ],
   imports: [
     routingArr,

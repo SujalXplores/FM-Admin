@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { users } from './users';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 export class UsersdataService {
 
   url:string='http://localhost:3000/user/';
+  url1:string='http://localhost:3000/uimage/';
+
   deleteurl: string= 'http://localhost:3000/userdelete/';
   constructor(private _http:HttpClient) { }
   deleteall(item: string[]) {
@@ -29,7 +32,13 @@ export class UsersdataService {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.get(this.url + u_email_id, {headers: x});
   }
-  updateUser(u_email_id, item) {
-    return this._http.put(this.url + u_email_id, item);
+  updateUser(u_email_id, item: users) {
+    let body = JSON.stringify(item);
+    let x = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.put(this.url + u_email_id  , body , {headers: x} );
   }
+  updateUserimage(u_email_id , item){
+    return this._http.put(this.url1 + u_email_id , item);
+  }
+
 }
