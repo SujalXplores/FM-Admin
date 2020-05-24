@@ -59,7 +59,9 @@ padding: 8px;
 font-weight: lighter;
 margin: 8px;
 }
-.customer-badge {
+.status-delivered {
+background-color: #C8E6C9;
+color: #256029;
 border-radius: 2px;
 padding: .25em .5em;
 text-transform: uppercase;
@@ -67,15 +69,23 @@ font-weight: 700;
 font-size: 12px;
 letter-spacing: .3px;
 }
-.status-delivered {
-background-color: #C8E6C9;
-color: #256029;
-}
 .status-ontheway{
 background-color: #ECCFFF;
 color: #694382;
+border-radius: 2px;
+padding: .25em .5em;
+text-transform: uppercase;
+font-weight: 700;
+font-size: 12px;
+letter-spacing: .3px;
 }
 .status-packing {
 background-color: #FFCDD2;
 color: #C63737;
+border-radius: 2px;
+padding: .25em .5em;
+text-transform: uppercase;
+font-weight: 700;
+font-size: 12px;
+letter-spacing: .3px;
 }

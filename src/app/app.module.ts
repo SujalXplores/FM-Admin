@@ -92,10 +92,8 @@ import 'hammerjs';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
 import { PrescriptionComponent } from './prescription/prescription.component';
-import { NglModule } from 'ng-lightning';
 import { PasswordModule } from 'primeng/password';
 import { EdituserimageComponent } from './users/edituserimage/edituserimage.component';
-
 
 @NgModule({
   declarations: [
@@ -161,7 +159,6 @@ import { EdituserimageComponent } from './users/edituserimage/edituserimage.comp
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    NglModule,
     PasswordModule,
     //angular-material
     MatToolbarModule,

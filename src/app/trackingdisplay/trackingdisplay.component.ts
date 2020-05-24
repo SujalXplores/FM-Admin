@@ -18,7 +18,7 @@ export class TrackingdisplayComponent implements OnInit {
   cancleClicked: boolean = false;
   trackingarr: tracking[] = [];
   del_arr: number[] = [];
-  displayedColumns: string[] = ['track_id' , 'status', 'fk_detail_id', 'action'];
+  displayedColumns: string[] = ['track_id' , 'fk_detail_id', 'status', 'action'];
   dataSource: MatTableDataSource<tracking>;
 
   selection = new SelectionModel<tracking>(true, []);

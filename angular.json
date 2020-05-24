@@ -27,7 +27,6 @@
               {
                 "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
               },
-              "node_modules/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.min.css",
               "node_modules/@angular/cdk/overlay-prebuilt.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/nova-light/theme.css",

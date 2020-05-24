@@ -43,8 +43,8 @@ export class DashboardComponent {
   public months: any[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
   startyr: number = 2019;
 
-  selectedYear;
   currentYear = now.getFullYear();
+  selectedYear: number = this.currentYear;
   yearArray = [];
 
   public DonutData: any[] = [];
@@ -129,14 +129,13 @@ export class DashboardComponent {
           { category: 'Delivered', value: this.DonutData[i].Delivered },
           { category: 'Packing', value: this.DonutData[i].Packing },
           { category: 'On The Way', value: this.DonutData[i].On_The_Way },
-
         ];
       }
     });
   }
 
   public labelContent1(args: LegendLabelsContentArgs): string {
-    return `${args.dataItem.category} value: ${this.intl.formatNumber(args.dataItem.value, '')}`;
+    return `${args.dataItem.category} : ${this.intl.formatNumber(args.dataItem.value, '')}`;
   }
 
   public onYearChange(): void {
@@ -144,17 +143,11 @@ export class DashboardComponent {
     this._data.getAllorder(this.selectedYear).subscribe((data1: any[]) => {
       this.monthOrderCount = data1;
       console.log(this.monthOrderCount);
-
-
       for (let j = 0; j < data1.length; j++) {
-
         this.orderData.push(this.monthOrderCount[j].COUNT);
         // this.months.push(this.monthOrderCount[j].MONTH);
       }
     });
     console.log(this.orderData, this.months);
-
   }
-
-
 }
