@@ -18,6 +18,7 @@ export class EditproductPhotoComponent implements OnInit {
   photo_update: FormGroup;
   selectedFile: File = null;
   photoUrl: string = null;
+  img_name: string = 'Upload Photo';
 
   list: product[] = [];
 
@@ -45,6 +46,7 @@ export class EditproductPhotoComponent implements OnInit {
 
   onChange(f) {
     this.selectedFile = <File>f.target.files[0];
+    this.img_name = this.selectedFile.name;
   }
 
   formDataBind(item: product_photo) {
