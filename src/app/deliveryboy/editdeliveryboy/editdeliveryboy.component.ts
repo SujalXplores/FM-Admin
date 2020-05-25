@@ -17,6 +17,7 @@ export class EditdeliveryboyComponent implements OnInit {
   deliveryPartner_update: FormGroup;
   selectedFile: File = null;
   image_url: string = null;
+  img_text: string = 'Update Photo';
 
   ngOnInit() {
     this.deliveryboy_id = this._act_route.snapshot.params['deliveryboy_id'];
@@ -75,5 +76,6 @@ export class EditdeliveryboyComponent implements OnInit {
 
   onChange(f) {
     this.selectedFile = <File> f.target.files[0];
+    this.img_text = this.selectedFile.name;
   }
 }
