@@ -3,10 +3,12 @@ margin-left: auto;
 border: 0;
 outline: 0;
 }
+
 img {
 height: 60px;
 width: 60px;
 border-radius: 50%;
+cursor: pointer;
 }
 
 mat-sidenav-content {

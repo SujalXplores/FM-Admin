@@ -3,7 +3,7 @@
   
       <mat-card-content>
         <mat-list>
-          <mat-list-item>Order ID : {{order_id}}</mat-list-item>
+          <mat-list-item>Order ID : #{{order_id}}</mat-list-item>
           <mat-divider></mat-divider>
   
           <mat-list-item>User Email : {{fk_u_email_id}}</mat-list-item>
@@ -12,13 +12,13 @@
           <mat-list-item>Delivery Partner Email : {{deliveryboy_id}}</mat-list-item>
           <mat-divider></mat-divider>
 
-          <mat-list-item>Order Amount : {{order_amount}}</mat-list-item>
+          <mat-list-item>Date : {{date}}</mat-list-item>
           <mat-divider></mat-divider>
           
           <mat-list-item>Current Status : {{order_status | titlecase}}</mat-list-item>
           <mat-divider></mat-divider>
 
-          <mat-list-item>Date : {{date}}</mat-list-item>
+          <mat-list-item>Order Amount : {{order_amount | currency: 'INR'}}</mat-list-item>
           <mat-divider></mat-divider>
         </mat-list>
       </mat-card-content>

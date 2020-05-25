@@ -4,8 +4,8 @@
       <img
         mat-card-avatar
         class="example-header-image"
-        alt="No Image"
         src="http://localhost:3000/images/user_photos/{{ user_image }}"
+        onerror="this.src='../../../assets/image/default-avatar.png';"
       />
       <mat-card-title>{{ user_name | titlecase }}'s Details</mat-card-title>
       <mat-card-subtitle>

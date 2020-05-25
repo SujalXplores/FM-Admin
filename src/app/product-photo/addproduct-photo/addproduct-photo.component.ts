@@ -17,6 +17,7 @@ export class AddproductPhotoComponent implements OnInit {
   constructor(private notificationService: NotificationService, private _productdata: ProductPhotodataService, private _router: Router, private _prodata: ProductdataService) { }
   selectedFile: File = null;
   value = '';
+  img_name: string = 'Upload Photo';
 
   productarr: product[] = [];
 
@@ -45,5 +46,6 @@ export class AddproductPhotoComponent implements OnInit {
 
   onChange(f){
     this.selectedFile = <File>f.target.files[0];
+    this.img_name = this.selectedFile.name;
   }
 }
