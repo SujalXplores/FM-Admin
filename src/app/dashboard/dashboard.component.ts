@@ -91,7 +91,7 @@ export class DashboardComponent {
     this._data.getTopOrder().subscribe((data1: any[]) => {
       this.bill_data = data1;
       for (let i = 0; i < data1.length; i++) {
-        this.bill_data_display.push(this.bill_data[i].pro_price);
+        this.bill_data_display.push(this.bill_data[i].total);
         this.bill_data_name_display.push(this.bill_data[i].pro_name);
       }
     });
