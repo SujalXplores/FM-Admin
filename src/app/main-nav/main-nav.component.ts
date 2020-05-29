@@ -29,8 +29,8 @@ isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Ha
 constructor(private _user: GetUserService,private breakpointObserver: BreakpointObserver, public router: Router, public dialog: MatDialog) {}
   
   ngOnInit(){
-      this.u_email_id = localStorage.getItem('u_email_id');
-      this._user.getUserByEmail(this.u_email_id).subscribe((data) => {
+    this.u_email_id = localStorage.getItem('u_email_id');
+    this._user.getUserByEmail(this.u_email_id).subscribe((data) => {
       this.u_name = data[0].u_name;
       this.u_image = data[0].u_image;
     });

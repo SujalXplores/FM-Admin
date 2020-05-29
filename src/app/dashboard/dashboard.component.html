@@ -1,91 +1,40 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
 
-  <div class="row">
-    <!-- Column -->
-    <div class="col-sm-12 col-md-6 col-xl-3">
-        <div class="card bg-danger m-b-30">
-            <div class="card-body">
-                <div class="d-flex row">
-                    <div class="col-3 align-self-center">
-                        <div class="round">
-                          <i style="font-size: 48px;color: rgba(255, 255, 255, 1);" class="fad fa-users"></i>
-                        </div>
-                    </div>
-                    <div class="col-8 ml-auto align-self-center text-center">
-                        <div class="m-l-10 text-white float-right">
-                            <h5 class="mt-0 round-inner">{{customers}}</h5>
-                            <p class="mb-0 ">New Users</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+    <div class="col-md-3">
+      <div class="card-counter primary">
+        <i class="fad fa-shopping-basket"></i>
+        <span class="count-numbers">{{total_order}}</span>
+        <span class="count-name">Orders</span>
+      </div>
     </div>
-    <!-- Column -->
-    <!-- Column -->
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-        <div class="card bg-info m-b-30">
-            <div class="card-body">
-                <div class="d-flex row">
-                    <div class="col-3 align-self-center">
-                        <div class="round">
-                          <i style="font-size: 48px;color: rgba(255, 255, 255, 1);" class="fad fa-truck"></i>
-                        </div>
-                    </div>
-                    <div class="col-8 text-center ml-auto align-self-center">
-                        <div class="m-l-10 text-white float-right">
-                            <h5 class="mt-0 round-inner">{{delivery_partners}}</h5>
-                            <p class="mb-0 ">Delivery Boys</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <div class="col-md-3">
+      <div class="card-counter danger">
+        <i class="fad fa-truck"></i>
+        <span class="count-numbers">{{delivery_partners}}</span>
+        <span class="count-name">Delivery Partners</span>
+      </div>
     </div>
-    <!-- Column -->
-    <!-- Column -->
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-        <div class="card bg-success m-b-30">
-            <div class="card-body">
-                <div class="d-flex row">
-                    <div class="col-3 align-self-center">
-                        <div class="round ">
-                          <i style="font-size: 48px;color: rgba(255, 255, 255, 1);" class="fad fa-shopping-basket"></i>
-                        </div>
-                    </div>
-                    <div class="col-8 ml-auto align-self-center text-center">
-                        <div class="m-l-10 text-white float-right">
-                            <h5 class="mt-0 round-inner">{{total_order}}</h5>
-                            <p class="mb-0 ">New Orders</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <div class="col-md-3">
+      <div class="card-counter success">
+        <i class="fad fa-wallet"></i>
+        <span class="count-numbers">₹ {{revenue}}</span>
+        <span class="count-name">Total Earnings</span>
+      </div>
     </div>
-    <!-- Column -->
-    <!-- Column -->
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
-        <div class="card bg-primary m-b-30">
-            <div class="card-body">
-                <div class="d-flex row">
-                    <div class="col-3 align-self-center">
-                        <div class="round">
-                          <i style="font-size: 48px;color: rgba(255, 255, 255, 1);" class="fad fa-wallet"></i>
-                        </div>
-                    </div>
-                    <div class="col-8 ml-auto align-self-center text-center">
-                        <div class="m-l-10 text-white float-right">
-                            <h5 class="mt-0 round-inner">₹ {{revenue}}</h5>
-                            <p class="mb-0">Total Sales</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <div class="col-md-3">
+      <div class="card-counter info">
+        <i class="fad fa-users"></i>
+        <span class="count-numbers">{{customers}}</span>
+        <span class="count-name">Users</span>
+      </div>
     </div>
-    <!-- Column -->
+  </div>
 </div>
 
   <mat-grid-list cols="2" rowHeight="500px">
@@ -106,7 +55,7 @@
               </kendo-chart-category-axis>
               <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
               <kendo-chart-series>
-                <kendo-chart-series-item type="bar" [gap]="1" [spacing]=".50" [data]="bill_data_display"></kendo-chart-series-item>
+                <kendo-chart-series-item color="yellow" opacity="0.5" type="bar" [gap]="1" [spacing]=".50" [data]="bill_data_display"></kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>
           </div>
@@ -173,7 +122,7 @@
                 </kendo-chart-category-axis-item>
               </kendo-chart-category-axis>
               <kendo-chart-series>
-                <kendo-chart-series-item type="line" [data]="orderData">
+                <kendo-chart-series-item type="area" color="blue" opacity="0.5" [data]="orderData">
                 </kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>

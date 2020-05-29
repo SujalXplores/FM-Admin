@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { order } from '../order/order';
 import { OrderdataService } from '../order/orderdata.service';
 import { ActivatedRoute } from '@angular/router';
+import { GetUserService } from '../main-nav/get-user.service';
 
 @Component({
   selector: 'app-multiple-order-display-component',
@@ -19,7 +20,10 @@ export class MultipleOrderDisplayComponentComponent implements OnInit {
   order_status: string;
   order_amount: number;
   ordermultiple: any[] = [];
-  constructor(public orderService: OrderdataService, public _activated_routes: ActivatedRoute) { }
+
+  user_addr: string;
+  user_mob: number;
+  constructor(private _user: GetUserService,public orderService: OrderdataService, public _activated_routes: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.order_id = this._activated_routes.snapshot.params['order_id'];
@@ -32,6 +36,10 @@ export class MultipleOrderDisplayComponentComponent implements OnInit {
         this.payment_type = data[0].payment_type;
         this.order_status = data[0].order_status;
         this.order_amount = data[0].order_amount;
+        this._user.getUserByEmail(this.fk_u_email_id).subscribe((data1)=>{
+          this.user_addr = data1[0].u_address;
+          this.user_mob = data1[0].u_mobileno;
+        })
       }
     )
   }
