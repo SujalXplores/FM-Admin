@@ -38,24 +38,29 @@
 </div>
 
   <mat-grid-list cols="2" rowHeight="500px">
-    <mat-grid-tile colspan="1" rowspan="1">
+
+    <mat-grid-tile colspan="2" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            Trending Products
+            Monthly Product Selling
+            <select (change)="onYearChange()" [(ngModel)]="selectedYear">
+              <option [ngValue]="item" *ngFor="let item of yearArray">{{item}}</option>
+            </select>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <div>
             <kendo-chart>
-              <kendo-chart-title text="Units sold"></kendo-chart-title>
+              <kendo-chart-title text="Customer data"></kendo-chart-title>
+              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
               <kendo-chart-category-axis>
-                <kendo-chart-category-axis-item [categories]="bill_data_name_display">
+                <kendo-chart-category-axis-item [categories]="['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']">
                 </kendo-chart-category-axis-item>
               </kendo-chart-category-axis>
-              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
               <kendo-chart-series>
-                <kendo-chart-series-item color="yellow" opacity="0.5" type="bar" [gap]="1" [spacing]=".50" [data]="bill_data_display"></kendo-chart-series-item>
+                <kendo-chart-series-item type="area" color="blue" opacity="0.5" [data]="orderData">
+                </kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>
           </div>
@@ -102,35 +107,6 @@
       </mat-card>
     </mat-grid-tile>
 
-    <mat-grid-tile colspan="2" rowspan="1">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            Monthly Product Selling
-            <select (change)="onYearChange()" [(ngModel)]="selectedYear">
-              <option [ngValue]="item" *ngFor="let item of yearArray">{{item}}</option>
-            </select>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>
-            <kendo-chart>
-              <kendo-chart-title text="Customer data"></kendo-chart-title>
-              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-              <kendo-chart-category-axis>
-                <kendo-chart-category-axis-item [categories]="['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']">
-                </kendo-chart-category-axis-item>
-              </kendo-chart-category-axis>
-              <kendo-chart-series>
-                <kendo-chart-series-item type="area" color="blue" opacity="0.5" [data]="orderData">
-                </kendo-chart-series-item>
-              </kendo-chart-series>
-            </kendo-chart>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -146,6 +122,31 @@
                 <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category"
                   [labels]="{ visible: true, content: labelContent1 }">
                 </kendo-chart-series-item>
+              </kendo-chart-series>
+            </kendo-chart>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Trending Products
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <kendo-chart>
+              <kendo-chart-title text="Units sold"></kendo-chart-title>
+              <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="bill_data_name_display">
+                </kendo-chart-category-axis-item>
+              </kendo-chart-category-axis>
+              <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+              <kendo-chart-series>
+                <kendo-chart-series-item color="yellow" opacity="0.5" type="bar" [gap]="1" [spacing]=".50" [data]="bill_data_display"></kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>
           </div>
