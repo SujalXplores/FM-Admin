@@ -56,14 +56,11 @@ export class DashboardComponent {
   }
 
   ngOnInit() {
-
     this.onYearChange();
-    console.log(this.startyr, this.currentYear);
     for (let y = this.startyr; y <= this.currentYear; y++) {
       this.yearArray.push(y);
     }
     console.log(this.yearArray);
-
     this._data.getRevenue().subscribe((data2: any[]) => {
       this.revenue = data2[0].revenue;
     });
@@ -80,17 +77,9 @@ export class DashboardComponent {
       this.delivery_partners = data5[0].delivery_partners;
     });
 
-    // this._data.getAllorder().subscribe((data1: any[]) => {
-    //   this.order_data = data1;
-    //   for (let i = 0; i < data1.length; i++) {
-    //     this.month.push(this.order_data[i].month);
-    //     this.order_amount.push(this.order_data[i].order_amount);
-    //   }
-    // });
-
     this._data.getTopOrder().subscribe((data1: any[]) => {
       this.bill_data = data1;
-      for (let i = 0; i < data1.length; i++) {
+      for(let i = 0; i < data1.length; i++) {
         this.bill_data_display.push(this.bill_data[i].total);
         this.bill_data_name_display.push(this.bill_data[i].pro_name);
       }
@@ -145,9 +134,7 @@ export class DashboardComponent {
       console.log(this.monthOrderCount);
       for (let j = 0; j < data1.length; j++) {
         this.orderData.push(this.monthOrderCount[j].COUNT);
-        // this.months.push(this.monthOrderCount[j].MONTH);
       }
     });
-    console.log(this.orderData, this.months);
   }
 }

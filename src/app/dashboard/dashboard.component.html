@@ -44,10 +44,10 @@
         <mat-card-header>
           <mat-card-title>
             Monthly Product Selling
-            <select (change)="onYearChange()" [(ngModel)]="selectedYear">
-              <option [ngValue]="item" *ngFor="let item of yearArray">{{item}}</option>
-            </select>
           </mat-card-title>
+          <select class="btn dropdown-toggle ml-auto" (change)="onYearChange()" [(ngModel)]="selectedYear">
+            <option [ngValue]="item" *ngFor="let item of yearArray">{{item}}</option>
+          </select>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <div>
