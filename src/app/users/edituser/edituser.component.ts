@@ -28,7 +28,7 @@ export class EdituserComponent implements OnInit {
         this._router.navigate(['/nav/users']);
       }
     );
-    this.notificationService.success('Profile updated successfully !');
+    this.notificationService.info('Profile updated successfully !');
   }
 
   ngOnInit() {

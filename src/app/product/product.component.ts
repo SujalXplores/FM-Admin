@@ -60,7 +60,7 @@ export class ProductComponent implements OnInit {
         }
       }
     );
-    this.notificationService.success('Selected record has been deleted !');
+    this.notificationService.warn('Selected record has been deleted !');
   }
 
   onDelete(item: product) {
@@ -71,7 +71,7 @@ export class ProductComponent implements OnInit {
         this.dataSource.data = this.productarr;
       }
     );
-    this.notificationService.success('Selected record has been deleted !');
+    this.notificationService.warn('Selected record has been deleted !');
   }
 
   OnProductEdit(item: product) {

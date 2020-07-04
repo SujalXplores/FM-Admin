@@ -84,7 +84,7 @@ export class TrackingdisplayComponent implements OnInit {
         this.dataSource.data = this.trackingarr;
       }
     );
-    this.notificationService.success('Selected Records Deleted !');
+    this.notificationService.warn('Selected Records Deleted !');
   }
 
   applyFilter(filterValue: string) {

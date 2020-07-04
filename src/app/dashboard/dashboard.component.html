@@ -1,58 +1,53 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
-
+  <!-- small widgets -->
   <div class="container">
     <div class="row">
-    <div class="col-md-3">
-      <div class="card-counter primary">
-        <i class="fad fa-shopping-basket"></i>
-        <span class="count-numbers">{{total_order}}</span>
-        <span class="count-name">Orders</span>
+      <div class="col-md-3">
+        <div class="card-counter primary">
+          <i class="fad fa-shopping-basket"></i>
+          <span class="count-numbers">{{total_order}}</span>
+          <span class="count-name">Orders</span>
+        </div>
       </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card-counter danger">
-        <i class="fad fa-truck"></i>
-        <span class="count-numbers">{{delivery_partners}}</span>
-        <span class="count-name">Delivery Partners</span>
+      <div class="col-md-3">
+        <div class="card-counter danger">
+          <i class="fad fa-truck"></i>
+          <span class="count-numbers">{{delivery_partners}}</span>
+          <span class="count-name">Delivery Partners</span>
+        </div>
       </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card-counter success">
-        <i class="fad fa-wallet"></i>
-        <span class="count-numbers">₹ {{revenue}}</span>
-        <span class="count-name">Total Earnings</span>
+      <div class="col-md-3">
+        <div class="card-counter success">
+          <i class="fad fa-wallet"></i>
+          <span class="count-numbers">₹ {{revenue}}</span>
+          <span class="count-name">Total Earnings</span>
+        </div>
       </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card-counter info">
-        <i class="fad fa-users"></i>
-        <span class="count-numbers">{{customers}}</span>
-        <span class="count-name">Users</span>
+      <div class="col-md-3">
+        <div class="card-counter info">
+          <i class="fad fa-users"></i>
+          <span class="count-numbers">{{customers}}</span>
+          <span class="count-name">Users</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
+  <!-- chart tiles -->
   <mat-grid-list cols="2" rowHeight="500px">
-
     <mat-grid-tile colspan="2" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            Monthly Product Selling
+            Monthly Selling
           </mat-card-title>
-          <select class="btn dropdown-toggle ml-auto" (change)="onYearChange()" [(ngModel)]="selectedYear">
+          <!-- <select class="btn dropdown-toggle ml-auto" (change)="onYearChange()" [(ngModel)]="selectedYear">
             <option [ngValue]="item" *ngFor="let item of yearArray">{{item}}</option>
-          </select>
+          </select> -->
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <div>
             <kendo-chart>
-              <kendo-chart-title text="Customer data"></kendo-chart-title>
               <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
               <kendo-chart-category-axis>
                 <kendo-chart-category-axis-item [categories]="['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']">
@@ -67,12 +62,11 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            Payment methods
+            Payment Methods
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
@@ -80,7 +74,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col"></th>
                   <th scope="col">Payment Mode</th>
                   <th scope="col">Total</th>
                 </tr>
@@ -106,7 +100,6 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -128,7 +121,6 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-
     <mat-grid-tile colspan="2" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -153,6 +145,5 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-
   </mat-grid-list>
 </div>

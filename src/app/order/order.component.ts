@@ -45,7 +45,7 @@ export class OrderComponent implements OnInit {
         this.dataSource.data = this.orderarr;
       }
     );
-    this.notificationService.success('Selected record deleted !');
+    this.notificationService.warn('Selected record deleted !');
   }
 
   OnOrderEdit(item: order) {

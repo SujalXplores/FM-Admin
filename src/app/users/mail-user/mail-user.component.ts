@@ -38,7 +38,7 @@ onMailUser(f){
     }
   )
   this.dialogref.close();
-  this.notificationService.success('Mail has been sent to '+ this.u_name);
+  this.notificationService.info('Mail has been sent to '+ this.u_name);
 }
 
 onClose() {

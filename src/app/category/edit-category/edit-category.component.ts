@@ -33,6 +33,6 @@ export class EditCategoryComponent implements OnInit {
         console.log(f.value);
       }
     );
-    this.notificationService.success('Changes has been saved.');
+    this.notificationService.info('Changes has been saved.');
   }
 }

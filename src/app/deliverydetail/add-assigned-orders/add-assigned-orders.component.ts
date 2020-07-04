@@ -54,7 +54,7 @@ export class AddAssignedOrdersComponent implements OnInit {
       this._orderAssign.addOrderAssigned(objOrderAssigned).subscribe(
       (x: any) => {
         if (x.insertId > 0) {
-          this.notificationService.success('Selected Order is assigned to '+ this.SelectedDboyId);
+          this.notificationService.info('Selected Order is assigned to '+ this.SelectedDboyId);
           let trackObject = {
             status: "packing",
             fk_detail_id: x.insertId,
@@ -68,7 +68,7 @@ export class AddAssignedOrdersComponent implements OnInit {
           this._router.navigate(['/nav/deliverdetails']);
         }
         else {
-          this.notificationService.success('Select order first, and assign it to Partner !');
+          this.notificationService.warn('Select order first, and assign it to Partner !');
         }
       });
     }

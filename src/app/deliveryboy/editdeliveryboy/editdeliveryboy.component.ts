@@ -71,7 +71,7 @@ export class EditdeliveryboyComponent implements OnInit {
         this._router.navigate(['/nav/deliveryboy']);
       }
     );
-    this.notificationService.success('Your changes has been saved.');
+    this.notificationService.info('Your changes has been saved.');
   }
 
   onChange(f) {

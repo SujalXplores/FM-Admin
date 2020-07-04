@@ -44,7 +44,7 @@ export class OrderDetailComponent implements OnInit {
         this.dataSource.data = this.orderdetailarr;
       }
     );
-    this.notificationService.success('Selected record deleted !');
+    this.notificationService.warn('Selected record deleted !');
   }
 
   OnOrderDetailEdit(item: order_detail) {

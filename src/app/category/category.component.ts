@@ -47,7 +47,7 @@ export class CategoryComponent implements OnInit {
         this.dataSource.data = this.categoryarr;
       }
     );
-    this.notificationService.success('Record has been deleted !');
+    this.notificationService.warn('Record has been deleted !');
   }
 
   ngOnInit() {

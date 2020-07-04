@@ -40,7 +40,7 @@ export class DeliveryboyComponent implements OnInit {
         this.dataSource.data = this.deliveryboyarr;
       }
     );
-    this.notificationService.success('Record deleted successfully !');
+    this.notificationService.warn('Record deleted successfully !');
   }
 
   OnDeliveryboyEdit(item: deliveryboy) {

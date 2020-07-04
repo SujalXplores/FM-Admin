@@ -36,7 +36,7 @@ onMailVendor(f){
     }
   )
   this.dialogref.close();
-  this.notificationService.success('Mail has been sent to '+ this.deliveryboy_name);
+  this.notificationService.info('Mail has been sent to '+ this.deliveryboy_name);
 }
 
 onClose() {

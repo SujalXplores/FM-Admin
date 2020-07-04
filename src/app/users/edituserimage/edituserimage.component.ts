@@ -57,7 +57,7 @@ export class EdituserimageComponent implements OnInit {
       console.log(this.updateuserpic.get('u_image').value);
     }
     this._userser.updateUserimage(this.u_email_id,fd).subscribe((data: users)=>{
-      this.notificationService.success('Profile Photo has been updated.');
+      this.notificationService.info('Profile Photo has been updated.');
     });
   }
 }

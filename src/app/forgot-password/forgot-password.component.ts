@@ -29,7 +29,7 @@ export class ForgotPasswordComponent implements OnInit {
         });
       });
       this._router.navigate(['']);
-      this.notificationService.success('Mail has been sent on you registered mail. Check inbox.');
+      this.notificationService.info('Mail has been sent on you registered mail. Check inbox.');
     }
   }
 }

@@ -46,7 +46,7 @@ export class ProductPhotoComponent implements OnInit {
         this.dataSource.data = this.productarr;
       }
     );
-    this.notificationService.success('Photo has been deleted !');
+    this.notificationService.warn('Photo has been deleted !');
   }
 
   OnProductEdit(item: product_photo) {

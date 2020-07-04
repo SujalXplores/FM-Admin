@@ -46,7 +46,7 @@ export class EditproductComponent implements OnInit {
     this._productdata.updateProduct(this.pro_id1,f.value).subscribe(
       (data: any) => {
         this._router.navigate(['/nav/product']);
-        this.notificationService.success('Changes has been saved successfully.');
+        this.notificationService.info('Changes has been saved successfully.');
         console.log(f.value);
       }
     );

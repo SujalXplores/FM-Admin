@@ -62,7 +62,7 @@ export class UsersComponent implements OnInit {
         }
       }
     );
-    this.notificationService.success('Selected Records Deleted !');
+    this.notificationService.warn('Selected Records Deleted !');
   }
 
   onDelete(item: users) {
