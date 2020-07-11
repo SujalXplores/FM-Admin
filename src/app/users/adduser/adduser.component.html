@@ -1,68 +1,67 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title align="center">Add User</mat-card-title>
-      <mat-card-content>
+    <mat-card-title align="center">Add User</mat-card-title>   
+    <mat-card-content>
+      <form class="example-form" (ngSubmit)="onUesrAdd(f)" #f="ngForm">
 
-        <form class="example-form" (ngSubmit)="onUesrAdd(f)" #f="ngForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input required ngModel name="u_email_id" #u_email_id="ngModel" matInput type="email">
+          <mat-label>Enter Email</mat-label>
+          <mat-error class="hint" *ngIf="u_email_id.hasError('required') && !u_email_id.pristine">Email is Required</mat-error>
+          <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
+        </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input required ngModel name="u_email_id" #u_email_id="ngModel" matInput type="email">
-              <mat-label>Enter Email</mat-label>
-              <mat-error class="hint" *ngIf="u_email_id.hasError('required') && !u_email_id.pristine">Email is Required</mat-error>
-              <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
-            </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input required pattern="[a-z A-Z]*" ngModel name="u_name" #u_name="ngModel" matInput type="text">
+          <mat-label>Enter Name</mat-label>
+          <mat-icon class="material-icons-outlined" matSuffix>portrait</mat-icon>
+          <mat-error class="hint" *ngIf="u_name.hasError('required') && !u_name.pristine">Name is Required</mat-error>
+          <mat-error class="hint" *ngIf="u_name.hasError('pattern') && !u_name.pristine">Only Letters</mat-error>
+        </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input required pattern="[a-z A-Z]*" ngModel name="u_name" #u_name="ngModel" matInput type="text">
-              <mat-label>Enter Name</mat-label>
-              <mat-icon class="material-icons-outlined" matSuffix>portrait</mat-icon>
-              <mat-error class="hint" *ngIf="u_name.hasError('required') && !u_name.pristine">Name is Required</mat-error>
-              <mat-error class="hint" *ngIf="u_name.hasError('pattern') && !u_name.pristine">Only Letters</mat-error>
-            </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input required pattern="[0-9]*" minlength="10" ngModel name="u_mobileno" #u_mobileno="ngModel" type="text" matInput appPhone placeholder="+91 Enter Mobile Number">
+          <mat-error class="hint" *ngIf="u_mobileno.hasError('required') && !u_mobileno.pristine">Mobile Number is Required</mat-error>
+          <mat-error class="hint" *ngIf="u_mobileno.hasError('minlength') && !u_mobileno.pristine">Mobile number must be of 10 digits!</mat-error>
+          <mat-error class="label" *ngIf="u_mobileno.hasError('pattern') && !u_mobileno.pristine">Only Digits!</mat-error>
+          <mat-icon class="material-icons-outlined" matSuffix>contact_phone</mat-icon>
+        </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input required pattern="[0-9]*" minlength="10" ngModel name="u_mobileno" #u_mobileno="ngModel" type="text" matInput appPhone placeholder="+91 Enter Mobile Number">
-              <mat-error class="hint" *ngIf="u_mobileno.hasError('required') && !u_mobileno.pristine">Mobile Number is Required</mat-error>
-              <mat-error class="hint" *ngIf="u_mobileno.hasError('minlength') && !u_mobileno.pristine">Mobile number must be of 10 digits!</mat-error>
-              <mat-error class="label" *ngIf="u_mobileno.hasError('pattern') && !u_mobileno.pristine">Only Digits!</mat-error>
-              <mat-icon class="material-icons-outlined" matSuffix>contact_phone</mat-icon>
-            </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Select Role</mat-label>
+          <mat-select required ngModel name="u_type" #u_type="ngModel">
+            <mat-option value="admin">Admin</mat-option>
+            <mat-option value="user">User</mat-option>
+          </mat-select>
+          <mat-error>This Field Can't be Empty</mat-error>
+        </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Select Role</mat-label>
-              <mat-select required ngModel name="u_type" #u_type="ngModel">
-                <mat-option value="admin">Admin</mat-option>
-                <mat-option value="user">User</mat-option>
-              </mat-select>
-              <mat-error>This Field Can't be Empty</mat-error>
-            </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{4,}$" ngModel name="u_password" #u_password="ngModel" matInput type="password" placeholder="Enter password">
+          <mat-error class="hint" *ngIf="u_password.hasError('required') && !u_password.pristine">Password is Required</mat-error>
+          <mat-error class="hint" *ngIf="u_password.hasError('pattern') && !u_password.pristine">Minimum four characters,at least one letter,one number and one speacial one character!</mat-error>
+          <mat-icon class="material-icons-outlined" matSuffix>lock</mat-icon>
+        </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{4,}$" ngModel name="u_password" #u_password="ngModel" matInput type="password" placeholder="Enter password">
-              <mat-error class="hint" *ngIf="u_password.hasError('required') && !u_password.pristine">Password is Required</mat-error>
-              <mat-error class="hint" *ngIf="u_password.hasError('pattern') && !u_password.pristine">Minimum four characters,at least one letter,one number and one speacial one character!</mat-error>
-              <mat-icon class="material-icons-outlined" matSuffix>lock</mat-icon>
-            </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input required ngModel name="u_address" #u_address="ngModel" matInput type="text" placeholder="Enter Your Address">
+          <mat-error class="hint" *ngIf="u_address.hasError('required') && !u_address.pristine">Address is Required</mat-error>
+          <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
+        </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-              <input required ngModel name="u_address" #u_address="ngModel" matInput type="text" placeholder="Enter Your Address">
-              <mat-error class="hint" *ngIf="u_address.hasError('required') && !u_address.pristine">Address is Required</mat-error>
-              <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
-            </mat-form-field>
-
-            <div class="form-group">
-                <div class="rounded p-6">
-                    <div class="media">
-                        <div class="media-body">
-                            <label class="btn btn-sm btn-outline-primary mb-3 ml-2">
-                                Upload photo
-                                <input type="file" class="d-none" name="u_image" (change)="onChange($event)">
-                            </label>
-                        </div>
-                    </div>
-                </div>
+        <div class="form-group">
+          <div class="rounded p-6">
+            <div class="media">
+              <div class="media-body">
+                <label class="btn btn-sm btn-outline-primary mb-3 ml-2">
+                    Upload photo
+                    <input type="file" class="d-none" name="u_image" (change)="onChange($event)">
+                </label>
+              </div>
             </div>
-            <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add</button>
+          </div>
+        </div>
+        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add</button>
       </form>
     </mat-card-content>
   </mat-card>

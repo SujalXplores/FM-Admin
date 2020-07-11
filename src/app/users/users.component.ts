@@ -10,14 +10,16 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { DialogComponent } from './dialog/dialog.component';
 import { MailUserComponent } from './mail-user/mail-user.component';
 import { NotificationService } from '../notification.service';
-
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
 })
-
 export class UsersComponent implements OnInit {
+  constructor(private notificationService: NotificationService, private _data: UsersdataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
+    this.dataSource = new MatTableDataSource();
+  }
+
   cancleClicked: boolean = false;
   animal: string;
   name: string;
@@ -25,15 +27,9 @@ export class UsersComponent implements OnInit {
   del_arr: string[] = [];
   displayedColumns: string[] = ['select', 'u_name', 'u_type', 'action'];
   dataSource: MatTableDataSource<users>;
-
   selection = new SelectionModel<users>(true, []);
-
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-
-  constructor(private notificationService: NotificationService, private _data: UsersdataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
-    this.dataSource = new MatTableDataSource();
-  }
 
   openDialog(row) {
     this.dialog.open(DialogComponent, {
@@ -41,34 +37,33 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  oncheckboxchange(row: users){
-   if(this.del_arr.find(x => x == row.u_email_id)){
-      this.del_arr.splice(this.del_arr.indexOf(row.u_email_id),1);
-   }
-   else{
-     this.del_arr.push(row.u_email_id);
-   }
- }
+  oncheckboxchange(row: users) {
+    if (this.del_arr.find(x => x == row.u_email_id)) {
+      this.del_arr.splice(this.del_arr.indexOf(row.u_email_id), 1);
+    }
+    else {
+      this.del_arr.push(row.u_email_id);
+    }
+  }
 
- ondeleteallclick(){
-  this._data.deleteall(this.del_arr).subscribe(
-    (data)=>{
-      for(let i=0;i<this.del_arr.length;i++){
-        let x=this.userarr.find(x => x.u_email_id == this.del_arr[i]);
-        this.userarr.splice(this.userarr.indexOf(x), 1);
-        this.dataSource.data = this.userarr;
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+  ondeleteallclick() {
+    this._data.deleteall(this.del_arr).subscribe(
+      (data) => {
+        for (let i = 0; i < this.del_arr.length; i++) {
+          let x = this.userarr.find(x => x.u_email_id == this.del_arr[i]);
+          this.userarr.splice(this.userarr.indexOf(x), 1);
+          this.dataSource.data = this.userarr;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+          this.notificationService.warn('Selected Records Deleted !');
         }
       }
     );
-    this.notificationService.warn('Selected Records Deleted !');
   }
 
   onDelete(item: users) {
     this._data.deleteUsers(item.u_email_id).subscribe(
       (data: any) => {
-        console.log(data);
         this.userarr.splice(this.userarr.indexOf(item), 1);
         this.dataSource.data = this.userarr;
       }
@@ -110,8 +105,8 @@ export class UsersComponent implements OnInit {
   }
 
   OnUserMail(row) {
-    this._dialog.open(MailUserComponent,{
-      data:row
+    this._dialog.open(MailUserComponent, {
+      data: row
     });
   }
 }

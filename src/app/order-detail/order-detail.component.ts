@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -15,20 +15,17 @@ import { NotificationService } from '../notification.service';
   styleUrls: ['./order-detail.component.css'],
 })
 export class OrderDetailComponent implements OnInit {
+  constructor(private notificationService: NotificationService, private _data: OrderDetaildataService, public router: Router, public dialog: MatDialog) {
+    this.dataSource = new MatTableDataSource()
+  }
 
   cancleClicked: boolean = false;
   orderdetailarr: order_detail[] = [];
-  displayedColumns: string[] = ['select', 'pro_name' ,  'qty' ,  'action'];
+  displayedColumns: string[] = ['select', 'pro_name', 'qty', 'action'];
   dataSource: MatTableDataSource<order_detail>;
-
   selection = new SelectionModel<order_detail>(true, []);
-
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-
-  constructor(private notificationService: NotificationService, private _data: OrderDetaildataService, public router: Router, public dialog: MatDialog) {
-    this.dataSource=new MatTableDataSource()
-   }
 
   openDialog(row) {
     this.dialog.open(OrderDetailviewmoreComponent, {
@@ -39,21 +36,20 @@ export class OrderDetailComponent implements OnInit {
   onDelete(item: order_detail) {
     this._data.deleteOrderDetail(item.order_detail_id).subscribe(
       (data: any) => {
-        console.log(data);
         this.orderdetailarr.splice(this.orderdetailarr.indexOf(item), 1);
         this.dataSource.data = this.orderdetailarr;
+        this.notificationService.warn('Selected record deleted !');
       }
     );
-    this.notificationService.warn('Selected record deleted !');
   }
 
   OnOrderDetailEdit(item: order_detail) {
     this.router.navigate(['/nav/editorder', item.order_detail_id]);
   }
 
-  applyFilter(filterValue: string){
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-      if (this.dataSource.paginator){
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
@@ -61,7 +57,6 @@ export class OrderDetailComponent implements OnInit {
   ngOnInit(): void {
     this._data.getAllOrderDetail().subscribe(
       (data: order_detail[]) => {
-        console.log(data);
         this.orderdetailarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;

@@ -3,20 +3,18 @@ import { users } from '../users';
 import { UsersdataService } from '../usersdata.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 @Component({
   selector: 'app-adduser',
   templateUrl: './adduser.component.html',
   styleUrls: ['./adduser.component.css']
 })
 export class AdduserComponent implements OnInit {
-  arrUser: users[] = [];
   constructor(private _snackBar: MatSnackBar, private _userdata: UsersdataService, private _router: Router) { }
+  arrUser: users[] = [];
   selectedFile: File = null;
   value = '';
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   onUesrAdd(f) {
     let fd = new FormData();
@@ -27,16 +25,14 @@ export class AdduserComponent implements OnInit {
     fd.append('u_address', f.value.u_address);
     fd.append('image', this.selectedFile, this.selectedFile.name);
     fd.append('u_type', f.value.u_type);
-
     this._userdata.addUsers(fd).subscribe(
       (data: any[]) => {
         this._router.navigate(['/nav/users']);
-        console.log(data);
       }
     );
   }
 
-  onChange(f){
-    this.selectedFile=<File>f.target.files[0];
+  onChange(f) {
+    this.selectedFile = <File>f.target.files[0];
   }
 }

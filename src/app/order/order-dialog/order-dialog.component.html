@@ -1,32 +1,26 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title>Order Details</mat-card-title>
-          <mat-card-content>
-              <mat-list>
+  <mat-card-title>Order Details</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>Order Amount :{{o_amount | currency:"INR"}}</mat-list-item>
+        <mat-divider></mat-divider>
 
-                <!-- <mat-list-item>Order ID :{{o_id}}</mat-list-item>
-                <mat-divider></mat-divider> -->
+        <mat-list-item>Order Date :{{o_date | date : 'mediumDate'}}</mat-list-item>
+        <mat-divider></mat-divider>
 
-                <mat-list-item>Order Amount :{{o_amount | currency:"INR"}}</mat-list-item>
-                <mat-divider></mat-divider>
+        <mat-list-item>User Email id :{{fk_user_id}}</mat-list-item>
+        <mat-divider></mat-divider>
 
-                <mat-list-item>Order Date :{{o_date | date : 'mediumDate'}}</mat-list-item>
-                <mat-divider></mat-divider>
+        <mat-list-item>Payment Type  :{{pay_type | uppercase}}</mat-list-item>
+        <mat-divider></mat-divider>
 
-                <mat-list-item>User Email id :{{fk_user_id}}</mat-list-item>
-                <mat-divider></mat-divider>
-
-                <mat-list-item>Payment Type  :{{pay_type | uppercase}}</mat-list-item>
-                <mat-divider></mat-divider>
-
-                <mat-list-item>Order Status  :{{o_status | titlecase}}</mat-list-item>
-                <mat-divider></mat-divider>
-
-              </mat-list>
-
-              <div mat-dialog-actions>
-                <button mat-button (click)="onCancelClick()">Close</button>
-              </div>
-      </mat-card-content>
+        <mat-list-item>Order Status  :{{o_status | titlecase}}</mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+      <div mat-dialog-actions>
+        <button mat-button (click)="onCancelClick()">Close</button>
+      </div>
+    </mat-card-content>
   </mat-card>
 </section>

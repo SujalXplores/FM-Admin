@@ -1,36 +1,41 @@
 .example-form {
-width:100%;
+  width: 100%;
 }
+
 .example-full-width {
-width: 95%;
-margin-top: 10px;
-margin-left:10px;
+  width: 95%;
+  margin-top: 10px;
+  margin-left: 10px;
 }
-.hint
-{
-color: red;
-font-size: 11px;
-font-weight: bolder;
+
+.hint {
+  color: red;
+  font-size: 11px;
+  font-weight: bolder;
 }
-.label
-{
-color: red;
-font-size: 14px;
-font-weight: bolder;
+
+.label {
+  color: red;
+  font-size: 14px;
+  font-weight: bolder;
 }
+
 mat-icon {
-font-size: 26px !important;
+  font-size: 26px !important;
 }
-mat-label{
-color: darkblue;
+
+mat-label {
+  color: darkblue;
 }
-.pPassword,.pPassword:focus{
-background-color:transparent;
-outline: 0 none !important;
-border: 0;
-height: 0;
-outline-style: none;
+
+.pPassword,.pPassword:focus {
+  background-color: transparent;
+  outline: 0 none !important;
+  border: 0;
+  height: 0;
+  outline-style: none;
 }
-.img{
-cursor: pointer;
+
+.img {
+  cursor: pointer;
 }

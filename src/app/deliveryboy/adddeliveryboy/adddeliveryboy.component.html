@@ -6,10 +6,6 @@
       <mat-card-content>
         <form class="example-form" (ngSubmit)="onDeliveryboyAdd(f)" #f="ngForm">
 
-          <!-- <mat-form-field class="example-full-width" appearance="outline">
-            <input readonly ngModel name="deliveryboy_id" #deliveryboy_id="ngModel" matInput type="number" placeholder="Valet ID assigned Automatically">
-          </mat-form-field> -->
-
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Name</mat-label>
             <input appAutoFocus required pattern="[a-z A-Z]*" ngModel name="deliveryboy_name" #deliveryboy_name="ngModel" matInput type="text" placeholder="Enter Valet Name">
@@ -62,8 +58,8 @@
             </div>
         </div>
 
-          <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Hire</button>
-        </form>
-      </mat-card-content>
-    </mat-card>
+        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Save</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </section>

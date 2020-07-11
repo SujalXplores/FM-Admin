@@ -1,23 +1,20 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { order } from '../order';
-
 @Component({
   selector: 'app-order-dialog',
   templateUrl: './order-dialog.component.html',
   styleUrls: ['./order-dialog.component.css']
 })
 export class OrderDialogComponent implements OnInit {
+  constructor(public dialogRef: MatDialogRef<OrderDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: order) { }
 
-  constructor(public dialogRef: MatDialogRef<OrderDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: order) { }
-
-   o_id: number;
-   o_amount: number;
-   o_date: Date;
-   fk_user_id: string;
-   pay_type: string;
-   o_status: string;
+  o_id: number;
+  o_amount: number;
+  o_date: Date;
+  fk_user_id: string;
+  pay_type: string;
+  o_status: string;
 
   ngOnInit() {
     this.o_id = this.data.order_id;
@@ -31,5 +28,4 @@ export class OrderDialogComponent implements OnInit {
   onCancelClick() {
     this.dialogRef.close();
   }
-
 }
