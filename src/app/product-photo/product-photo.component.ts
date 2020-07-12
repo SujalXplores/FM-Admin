@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 import { ProductPhotodataService } from './product-photodata.service';
 import { ViewMoreProductPhotoComponent } from './view-more-product-photo/view-more-product-photo.component';
 import { NotificationService } from '../notification.service';
-
 @Component({
   selector: 'app-product-photo',
   templateUrl: './product-photo.component.html',
@@ -17,20 +16,17 @@ import { NotificationService } from '../notification.service';
   animations: [],
 })
 export class ProductPhotoComponent implements OnInit {
+  constructor(private notificationService: NotificationService, private _data: ProductPhotodataService, public router: Router, public dialog: MatDialog) {
+    this.dataSource = new MatTableDataSource();
+  }
 
   cancleClicked: boolean = false;
   productarr: product_photo[] = [];
   displayedColumns: string[] = ['select', 'fk_pro_id', 'action'];
   dataSource: MatTableDataSource<product_photo>;
-
   selection = new SelectionModel<product_photo>(true, []);
-
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-
-  constructor(private notificationService: NotificationService,private _data: ProductPhotodataService, public router: Router, public dialog: MatDialog) {
-    this.dataSource = new MatTableDataSource();
-  }
 
   openDialog(row) {
     this.dialog.open(ViewMoreProductPhotoComponent, {
@@ -41,12 +37,11 @@ export class ProductPhotoComponent implements OnInit {
   onDelete(item: product_photo) {
     this._data.deleteProductPhoto(item.pro_photo_id).subscribe(
       (data: any) => {
-        console.log(data);
         this.productarr.splice(this.productarr.indexOf(item), 1);
         this.dataSource.data = this.productarr;
+        this.notificationService.warn('Photo has been deleted !');
       }
     );
-    this.notificationService.warn('Photo has been deleted !');
   }
 
   OnProductEdit(item: product_photo) {
@@ -54,8 +49,8 @@ export class ProductPhotoComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-      if (this.dataSource.paginator) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
@@ -63,7 +58,6 @@ export class ProductPhotoComponent implements OnInit {
   ngOnInit() {
     this._data.getAllProductPhoto().subscribe(
       (data: product_photo[]) => {
-        console.log(data);
         this.productarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;

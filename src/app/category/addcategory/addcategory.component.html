@@ -1,20 +1,17 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center" class="mt-5">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title align="center">Add Category</mat-card-title>
-      <mat-card-content>
-        <form class="example-form" (ngSubmit)="onCategoryAdd(f)" #f="ngForm">
-
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Enter Category Name</mat-label>
-            <input required pattern="[a-z A-Z]*" ngModel name="c_name" #focus #c_name="ngModel" matInput type="text" placeholder="e.g. (Eyecare, Skincare)">
-            <mat-icon class="material-icons-outlined" matSuffix>edit</mat-icon>
-            <mat-hint class="hint" *ngIf="c_name.hasError('required') && !c_name.pristine">Required</mat-hint>
-            <mat-hint class="hint" *ngIf="c_name.hasError('pattern') && !c_name.pristine">Only Letters</mat-hint>
-          </mat-form-field>
-
-          <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add</button>
-
-        </form>
-      </mat-card-content>
-    </mat-card>
+    <mat-card-title align="center">Add Category</mat-card-title>
+    <mat-card-content>
+      <form class="example-form" (ngSubmit)="onCategoryAdd(f)" #f="ngForm">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Enter Category Name</mat-label>
+          <input required pattern="[a-z A-Z]*" ngModel name="c_name" #focus #c_name="ngModel" matInput type="text" placeholder="e.g. (Eyecare, Skincare)">
+          <mat-icon class="material-icons-outlined" matSuffix>edit</mat-icon>
+          <mat-hint class="hint" *ngIf="c_name.hasError('required') && !c_name.pristine">Required</mat-hint>
+          <mat-hint class="hint" *ngIf="c_name.hasError('pattern') && !c_name.pristine">Only Letters</mat-hint>
+        </mat-form-field>
+        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </section>

@@ -1,6 +1,7 @@
 <div class="grid-container">
   <h1 class="mat-h1">Product Photo</h1>
 </div>
+
 <mat-progress-bar *ngIf="productarr.length<0" color="warn" mode="indeterminate"></mat-progress-bar>
 
 <mat-form-field class="filterClass" appearance="fill">
@@ -11,60 +12,59 @@
 
 <button routerLink='/nav/addProductphoto' mat-raised-button matTooltip="Add Product Photo" color="primary" class="addbutton">
   <mat-icon>add</mat-icon>
-  <span>Add</span>
+  <span>New</span>
 </button>
 
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
 
-      <ng-container matColumnDef="select">
-        <th mat-header-cell *matHeaderCellDef>Select</th>
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>Select</th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
 
-        <td mat-cell *matCellDef="let row">
-          <mat-checkbox (click)="$event.stopPropagation()"
-                        (change)="$event ? selection.toggle(row) : null"
-                        [checked]="selection.isSelected(row)">
-          </mat-checkbox>
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="pro_photo_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.pro_photo_id}} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="pro_photo_id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{row.pro_photo_id}} </td>
-      </ng-container>
+    <ng-container matColumnDef="fk_pro_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.pro_name | titlecase}} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="fk_pro_id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.pro_name | titlecase}} </td>
-      </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Details </th>
+      <td mat-cell *matCellDef="let row">
+        <button (click)="openDialog(row)"  matTooltip="View more" mat-icon-button style="color: blue">
+          <mat-icon>launch</mat-icon>
+        </button>
+        <button 
+          mwlConfirmationPopover 
+          popoverTitle="Record Delete Confirmation"
+          popoverMessage="Do you really want to delete?"
+          placement="left"
+          (confirm)="onDelete(row)"
+          (cancel)="cancleClicked = true"
+          matTooltip="Delete" 
+          mat-icon-button 
+          color="warn">
+          <mat-icon>delete_outlined</mat-icon>
+        </button>
+        <button (click)="OnProductEdit(row)"  matTooltip="Edit" mat-icon-button>
+          <mat-icon>edit_outlined</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Details </th>
-        <td mat-cell *matCellDef="let row">
-          <button (click)="openDialog(row)"  matTooltip="View more" mat-icon-button style="color: blue">
-            <mat-icon>launch</mat-icon>
-          </button>
-          <button 
-            mwlConfirmationPopover 
-            popoverTitle="Record Delete Confirmation"
-            popoverMessage="Do you really want to delete?"
-            placement="left"
-            (confirm)="onDelete(row)"
-            (cancel)="cancleClicked = true"
-            matTooltip="Delete" 
-            mat-icon-button 
-            color="warn">
-            <mat-icon>delete_outlined</mat-icon>
-          </button>
-          <button (click)="OnProductEdit(row)"  matTooltip="Edit" mat-icon-button>
-            <mat-icon>edit_outlined</mat-icon>
-          </button>
-        </td>
-      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
 
-       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-       <tr mat-row *matRowDef="let row; columns: displayedColumns;">
-
-    </table>
-    <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
 </div>

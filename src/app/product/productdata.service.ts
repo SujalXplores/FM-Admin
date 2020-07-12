@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { product } from './product';
-
 @Injectable({
   providedIn: 'root'
 })
 export class ProductdataService {
+  constructor(private http: HttpClient) { }
 
   url: string = 'http://localhost:3000/product/';
   photo_url: string = 'http://localhost:3000/pro_photo/';
-  deleteurl: string= 'http://localhost:3000/productdelete/';
-  constructor(private http: HttpClient) { }
+  deleteurl: string = 'http://localhost:3000/productdelete/';
 
   deleteall(item: number[]) {
     let body = JSON.stringify(item);
-     let x = new HttpHeaders().set('Content-Type', 'application/json');
-     return this.http.post(this.deleteurl , body , {headers: x} );
+    let x = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post(this.deleteurl, body, { headers: x });
   }
 
   getAllProducts() {
@@ -29,22 +28,22 @@ export class ProductdataService {
   addProduct(item: product) {
     let body = JSON.stringify(item);
     let x = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(this.url, body, {headers: x});
+    return this.http.post(this.url, body, { headers: x });
   }
 
   deleteProduct(pro_id: number) {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.delete(this.url + pro_id, {headers: x});
+    return this.http.delete(this.url + pro_id, { headers: x });
   }
 
   editProduct(pro_id: number) {
     let x = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.get(this.url + pro_id, {headers: x});
+    return this.http.get(this.url + pro_id, { headers: x });
   }
 
-  updateProduct(pro_id: number,item: product) {
+  updateProduct(pro_id: number, item: product) {
     let body = JSON.stringify(item);
     let x = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.put(this.url + pro_id, body , {headers: x} );
+    return this.http.put(this.url + pro_id, body, { headers: x });
   }
 }

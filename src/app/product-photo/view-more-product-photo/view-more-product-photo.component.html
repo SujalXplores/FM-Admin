@@ -1,25 +1,19 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center">
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title>Product Details</mat-card-title>
-      <mat-card-subtitle>Product ID: #{{fk_product_id}}</mat-card-subtitle>
-          <mat-card-content>
-              <mat-list>
-                <!-- <mat-list-item>Product Photo ID :{{product_photo_id}}</mat-list-item>
-                <mat-divider></mat-divider> -->
+    <mat-card-title>Product Details</mat-card-title>
+    <mat-card-subtitle>Product ID: #{{fk_product_id}}</mat-card-subtitle>
+      <mat-card-content>
 
-                <!-- <mat-list-item>Product ID :{{fk_product_id}}</mat-list-item>
-                <mat-divider></mat-divider> -->
+      <mat-list>
+        <mat-list-item style="height: 100px;">
+        Preview :
+        <img height="80" width="80" src="http://localhost:3000/images/product_photos/{{pro_photo}}"></mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
 
-                <mat-list-item style="height: 100px;">
-                Preview :
-                <img height="80" width="80" src="http://localhost:3000/images/product_photos/{{pro_photo}}"></mat-list-item>
-                <mat-divider></mat-divider>
-              </mat-list>
-
-              <div mat-dialog-actions>
-                <button mat-button (click)="onCancelClick()">Close</button>
-              </div>
-
-      </mat-card-content>
+      <div mat-dialog-actions>
+        <button mat-button (click)="onCancelClick()">Close</button>
+      </div>
+    </mat-card-content>
   </mat-card>
 </section>

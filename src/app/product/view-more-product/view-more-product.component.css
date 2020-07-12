@@ -1,18 +1,22 @@
 .example-form {
-    width:100%;
-  }
+  width: 100%;
+}
+
 .example-full-width {
   width: 95%;
   margin-top: 10px;
-  margin-left:10px;
+  margin-left: 10px;
 }
+
 mat-list-item {
   height: 100%;
 }
+
 img {
   border-radius: 50%;
   margin-left: 2px;
 }
-section{
+
+section {
   overflow: hidden;
 }

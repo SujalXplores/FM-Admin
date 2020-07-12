@@ -2,35 +2,41 @@ button {
   outline: none !important;
   border: 0 !important;
 }
+
 table {
   width: 100%;
 }
+
 .mat-form-field {
   font-size: 16px;
   width: 100%;
 }
-td, th {
+
+td,th {
   width: 15%;
 }
+
 .addbutton {
   margin-top: 10px;
   margin-right: 10px;
   float: right;
 }
+
 .deletebutton {
   margin-top: 10px;
   margin-right: 10px;
   float: right;
 }
+
 .mat-elevation-z8 {
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .filterClass {
   margin-left: 10px;
   width: 50%;
 }
-
 
 tr.example-detail-row {
   height: 0;
@@ -62,21 +68,21 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .customer-badge {
   border-radius: 2px;
-  padding: .25em .5em;
+  padding: 0.25em 0.5em;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 12px;
-  letter-spacing: .3px;
+  letter-spacing: 0.3px;
 }
 
 .status-user {
-  background-color: #C8E6C9;
+  background-color: #c8e6c9;
   color: #256029;
 }
 
 .status-admin {
-  background-color: #FFCDD2;
-  color: #C63737;
+  background-color: #ffcdd2;
+  color: #c63737;
 }
 
 .grid-container {

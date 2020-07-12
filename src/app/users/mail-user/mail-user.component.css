@@ -1,33 +1,31 @@
 .example-full-width {
-width: 100%;
+  width: 100%;
 }
 section {
-overflow: hidden;
+  overflow: hidden;
 }
 .customer-badge {
-border-radius: 2px;
-padding: .25em .5em;
-text-transform: uppercase;
-font-weight: 700;
-font-size: 12px;
-letter-spacing: .3px;
+  border-radius: 2px;
+  padding: 0.25em 0.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
 }
-
 .status-user {
-background-color: #C8E6C9;
-color: #256029;
+  background-color: #c8e6c9;
+  color: #256029;
 }
-
 .status-admin {
-background-color: #FFCDD2;
-color: #C63737;
+  background-color: #ffcdd2;
+  color: #c63737;
 }
 .example-header-image {
-background-size: cover;
+  background-size: cover;
 }
-.gmail{
-float: right;
-margin-left: auto;
-width: 50px;
-height: 50px;
+.gmail {
+  float: right;
+  margin-left: auto;
+  width: 50px;
+  height: 50px;
 }

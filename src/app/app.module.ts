@@ -48,15 +48,9 @@ import { EditorderComponent } from './order/editorder/editorder.component';
 import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
 import { AdddeliveryboyComponent } from './deliveryboy/adddeliveryboy/adddeliveryboy.component';
 import { EditdeliveryboyComponent } from './deliveryboy/editdeliveryboy/editdeliveryboy.component';
-import { CartComponent } from './cart/cart.component';
-import { AddcartComponent } from './cart/addcart/addcart.component';
-import { EditcartComponent } from './cart/editcart/editcart.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { HomeComponent } from './home/home.component';
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
-import { CartDetailsComponent } from './cart-details/cart-details.component';
-import { AddcartdetailComponent } from './cart-details/addcartdetail/addcartdetail.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogComponent } from './users/dialog/dialog.component';
 import { ViewMoreProductComponent } from './product/view-more-product/view-more-product.component';
@@ -64,7 +58,6 @@ import { OrderDialogComponent } from './order/order-dialog/order-dialog.componen
 import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { ViewMoreProductPhotoComponent } from './product-photo/view-more-product-photo/view-more-product-photo.component';
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
-import { CalenderComponent } from './calender/calender.component';
 import { ExitDialogComponent } from './main-nav/exit-dialog/exit-dialog.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 import { ValetMailComponent } from './deliveryboy/valet-mail/valet-mail.component';
@@ -88,12 +81,13 @@ import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.comp
 import { ViewMoreComponent } from './deliverydetail/view-more/view-more.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { ChartsModule } from '@progress/kendo-angular-charts';
-import 'hammerjs';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
-import { PrescriptionComponent } from './prescription/prescription.component';
 import { PasswordModule } from 'primeng/password';
 import { EdituserimageComponent } from './users/edituserimage/edituserimage.component';
+import { KeyFilterModule } from 'primeng/keyfilter';
+
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -115,19 +109,12 @@ import { EdituserimageComponent } from './users/edituserimage/edituserimage.comp
     DeliveryboyComponent,
     AdddeliveryboyComponent,
     EditdeliveryboyComponent,
-    CartComponent,
-    AddcartComponent,
-    EditcartComponent,
-    HomeComponent,
-    CartDetailsComponent,
-    AddcartdetailComponent,
     DialogComponent,
     ViewMoreProductComponent,
     OrderDialogComponent,
     ProductPhotoComponent,
     ViewMoreProductPhotoComponent,
     AddproductPhotoComponent,
-    CalenderComponent,
     ExitDialogComponent,
     EditproductPhotoComponent,
     ValetMailComponent,
@@ -146,7 +133,6 @@ import { EdituserimageComponent } from './users/edituserimage/edituserimage.comp
     TrackingdisplayComponent,
     ViewMoreComponent,
     PdfTableComponent,
-    PrescriptionComponent,
     EdituserimageComponent,
   ],
   imports: [
@@ -196,6 +182,7 @@ import { EdituserimageComponent } from './users/edituserimage/edituserimage.comp
     }),
     ChartsModule,
     PDFExportModule,
+    KeyFilterModule
   ],
   entryComponents: [
     DialogComponent,

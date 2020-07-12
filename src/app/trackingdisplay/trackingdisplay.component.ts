@@ -7,33 +7,28 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { TrackdataService } from './trackdata.service';
 import { NotificationService } from '../notification.service';
-
 @Component({
   selector: 'app-trackingdisplay',
   templateUrl: './trackingdisplay.component.html',
   styleUrls: ['./trackingdisplay.component.css']
 })
 export class TrackingdisplayComponent implements OnInit {
-
-  cancleClicked: boolean = false;
-  trackingarr: tracking[] = [];
-  del_arr: number[] = [];
-  displayedColumns: string[] = ['track_id' , 'fk_detail_id', 'status', 'action'];
-  dataSource: MatTableDataSource<tracking>;
-
-  selection = new SelectionModel<tracking>(true, []);
-
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-
   constructor(private notificationService: NotificationService, private _trackdata: TrackdataService, public _router: Router) {
     this.dataSource = new MatTableDataSource();
   }
 
+  cancleClicked: boolean = false;
+  trackingarr: tracking[] = [];
+  del_arr: number[] = [];
+  displayedColumns: string[] = ['track_id', 'fk_detail_id', 'status', 'action'];
+  dataSource: MatTableDataSource<tracking>;
+  selection = new SelectionModel<tracking>(true, []);
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
   ngOnInit(): void {
     this._trackdata.getAllTrack().subscribe(
       (data: tracking[]) => {
-        console.log(data[0])
         this.trackingarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
@@ -52,19 +47,16 @@ export class TrackingdisplayComponent implements OnInit {
   }
 
   ontrackadd() {
-    console.log("done");
     this._router.navigate(['/nav/addtrack']);
   }
 
   onDeleteAllClick() {
     this._trackdata.deleteAll(this.del_arr).subscribe(
       (data) => {
-        console.log(data);
         for (let i = 0; i < this.del_arr.length; i++) {
           let x = this.trackingarr.find(x => x.track_id == this.del_arr[i]);
           this.trackingarr.splice(this.trackingarr.indexOf(x), 1);
           this.dataSource.data = this.trackingarr;
-          console.log(this.dataSource.data);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
         }
@@ -72,19 +64,14 @@ export class TrackingdisplayComponent implements OnInit {
     );
   }
 
-  // OnTrackingEdit(track_id){
-  //   console.log(track_id);
-  //   this._router.navigate(['/nav/edittrack',track_id]);
-  // }
-
-  onDelete(row){
+  onDelete(row) {
     this._trackdata.deleteTrack(row.track_id).subscribe(
       (data: any) => {
         this.trackingarr.splice(this.trackingarr.indexOf(row), 1);
         this.dataSource.data = this.trackingarr;
+        this.notificationService.warn('Selected Records Deleted !');
       }
     );
-    this.notificationService.warn('Selected Records Deleted !');
   }
 
   applyFilter(filterValue: string) {

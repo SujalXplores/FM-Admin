@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +11,6 @@ export class LogindataService {
   login(obj) {
     const body = JSON.stringify(obj);
     const head = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(this.url, body, {headers: head});
+    return this.http.post(this.url, body, { headers: head });
   }
 }

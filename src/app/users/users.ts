@@ -1,5 +1,4 @@
 export class users {
-
   public constructor(
     public u_email_id: string,
     public u_name: string,
