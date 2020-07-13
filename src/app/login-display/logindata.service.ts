@@ -4,9 +4,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LogindataService {
+  constructor(private http: HttpClient) { }
 
   url: string = 'http://localhost:3000/login/';
-  constructor(private http: HttpClient) { }
 
   login(obj) {
     const body = JSON.stringify(obj);

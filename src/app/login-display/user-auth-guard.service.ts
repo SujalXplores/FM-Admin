@@ -5,6 +5,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivate } from
 })
 export class UserAuthGuardService implements CanActivate {
   constructor(private _router: Router) { }
+
   canActivate(_active: ActivatedRouteSnapshot, _state: RouterStateSnapshot): boolean {
     if (localStorage.getItem('u_email_id') != null) {
       return true;

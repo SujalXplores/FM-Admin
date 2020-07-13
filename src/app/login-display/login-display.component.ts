@@ -11,6 +11,7 @@ import { NotificationService } from '../notification.service';
 })
 export class LoginDisplayComponent implements OnInit {
   constructor(private notificationService: NotificationService, private _router: Router, private _logindata: LogindataService) { }
+
   loginForm: FormGroup;
   hide: boolean = true;
 
