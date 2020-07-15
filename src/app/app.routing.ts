@@ -29,7 +29,6 @@ import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.component';
 import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
-import { PrescriptionComponent } from './prescription/prescription.component';
 import { EdituserimageComponent } from './users/edituserimage/edituserimage.component';
 
 const arr: Routes = [
@@ -38,39 +37,36 @@ const arr: Routes = [
     canActivate: [UserAuthGuardService],
     component: MainNavComponent,
     children: [
-      {path: '', component: DashboardComponent},
-      {path: 'users', component: UsersComponent},
-      {path: 'addUser', component: AdduserComponent},
-      {path: 'edituser/:u_email_id', component: EdituserComponent},
-      {path: 'edituserimage/:u_email_id', component: EdituserimageComponent},
-      {path: 'product', component: ProductComponent},
-      {path: 'addProduct', component: AddproductComponent},
-      {path: 'editproduct/:pro_id', component: EditproductComponent},
-      {path: 'product_photo', component: ProductPhotoComponent},
-      {path: 'editproduct_photo/:pro_photo_id', component: EditproductPhotoComponent},
-      {path: 'addProductphoto', component: AddproductPhotoComponent},
-      {path: 'category', component: CategoryComponent},
-      {path: 'addcategory', component: AddcategoryComponent},
-      {path: 'editcategory/:c_id', component: EditCategoryComponent},
-      {path: 'order', component: OrderComponent},
-      {path: 'addOrder', component: AddorderComponent},
-      {path: 'editorder/:order_id', component: EditorderComponent},
-      {path: 'order_detail', component: OrderDetailComponent},
-      {path: 'ordermore/:order_id', component: MultipleOrderDisplayComponentComponent},
-      {path: 'deliveryboy', component: DeliveryboyComponent},
-      {path: 'deliverdetails', component: DeliverydetailComponent},
-      {path: 'addassignedorders', component: AddAssignedOrdersComponent},
-      {path: 'adddeliveryboy', component: AdddeliveryboyComponent},
-      {path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent},
-      {path: 'trackingdisplay', component: TrackingdisplayComponent},
-      {path: 'pdfProduct', component: PdfTableComponent},
-      {path: 'prescription', component: PrescriptionComponent},
-  ]
+      { path: '', component: DashboardComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'addUser', component: AdduserComponent },
+      { path: 'edituser/:u_email_id', component: EdituserComponent },
+      { path: 'edituserimage/:u_email_id', component: EdituserimageComponent },
+      { path: 'product', component: ProductComponent },
+      { path: 'addProduct', component: AddproductComponent },
+      { path: 'editproduct/:pro_id', component: EditproductComponent },
+      { path: 'product_photo', component: ProductPhotoComponent },
+      { path: 'editproduct_photo/:pro_photo_id', component: EditproductPhotoComponent },
+      { path: 'addProductphoto', component: AddproductPhotoComponent },
+      { path: 'category', component: CategoryComponent },
+      { path: 'addcategory', component: AddcategoryComponent },
+      { path: 'editcategory/:c_id', component: EditCategoryComponent },
+      { path: 'order', component: OrderComponent },
+      { path: 'addOrder', component: AddorderComponent },
+      { path: 'editorder/:order_id', component: EditorderComponent },
+      { path: 'order_detail', component: OrderDetailComponent },
+      { path: 'ordermore/:order_id', component: MultipleOrderDisplayComponentComponent },
+      { path: 'deliveryboy', component: DeliveryboyComponent },
+      { path: 'deliverdetails', component: DeliverydetailComponent },
+      { path: 'addassignedorders', component: AddAssignedOrdersComponent },
+      { path: 'adddeliveryboy', component: AdddeliveryboyComponent },
+      { path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent },
+      { path: 'trackingdisplay', component: TrackingdisplayComponent },
+      { path: 'pdfProduct', component: PdfTableComponent },
+    ]
   },
-  {path: 'forgotPass', component: ForgotPasswordComponent},
-  {path: 'pagenotfound', component: PagenotfoundComponent},
-  {path: '**', redirectTo: '/pagenotfound'}
-
+  { path: 'forgotPass', component: ForgotPasswordComponent },
+  { path: 'pagenotfound', component: PagenotfoundComponent },
+  { path: '**', redirectTo: '/pagenotfound' }
 ];
-
 export const routingArr = RouterModule.forRoot(arr);

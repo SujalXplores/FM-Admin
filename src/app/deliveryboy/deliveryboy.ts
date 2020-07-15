@@ -1,5 +1,4 @@
 export class deliveryboy {
-
   public constructor(
     public deliveryboy_id: number,
     public deliveryboy_name: string,
@@ -8,5 +7,5 @@ export class deliveryboy {
     public deliveryboy_email: string,
     public password: string,
     public img: string,
-  ) {}
+  ) { }
 }

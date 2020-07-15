@@ -1,92 +1,99 @@
 mat-icon {
-border: 0 !important;
-outline: none !important;
+  border: 0 !important;
+  outline: none !important;
 }
+
 table {
-width: 100%;
+  width: 100%;
 }
+
 .mat-form-field {
-font-size: 16px;
-width: 100%;
+  font-size: 16px;
+  width: 100%;
 }
-td, th {
-width: 15%;
+
+td,th {
+  width: 15%;
 }
+
 .addbutton {
-margin-top: 10px;
-margin-right: 10px;
-float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  float: right;
 }
+
 .mat-elevation-z8 {
-margin-left: 10px;
-margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
+
 .filterClass {
-margin-left: 10px;
-width: 50%;
+  margin-left: 10px;
+  width: 50%;
 }
+
 .grid-container {
-margin: 20px;
+  margin: 20px;
 }
-
-
 
 tr.example-detail-row {
-height: 0;
+  height: 0;
 }
 
 tr.example-element-row:not(.example-expanded-row):hover {
-background: #777;
+  background: #777;
 }
 
 tr.example-element-row:not(.example-expanded-row):active {
-background: #efefef;
+  background: #efefef;
 }
 
 .example-element-row td {
-border-bottom-width: 0;
+  border-bottom-width: 0;
 }
 
 .example-element-detail {
-overflow: hidden;
-display: flex;
+  overflow: hidden;
+  display: flex;
 }
 
 .example-element-diagram {
-min-width: 80px;
-border: 2px solid black;
-padding: 8px;
-font-weight: lighter;
-margin: 8px;
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px;
 }
 
 .status-delivered {
-background-color: #C8E6C9;
-color: #256029;
-border-radius: 2px;
-padding: .25em .5em;
-text-transform: uppercase;
-font-weight: 700;
-font-size: 12px;
-letter-spacing: .3px;
+  background-color: #c8e6c9;
+  color: #256029;
+  border-radius: 2px;
+  padding: 0.25em 0.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
 }
-.status-ontheway{
-background-color: #ECCFFF;
-color: #694382;
-border-radius: 2px;
-padding: .25em .5em;
-text-transform: uppercase;
-font-weight: 700;
-font-size: 12px;
-letter-spacing: .3px;
+
+.status-ontheway {
+  background-color: #eccfff;
+  color: #694382;
+  border-radius: 2px;
+  padding: 0.25em 0.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
 }
+
 .status-packing {
-background-color: #FFCDD2;
-color: #C63737;
-border-radius: 2px;
-padding: .25em .5em;
-text-transform: uppercase;
-font-weight: 700;
-font-size: 12px;
-letter-spacing: .3px;
+  background-color: #ffcdd2;
+  color: #c63737;
+  border-radius: 2px;
+  padding: 0.25em 0.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
 }

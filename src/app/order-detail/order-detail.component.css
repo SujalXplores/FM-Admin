@@ -2,34 +2,39 @@ mat-icon {
   border: 0 !important;
   outline: none !important;
 }
+
 table {
   width: 100%;
 }
+
 .mat-form-field {
   font-size: 16px;
   width: 100%;
 }
-td, th {
+
+td,th {
   width: 15%;
 }
+
 .addbutton {
   margin-top: 10px;
   margin-right: 10px;
   float: right;
 }
+
 .mat-elevation-z8 {
   margin-left: 10px;
   margin-right: 10px;
 }
+
 .filterClass {
   margin-left: 10px;
   width: 50%;
 }
+
 .grid-container {
   margin: 20px;
 }
-
-
 
 tr.example-detail-row {
   height: 0;

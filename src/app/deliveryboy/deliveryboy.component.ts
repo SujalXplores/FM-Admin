@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { deliveryboy } from './deliveryboy';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -28,14 +28,13 @@ export class DeliveryboyComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private notificationService: NotificationService, private _data: DeliveryboydataService, public _dialog: MatDialog, private _router: Router,public dialog: MatDialog) {
+  constructor(private notificationService: NotificationService, private _data: DeliveryboydataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
   onDelete(item: deliveryboy) {
     this._data.deleteDeliveryboy(item.deliveryboy_id).subscribe(
       (data: any) => {
-        console.log(data);
         this.deliveryboyarr.splice(this.deliveryboyarr.indexOf(item), 1);
         this.dataSource.data = this.deliveryboyarr;
       }
@@ -79,8 +78,8 @@ export class DeliveryboyComponent implements OnInit {
   }
 
   OnDeliveryboyMail(row) {
-    this._dialog.open(ValetMailComponent,{
-      data:row
+    this._dialog.open(ValetMailComponent, {
+      data: row
     });
   }
 

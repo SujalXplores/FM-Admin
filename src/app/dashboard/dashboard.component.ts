@@ -2,19 +2,15 @@ import { Component, ViewChild, ElementRef } from "@angular/core";
 import { DashboarddataService } from "./dashboarddata.service";
 import { IntlService } from '@progress/kendo-angular-intl';
 import { LegendLabelsContentArgs } from '@progress/kendo-angular-charts';
-
-declare var require: any;
-var dateFormat = require('dateformat');
 var now = new Date();
-
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
   styleUrls: ["./dashboard.component.css"],
 })
 export class DashboardComponent {
-  @ViewChild('resizedDiv') resizedDiv:ElementRef;
-  constructor(public _data: DashboarddataService , private intl: IntlService) {
+  @ViewChild('resizedDiv') resizedDiv: ElementRef;
+  constructor(public _data: DashboarddataService, private intl: IntlService) {
     this.labelContent1 = this.labelContent1.bind(this);
   }
 
@@ -30,13 +26,13 @@ export class DashboardComponent {
   public Cash_On_Dlivery_Amount: number = 0;
 
   public revenue: any[] = [];
-  public total_order: any [] = [];
-  public customers: any [] = [];
-  public delivery_partners: any [] = [];
+  public total_order: any[] = [];
+  public customers: any[] = [];
+  public delivery_partners: any[] = [];
 
   public type_data: any[] = [];
-  public type: any [] = [];
-  public count: any [] = [];
+  public type: any[] = [];
+  public count: any[] = [];
 
   public monthOrderCount: any[] = [];
   public orderData: any[] = [];
@@ -48,9 +44,7 @@ export class DashboardComponent {
   yearArray = [];
 
   public DonutData: any[] = [];
-
   public pieData: any[] = [];
-
   public labelContent(e: any): string {
     return e.category;
   }
@@ -60,7 +54,6 @@ export class DashboardComponent {
     for (let y = this.startyr; y <= this.currentYear; y++) {
       this.yearArray.push(y);
     }
-    console.log(this.yearArray);
     this._data.getRevenue().subscribe((data2: any[]) => {
       this.revenue = data2[0].revenue;
     });
@@ -79,15 +72,13 @@ export class DashboardComponent {
 
     this._data.getTopOrder().subscribe((data1: any[]) => {
       this.bill_data = data1;
-      for(let i = 0; i < data1.length; i++) {
+      for (let i = 0; i < data1.length; i++) {
         this.bill_data_display.push(this.bill_data[i].total);
         this.bill_data_name_display.push(this.bill_data[i].pro_name);
       }
     });
 
     this._data.getInvoiceByMode("cod").subscribe((data: any) => {
-      console.log("COD="+data.value);
-      console.log(data[0].total);
       if (data[0].total) {
         this.Cash_On_Dlivery_Amount = data[0].total;
       } else {
@@ -96,8 +87,6 @@ export class DashboardComponent {
     });
 
     this._data.getInvoiceByMode("paypal").subscribe((data: any) => {
-      console.log("Paypal="+data.value);
-      console.log(data[0].total);
       if (data[0].total) {
         this.paypalAmount = data[0].total;
       } else {
@@ -112,7 +101,6 @@ export class DashboardComponent {
 
     this._data.getStatus().subscribe((data3: any[]) => {
       this.DonutData = data3;
-      console.log(this.DonutData);
       for (let i = 0; i < data3.length; i++) {
         this.pieData = [
           { category: 'Delivered', value: this.DonutData[i].Delivered },
@@ -128,10 +116,8 @@ export class DashboardComponent {
   }
 
   public onYearChange(): void {
-    console.log(this.selectedYear);
     this._data.getAllorder(this.selectedYear).subscribe((data1: any[]) => {
       this.monthOrderCount = data1;
-      console.log(this.monthOrderCount);
       for (let j = 0; j < data1.length; j++) {
         this.orderData.push(this.monthOrderCount[j].COUNT);
       }

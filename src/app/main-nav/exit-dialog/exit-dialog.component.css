@@ -2,12 +2,14 @@ mat-card-title {
   font-weight: normal;
   text-align: center;
 }
-button[type=button] {
+
+button[type="button"] {
   margin: 10px;
   border: 0;
   outline: 0;
   width: 40%;
 }
+
 .alert {
   margin-left: 30%;
   font-size: 50px;

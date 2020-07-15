@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DeliverydetailsdataService } from './deliverydetailsdata.service';
 import { ViewMoreComponent } from './view-more/view-more.component';
-
 @Component({
   selector: 'app-deliverydetail',
   templateUrl: './deliverydetail.component.html',
@@ -29,7 +28,6 @@ export class DeliverydetailComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this._data.getAllAssignOrders().subscribe(
       (data: OrderBoyAssign[]) => {
-        console.log(data);
         this.ordersArr = data;
         this.dataSource.data = this.ordersArr;
         this.dataSource.sort = this.sort;

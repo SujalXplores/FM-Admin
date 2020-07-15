@@ -1,5 +1,4 @@
 export class order_detail {
-
   public constructor(
     public order_detail_id: number,
     public qty: number,

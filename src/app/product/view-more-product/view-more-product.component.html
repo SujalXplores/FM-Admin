@@ -5,22 +5,20 @@
       <mat-card-subtitle>Manufacturer: {{product_mfg | titlecase}}</mat-card-subtitle>
     </mat-card-header>
     <mat-divider></mat-divider>
+    
     <mat-card-content>
       <mat-list>
-
         <mat-list-item style="height: 100px;">Preview :
           <img *ngFor="let item of image_arr" height="80px" width="80px" src="http://localhost:3000/images/product_photos/{{item}}">
         </mat-list-item>
-
         <mat-divider></mat-divider><br>
         <mat-list-item style="height: auto;">Description :<br><br>{{product_desc | titlecase}}</mat-list-item>
-        
         <mat-divider></mat-divider><br>
         <mat-list-item>Price : {{product_price | currency:"INR"}}</mat-list-item>
         <mat-divider></mat-divider>
-
       </mat-list>
     </mat-card-content>
+
     <mat-card-actions>
       <div mat-dialog-actions>
         <button mat-button (click)="onCancelClick()">Close</button>

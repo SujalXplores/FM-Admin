@@ -8,7 +8,7 @@
 </button>
 
 <div class="mat-elevation-z8">
-    <kendo-pdf-export #pdf paperSize="A3" margin="0cm">
+  <kendo-pdf-export #pdf paperSize="A3" margin="0cm">
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
 
       <ng-container matColumnDef="pro_id">
@@ -44,6 +44,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;">
 
     </table>
-    </kendo-pdf-export>
-    <mat-paginator [pageSizeOptions]="[50,100,150,200]" showFirstLastButtons></mat-paginator>
+    
+  </kendo-pdf-export>
+  <mat-paginator [pageSizeOptions]="[50,100,150,200]" showFirstLastButtons></mat-paginator>
 </div>

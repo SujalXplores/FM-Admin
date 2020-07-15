@@ -3,6 +3,7 @@
     <mat-card-content>
       <div>
         <form class="example-form" [formGroup]="user_update" (ngSubmit)="OnUserEdit()">
+
           <mat-card-header>
             <img class="img" matTooltip="Click here to change profile photo" (click)="onImgClick()" mat-card-avatar src="http://localhost:3000/images/user_photos/{{u_image}}" onerror="this.src='../../../assets/image/default-avatar.png';"/>
             <mat-card-title>Your Profile</mat-card-title>
@@ -12,24 +13,25 @@
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Userame</mat-label>
             <input appAutoFocus formControlName="u_name" matInput type="text" placeholder="Enter New Name">
-            <mat-error class="hint" *ngIf="user_update.get('u_name').hasError('required') && !user_update.pristine">Name is Required</mat-error>
+            <mat-error class="hint" *ngIf="user_update.get('u_name').hasError('required') && !user_update.pristine">Name is Required!</mat-error>
             <mat-error class="hint" *ngIf="user_update.get('u_name').hasError('pattern') && !user_update.pristine">Only Letters</mat-error>
             <mat-icon class="material-icons-outlined" matSuffix>account_circle</mat-icon>
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Phone Number</mat-label>
-            <input #input formControlName="u_mobileno" type="number" matInput appPhone placeholder="+91 Enter New Mobile Number">
+            <input #input formControlName="u_mobileno" type="text" pKeyFilter="int" matInput appPhone placeholder="+91 Enter New Mobile Number">
             <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-            <mat-error class="hint" *ngIf="user_update.hasError('required') && !user_update.pristine">Mobile Number is Required</mat-error>
-            <mat-error class="hint" *ngIf="user_update.hasError('minlength') && !user_update.pristine">Mobile number must be of 10 digits!</mat-error>
-            <mat-error class="hint" *ngIf="user_update.hasError('pattern') && !user_update.pristine">Only Digits!</mat-error>
+            <mat-error class="hint" *ngIf="user_update.get('u_mobileno').hasError('required') && !user_update.pristine">Mobile Number is Required!</mat-error>
+            <mat-error class="hint" *ngIf="user_update.get('u_mobileno').hasError('minlength') && !user_update.pristine">Mobile number must be of 10 digits!</mat-error>
+            <mat-error class="hint" *ngIf="user_update.get('u_mobileno').hasError('pattern') && !user_update.pristine">Only Digits are allowed!</mat-error>
             <mat-icon matSuffix>phone</mat-icon>
           </mat-form-field>
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Change Password</mat-label>
             <input pPassword class="pPassword" [type]="hide ? 'password' : 'text'" formControlName="u_password" matInput type="password" placeholder="Set New Password">
+            <mat-error class="hint" *ngIf="user_update.get('u_password').hasError('required') && !user_update.pristine">Password is Required!</mat-error>
             <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon class="material-icons-outlined">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
             </button>
@@ -38,14 +40,17 @@
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Address</mat-label>
             <input formControlName="u_address" matInput type="text" placeholder="Change Your Address">
+            <mat-error class="hint" *ngIf="user_update.get('u_address').hasError('required') && !user_update.pristine">Address is Required!</mat-error>
             <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
           </mat-form-field>
   
-          <button class="example-full-width" type="submit" mat-raised-button color="accent">Update</button>
+          <button class="example-full-width" type="submit" mat-raised-button color="accent">Save</button>
+
         </form>
       </div>
     </mat-card-content>
   </mat-card>
+
   <mat-card *ngIf="isShow" fxFlex="300px" fxFlex.xs="100%">
     <mat-card-header>
       <mat-card-title>Profile Photo</mat-card-title>
@@ -55,4 +60,5 @@
       <app-edituserimage></app-edituserimage>
     </mat-card-content>
   </mat-card>
+  
 </section>

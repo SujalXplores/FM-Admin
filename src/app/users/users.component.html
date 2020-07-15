@@ -25,11 +25,6 @@
   <span>Delete</span>
 </button>
 
-<!-- <button routerLink='/nav/addUser' mat-raised-button matTooltip="Add User" color="primary" class="addbutton">
-  <mat-icon>add</mat-icon>
-  <span>Add</span>
-</button> -->
-
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
 
@@ -62,13 +57,9 @@
         <button (click)="openDialog(row)" matTooltip="View more" mat-icon-button style="color: blue">
           <mat-icon>launch</mat-icon>
         </button>
-        <!-- <button (click)="OnUserEdit(row)"  matTooltip="Edit" mat-icon-button>
-          <mat-icon>edit_outlined</mat-icon>
-        </button> -->
         <button (click)="OnUserMail(row)" matTooltip="Mail" mat-icon-button style="color: rgb(217, 48, 37);">
-        <mat-icon>mail</mat-icon>
-      </button>
-
+          <mat-icon>mail</mat-icon>
+        </button>
       </td>
     </ng-container>
 

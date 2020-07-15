@@ -1,44 +1,42 @@
 <section fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill>
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-      <mat-card-title align="center">Edit Order</mat-card-title>
-      <mat-card-content>
+    <mat-card-title align="center">Edit Order</mat-card-title>
+    <mat-card-content>
+      <form class="example-form" (ngSubmit)="OnOrderEdit(f)" #f="ngForm">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Amount</mat-label>
+          <input required ngModel name="order_amount" [(ngModel)]=order_amount1 #order_amount="ngModel" matInput type="number" placeholder="Edit Order Amount">
+          <mat-error class="hint" *ngIf="order_amount.hasError('required') && !order_amount.pristine">Amount is Required</mat-error>
+        </mat-form-field>
 
-          <form class="example-form" (ngSubmit)="OnOrderEdit(f)" #f="ngForm">
-              <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Amount</mat-label>
-                <input required ngModel name="order_amount" [(ngModel)]=order_amount1 #order_amount="ngModel" matInput type="number" placeholder="Edit Order Amount">
-                <mat-error class="hint" *ngIf="order_amount.hasError('required') && !order_amount.pristine">Amount is Required</mat-error>
-              </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Date</mat-label>
+          <input required ngModel name="order_date" [(ngModel)]=order_date1 #order_date="ngModel" type="date" matInput placeholder="Edit Order Date">
+          <mat-error class="hint" *ngIf="order_date.hasError('required') && !order_date.pristine">Date is Required</mat-error>
+          <mat-icon class="material-icons-outlined" matSuffix>event</mat-icon>
+        </mat-form-field>
 
-              <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Date</mat-label>
-                <input required ngModel name="order_date" [(ngModel)]=order_date1 #order_date="ngModel" type="date" matInput placeholder="Edit Order Date">
-                <mat-error class="hint" *ngIf="order_date.hasError('required') && !order_date.pristine">Date is Required</mat-error>
-                <mat-icon class="material-icons-outlined" matSuffix>event</mat-icon>
-              </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input required ngModel name="fk_u_email_id" [(ngModel)]=fk_u_email_id1 #fk_u_email_id="ngModel" type="text" matInput placeholder="Edit User Email id:">
+          <mat-error class="hint" *ngIf="fk_u_email_id.hasError('required') && !fk_u_email_id.pristine">Email is Required</mat-error>
+          <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
+        </mat-form-field>
 
-              <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Email</mat-label>
-                <input required ngModel name="fk_u_email_id" [(ngModel)]=fk_u_email_id1 #fk_u_email_id="ngModel" type="text" matInput placeholder="Edit User Email id:">
-                <mat-error class="hint" *ngIf="fk_u_email_id.hasError('required') && !fk_u_email_id.pristine">Email is Required</mat-error>
-                <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
-              </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Payment Type</mat-label>
+          <input required ngModel name="payment_type" [(ngModel)]=payment_type1 #payment_type="ngModel" type="text" matInput placeholder="Edit Payment Type">
+          <mat-error class="hint" *ngIf="payment_type.hasError('required') && !payment_type.pristine">Payment type is Required</mat-error>
+        </mat-form-field>
 
-              <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Payment Type</mat-label>
-                <input required ngModel name="payment_type" [(ngModel)]=payment_type1 #payment_type="ngModel" type="text" matInput placeholder="Edit Payment Type">
-                <mat-error class="hint" *ngIf="payment_type.hasError('required') && !payment_type.pristine">Payment type is Required</mat-error>
-              </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Order Status</mat-label>
+          <input required ngModel name="order_status" [(ngModel)]=order_status1 #order_status="ngModel" type="text" matInput placeholder="Edit Order Status">
+          <mat-error class="hint" *ngIf="order_status.hasError('required') && !order_status.pristine">Order Status is Required</mat-error>
+        </mat-form-field>
 
-              <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Order Status</mat-label>
-                <input required ngModel name="order_status" [(ngModel)]=order_status1 #order_status="ngModel" type="text" matInput placeholder="Edit Order Status">
-                <mat-error class="hint" *ngIf="order_status.hasError('required') && !order_status.pristine">Order Status is Required</mat-error>
-              </mat-form-field>
-
-              <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Update</button>
-          </form>
-
-      </mat-card-content>
-    </mat-card>
+        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Update</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </section>

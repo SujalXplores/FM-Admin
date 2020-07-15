@@ -1,19 +1,22 @@
 mat-list-item {
-height: 100%;
+  height: 100%;
 }
+
 .example-header-image {
-background-size: cover;
+  background-size: cover;
 }
-section{
-overflow: hidden;
+
+section {
+  overflow: hidden;
 }
+
 .customer-badge {
-border-radius: 2px;
-padding: .25em .5em;
-text-transform: uppercase;
-font-weight: 700;
-font-size: 12px;
-letter-spacing: .3px;
-color: rgb(72, 0, 139);
-background-color: #C8E6C9;
+  border-radius: 2px;
+  padding: 0.25em 0.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: rgb(72, 0, 139);
+  background-color: #c8e6c9;
 }

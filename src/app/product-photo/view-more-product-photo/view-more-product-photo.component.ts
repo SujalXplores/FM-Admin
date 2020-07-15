@@ -1,16 +1,13 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { product_photo } from '../product-photo';
-
 @Component({
   selector: 'app-view-more-product-photo',
   templateUrl: './view-more-product-photo.component.html',
   styleUrls: ['./view-more-product-photo.component.css']
 })
 export class ViewMoreProductPhotoComponent implements OnInit {
-
-  constructor(public dialogRef: MatDialogRef<ViewMoreProductPhotoComponent>,
-  @Inject(MAT_DIALOG_DATA) public data: product_photo) { }
+  constructor(public dialogRef: MatDialogRef<ViewMoreProductPhotoComponent>, @Inject(MAT_DIALOG_DATA) public data: product_photo) { }
 
   product_photo_id: number;
   fk_product_id: number;
