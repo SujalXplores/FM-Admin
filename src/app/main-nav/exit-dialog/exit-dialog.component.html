@@ -1,10 +1,10 @@
-<section fxLayout="row wrap" fxLayoutAlign="center center" fxFlex="300px" fxFlex.xs="100%">
-    <mat-card-content>
-        <mat-icon class="alert">error_outline</mat-icon><br>
-        <mat-card-title style="font-size: medium;">Do you really want to logout?</mat-card-title>
-        <mat-list>
-            <button type="button" color="accent" (click)="onYesClick()" mat-raised-button>Yes</button>
-            <button type="button" color="warn" (click)="onCancelClick()" mat-raised-button>No</button>
+<section fxLayout="row wrap" fxFlex="300px" fxFlex.xs="100%">
+    <mat-card-content style="width: 100%;">
+        <!-- <mat-icon class="alert">error_outline</mat-icon><br> -->
+        <mat-card-title style="font-size: medium;">Do you want to Exit?</mat-card-title>
+        <mat-list style="margin-top: 5px; margin-left: 0;">
+            <button style="float: left;margin-right: 10px;" type="button" (click)="onYesClick()" mat-flat-button>Ok</button>
+            <button style="float: right;" type="button" (click)="onCancelClick()" mat-button>Cancle</button>
         </mat-list>
     </mat-card-content>
 </section>

@@ -16,7 +16,7 @@ export class EdituserimageComponent implements OnInit {
   updateuserpic: FormGroup;
   userurl: string = null;
   selectedFile: File = null;
-  img_text: string = "Upload Photo";
+  img_text: string = "Select Image";
 
   ngOnInit(): void {
     this.u_email_id = this._actrou.snapshot.params["u_email_id"];

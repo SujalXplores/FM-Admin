@@ -71,31 +71,21 @@
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Payment Mode</th>
-                  <th scope="col">Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <img width="50" src="../../assets/image/paypal.jpg">
-                  </th>
-                  <td>Paypal</td>
-                  <td>{{paypalAmount}}</td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <img width="50" src="../../assets/image/cod.png">
-                  </th>
-                  <td>Cash On Delivery</td>
-                  <td>{{Cash_On_Dlivery_Amount}}</td>
-                </tr>
-              </tbody>
-            </table>
+            <kendo-chart>
+              <kendo-chart-legend position="bottom"></kendo-chart-legend>
+              <kendo-chart-series>
+                <kendo-chart-series-item
+                    type="donut" [data]="donutData"
+                    categoryField="kind" field="share" color="color">
+                    <kendo-chart-series-item-labels
+                      position="outsideEnd"
+                      color="#000"
+                      [content]="donutlabelContent">
+                    </kendo-chart-series-item-labels>
+                </kendo-chart-series-item>
+              </kendo-chart-series>
+              <kendo-chart-legend [visible]="false"></kendo-chart-legend>
+            </kendo-chart>
           </div>
         </mat-card-content>
       </mat-card>
