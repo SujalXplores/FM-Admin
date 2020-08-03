@@ -7,10 +7,12 @@
           <mat-label>Enter Category Name</mat-label>
           <input required pattern="[a-z A-Z]*" ngModel name="c_name" #focus #c_name="ngModel" matInput type="text" placeholder="e.g. (Eyecare, Skincare)">
           <mat-icon class="material-icons-outlined" matSuffix>edit</mat-icon>
-          <mat-hint class="hint" *ngIf="c_name.hasError('required') && !c_name.pristine">Required</mat-hint>
-          <mat-hint class="hint" *ngIf="c_name.hasError('pattern') && !c_name.pristine">Only Letters</mat-hint>
+          <mat-hint class="hint" *ngIf="c_name.hasError('required') && !c_name.pristine">Category name is required!</mat-hint>
+          <mat-hint class="hint" *ngIf="c_name.hasError('pattern') && !c_name.pristine">Please enter only letters!</mat-hint>
         </mat-form-field>
-        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add</button>
+        <button [disabled]="!f.valid" style="float: right; margin-right: 10px;" type="submit" mat-raised-button color="primary">
+          <mat-icon>add</mat-icon>Add
+        </button>
       </form>
     </mat-card-content>
   </mat-card>

@@ -67,6 +67,7 @@ import { MultipleOrderDisplayComponentComponent } from './multiple-order-display
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatStepperModule } from '@angular/material/stepper';
 import { MailUserComponent } from './users/mail-user/mail-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -86,6 +87,8 @@ import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
 import { PasswordModule } from 'primeng/password';
 import { EdituserimageComponent } from './users/edituserimage/edituserimage.component';
 import { KeyFilterModule } from 'primeng/keyfilter';
+
+import { NgOtpInputModule } from  'ng-otp-input';
 
 import 'hammerjs';
 
@@ -174,6 +177,7 @@ import 'hammerjs';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSlideToggleModule,
+    MatStepperModule,
     FeatherModule.pick(allIcons),//feather-icons
     DragDropModule,
     MatGridListModule,
@@ -182,7 +186,9 @@ import 'hammerjs';
     }),
     ChartsModule,
     PDFExportModule,
-    KeyFilterModule
+    KeyFilterModule,
+
+    NgOtpInputModule
   ],
   entryComponents: [
     DialogComponent,
