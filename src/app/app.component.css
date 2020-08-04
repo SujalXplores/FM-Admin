@@ -1,19 +1,22 @@
 ::ng-deep .online {
-  background-color: limegreen;
+  background-color: #52c41a;
   color: black;
 }
 
 ::ng-deep .notification-red {
-  background-color: rgb(255, 49, 49);
-  color: white;
+  border-left: 5px solid #f5222d;
+  background-color: white;
+  color: black;
 }
 
 ::ng-deep .notification-green {
-  background-color: limegreen;
+  border-left: 5px solid #52c41a;
+  background-color: white;
   color: black;
 }
 
 ::ng-deep .notification-blue {
-  background-color: rgb(61, 61, 255);
-  color: white;
+  border-left: 5px solid #1890ff;
+  background-color: white;
+  color: black;
 }

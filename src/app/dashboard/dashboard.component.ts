@@ -10,6 +10,7 @@ var now = new Date();
 })
 export class DashboardComponent {
   @ViewChild('resizedDiv') resizedDiv: ElementRef;
+
   constructor(public _data: DashboarddataService, private intl: IntlService) {
     this.labelContent1 = this.labelContent1.bind(this);
   }
@@ -45,6 +46,9 @@ export class DashboardComponent {
 
   public DonutData: any[] = [];
   public pieData: any[] = [];
+
+  public donutData: any[] = [];
+
   public labelContent(e: any): string {
     return e.category;
   }
@@ -54,6 +58,7 @@ export class DashboardComponent {
     for (let y = this.startyr; y <= this.currentYear; y++) {
       this.yearArray.push(y);
     }
+
     this._data.getRevenue().subscribe((data2: any[]) => {
       this.revenue = data2[0].revenue;
     });
@@ -92,12 +97,12 @@ export class DashboardComponent {
       } else {
         this.paypalAmount = 0;
       }
+      this.donutData = [{
+        kind: 'Paypal', share: this.paypalAmount, color: '#2980B9'
+      }, {
+        kind: 'Cash On Delivery', share: this.Cash_On_Dlivery_Amount, color: 'limegreen'
+      }];
     });
-
-    // To fetch data every minute
-    setTimeout(() => {
-      this.ngOnInit();
-    }, 60000);
 
     this._data.getStatus().subscribe((data3: any[]) => {
       this.DonutData = data3;
@@ -109,6 +114,11 @@ export class DashboardComponent {
         ];
       }
     });
+
+    // To fetch data every minute
+    setTimeout(() => {
+      this.ngOnInit();
+    }, 60000);
   }
 
   public labelContent1(args: LegendLabelsContentArgs): string {
@@ -122,5 +132,9 @@ export class DashboardComponent {
         this.orderData.push(this.monthOrderCount[j].COUNT);
       }
     });
+  }
+
+  public donutlabelContent(e: any): string {
+    return e.category;
   }
 }
