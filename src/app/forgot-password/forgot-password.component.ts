@@ -34,17 +34,17 @@ export class ForgotPasswordComponent implements OnInit {
   arrsignup: user[] = [];
   password: string = '';
   u_password: string = '';
-  email_input: string = '';
+  u_email_id: string = '';
 
-  constructor(private _formBuilder: FormBuilder, private notificationService: NotificationService, private _router: Router, public _mail: ForgotPasswordService) { }
+  constructor(private notificationService: NotificationService, private _router: Router, public _mail: ForgotPasswordService) { }
 
   ngOnInit() {
-    this.forgetPasswordForm = this._formBuilder.group({
+    this.forgetPasswordForm = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.email])
     });
-    this.changePasswordForm = this._formBuilder.group({
+    this.changePasswordForm = new FormGroup({
       password_group: new FormGroup({
-        new_password: new FormControl(null, [
+        u_password: new FormControl(null, [
           Validators.required,
           Validators.minLength(8)
         ]),
@@ -54,7 +54,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   passwordMatch(c: AbstractControl): { [s: string]: boolean } {
-    const pass = c.get('new_password').value;
+    const pass = c.get('u_password').value;
     const cpass = c.get('confirm_password').value;
     if (pass != cpass) {
       return { 'not same': true };
@@ -69,10 +69,10 @@ export class ForgotPasswordComponent implements OnInit {
   onForgetClick() {
     this.otp = Math.floor(1000 + Math.random() * 9000);
     if (this.forgetPasswordForm.get('name').value != null) {
-      this.email_input = this.forgetPasswordForm.get('name').value;
-      this._mail.getUserByEmail(this.email_input).subscribe((data) => {
+      this.u_email_id = this.forgetPasswordForm.get('name').value;
+      this._mail.getUserByEmail(this.u_email_id).subscribe((data) => {
         this.password = data[0].u_password;
-        this._mail.passwordMail(this.email_input, "OTP", "\n\n\nYour One Time Password is  <b>" + this.otp + "</b>\nDon't share your credentials to anyone.\nWe recommend you to change your Password.", data[0].u_name).subscribe((data) => {
+        this._mail.passwordMail(this.u_email_id, "OTP", "\n\n\nYour One Time Password is  <b>" + this.otp + "</b>\nDon't share your credentials to anyone.\nWe recommend you to change your Password.", data[0].u_name).subscribe((data) => {
           this.notificationService.info('📧 Mail has been sent on you registered mail. Check inbox.');
           this.myStepper.next();
         });
@@ -103,10 +103,12 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   onChangePassword() {
-    let passOBJ = {
-      u_password: this.changePasswordForm.value.password_group.new_password.value
-    }
-    this._mail.changePassword(this.email_input, passOBJ).subscribe(
+    // let passOBJ = {
+    //   u_password: this.changePasswordForm.value.password_group.u_password
+    // }
+    console.log(this.changePasswordForm.value.password_group.u_password);
+    console.log(this.changePasswordForm.value);
+    this._mail.changePassword(this.u_email_id, this.changePasswordForm.value).subscribe(
       (data: user[]) => {
         // this.arrsignup.push(passOBJ);
         this.notificationService.info('Password has been changed!');
