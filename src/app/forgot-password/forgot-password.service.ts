@@ -26,11 +26,6 @@ export class ForgotPasswordService {
   }
 
   changePassword(obj: any) {
-    // let body = JSON.stringify(item);
-    // let x = new HttpHeaders().set('Content-Type', 'application/json');
-    // return this._http.post(this.changePasswordURL , body, { headers: x });
-    // console.log(u_EmailId);
-    console.log(obj);
     return this._http.post(this.changePasswordURL, obj);
   }
 }
