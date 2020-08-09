@@ -29,7 +29,7 @@
               },
               "node_modules/@angular/cdk/overlay-prebuilt.css",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "src/theme.scss",
               "src/styles.css"
@@ -99,6 +99,10 @@
               {
                 "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
               },
+              "node_modules/@angular/cdk/overlay-prebuilt.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
               "src/theme.scss",
               "src/styles.css"
             ],

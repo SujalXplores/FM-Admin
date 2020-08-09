@@ -37,13 +37,9 @@ export class DeliveryboyComponent implements OnInit {
       (data: any) => {
         this.deliveryboyarr.splice(this.deliveryboyarr.indexOf(item), 1);
         this.dataSource.data = this.deliveryboyarr;
+        this.notificationService.warn('Record deleted successfully !');
       }
     );
-    this.notificationService.warn('Record deleted successfully !');
-  }
-
-  OnDeliveryboyEdit(item: deliveryboy) {
-    this._router.navigate(['/nav/editdeliveryboy', item.deliveryboy_id]);
   }
 
   applyFilter(filterValue: string) {

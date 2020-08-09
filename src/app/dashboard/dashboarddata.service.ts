@@ -18,36 +18,35 @@ export class DashboarddataService {
 
   constructor(public _http: HttpClient) { }
 
-  getTopOrder(){
+  getTopOrder() {
     return this._http.get(this.url);
   }
 
-  getAllorder(selectedYear: number){
+  getAllorder(selectedYear: number) {
     return this._http.get(this.order_url + selectedYear);
   }
 
-  getInvoiceByMode(PaymentMODE)
-  {
-    return this._http.get(this.invoice_url+PaymentMODE);
+  getInvoiceByMode(PaymentMODE) {
+    return this._http.get(this.invoice_url + PaymentMODE);
   }
 
-  getRevenue(){
+  getRevenue() {
     return this._http.get(this.revenue_url);
   }
 
-  getTotalOrder(){
+  getTotalOrder() {
     return this._http.get(this.totalorder_url);
   }
 
-  getCustomer(){
+  getCustomer() {
     return this._http.get(this.customer_url);
   }
 
-  getDeliveryPartner(){
+  getDeliveryPartner() {
     return this._http.get(this.delivery_partner_url);
   }
 
-  getStatus(){
+  getStatus() {
     return this._http.get(this.status_url);
   }
 }

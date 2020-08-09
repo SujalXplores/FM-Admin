@@ -10,12 +10,11 @@ export class ForgotPasswordService {
   public emailurrl: string = "http://localhost:3000/forgot_pass/";
   public changePasswordURL: string = 'http://localhost:3000/u_password/';
 
-  passwordMail(u_email_id, message, u_password, u_name) {
+  passwordMail(u_email_id, message, u_password) {
     let body = {
       "email_id": u_email_id,
       "message": u_password,
-      "subject": message,
-      "u_name": u_name
+      "subject": message
     }
     let header = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.post(this.emailurrl, body, { headers: header });

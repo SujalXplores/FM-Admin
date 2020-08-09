@@ -74,7 +74,7 @@ export class ForgotPasswordComponent implements OnInit {
       this._mail.getUserByEmail(this.u_email_id).subscribe((data) => {
         if (data[0] && data[0].u_password) {
           this.password = data[0].u_password;
-          this._mail.passwordMail(this.u_email_id, "Verification Code", "\n\n\nThe varification code is: <b>" + this.otp + " < /b>\nUse it to proceed further.\nIf you didn't request this code you can safely ignore it.", data[0].u_name).subscribe((data) => {
+          this._mail.passwordMail(this.u_email_id, "Verification Code", "\n\n\nThe varification code is: <b>" + this.otp + " < /b>\nUse it to proceed further.\nIf you didn't request this code you can safely ignore it.").subscribe((data) => {
             this.notificationService.info('📧 OTP has been sent on' + this.u_email_id + '. Check inbox.');
             this.hide_svg1 = false;
             this.hide_svg2 = true;
@@ -103,7 +103,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.otp = Math.floor(1000 + Math.random() * 9000);
     if (this.forgetPasswordForm.get('name').value != null) {
       this._mail.getUserByEmail(this.u_email_id).subscribe((data) => {
-        this._mail.passwordMail(this.u_email_id, "Verification Code", "\n\n\nThe varification code is:  <b>" + this.otp + "</b>\nUse it to proceed further.\nIf you didn't request this code you can safely ignore it.", data[0].u_name).subscribe((data) => {
+        this._mail.passwordMail(this.u_email_id, "Verification Code", "\n\n\nThe varification code is:  <b>" + this.otp + "</b>\nUse it to proceed further.\nIf you didn't request this code you can safely ignore it.").subscribe((data) => {
           this.notificationService.info('📧 OTP has been sent on ' + this.u_email_id + ', Check inbox.');
         });
       });
