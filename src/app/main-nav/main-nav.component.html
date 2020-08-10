@@ -42,10 +42,6 @@
 
       <span>FutureMediSurgico</span>
 
-      <button (click)="changeTheme()" type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'brightness_medium' : 'brightness_high'}}</mat-icon>
-      </button>
-
       <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
         <mat-icon>more_vert</mat-icon>
       </button>
@@ -54,6 +50,11 @@
         <button (click)='OnUserEdit()' mat-menu-item>
           <mat-icon class="material-icons-outlined" color="primary">account_circle</mat-icon>
           <span>My Profile</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button (click)="changeTheme()" mat-menu-item (click)="hide = !hide">
+          <mat-icon class="material-icons-outlined" color="primary">{{hide ? 'brightness_medium' : 'brightness_high'}}</mat-icon>
+          <span>Theme</span>
         </button>
         <mat-divider></mat-divider>
         <button mat-menu-item (click)='openDialog()' >

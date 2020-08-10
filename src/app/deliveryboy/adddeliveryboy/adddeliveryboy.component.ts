@@ -10,7 +10,11 @@ import { NotificationService } from 'src/app/notification.service';
 })
 export class AdddeliveryboyComponent implements OnInit {
 
-  constructor(private notificationService: NotificationService, private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
+  constructor(
+    private notificationService: NotificationService, 
+    private _deliveryboydata: DeliveryboydataService, 
+    private _router: Router
+  ) { }
 
   arrDeliveryboy: deliveryboy[] = [];
   selectedFile: File = null;

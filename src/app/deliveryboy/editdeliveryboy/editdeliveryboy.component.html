@@ -25,7 +25,7 @@
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Mobile Number</mat-label>
-            <input #input formControlName="deliveryboy_mobileno" type="number" matInput appPhone placeholder="Enter Mobile Number">
+            <input pKeyFilter="int" #input formControlName="deliveryboy_mobileno" type="number" matInput appPhone placeholder="Enter Mobile Number">
             <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
             <mat-icon matSuffix>phone</mat-icon>
             <mat-hint class="hint" *ngIf="deliveryPartner_update.get('deliveryboy_mobileno').hasError('required') && !deliveryPartner_update.pristine">Mobile Number is Required</mat-hint>

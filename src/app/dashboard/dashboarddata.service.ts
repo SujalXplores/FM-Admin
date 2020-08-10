@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ThumbsDown } from 'angular-feather/icons';
 
 @Injectable({
   providedIn: 'root'

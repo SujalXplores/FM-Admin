@@ -1,58 +1,58 @@
 table {
-width: 100%;
+  width: 100%;
 }
 
 .mat-form-field {
-font-size: 16px;
-width: 100%;
+  font-size: 16px;
+  width: 100%;
 }
 
-td, th {
-width: 15%;
+td,
+th {
+  width: 15%;
 }
 
 .addbutton {
-margin-top: 10px;
-margin-right: 10px;
-float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  float: right;
 }
 
 .mat-elevation-z8 {
-margin-left: 10px;
-margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .filterClass {
-margin-left: 10px;
-width: 50%;
+  margin-left: 10px;
+  width: 50%;
 }
 
-
 tr.example-detail-row {
-height: 0;
+  height: 0;
 }
 
 tr.example-element-row:not(.example-expanded-row):active {
-background: #efefef;
+  background: #efefef;
 }
 
 .example-element-row td {
-border-bottom-width: 0;
+  border-bottom-width: 0;
 }
 
 .example-element-detail {
-overflow: hidden;
-display: flex;
+  overflow: hidden;
+  display: flex;
 }
 
 .example-element-diagram {
-min-width: 80px;
-padding: 8px;
-font-weight: lighter;
-margin: 8px;
+  min-width: 80px;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px;
 }
 
 mat-card {
-margin: 20px;
-position: relative;
+  margin: 20px;
+  position: relative;
 }

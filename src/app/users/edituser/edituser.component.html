@@ -30,9 +30,9 @@
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Change Password</mat-label>
-            <input pPassword class="pPassword" [type]="hide ? 'password' : 'text'" formControlName="u_password" matInput type="password" placeholder="Set New Password">
+            <input pPassword class="pPassword" [type]="hide ? 'password' : 'text'" formControlName="u_password" matInput placeholder="Set New Password">
             <mat-error class="hint" *ngIf="user_update.get('u_password').hasError('required') && !user_update.pristine">Password is Required!</mat-error>
-            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
               <mat-icon class="material-icons-outlined">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
             </button>
           </mat-form-field>

@@ -9,7 +9,11 @@ import { NotificationService } from 'src/app/notification.service';
   styleUrls: ['./addcategory.component.css']
 })
 export class AddcategoryComponent implements OnInit {
-  constructor(private notificationService: NotificationService, private _catdata: CategorydataService, private _router: Router) { }
+  constructor(
+    private notificationService: NotificationService, 
+    private _catdata: CategorydataService, 
+    private _router: Router
+  ) { }
 
   arrCategory: category[] = [];
   value = '';

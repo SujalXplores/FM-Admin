@@ -135,6 +135,6 @@ export class DashboardComponent {
   }
 
   public donutlabelContent(e: any): string {
-    return e.category;
+    return `${ e.category }: \n ${e.value}%`;
   }
 }

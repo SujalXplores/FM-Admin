@@ -22,14 +22,16 @@
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Title/Subject</mat-label>
         <input appAutoFocus formControlName="subject" matInput type="text" placeholder="Enter the subject">
+        <mat-error *ngIf="mailVendorForm.get('subject').hasError('required') && !mailVendorForm.pristine">Title/Subject is Required</mat-error>
       </mat-form-field><br>
     
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Message</mat-label>
         <textarea rows="6" formControlName="message" matInput placeholder="Enter message"></textarea>
+        <mat-error *ngIf="mailVendorForm.get('message').hasError('required') && !mailVendorForm.pristine">Message is Required</mat-error>
       </mat-form-field><br>
     
-      <button type="button" (click)="onClose()" mat-raised-button>Close</button>
+      <button type="button" (click)="onClose()" mat-raised-button><mat-icon>close</mat-icon>Close</button>
 
       <button [disabled]="!f.valid" type="submit" mat-raised-button style="float: right; color: blue;">Send
         <mat-icon style="font-size: 24px; color: blue;">send</mat-icon>

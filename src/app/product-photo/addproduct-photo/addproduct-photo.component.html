@@ -15,7 +15,7 @@
               {{item.pro_name | titlecase}}
             </mat-option>
           </mat-select>
-          <mat-error>This Field Can't be Empty</mat-error>
+          <mat-error>Please select a Product first !</mat-error>
         </mat-form-field>
 
         <div class="form-group">
@@ -31,7 +31,7 @@
           </div>
         </div>
 
-        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Add</button>
+        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">+ Add</button>
       
       </form>
     </mat-card-content>

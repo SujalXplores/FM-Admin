@@ -28,12 +28,14 @@ mat-label {
   color: darkblue;
 }
 
-.pPassword,.pPassword:focus {
+.pPassword,
+.pPassword:focus {
   background-color: transparent;
-  outline: 0 none !important;
-  border: 0;
-  height: 0;
-  outline-style: none;
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
 }
 
 .img {

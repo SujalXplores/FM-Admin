@@ -20,7 +20,7 @@
             <mat-option *ngFor="let item of catnamearr" [value]="item.c_id">
               {{item.c_name | titlecase}}
             </mat-option>
-            </mat-select>
+          </mat-select>
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="outline">
@@ -33,7 +33,7 @@
 
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Price</mat-label>
-          <input required pattern="^[1-9][0-9]*" minlength="1" maxlength="5" ngModel name="pro_price" #pro_price="ngModel" type="text" matInput placeholder="Enter Product Price">
+          <input required pattern="^[1-9][0-9]*" pKeyFilter="int" minlength="1" maxlength="5" ngModel name="pro_price" #pro_price="ngModel" type="text" matInput placeholder="Enter Product Price">
           <mat-error class="hint" *ngIf="pro_price.hasError('required') && !pro_price.pristine">Product Price is Required</mat-error>
           <mat-error class="hint" *ngIf="pro_price.hasError('minlength') && !pro_price.pristine">Price must be greater than RS.1!</mat-error>
           <mat-error class="hint" *ngIf="pro_price.hasError('maxlength') && !pro_price.pristine">Price must be less than RS.15000!</mat-error>
