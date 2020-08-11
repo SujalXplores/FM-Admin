@@ -20,7 +20,8 @@
       <div class="col-md-3">
         <div class="card-counter success">
           <i class="fad fa-wallet"></i>
-          <span class="count-numbers">₹ {{revenue}}</span>
+          <span class="count-numbers" *ngIf="revenue>0">{{revenue | currency:'INR'}}</span>
+          <span class="count-numbers" *ngIf="revenue<=0">₹ 0.00</span>
           <span class="count-name">Total Earnings</span>
         </div>
       </div>

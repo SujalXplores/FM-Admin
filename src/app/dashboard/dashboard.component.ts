@@ -26,7 +26,7 @@ export class DashboardComponent {
   public paypalAmount: number = 0;
   public Cash_On_Dlivery_Amount: number = 0;
 
-  public revenue: any[] = [];
+  public revenue: number;
   public total_order: any[] = [];
   public customers: any[] = [];
   public delivery_partners: any[] = [];

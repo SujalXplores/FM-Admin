@@ -26,30 +26,6 @@ mat-icon {
   height: 50px;
 }
 
-.gradient-purple {
-  background: #7873f5 !important;
-  background: linear-gradient(50deg, #ff6ec4, #7873f5) !important;
-  color: #fff !important;
-}
-
-.gradient-teal {
-  background: #00796b !important;
-  background: linear-gradient(50deg, #a9dc7b, #00796b) !important;
-  color: #fff !important;
-}
-
-.gradient-indigo {
-  background: #303f9f !important;
-  background: linear-gradient(50deg, #2ec6ff, #303f9f) !important;
-  color: #fff !important;
-}
-
-.gradient-amber {
-  background: #e65100 !important;
-  background: linear-gradient(50deg, #ffba3a, #e65100) !important;
-  color: #fff !important;
-}
-
 .card {
   position: relative;
   display: flex;
@@ -60,38 +36,6 @@ mat-icon {
   background-clip: border-box;
   border: 1px solid #e3e6f0;
   border-radius: 0.35rem;
-}
-
-.border-left-primary {
-  border-left: 0.25rem solid #4e73df !important;
-}
-
-.border-left-secondary {
-  border-left: 0.25rem solid #858796 !important;
-}
-
-.border-left-success {
-  border-left: 0.25rem solid #1cc88a !important;
-}
-
-.border-left-info {
-  border-left: 0.25rem solid #36b9cc !important;
-}
-
-.border-left-warning {
-  border-left: 0.25rem solid #f6c23e !important;
-}
-
-.border-left-danger {
-  border-left: 0.25rem solid #e74a3b !important;
-}
-
-.border-left-light {
-  border-left: 0.25rem solid #f8f9fc !important;
-}
-
-.border-left-dark {
-  border-left: 0.25rem solid #5a5c69 !important;
 }
 
 .shadow {
