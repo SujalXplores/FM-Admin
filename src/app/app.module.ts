@@ -91,6 +91,7 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { NgOtpInputModule } from  'ng-otp-input';
 
 import 'hammerjs';
+import { WalletComponent } from './wallet/wallet.component';
 
 @NgModule({
   declarations: [
@@ -137,6 +138,7 @@ import 'hammerjs';
     ViewMoreComponent,
     PdfTableComponent,
     EdituserimageComponent,
+    WalletComponent,
   ],
   imports: [
     routingArr,

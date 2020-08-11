@@ -30,6 +30,7 @@ import { EditCategoryComponent } from './category/edit-category/edit-category.co
 import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.component';
 import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
 import { EdituserimageComponent } from './users/edituserimage/edituserimage.component';
+import { WalletComponent } from './wallet/wallet.component';
 
 const arr: Routes = [
   { path: '', component: LoginDisplayComponent },
@@ -62,6 +63,7 @@ const arr: Routes = [
       { path: 'adddeliveryboy', component: AdddeliveryboyComponent },
       { path: 'editdeliveryboy/:deliveryboy_id', component: EditdeliveryboyComponent },
       { path: 'trackingdisplay', component: TrackingdisplayComponent },
+      { path: 'walletdisplay', component: WalletComponent},
       { path: 'pdfProduct', component: PdfTableComponent },
     ]
   },
