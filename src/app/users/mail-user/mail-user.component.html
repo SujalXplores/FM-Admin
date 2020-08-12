@@ -10,7 +10,7 @@
       <img class="gmail" src="../../../assets/image/gmail.png">
     </mat-card-header>
 
-    <form [formGroup]="mailUserForm" (ngSubmit)="onMailUser(f)" #f="ngForm">
+    <form [formGroup]="mailUserForm" (ngSubmit)="onMailUser(f)" #f="ngForm" spellcheck="false">
     
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Email</mat-label>

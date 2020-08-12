@@ -2,7 +2,7 @@
   <mat-card fxFlex="500px" fxFlex.xs="100%">
     <mat-card-title align="center">Edit Product Photo</mat-card-title>
     <mat-card-content>
-      <form [formGroup]="photo_update" (ngSubmit)="onPhotoSubmit()">
+      <form [formGroup]="photo_update" (ngSubmit)="onPhotoSubmit()" spellcheck="false">
         <img align=left width="100" height="100" src="{{photoUrl}}">
         <div>
 

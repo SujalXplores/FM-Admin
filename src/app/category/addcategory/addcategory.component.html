@@ -2,7 +2,7 @@
   <mat-card fxFlex="500px" fxFlex.xs="100%">
     <mat-card-title align="center">Add Category</mat-card-title>
     <mat-card-content>
-      <form class="example-form" (ngSubmit)="onCategoryAdd(f)" #f="ngForm">
+      <form class="example-form" (ngSubmit)="onCategoryAdd(f)" #f="ngForm" spellcheck="false">
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Enter Category Name</mat-label>
           <input required pattern="[a-z A-Z]*" ngModel name="c_name" #focus #c_name="ngModel" matInput type="text" placeholder="e.g. (Eyecare, Skincare)">

@@ -11,7 +11,7 @@
       <mat-card-subtitle><span class="customer-badge">Delivery Partner</span></mat-card-subtitle>
       <img class="gmail" src="../../../assets/image/gmail.png">
     </mat-card-header>
-    <form [formGroup]="mailVendorForm" (ngSubmit)="onMailVendor(f)" #f="ngForm">
+    <form [formGroup]="mailVendorForm" (ngSubmit)="onMailVendor(f)" #f="ngForm" spellcheck="false">
     
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>E-mail</mat-label>

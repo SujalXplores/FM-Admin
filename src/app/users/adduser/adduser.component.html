@@ -2,7 +2,7 @@
   <mat-card fxFlex="500px" fxFlex.xs="100%">
     <mat-card-title align="center">Add User</mat-card-title>   
     <mat-card-content>
-      <form class="example-form" (ngSubmit)="onUesrAdd(f)" #f="ngForm">
+      <form class="example-form" (ngSubmit)="onUesrAdd(f)" #f="ngForm" spellcheck="false">
 
         <mat-form-field class="example-full-width" appearance="fill">
           <input required ngModel name="u_email_id" #u_email_id="ngModel" matInput type="email">

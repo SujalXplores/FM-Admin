@@ -2,7 +2,7 @@
   <mat-card fxFlex="500px" fxFlex.xs="100%">
     <mat-card-title align="center">Edit Order</mat-card-title>
     <mat-card-content>
-      <form class="example-form" (ngSubmit)="OnOrderEdit(f)" #f="ngForm">
+      <form class="example-form" (ngSubmit)="OnOrderEdit(f)" #f="ngForm" spellcheck="false">
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Amount</mat-label>
           <input required ngModel name="order_amount" [(ngModel)]=order_amount1 #order_amount="ngModel" matInput type="number" placeholder="Edit Order Amount">
