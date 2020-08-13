@@ -30,7 +30,7 @@ export class AddproductComponent implements OnInit {
       (data: any) => {
         this.arrproduct.push(f.value);
         this._router.navigate(['/nav/product']);
-        this.notificationService.success('Your product added successfully !');
+        this.notificationService.success('✔️ Your product added successfully !');
       }
     );
   }

@@ -30,7 +30,7 @@ export class AddcategoryComponent implements OnInit {
       (data: any) => {
         this.arrCategory.push(f.value);
         this._router.navigate(['/nav/category']);
-        this.notificationService.success('Record added successfully');
+        this.notificationService.success('✔️ Record added successfully');
       }
     );
   }

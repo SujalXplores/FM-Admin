@@ -33,7 +33,7 @@ export class AdddeliveryboyComponent implements OnInit {
     fd.append('image', this.selectedFile, this.selectedFile.name);
     this._deliveryboydata.addDeliveryboy(fd).subscribe((data: any[]) => {
       this._router.navigate(['/nav/deliveryboy']);
-      this.notificationService.success('Record added successfully !');
+      this.notificationService.success('✔️ Record added successfully !');
     });
   }
 

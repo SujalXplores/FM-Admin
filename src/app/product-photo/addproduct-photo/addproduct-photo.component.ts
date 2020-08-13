@@ -35,7 +35,7 @@ export class AddproductPhotoComponent implements OnInit {
     this._productdata.addProductPhoto(fd).subscribe(
       (data: any[]) => {
         this._router.navigate(['/nav/product_photo']);
-        this.notificationService.success('Photo has been added !');
+        this.notificationService.success('✔️ Photo has been added !');
       }
     );
   }

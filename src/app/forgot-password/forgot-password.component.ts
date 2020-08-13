@@ -118,7 +118,7 @@ export class ForgotPasswordComponent implements OnInit {
     this._mail.changePassword(passOBJ).subscribe(
       (data: any) => {
         this._router.navigate(['']);
-        this.notificationService.success('Password has been changed!');
+        this.notificationService.success('✔️ Password has been changed!');
       }
     );
   }
