@@ -11,7 +11,13 @@ import { GetUserService } from 'src/app/main-nav/get-user.service';
   styleUrls: ['./edituser.component.css']
 })
 export class EdituserComponent implements OnInit {
-  constructor(private _user: GetUserService, private notificationService: NotificationService, private _act_route: ActivatedRoute, private _userdata: UsersdataService, private _router: Router) { }
+  constructor(
+    private _user: GetUserService, 
+    private notificationService: NotificationService, 
+    private _act_route: ActivatedRoute, 
+    private _userdata: UsersdataService, 
+    private _router: Router
+  ) { }
 
   u_email_id: string;
   u_image: string;
@@ -19,16 +25,14 @@ export class EdituserComponent implements OnInit {
   hide: boolean = true;
   isShow: boolean = false;
 
-  OnUserEdit() {
-    this._userdata.updateUser(this.u_email_id, this.user_update.value).subscribe(
-      (data: users) => {
-        this._router.navigate(['/nav/users']);
-        this.notificationService.info('Profile successfully updated !');
-      }
-    );
-  }
-
   ngOnInit() {
+    if (this._userdata.subsVar == undefined) {
+      this._userdata.subsVar = this._userdata.
+        invokeRefresh.subscribe(() => {
+          this.ngOnInit();
+        }
+      );
+    }
     this.u_email_id = this._act_route.snapshot.params['u_email_id'];
     this.user_update = new FormGroup({
       u_email_id: new FormControl(null, [Validators.required, Validators.email]),
@@ -46,6 +50,15 @@ export class EdituserComponent implements OnInit {
     this._user.getUserByEmail(this.u_email_id).subscribe((data) => {
       this.u_image = data[0].u_image;
     });
+  }
+
+  OnUserEdit() {
+    this._userdata.updateUser(this.u_email_id, this.user_update.value).subscribe(
+      (data: users) => {
+        this._router.navigate(['/nav/users']);
+        this.notificationService.info('Profile successfully updated !');
+      }
+    );
   }
 
   formDataBind(item: users) {

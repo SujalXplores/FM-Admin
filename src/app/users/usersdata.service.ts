@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { users } from './users';
+import { Subscription } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +11,9 @@ export class UsersdataService {
   url: string = 'http://localhost:3000/user/';
   url1: string = 'http://localhost:3000/uimage/';
   deleteurl: string = 'http://localhost:3000/userdelete/';
+
+  invokeRefresh = new EventEmitter();
+  subsVar: Subscription;
 
   deleteall(item: string[]) {
     let body = JSON.stringify(item);
@@ -43,5 +47,9 @@ export class UsersdataService {
 
   updateUserimage(u_email_id, item) {
     return this._http.put(this.url1 + u_email_id, item);
+  }
+
+  onRefreshClick() {
+    this.invokeRefresh.emit();
   }
 }

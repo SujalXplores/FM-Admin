@@ -52,6 +52,8 @@ export class EdituserimageComponent implements OnInit {
     }
     this._userser.updateUserimage(this.u_email_id, fd).subscribe((data: users) => {
       this.notificationService.info('Profile Photo has been updated.');
+      this._userser.onRefreshClick();
+      this.ngOnInit();
     });
   }
 }
