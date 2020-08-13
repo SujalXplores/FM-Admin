@@ -43,9 +43,8 @@
 
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Description</mat-label>
-          <input required pattern="[a-z A-Z]*" ngModel name="pro_desc" #pro_desc="ngModel" type="text-area" matInput>
+          <input required ngModel name="pro_desc" #pro_desc="ngModel" type="text-area" matInput>
           <mat-error class="hint" *ngIf="pro_desc.hasError('required') && !pro_desc.pristine">Description is Required</mat-error>
-          <mat-error class="hint" *ngIf="pro_desc.hasError('pattern') && !pro_desc.pristine">Only Letters</mat-error>
           <mat-icon matSuffix><i class="far fa-file-medical"></i></mat-icon>
         </mat-form-field>
 
