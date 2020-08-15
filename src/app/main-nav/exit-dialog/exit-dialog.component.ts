@@ -7,7 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./exit-dialog.component.css']
 })
 export class ExitDialogComponent implements OnInit {
-  constructor(public router: Router, public dialogRef: MatDialogRef<ExitDialogComponent>) { }
+  constructor(
+    public router: Router, 
+    public dialogRef: MatDialogRef<ExitDialogComponent>
+  ) { }
 
   ngOnInit() { }
 

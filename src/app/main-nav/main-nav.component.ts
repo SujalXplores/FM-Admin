@@ -12,7 +12,12 @@ import { GetUserService } from './get-user.service';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
-  constructor(private _user: GetUserService, private breakpointObserver: BreakpointObserver, public router: Router, public dialog: MatDialog) { }
+  constructor(
+    private _user: GetUserService, 
+    private breakpointObserver: BreakpointObserver, 
+    public router: Router, 
+    public dialog: MatDialog
+  ) { }
   hide: boolean = true;
   isTrue: boolean = false;
   date = new Date();
