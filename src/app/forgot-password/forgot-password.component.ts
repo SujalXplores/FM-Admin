@@ -1,10 +1,19 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl, AbstractControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ForgotPasswordService } from './forgot-password.service';
 import { NotificationService } from '../notification.service';
 import { MatStepper } from '@angular/material/stepper';
 import { MAT_STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { ErrorStateMatcher } from '@angular/material/core';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const invalidCtrl = !!(control && control.invalid && control.parent.pristine);
+    const invalidParent = !!(control && control.parent && control.parent.invalid && control.parent.pristine);
+    return (invalidCtrl || invalidParent);
+  }
+}
 
 @Component({
   selector: 'app-forgot-password',
@@ -38,8 +47,13 @@ export class ForgotPasswordComponent implements OnInit {
   hide_svg2: boolean = false;
   hide_svg3: boolean = false;
   hide: boolean = true;
+  matcher = new MyErrorStateMatcher();
 
-  constructor(private notificationService: NotificationService, private _router: Router, public _mail: ForgotPasswordService) { }
+  constructor(
+    private notificationService: NotificationService,
+    private _router: Router,
+    public _mail: ForgotPasswordService
+  ) { }
 
   ngOnInit() {
     this.forgetPasswordForm = new FormGroup({
@@ -51,16 +65,13 @@ export class ForgotPasswordComponent implements OnInit {
         Validators.minLength(8)
       ]),
       confirm_password: new FormControl(null)
-    }, [this.passwordMatch.bind(this)]);
+    }, { validators: this.checkPasswords });
   }
 
-  passwordMatch(c: AbstractControl): { [s: string]: boolean } {
-    const pass = c.get('u_password').value;
-    const cpass = c.get('confirm_password').value;
-    if (pass != cpass) {
-      return { 'not_same': true };
-    }
-    return null;
+  checkPasswords(group: FormGroup) { // here we have the 'passwords' group
+    let pass = group.controls.u_password.value;
+    let confirmPass = group.controls.confirm_password.value;
+    return pass === confirmPass ? null : { notSame: true }
   }
 
   onOtpChange(otp1) {
@@ -82,7 +93,7 @@ export class ForgotPasswordComponent implements OnInit {
           });
         }
         else {
-          this.notificationService.warn('Invalid Email, Please try again !');
+          this.notificationService.warn("Email doesn't exist, Please try again !");
         }
       });
     }

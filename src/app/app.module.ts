@@ -89,9 +89,9 @@ import { EdituserimageComponent } from './users/edituserimage/edituserimage.comp
 import { KeyFilterModule } from 'primeng/keyfilter';
 
 import { NgOtpInputModule } from  'ng-otp-input';
+import { WalletComponent } from './wallet/wallet.component';
 
 import 'hammerjs';
-import { WalletComponent } from './wallet/wallet.component';
 
 @NgModule({
   declarations: [
