@@ -34,8 +34,10 @@ export class MainNavComponent {
   ngOnInit() {
     this.u_email_id = localStorage.getItem('u_email_id');
     this._user.getUserByEmail(this.u_email_id).subscribe((data) => {
-      this.u_name = data[0].u_name;
-      this.u_image = data[0].u_image;
+      if(data[0]){
+        this.u_image = data[0].u_image;
+        this.u_name = data[0].u_name;
+      }
     });
     setTimeout(() => {
       this.ngOnInit();

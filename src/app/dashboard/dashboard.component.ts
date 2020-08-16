@@ -25,6 +25,7 @@ export class DashboardComponent {
 
   public paypalAmount: number = 0;
   public Cash_On_Dlivery_Amount: number = 0;
+  public wallet_amount: number = 0;
 
   public revenue: number;
   public total_order: any[] = [];
@@ -42,6 +43,7 @@ export class DashboardComponent {
 
   currentYear = now.getFullYear();
   selectedYear: number = this.currentYear;
+
   yearArray = [];
 
   public DonutData: any[] = [];
@@ -58,7 +60,6 @@ export class DashboardComponent {
     for (let y = this.startyr; y <= this.currentYear; y++) {
       this.yearArray.push(y);
     }
-
     this._data.getRevenue().subscribe((data2: any[]) => {
       this.revenue = data2[0].revenue;
     });
@@ -91,6 +92,14 @@ export class DashboardComponent {
       }
     });
 
+    this._data.getInvoiceByMode("wallet").subscribe((data: any) => {
+      if (data[0].total) {
+        this.wallet_amount = data[0].total;
+      } else {
+        this.wallet_amount = 0;
+      }
+    });
+
     this._data.getInvoiceByMode("paypal").subscribe((data: any) => {
       if (data[0].total) {
         this.paypalAmount = data[0].total;
@@ -98,9 +107,11 @@ export class DashboardComponent {
         this.paypalAmount = 0;
       }
       this.donutData = [{
-        kind: 'Paypal', share: this.paypalAmount, color: '#2980B9'
+        kind: 'Paypal', share: this.paypalAmount, color: '#035aa6'
       }, {
-        kind: 'Cash On Delivery', share: this.Cash_On_Dlivery_Amount, color: 'limegreen'
+        kind: 'Cash', share: this.Cash_On_Dlivery_Amount, color: '#79d70f'
+      }, {
+        kind: 'Wallet', share: this.wallet_amount, color: '#f3c623'
       }];
     });
 
@@ -133,7 +144,7 @@ export class DashboardComponent {
       }
     });
   }
-
+  
   public donutlabelContent(e: any): string {
     return `${ e.category }: \n ${e.value}%`;
   }
