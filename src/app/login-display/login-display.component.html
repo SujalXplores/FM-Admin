@@ -11,7 +11,7 @@
 					</span>
 					<!-- email -->
 					<mat-form-field class="wrap-input100">
-						<input matInput formControlName="u_email_id" placeholder="Email-ID*">
+						<input matInput formControlName="u_email_id">
 						<mat-icon matPrefix class="material-icons-outlined" style="font-size: 26px;margin-right: 10px;">email_outlined</mat-icon>
 						<mat-label>Email</mat-label>
 						<mat-hint>We don't share your credentials to anyone.</mat-hint>
@@ -20,7 +20,7 @@
 					</mat-form-field>
 					<!-- password -->
 					<mat-form-field  class="wrap-input100">
-						<input matInput placeholder="Password*" [type]="hide ? 'password' : 'text'" formControlName="u_password">
+						<input matInput [type]="hide ? 'password' : 'text'" formControlName="u_password">
 						<mat-icon matPrefix class="material-icons-outlined" style="font-size: 26px;margin-right: 10px;">lock</mat-icon>
 						<mat-label>Password</mat-label>
 						<mat-error *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password is required!</mat-error>
