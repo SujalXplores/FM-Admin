@@ -19,7 +19,7 @@ export class WalletComponent implements OnInit {
    }
 
   walletarr: wallet[] = [];
-  displayedColumns: string[] = ['fk_u_email_id', 'wallet_amount'];
+  displayedColumns: string[] = ['u_name', 'fk_u_email_id', 'wallet_amount'];
   dataSource: MatTableDataSource<wallet>;
   selection = new SelectionModel<wallet>(true, []);
   @ViewChild(MatPaginator, { static: true }) paginator  : MatPaginator;
@@ -28,6 +28,7 @@ export class WalletComponent implements OnInit {
   ngOnInit(): void {
     this._walletdata.getwallet().subscribe(
       (data: wallet[]) => {
+        console.log(data);
         this.walletarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
