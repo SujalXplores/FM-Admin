@@ -96,7 +96,6 @@ body {
 }
 
 .wrap-login100 {
-  border-top: 5px solid blue;
   width: 390px;
   background: rgb(255, 255, 255);
   border-radius: 5px;
@@ -163,6 +162,7 @@ body {
 
 mat-icon {
   font-size: 26px;
+  vertical-align: sub;
 }
 
 input {

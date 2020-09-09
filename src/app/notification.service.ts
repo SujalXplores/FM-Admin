@@ -8,22 +8,22 @@ export class NotificationService {
 
   green: MatSnackBarConfig = {
     duration: 5000,
-    horizontalPosition: 'center',
-    verticalPosition: 'bottom',
+    horizontalPosition: 'right',
+    verticalPosition: 'top',
     panelClass: ['notification-green']
   }
 
   red: MatSnackBarConfig = {
     duration: 5000,
-    horizontalPosition: 'center',
-    verticalPosition: 'bottom',
+    horizontalPosition: 'right',
+    verticalPosition: 'top',
     panelClass: ['notification-red']
   }
 
   blue: MatSnackBarConfig = {
     duration: 5000,
-    horizontalPosition: 'center',
-    verticalPosition: 'bottom',
+    horizontalPosition: 'right',
+    verticalPosition: 'top',
     panelClass: ['notification-blue']
   }
 

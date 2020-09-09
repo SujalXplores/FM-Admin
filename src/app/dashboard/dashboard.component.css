@@ -18,96 +18,53 @@
   padding: 4px 8px;
 }
 
-mat-icon {
-  margin-right: 4px;
+.mat-h1{
+  margin-left: 10px;
 }
 
-.h-100p {
-  height: 50px;
+.order-card {
+  color: #fff;
 }
+
+.bg-c-blue {
+  background: linear-gradient(45deg,#4099ff,#73b4ff);
+}
+
+.bg-c-green {
+  background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+}
+
+.bg-c-yellow {
+  background: linear-gradient(45deg,#FFB64D,#ffcb80);
+}
+
+.bg-c-pink {
+  background: linear-gradient(45deg,#FF5370,#ff869a);
+}
+
 
 .card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid #e3e6f0;
-  border-radius: 0.35rem;
-}
-
-.shadow {
-  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
-}
-
-.card-body {
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 1.25rem;
-}
-
-.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-.card-counter {
-  box-shadow: 2px 2px 10px #dadada;
-  margin: 5px;
-  padding: 20px 10px;
-  background-color: #fff;
-  height: 100px;
   border-radius: 5px;
-  transition: 0.3s linear all;
+  -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+  box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+  border: none;
+  margin-bottom: 30px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-.card-counter:hover {
-  box-shadow: 4px 4px 20px #dadada;
-  transition: 0.3s linear all;
+.card .card-block {
+  padding: 25px;
 }
 
-.card-counter.primary {
-  background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
-  color: #fff;
+.order-card i {
+  font-size: 26px;
 }
 
-.card-counter.danger {
-  background: linear-gradient(87deg, #f5365c 0, #f56036 100%) !important;
-  color: #fff;
+.f-left {
+  float: left;
 }
 
-.card-counter.success {
-  background: linear-gradient(87deg, #11cdef 0, #1171ef 100%) !important;
-  color: #fff;
-}
-
-.card-counter.info {
-  background: linear-gradient(87deg, #172b4d 0, #1a174d 100%) !important;
-  color: #fff;
-}
-
-.card-counter i {
-  font-size: 5em;
-  opacity: 0.2;
-}
-
-.card-counter .count-numbers {
-  position: absolute;
-  right: 35px;
-  top: 20px;
-  font-size: 32px;
-  display: block;
-}
-
-.card-counter .count-name {
-  position: absolute;
-  right: 35px;
-  top: 65px;
-  font-style: italic;
-  text-transform: capitalize;
-  opacity: 0.5;
-  display: block;
-  font-size: 18px;
+.f-right {
+  float: right;
 }
