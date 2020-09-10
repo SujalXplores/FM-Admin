@@ -86,10 +86,6 @@ button {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  /* background-color: #2D323D; */
-}
-
-body {
   background-image: url(../../assets/image/bg.jpg);
   background-repeat: repeat;
   background-size: 250px 230px;
