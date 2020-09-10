@@ -19,7 +19,7 @@ export class ExitDialogComponent implements OnInit {
   }
 
   onYesClick() {
-    localStorage.clear();
+    localStorage.removeItem("u_email_id");
     this.router.navigate(['/']);
     this.dialogRef.close();
   }

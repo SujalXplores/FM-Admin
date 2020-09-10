@@ -24,10 +24,6 @@ mat-icon {
   font-size: 26px !important;
 }
 
-mat-label {
-  color: darkblue;
-}
-
 .pPassword,
 .pPassword:focus {
   background-color: transparent;

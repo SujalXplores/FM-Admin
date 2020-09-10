@@ -6,8 +6,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private _snackbar: MatSnackBar) { }
-  title = 'Future MediSurgico';
+  constructor(
+    private _snackbar: MatSnackBar
+  ) { }
 
   ngOnInit() {
     addEventListener('offline', (e) => {

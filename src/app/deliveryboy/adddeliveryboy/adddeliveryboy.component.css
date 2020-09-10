@@ -12,31 +12,21 @@ section {
   margin-top: 20px;
 }
 
-.hint {
-  color: red;
-  font-size: 11px;
-  font-weight: bolder;
-}
-
-.label {
-  color: red;
-  font-size: 14px;
-  font-weight: bolder;
-}
-
 mat-icon {
   font-size: 26px !important;
 }
 
-mat-label {
-  color: darkblue;
-}
-
 .del_partner {
   margin-right: 10px;
+  vertical-align: bottom;
 }
 
 mat-card-title {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+._label91 {
+  vertical-align: super;
+  padding-right: 5;
 }

@@ -92,6 +92,7 @@ import { NgOtpInputModule } from  'ng-otp-input';
 import { WalletComponent } from './wallet/wallet.component';
 
 import 'hammerjs';
+import { ThemeSwitchService } from './theme-switch.service';
 
 @NgModule({
   declarations: [
@@ -203,7 +204,7 @@ import 'hammerjs';
     MailUserComponent,
     ViewMoreComponent,//assigned order details
   ],
-  providers: [],
+  providers: [ThemeSwitchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
