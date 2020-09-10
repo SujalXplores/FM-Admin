@@ -15,15 +15,15 @@
 						<mat-icon matPrefix class="material-icons-outlined" style="font-size: 26px;margin-right: 10px;">email_outlined</mat-icon>
 						<mat-label>Email</mat-label>
 						<mat-hint>We don't share your credentials to anyone.</mat-hint>
-						<mat-error *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email is <b>required!</b></mat-error>
-						<mat-error *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-error>
+						<mat-error *ngIf="loginForm.get('u_email_id').hasError('required') && loginForm.get('u_email_id').pristine">Email is <b>required!</b></mat-error>
+						<mat-error *ngIf="loginForm.get('u_email_id').hasError('email') && loginForm.get('u_email_id').pristine">Invalid Email!</mat-error>
 					</mat-form-field>
 					<!-- password -->
 					<mat-form-field  class="wrap-input100">
 						<input matInput [type]="hide ? 'password' : 'text'" formControlName="u_password">
 						<mat-icon matPrefix class="material-icons-outlined" style="font-size: 26px;margin-right: 10px;">lock</mat-icon>
 						<mat-label>Password</mat-label>
-						<mat-error *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password is <b>required!</b></mat-error>
+						<mat-error *ngIf="loginForm.get('u_password').hasError('required') && loginForm.get('u_password').pristine">Password is <b>required!</b></mat-error>
 						<button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
 							<mat-icon style="font-size: 23px;" class="material-icons-outlined mb-2">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
 						</button>
