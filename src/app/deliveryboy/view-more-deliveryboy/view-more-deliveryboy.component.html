@@ -1,35 +1,31 @@
-<section fxLayout="row wrap" fxLayoutAlign="center center">
-  <mat-card fxFlex="500px" fxFlex.xs="100%">
-    <mat-card-header>
-      <img
-        mat-card-avatar
-        class="example-header-image"
-        onerror="this.src='../../../assets/image/default-avatar.png';"
-        align="right"
-        src="http://localhost:3000/images/deliveryboy_photos/{{delivery_img}}"
-      />
-      <mat-card-title>{{ delivery_name | titlecase }}'s Details</mat-card-title>
-      <mat-card-subtitle><span class="customer-badge">Delivery Partner</span></mat-card-subtitle>
-    </mat-card-header>
-
-    <mat-card-content>
-      <mat-list>
-        <mat-divider></mat-divider>
-
-        <mat-list-item>Email ID : {{ delivery_email }}</mat-list-item>
-        <mat-divider></mat-divider>
-
-        <mat-list-item>Mobile No : {{ delivery_mobileno }}</mat-list-item>
-        <mat-divider></mat-divider>
-
-        <mat-list-item>Address : {{ deliveryboy_address | titlecase }}</mat-list-item>
-        <mat-divider></mat-divider>
-      </mat-list>
-    </mat-card-content>
-    <mat-card-actions>
-      <div mat-dialog-actions>
-        <button mat-button (click)="onCancelClick()">Close</button>
+<div fxLayout="row wrap" fxLayoutAlign="center center">
+  <div fxFlex="500px" fxFlex.xs="100%">
+    <mat-toolbar>
+      <img class="header-image" onerror="this.src='../../../assets/image/default-avatar.png';" src="http://localhost:3000/images/deliveryboy_photos/{{delivery_img}}"/>
+      <div class="mat-card-header ml-2">
+        <div class="mat-card-title">{{ delivery_name | titlecase }}'s Details</div>
       </div>
-    </mat-card-actions>
-  </mat-card>
-</section>
+      <span class="fill-remaining-space"></span>
+      <button class="btn-dialog-close" mat-stroked-button tabIndex="-1" (click)="onClose()"><mat-icon>clear</mat-icon></button>
+    </mat-toolbar>
+
+    <table class="table">
+      <tr scope="col">
+        <td>Name :</td>
+        <td>{{ delivery_name | titlecase }}</td>
+      </tr>
+      <tr scope="col">
+        <td>Email ID :</td>
+        <td>{{ delivery_email }}</td>
+      </tr>
+      <tr scope="col">
+        <td>Mobile No :</td>
+        <td>{{ delivery_mobileno }}</td>
+      </tr>
+      <tr scope="col">
+        <td>Address :</td>
+        <td><address>{{ deliveryboy_address | titlecase }}</address></td>
+      </tr>
+    </table>
+  </div>
+</div>

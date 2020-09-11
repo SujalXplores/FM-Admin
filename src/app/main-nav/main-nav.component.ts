@@ -13,28 +13,27 @@ import { GetUserService } from './get-user.service';
 })
 export class MainNavComponent {
   constructor(
-    private _user: GetUserService, 
-    private breakpointObserver: BreakpointObserver, 
-    public router: Router, 
+    private _user: GetUserService,
+    private breakpointObserver: BreakpointObserver,
+    public router: Router,
     public dialog: MatDialog
   ) { }
   hide: boolean = true;
-  isTrue: boolean = false;
   date = new Date();
 
   u_email_id: string = '';
   u_name: string = '';
   u_image: string = '';
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-  .pipe(
-    map(result => result.matches),
-    shareReplay()
-  );
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
   ngOnInit() {
     this.u_email_id = localStorage.getItem('u_email_id');
     this._user.getUserByEmail(this.u_email_id).subscribe((data) => {
-      if(data[0]){
+      if (data[0]) {
         this.u_image = data[0].u_image;
         this.u_name = data[0].u_name;
       }
@@ -51,9 +50,5 @@ export class MainNavComponent {
 
   openDialog() {
     this.dialog.open(ExitDialogComponent);
-  }
-
-  changeTheme() {
-    this.isTrue = !this.isTrue;
   }
 }

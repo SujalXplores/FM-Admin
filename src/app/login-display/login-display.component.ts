@@ -11,8 +11,8 @@ import { NotificationService } from '../notification.service';
 })
 export class LoginDisplayComponent implements OnInit {
   constructor(
-    private notificationService: NotificationService, 
-    private _router: Router, 
+    private notificationService: NotificationService,
+    private _router: Router,
     private _logindata: LogindataService
   ) { }
 
@@ -28,16 +28,21 @@ export class LoginDisplayComponent implements OnInit {
   }
 
   onLogin() {
+    this.loading = true;
     this._logindata.login(this.loginForm.value).subscribe(
       (x: users[]) => {
         if (x.length == 1) {
-          this.loading = true;
           localStorage.setItem('u_email_id', this.loginForm.get('u_email_id').value);
           this._router.navigate(['/nav/']);
         }
         else {
           this.loading = false;
           this.notificationService.warn('Please check your Email/Password !');
+        }
+      }, (error) => {
+        if (error.name == "HttpErrorResponse") {
+          this.loading = false;
+          this.notificationService.warn("Can't connect to server.");
         }
       }
     );

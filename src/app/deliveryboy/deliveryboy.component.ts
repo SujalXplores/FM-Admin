@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { deliveryboy } from './deliveryboy';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -10,6 +10,7 @@ import { DeliveryboydataService } from './deliveryboydata.service';
 import { ValetMailComponent } from './valet-mail/valet-mail.component';
 import { ViewMoreDeliveryboyComponent } from './view-more-deliveryboy/view-more-deliveryboy.component';
 import { NotificationService } from '../notification.service';
+import { AdddeliveryboyComponent } from './adddeliveryboy/adddeliveryboy.component';
 
 @Component({
   selector: 'app-deliveryboy',
@@ -58,11 +59,17 @@ export class DeliveryboyComponent implements OnInit {
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
     this.isAllSelected() ?
-    this.selection.clear() :
-    this.dataSource.data.forEach(row => this.selection.select(row));
+      this.selection.clear() :
+      this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    if (this._data.subsVar == undefined) {
+      this._data.subsVar = this._data.
+      invokeRefresh.subscribe(() => {
+        this.ngOnInit();
+      });
+    }
     this._data.getAllDeliveryboy().subscribe(
       (data: deliveryboy[]) => {
         this.deliveryboyarr = data;
@@ -80,8 +87,18 @@ export class DeliveryboyComponent implements OnInit {
   }
 
   openDialog(row) {
-    this.dialog.open(ViewMoreDeliveryboyComponent, {
-      data: row
-    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.height = "auto";
+    dialogConfig.width = "auto";
+    dialogConfig.data = row;
+    this.dialog.open(ViewMoreDeliveryboyComponent, dialogConfig);
+  }
+
+  openAddDialogue() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    this.dialog.open(AdddeliveryboyComponent, dialogConfig);
   }
 }

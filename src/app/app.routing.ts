@@ -38,7 +38,7 @@ const arr: Routes = [
     canActivate: [UserAuthGuardService],
     component: MainNavComponent,
     children: [
-      { path: '', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
       { path: 'users', component: UsersComponent },
       { path: 'addUser', component: AdduserComponent },
       { path: 'edituser/:u_email_id', component: EdituserComponent },

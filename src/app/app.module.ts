@@ -67,6 +67,7 @@ import { MultipleOrderDisplayComponentComponent } from './multiple-order-display
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MailUserComponent } from './users/mail-user/mail-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -88,7 +89,7 @@ import { PasswordModule } from 'primeng/password';
 import { EdituserimageComponent } from './users/edituserimage/edituserimage.component';
 import { KeyFilterModule } from 'primeng/keyfilter';
 
-import { NgOtpInputModule } from  'ng-otp-input';
+import { NgOtpInputModule } from 'ng-otp-input';
 import { WalletComponent } from './wallet/wallet.component';
 
 import 'hammerjs';
@@ -180,6 +181,7 @@ import { ThemeSwitchService } from './theme-switch.service';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSlideToggleModule,
+    MatTabsModule,
     MatStepperModule,
     FeatherModule.pick(allIcons),//feather-icons
     DragDropModule,
@@ -203,6 +205,7 @@ import { ThemeSwitchService } from './theme-switch.service';
     OrderDetailviewmoreComponent,
     MailUserComponent,
     ViewMoreComponent,//assigned order details
+    AdddeliveryboyComponent
   ],
   providers: [ThemeSwitchService],
   bootstrap: [AppComponent]

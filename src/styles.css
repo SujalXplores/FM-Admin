@@ -3,7 +3,8 @@
   padding: 0px;
 }
 
-html,body {
+html,
+body {
   height: 100%;
 }
 
@@ -14,7 +15,7 @@ body {
 }
 
 button {
-  border: 0 !important;
+  /* border: 0 !important; */
   outline: 0 !important;
 }
 
@@ -36,7 +37,8 @@ button {
 }
 
 /*To Remove Arrows Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

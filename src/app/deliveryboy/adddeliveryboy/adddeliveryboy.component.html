@@ -1,66 +1,69 @@
-<section fxLayout="row wrap" fxLayoutAlign="center center">
-  <mat-card fxFlex="96%" fxFlex.xs="100%">
-    <mat-card-title align="center">
-        <mat-icon class="del_partner" color="primary">verified</mat-icon>
-        Hire Delivery Partner
-    </mat-card-title>
-    <mat-card-content>
-      <form class="example-form" (ngSubmit)="onDeliveryboyAdd(f)" #f="ngForm" spellcheck="false">
+<mat-toolbar>
+  <span>New Delivery Partner</span>
+  <mat-icon color="primary" class="material-icons-outlined ml-3">local_shipping</mat-icon>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button tabIndex="-1" (click)="onClose()"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
 
-        <mat-form-field class="example-full-width" appearance="outline">
+<form class="normal-form" (ngSubmit)="onDeliveryboyAdd(f)" #f="ngForm" spellcheck="false">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container mt-3">
+        <mat-form-field appearance="fill" class="mb-1">
           <mat-label>Name</mat-label>
-          <input appAutoFocus required pattern="[a-z A-Z]*" ngModel name="deliveryboy_name" #deliveryboy_name="ngModel" matInput type="text">
+          <input required pattern="[a-z A-Z]*" ngModel name="deliveryboy_name" #deliveryboy_name="ngModel" matInput type="text">
           <mat-icon class="material-icons-outlined" matSuffix>perm_identity</mat-icon>
           <mat-error *ngIf="deliveryboy_name.hasError('required') && deliveryboy_name.pristine">Name is Required</mat-error>
           <mat-error *ngIf="deliveryboy_name.hasError('pattern') && deliveryboy_name.pristine">Only Letters</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="example-full-width" appearance="outline">
-          <mat-label>Address</mat-label>
-          <textarea required ngModel name="deliveryboy_address" #deliveryboy_address="ngModel" matInput type="text" rows="5"></textarea>
-          <mat-error *ngIf="deliveryboy_address.hasError('required') && deliveryboy_address.pristine">Address is Required</mat-error>
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width" appearance="outline">
-          <label class="_label91" matPrefix>+91</label>
+        <mat-form-field appearance="fill" class="mb-1">
           <mat-label>Mobile Number</mat-label>
           <input pKeyFilter="int" required pattern="[0-9]*" #input maxlength="10" ngModel name="deliveryboy_mobileno" #deliveryboy_mobileno="ngModel" type="number" matInput appPhone>
           <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
           <mat-error *ngIf="deliveryboy_mobileno.hasError('required') && deliveryboy_mobileno.pristine">Mobile Number is Required</mat-error>
           <mat-error *ngIf="deliveryboy_mobileno.hasError('minlength') && deliveryboy_mobileno.pristine">Mobile number must be of 10 digits!</mat-error>
           <mat-error *ngIf="deliveryboy_mobileno.hasError('pattern') && deliveryboy_mobileno.pristine">Only Digits!</mat-error>
-          <mat-icon matSuffix>phone</mat-icon>
+          <mat-icon class="material-icons-outlined" matSuffix>phone</mat-icon>
         </mat-form-field>
 
-        <mat-form-field class="example-full-width" appearance="outline">
+        <mat-form-field appearance="fill" class="mb-1">
           <mat-label>E-mail</mat-label>
           <input required ngModel name="deliveryboy_email" #deliveryboy_email="ngModel" matInput type="email">
           <mat-error *ngIf="deliveryboy_email.hasError('required') && deliveryboy_email.pristine">Email is Required</mat-error>
           <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
         </mat-form-field>
 
-        <mat-form-field class="example-full-width" appearance="outline">
+        <mat-form-field appearance="fill" class="mb-1">
           <mat-label>Password</mat-label>
           <input required ngModel name="password" #password="ngModel" matInput type="password">
           <mat-error *ngIf="password.hasError('required') && password.pristine">Password is Required</mat-error>
-          <mat-icon matSuffix class="material-icons-outlined">vpn_key</mat-icon>
+          <mat-icon matSuffix class="material-icons-outlined">lock</mat-icon>
         </mat-form-field>
 
-        <div class="form-group">
-          <div class="rounded p-6">
-              <div class="media">
-                  <div class="media-body">
-                      <label class="btn btn-sm btn btn-outline-secondary mb-3 ml-2">
-                          Upload photo
-                          <input type="file" class="d-none" name="img" (change)="onChange($event)">
-                      </label>
-                  </div>
-              </div>
-          </div>
-        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
 
-        <button [disabled]="!f.valid" class="example-full-width" type="submit" mat-raised-button color="accent">Save</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
-</section>
+        <mat-form-field appearance="fill" class="mb-2">
+          <mat-label>Address</mat-label>
+          <textarea required ngModel name="deliveryboy_address" #deliveryboy_address="ngModel" matInput type="text" rows="7"></textarea>
+          <mat-error *ngIf="deliveryboy_address.hasError('required') && deliveryboy_address.pristine">Address is Required</mat-error>
+        </mat-form-field>
+
+        <input type="file" name="img" (change)="onChange($event)" accept="image/*" required class="mb-4">
+        
+        <div class="button-row">
+          <button mat-raised-button color="warn" type="reset">Clear</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid || loading">
+            <mat-icon *ngIf="loading">
+              <mat-spinner mode="indeterminate" diameter="20"></mat-spinner>
+            </mat-icon>
+            <span *ngIf="!loading">Submit</span>
+          </button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

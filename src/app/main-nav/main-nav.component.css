@@ -47,7 +47,7 @@ span {
   font-size: medium;
 }
 
-/* .active {
-  border-right: 3px solid rgb(0, 0, 255);
-  background-color: rgb(241, 241, 241);
-} */
+.mat-list-item.active{
+  background: rgb(226, 219, 219);
+  font-weight: 500;
+}

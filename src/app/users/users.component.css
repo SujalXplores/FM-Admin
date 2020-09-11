@@ -69,20 +69,27 @@ tr.example-element-row:not(.example-expanded-row):active {
 .customer-badge {
   border-radius: 2px;
   padding: 0.25em 0.5em;
-  text-transform: uppercase;
-  font-weight: 700;
+  text-transform: capitalize;
   font-size: 12px;
   letter-spacing: 0.3px;
 }
 
 .status-user {
-  background-color: #c8e6c9;
-  color: #256029;
+  display: inline-block;
+  padding: 0 12px;
+  border-radius: 32px;
+  font-size: 13px;
+  color: #ffffff;
+  background-color: #2eaa36;
 }
 
 .status-admin {
-  background-color: #ffcdd2;
-  color: #c63737;
+  display: inline-block;
+  padding: 0 12px;
+  border-radius: 32px;
+  font-size: 13px;
+  color: #ffffff;
+  background-color: #c63737;
 }
 
 .grid-container {

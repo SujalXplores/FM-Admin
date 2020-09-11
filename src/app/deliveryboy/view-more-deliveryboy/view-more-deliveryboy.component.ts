@@ -23,7 +23,7 @@ export class ViewMoreDeliveryboyComponent implements OnInit {
     this.deliveryboy_address = this.data.deliveryboy_address;
   }
 
-  onCancelClick() {
+  onClose() {
     this.dialogRef.close();
   }
 }

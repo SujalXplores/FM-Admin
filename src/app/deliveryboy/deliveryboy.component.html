@@ -10,7 +10,7 @@
   <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
 
-<button routerLink='/nav/adddeliveryboy' mat-raised-button color="primary" matTooltip="Hire New Partner" class="addbutton">
+<button (click)="openAddDialogue()" mat-raised-button color="primary" matTooltip="Hire New Partner" class="addbutton">
   <mat-icon class="material-icons-outlined">add</mat-icon>&nbsp;New
 </button>
 
@@ -30,10 +30,10 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Actions</th>
       <td mat-cell *matCellDef="let row">
-        <button (click)="openDialog(row)" matTooltip="View more" mat-icon-button style="color: blue">
+        <button (click)="openDialog(row)" matTooltip="View more" mat-icon-button color="primary">
           <mat-icon>launch</mat-icon>
         </button>
-        <button (click)="OnDeliveryboyMail(row)" matTooltip="Mail" mat-icon-button style="color: rgb(217, 48, 37);">
+        <button (click)="OnDeliveryboyMail(row)" matTooltip="Mail" mat-icon-button color="warn">
           <mat-icon>mail</mat-icon>
         </button>
         <button 
