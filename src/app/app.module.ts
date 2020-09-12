@@ -56,11 +56,8 @@ import { OrderDialogComponent } from './order/order-dialog/order-dialog.componen
 import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { ViewMoreProductPhotoComponent } from './product-photo/view-more-product-photo/view-more-product-photo.component';
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
-import { ExitDialogComponent } from './main-nav/exit-dialog/exit-dialog.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
 import { ValetMailComponent } from './deliveryboy/valet-mail/valet-mail.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
-import { OrderDetailviewmoreComponent } from './order-detail/order-detailviewmore/order-detailviewmore.component';
 import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -79,7 +76,6 @@ import { EditCategoryComponent } from './category/edit-category/edit-category.co
 import { AutoFocusDirective } from './auto-focus.directive';
 import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.component';
 import { ViewMoreComponent } from './deliverydetail/view-more/view-more.component';
-import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
@@ -90,6 +86,7 @@ import { WalletComponent } from './wallet/wallet.component';
 
 import 'hammerjs';
 import { ThemeSwitchService } from './theme-switch.service';
+import { CustomDialogComponent } from './shared/custom-dialog/custom-dialog.component';
 
 @NgModule({
   declarations: [
@@ -117,11 +114,8 @@ import { ThemeSwitchService } from './theme-switch.service';
     ProductPhotoComponent,
     ViewMoreProductPhotoComponent,
     AddproductPhotoComponent,
-    ExitDialogComponent,
     EditproductPhotoComponent,
     ValetMailComponent,
-    OrderDetailComponent,
-    OrderDetailviewmoreComponent,
     MultipleOrderDisplayComponentComponent,
     MailUserComponent,
     ForgotPasswordComponent,
@@ -137,6 +131,7 @@ import { ThemeSwitchService } from './theme-switch.service';
     PdfTableComponent,
     EdituserimageComponent,
     WalletComponent,
+    CustomDialogComponent,
   ],
   imports: [
     routingArr,
@@ -180,9 +175,6 @@ import { ThemeSwitchService } from './theme-switch.service';
     MatStepperModule,
     DragDropModule,
     MatGridListModule,
-    ConfirmationPopoverModule.forRoot({
-      confirmButtonType: 'danger'
-    }),
     ChartsModule,
     PDFExportModule,
 
@@ -193,9 +185,7 @@ import { ThemeSwitchService } from './theme-switch.service';
     ViewMoreProductComponent,
     OrderDialogComponent,
     ViewMoreProductPhotoComponent,
-    ExitDialogComponent,
     ValetMailComponent,
-    OrderDetailviewmoreComponent,
     MailUserComponent,
     ViewMoreComponent,//assigned order details
     AdddeliveryboyComponent

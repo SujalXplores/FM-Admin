@@ -11,13 +11,8 @@
 
 <button
   [disabled]="del_arr.length==0" 
-  mat-raised-button 
-  mwlConfirmationPopover 
-  popoverTitle="Record Delete Confirmation"
-  popoverMessage="Do you really want to delete?"
-  placement="left"
-  (confirm)="ondeleteallclick()"
-  (cancel)="cancleClicked = true"
+  mat-raised-button
+  (click)="openDeleteConfirm()"
   matTooltip="Delete Selected"
   color="warn" 
   class="deletebutton">

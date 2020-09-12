@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { ProductdataService } from './productdata.service';
 import { ViewMoreProductComponent } from './view-more-product/view-more-product.component';
 import { NotificationService } from '../notification.service';
+import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -101,5 +102,20 @@ export class ProductComponent implements OnInit {
     this.isAllSelected() ?
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  openDeleteConfirm(): void {
+    const message = `Are you sure you want to continue?`;
+    const dialogData = new ConfirmDialogModel("Confirm Delete", message);
+    const dialogRef = this.dialog.open(CustomDialogComponent, {
+      width: "300px",
+      autoFocus: false,
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult == true) {
+        this.ondeleteallclick();
+      }
+    });
   }
 }

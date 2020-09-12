@@ -3,9 +3,9 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { ExitDialogComponent } from './exit-dialog/exit-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GetUserService } from './get-user.service';
+import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
 @Component({
   selector: 'app-main-nav',
   templateUrl: './main-nav.component.html',
@@ -24,11 +24,10 @@ export class MainNavComponent {
   u_email_id: string = '';
   u_name: string = '';
   u_image: string = '';
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
 
   ngOnInit() {
     this.u_email_id = localStorage.getItem('u_email_id');
@@ -48,7 +47,19 @@ export class MainNavComponent {
     this.router.navigate(['/nav/edituser', this.u_email_id]);
   }
 
-  openDialog() {
-    this.dialog.open(ExitDialogComponent);
+  confirmDialog(): void {
+    const message = `Are you sure you want to continue?`;
+    const dialogData = new ConfirmDialogModel("Confirm Exit", message);
+    const dialogRef = this.dialog.open(CustomDialogComponent, {
+      width: "300px",
+      autoFocus: false,
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult == true) {
+        localStorage.removeItem("u_email_id");
+        this.router.navigate(['/']);
+      }
+    });
   }
 }

@@ -47,3 +47,8 @@ button {
   height: 40px;
   padding: 0px !important;
 }
+
+.second-container {
+  position: relative;
+  top: -17px;
+}

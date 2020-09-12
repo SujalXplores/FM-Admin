@@ -2,8 +2,8 @@
   <div fxFlex="500px" fxFlex.xs="100%">
     <mat-toolbar>
       <img class="header-image" onerror="this.src='../../../assets/image/default-avatar.png';" src="http://localhost:3000/images/deliveryboy_photos/{{delivery_img}}"/>
-      <div class="mat-card-header ml-2">
-        <div class="mat-card-title">{{ delivery_name | titlecase }}'s Details</div>
+      <div class="mat-card-header ml-3">
+        <div mat-dialog-title>{{ delivery_name | titlecase }}'s Details</div>
       </div>
       <span class="fill-remaining-space"></span>
       <button class="btn-dialog-close" mat-stroked-button tabIndex="-1" (click)="onClose()"><mat-icon>clear</mat-icon></button>
@@ -11,19 +11,19 @@
 
     <table class="table">
       <tr scope="col">
-        <td>Name :</td>
+        <td>Name</td>
         <td>{{ delivery_name | titlecase }}</td>
       </tr>
       <tr scope="col">
-        <td>Email ID :</td>
+        <td>Email</td>
         <td>{{ delivery_email }}</td>
       </tr>
       <tr scope="col">
-        <td>Mobile No :</td>
+        <td>Mobile No</td>
         <td>{{ delivery_mobileno }}</td>
       </tr>
       <tr scope="col">
-        <td>Address :</td>
+        <td>Address</td>
         <td><address>{{ deliveryboy_address | titlecase }}</address></td>
       </tr>
     </table>

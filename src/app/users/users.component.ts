@@ -10,6 +10,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { DialogComponent } from './dialog/dialog.component';
 import { MailUserComponent } from './mail-user/mail-user.component';
 import { NotificationService } from '../notification.service';
+import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -107,6 +108,21 @@ export class UsersComponent implements OnInit {
   OnUserMail(row) {
     this._dialog.open(MailUserComponent, {
       data: row
+    });
+  }
+
+  openDeleteConfirm(): void {
+    const message = `Are you sure you want to continue?`;
+    const dialogData = new ConfirmDialogModel("Confirm Delete", message);
+    const dialogRef = this.dialog.open(CustomDialogComponent, {
+      width: "300px",
+      autoFocus: false,
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult == true) {
+        this.ondeleteallclick();
+      }
     });
   }
 }

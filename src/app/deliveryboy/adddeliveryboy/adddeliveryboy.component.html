@@ -6,11 +6,11 @@
 </mat-toolbar>
 
 <form class="normal-form" (ngSubmit)="onDeliveryboyAdd(f)" #f="ngForm" spellcheck="false">
-  <mat-grid-list cols="2" rowHeight="300px">
+  <mat-grid-list cols="2" rowHeight="300px" class="m-0 m-auto">
     <mat-grid-tile>
       <div class="controles-container">
         <mat-form-field appearance="fill" class="mb-1">
-          <mat-label>Name</mat-label>
+          <mat-label>Full Name</mat-label>
           <input required pattern="[a-z A-Z]*" ngModel name="deliveryboy_name" #deliveryboy_name="ngModel" matInput type="text">
           <mat-icon class="material-icons-outlined" matSuffix>perm_identity</mat-icon>
           <mat-error *ngIf="deliveryboy_name.hasError('required') && deliveryboy_name.pristine">Name is Required</mat-error>
@@ -28,7 +28,7 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="mb-1">
-          <mat-label>E-mail</mat-label>
+          <mat-label>Email</mat-label>
           <input required ngModel name="deliveryboy_email" #deliveryboy_email="ngModel" matInput type="email">
           <mat-error *ngIf="deliveryboy_email.hasError('required') && deliveryboy_email.pristine">Email is Required</mat-error>
           <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
@@ -44,15 +44,15 @@
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
-      <div class="controles-container mt-0">
+      <div class="controles-container second-container">
 
-        <mat-form-field appearance="fill" class="mb-2 mt-0">
+        <mat-form-field appearance="fill" class="mb-1">
           <mat-label>Address</mat-label>
-          <textarea required ngModel name="deliveryboy_address" #deliveryboy_address="ngModel" matInput type="text" rows="7"></textarea>
+          <textarea required ngModel name="deliveryboy_address" #deliveryboy_address="ngModel" matInput type="text" rows="6"></textarea>
           <mat-error *ngIf="deliveryboy_address.hasError('required') && deliveryboy_address.pristine">Address is Required</mat-error>
         </mat-form-field>
 
-        <input type="file" name="img" (change)="onChange($event)" accept="image/*" required class="mb-4">
+        <input type="file" name="img" (change)="onChange($event)" accept="image/*" required class="mb-5">
         
         <div class="button-row">
           <button mat-raised-button color="warn" type="reset">Clear</button>

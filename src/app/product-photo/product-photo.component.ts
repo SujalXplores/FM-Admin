@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { ProductPhotodataService } from './product-photodata.service';
 import { ViewMoreProductPhotoComponent } from './view-more-product-photo/view-more-product-photo.component';
 import { NotificationService } from '../notification.service';
+import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
 @Component({
   selector: 'app-product-photo',
   templateUrl: './product-photo.component.html',
@@ -76,5 +77,20 @@ export class ProductPhotoComponent implements OnInit {
     this.isAllSelected() ?
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  openDeleteConfirm(item: product_photo): void {
+    const message = `Are you sure you want to continue?`;
+    const dialogData = new ConfirmDialogModel("Confirm Delete", message);
+    const dialogRef = this.dialog.open(CustomDialogComponent, {
+      width: "300px",
+      autoFocus: false,
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult == true) {
+        this.onDelete(item);
+      }
+    });
   }
 }

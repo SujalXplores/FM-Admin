@@ -5,12 +5,12 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
-import { Router } from '@angular/router';
 import { DeliveryboydataService } from './deliveryboydata.service';
 import { ValetMailComponent } from './valet-mail/valet-mail.component';
 import { ViewMoreDeliveryboyComponent } from './view-more-deliveryboy/view-more-deliveryboy.component';
 import { NotificationService } from '../notification.service';
 import { AdddeliveryboyComponent } from './adddeliveryboy/adddeliveryboy.component';
+import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
 
 @Component({
   selector: 'app-deliveryboy',
@@ -21,26 +21,30 @@ export class DeliveryboyComponent implements OnInit {
 
   cancleClicked: boolean = false;
   deliveryboyarr: deliveryboy[] = [];
-  displayedColumns: string[] = ['deliveryboy_name', 'deliveryboy_address', 'action'];
+  displayedColumns: string[] = ['deliveryboy_name', 'deliveryboy_mobileno', 'action'];
   dataSource: MatTableDataSource<deliveryboy>;
-
   selection = new SelectionModel<deliveryboy>(true, []);
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private notificationService: NotificationService, private _data: DeliveryboydataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
+  constructor(
+    private notificationService: NotificationService,
+    private _data: DeliveryboydataService,
+    private _dialog: MatDialog, 
+    private dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource();
   }
 
   onDelete(item: deliveryboy) {
-    this._data.deleteDeliveryboy(item.deliveryboy_id).subscribe(
-      (data: any) => {
-        this.deliveryboyarr.splice(this.deliveryboyarr.indexOf(item), 1);
-        this.dataSource.data = this.deliveryboyarr;
-        this.notificationService.warn('Record deleted successfully !');
-      }
-    );
+    this._data.deleteDeliveryboy(item.deliveryboy_id).subscribe(() => {
+      this.deliveryboyarr.splice(this.deliveryboyarr.indexOf(item), 1);
+      this.dataSource.data = this.deliveryboyarr;
+      this.notificationService.warn('Record deleted successfully !');
+    }, (error) => {
+      this.notificationService.warn(error);
+    });
   }
 
   applyFilter(filterValue: string) {
@@ -65,13 +69,13 @@ export class DeliveryboyComponent implements OnInit {
 
   ngOnInit(): void {
     if (this._data.subsVar == undefined) {
-      this._data.subsVar = this._data.
-      invokeRefresh.subscribe(() => {
+      this._data.subsVar = this._data.invokeRefresh.subscribe(() => {
         this.ngOnInit();
       });
     }
     this._data.getAllDeliveryboy().subscribe(
       (data: deliveryboy[]) => {
+        console.log(data);
         this.deliveryboyarr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
@@ -86,7 +90,7 @@ export class DeliveryboyComponent implements OnInit {
     });
   }
 
-  openDialog(row) {
+  openViewMoreDialog(row) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = "auto";
     dialogConfig.width = "auto";
@@ -100,5 +104,20 @@ export class DeliveryboyComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
     this.dialog.open(AdddeliveryboyComponent, dialogConfig);
+  }
+
+  openDeleteConfirm(item: deliveryboy): void {
+    const message = `Are you sure you want to continue?`;
+    const dialogData = new ConfirmDialogModel("Confirm Delete", message);
+    const dialogRef = this.dialog.open(CustomDialogComponent, {
+      width: "300px",
+      autoFocus: false,
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult == true) {
+        this.onDelete(item);
+      }
+    });
   }
 }

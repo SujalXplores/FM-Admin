@@ -30,12 +30,7 @@
       <th mat-header-cell *matHeaderCellDef>Delete</th>
       <td mat-cell *matCellDef="let row">
         <button
-          mwlConfirmationPopover 
-          popoverTitle="Record Delete Confirmation"
-          popoverMessage="Do you really want to delete?"
-          placement="left"
-          (confirm)="onDelete(row)"
-          (cancel)="cancleClicked = true"
+          (click) = "openDeleteConfirm(row)"
           matTooltip="Delete"  
           mat-icon-button 
           color="warn">

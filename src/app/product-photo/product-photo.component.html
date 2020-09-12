@@ -44,13 +44,8 @@
         <button (click)="openDialog(row)"  matTooltip="View more" mat-icon-button style="color: blue">
           <mat-icon>launch</mat-icon>
         </button>
-        <button 
-          mwlConfirmationPopover 
-          popoverTitle="Record Delete Confirmation"
-          popoverMessage="Do you really want to delete?"
-          placement="left"
-          (confirm)="onDelete(row)"
-          (cancel)="cancleClicked = true"
+        <button
+          (click)="openDeleteConfirm(row)"
           matTooltip="Delete" 
           mat-icon-button 
           color="warn">

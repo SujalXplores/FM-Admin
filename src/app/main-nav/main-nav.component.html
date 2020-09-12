@@ -12,28 +12,56 @@
 
     <mat-nav-list>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/dashboard"><mat-icon class="material-icons-outlined">insert_chart</mat-icon><span>Dashboard</span></a>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/users"><mat-icon class="material-icons-outlined">account_box</mat-icon><span>Users</span></a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/dashboard">
+        <mat-icon class="material-icons-outlined">insert_chart</mat-icon>
+        <span>Dashboard</span>
+      </a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/users">
+        <mat-icon class="material-icons-outlined">account_box</mat-icon>
+        <span>Users</span>
+      </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/deliveryboy"><mat-icon class="material-icons-outlined">local_shipping</mat-icon><span>DeliveryPartner</span></a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/deliveryboy">
+        <mat-icon class="material-icons-outlined">local_shipping</mat-icon>
+        <span>DeliveryPartner</span>
+      </a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/deliverdetails">
+        <mat-icon class="material-icons-outlined">assignment_turned_in</mat-icon>
+        <span>Assign Order</span>
+      </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/deliverdetails"><mat-icon class="material-icons-outlined">assignment_turned_in</mat-icon><span>Assign Order</span></a>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/trackingdisplay"><mat-icon class="material-icons-outlined">room</mat-icon><span>Tracking</span></a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/trackingdisplay">
+        <mat-icon class="material-icons-outlined">room</mat-icon>
+        <span>Tracking</span>
+      </a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/order">
+        <mat-icon class="material-icons-outlined">shopping_basket</mat-icon>
+        <span>Orders</span>
+      </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/order"><mat-icon class="material-icons-outlined">shopping_basket</mat-icon><span>Orders</span></a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/product">
+        <mat-icon class="material-icons-outlined">local_hospital</mat-icon>
+        <span>Products</span>
+      </a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/product_photo">
+        <mat-icon class="material-icons-outlined">add_photo_alternate</mat-icon>
+        <span>Product Photo</span>
+      </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/product"><mat-icon class="material-icons-outlined">local_hospital</mat-icon><span>Products</span></a>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/product_photo"><mat-icon class="material-icons-outlined">add_photo_alternate</mat-icon><span>Product Photo</span></a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/category">
+        <mat-icon class="material-icons-outlined">apps</mat-icon>
+        <span>Category</span>
+      </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/category"><mat-icon class="material-icons-outlined">apps</mat-icon><span>Category</span></a>
-      <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/walletdisplay"><mat-icon class="material-icons-outlined">account_balance_wallet</mat-icon><span>Wallet</span></a>
+      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/walletdisplay">
+        <mat-icon class="material-icons-outlined">account_balance_wallet</mat-icon>
+        <span>Wallet</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -42,25 +70,21 @@
         *ngIf="isHandset$ | async">
         <mat-icon mat-mini-fab aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-
       <span>FutureMediSurgico</span>
-
       <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
         <mat-icon>more_vert</mat-icon>
       </button>
-
       <mat-menu #beforeMenu="matMenu" xPosition="before">
         <button (click)='OnUserEdit()' mat-menu-item>
           <mat-icon class="material-icons-outlined">account_circle</mat-icon>
           <span>My Profile</span>
         </button>
         <mat-divider></mat-divider>
-        <button mat-menu-item (click)='openDialog()'>
+        <button mat-menu-item (click)='confirmDialog()'>
           <mat-icon color="warn">exit_to_app</mat-icon>
           <span>Logout</span>
         </button>
       </mat-menu>
-
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

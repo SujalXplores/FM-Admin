@@ -7,7 +7,10 @@ import { deliveryboy } from '../deliveryboy';
   styleUrls: ['./view-more-deliveryboy.component.css']
 })
 export class ViewMoreDeliveryboyComponent implements OnInit {
-  constructor(public dialogRef: MatDialogRef<ViewMoreDeliveryboyComponent>, @Inject(MAT_DIALOG_DATA) public data: deliveryboy) { }
+  constructor(
+    public dialogRef: MatDialogRef<ViewMoreDeliveryboyComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: deliveryboy
+  ) { }
 
   delivery_img: string;
   delivery_email: string;

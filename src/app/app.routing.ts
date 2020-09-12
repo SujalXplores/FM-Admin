@@ -19,7 +19,6 @@ import { UserAuthGuardService } from "./login-display/user-auth-guard.service";
 import { ProductPhotoComponent } from './product-photo/product-photo.component';
 import { AddproductPhotoComponent } from './product-photo/addproduct-photo/addproduct-photo.component';
 import { EditproductPhotoComponent } from './product-photo/editproduct-photo/editproduct-photo.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { MultipleOrderDisplayComponentComponent } from './multiple-order-display-component/multiple-order-display-component.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -55,7 +54,6 @@ const arr: Routes = [
       { path: 'order', component: OrderComponent },
       { path: 'addOrder', component: AddorderComponent },
       { path: 'editorder/:order_id', component: EditorderComponent },
-      { path: 'order_detail', component: OrderDetailComponent },
       { path: 'ordermore/:order_id', component: MultipleOrderDisplayComponentComponent },
       { path: 'deliveryboy', component: DeliveryboyComponent },
       { path: 'deliverdetails', component: DeliverydetailComponent },

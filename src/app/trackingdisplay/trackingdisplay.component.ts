@@ -7,13 +7,20 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { TrackdataService } from './trackdata.service';
 import { NotificationService } from '../notification.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
 @Component({
   selector: 'app-trackingdisplay',
   templateUrl: './trackingdisplay.component.html',
   styleUrls: ['./trackingdisplay.component.css']
 })
 export class TrackingdisplayComponent implements OnInit {
-  constructor(private notificationService: NotificationService, private _trackdata: TrackdataService, public _router: Router) {
+  constructor(
+    private notificationService: NotificationService, 
+    private _trackdata: TrackdataService, 
+    public _router: Router,
+    private dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -79,5 +86,35 @@ export class TrackingdisplayComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  openDeleteConfirm(item): void {
+    const message = `Are you sure you want to continue?`;
+    const dialogData = new ConfirmDialogModel("Confirm Delete", message);
+    const dialogRef = this.dialog.open(CustomDialogComponent, {
+      width: "300px",
+      autoFocus: false,
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult == true) {
+        this.onDelete(item);
+      }
+    });
+  }
+
+  openDeleteAllConfirm(): void {
+    const message = `Are you sure you want to continue?`;
+    const dialogData = new ConfirmDialogModel("Confirm Delete", message);
+    const dialogRef = this.dialog.open(CustomDialogComponent, {
+      width: "300px",
+      autoFocus: false,
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult == true) {
+        this.onDeleteAllClick();
+      }
+    });
   }
 }

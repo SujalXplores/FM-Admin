@@ -22,32 +22,31 @@
       <td mat-cell *matCellDef="let row"> {{row.deliveryboy_name | titlecase}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="deliveryboy_address">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
-      <td mat-cell *matCellDef="let row"> {{row.deliveryboy_address | titlecase}} </td>
+    <ng-container matColumnDef="deliveryboy_mobileno">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile Number </th>
+      <td mat-cell *matCellDef="let row"> +91 {{row.deliveryboy_mobileno}} </td>
     </ng-container>
 
     <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <th mat-header-cell *matHeaderCellDef>Options</th>
       <td mat-cell *matCellDef="let row">
-        <button (click)="openDialog(row)" matTooltip="View more" mat-icon-button color="primary">
-          <mat-icon>launch</mat-icon>
+        <button class="menu" mat-icon-button [matMenuTriggerFor]="matMenu">
+          <mat-icon>more_vert</mat-icon>
         </button>
-        <button (click)="OnDeliveryboyMail(row)" matTooltip="Mail" mat-icon-button color="warn">
-          <mat-icon>mail</mat-icon>
-        </button>
-        <button 
-          mwlConfirmationPopover 
-          popoverTitle="Record Delete Confirmation"
-          popoverMessage="Do you really want to delete?"
-          placement="left"
-          (confirm)="onDelete(row)"
-          (cancel)="cancleClicked = true"
-          matTooltip="Delete" 
-          mat-icon-button 
-          color="warn">
-          <mat-icon>delete_outlined</mat-icon>
-        </button>
+  
+        <mat-menu #matMenu="matMenu" xPosition="before">
+          <button (click)="openViewMoreDialog(row)" mat-menu-item>
+            <mat-icon color="primary">launch</mat-icon><span>Details</span>
+          </button>
+          <button (click)="OnDeliveryboyMail(row)" mat-menu-item>
+            <mat-icon color="warn">mail</mat-icon><span>Mail</span>
+          </button>
+          <button (click)="openDeleteConfirm(row)" mat-menu-item>
+            <mat-icon color="warn">delete_outlined</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+        
       </td>
     </ng-container>
 

@@ -7,13 +7,20 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Router } from '@angular/router';
 import { CategorydataService } from './categorydata.service';
 import { NotificationService } from '../notification.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  constructor(private notificationService: NotificationService, private _data: CategorydataService, private router: Router) {
+  constructor(
+    private notificationService: NotificationService, 
+    private _data: CategorydataService, 
+    private router: Router,
+    private dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -67,5 +74,20 @@ export class CategoryComponent implements OnInit {
     this.isAllSelected() ?
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  openDeleteConfirm(item: category): void {
+    const message = `Are you sure you want to continue?`;
+    const dialogData = new ConfirmDialogModel("Confirm Delete", message);
+    const dialogRef = this.dialog.open(CustomDialogComponent, {
+      width: "300px",
+      autoFocus: false,
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult == true) {
+        this.onDelete(item);
+      }
+    });
   }
 }
