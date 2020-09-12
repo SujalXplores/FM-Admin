@@ -1,20 +1,33 @@
 <section fxLayout="row wrap" fxLayoutAlign="space-around" fxFlexFill>
   <mat-card fxFlex="500px" fxFlex.xs="100%">
-    <mat-list>
-      <img src="../../assets/image/orderdetails.png"><br><br>
-      <mat-card-title>Order Details</mat-card-title>
-      <mat-list-item><b>Email ID:</b>&emsp;{{fk_u_email_id}}</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item><b>Bill Date:</b>&emsp;{{order_date | date : 'mediumDate'}}</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item><b>Payment Method:</b>&emsp;{{payment_type | uppercase}}</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item><b>Order Status:</b>&emsp;{{order_status | titlecase}}</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item><b>Billing Address:</b>&emsp;{{user_addr | titlecase}}</mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item><b>Customer Contact:</b>&emsp;{{user_mob}}</mat-list-item>
-    </mat-list>
+    <img src="../../assets/image/orderdetails.png" class="mb-4">
+    <mat-card-title>Order Details</mat-card-title>
+    <table class="table">
+      <tr>
+        <td><b>Email</b></td>
+        <td>{{fk_u_email_id}}</td>
+      </tr>
+      <tr>
+        <td><b>Bill Date</b></td>
+        <td>{{order_date | date : 'mediumDate'}}</td>
+      </tr>
+      <tr>
+        <td><b>Payment Method</b></td>
+        <td>{{payment_type | uppercase}}</td>
+      </tr>
+      <tr>
+        <td><b>Order Status</b></td>
+        <td>{{order_status | titlecase}}</td>
+      </tr>
+      <tr>
+        <td><b>Billing Address</b></td>
+        <td><address>{{user_addr | titlecase}}</address></td>
+      </tr>
+      <tr>
+        <td><b>Customer Contact</b></td>
+        <td>+91 {{user_mob}}</td>
+      </tr>
+    </table>
   </mat-card>
 
   <mat-card fxFlex="500px" fxFlex.xs="100%">
@@ -27,6 +40,6 @@
       <mat-card-subtitle>Qty:  x{{item.qty}}</mat-card-subtitle>
     </mat-card-header><hr>
     
-    <h5>Grand Total: <span style="color: green;">{{order_amount | currency:"INR"}}</span></h5>
+    <h2>Grand Total: <span class="text-success">{{order_amount | currency:"INR"}}</span></h2>
   </mat-card>
 </section>
