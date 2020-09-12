@@ -49,8 +49,6 @@ import { DeliveryboyComponent } from './deliveryboy/deliveryboy.component';
 import { AdddeliveryboyComponent } from './deliveryboy/adddeliveryboy/adddeliveryboy.component';
 import { EditdeliveryboyComponent } from './deliveryboy/editdeliveryboy/editdeliveryboy.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { FeatherModule } from 'angular-feather';
-import { allIcons } from 'angular-feather/icons';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DialogComponent } from './users/dialog/dialog.component';
 import { ViewMoreProductComponent } from './product/view-more-product/view-more-product.component';
@@ -85,9 +83,7 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
-import { PasswordModule } from 'primeng/password';
 import { EdituserimageComponent } from './users/edituserimage/edituserimage.component';
-import { KeyFilterModule } from 'primeng/keyfilter';
 
 import { NgOtpInputModule } from 'ng-otp-input';
 import { WalletComponent } from './wallet/wallet.component';
@@ -152,7 +148,6 @@ import { ThemeSwitchService } from './theme-switch.service';
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    PasswordModule,
     //angular-material
     MatToolbarModule,
     MatTreeModule,
@@ -183,7 +178,6 @@ import { ThemeSwitchService } from './theme-switch.service';
     MatSlideToggleModule,
     MatTabsModule,
     MatStepperModule,
-    FeatherModule.pick(allIcons),//feather-icons
     DragDropModule,
     MatGridListModule,
     ConfirmationPopoverModule.forRoot({
@@ -191,7 +185,6 @@ import { ThemeSwitchService } from './theme-switch.service';
     }),
     ChartsModule,
     PDFExportModule,
-    KeyFilterModule,
 
     NgOtpInputModule
   ],

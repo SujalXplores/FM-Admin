@@ -8,7 +8,7 @@
           <div class="card-block">
             <h3 class="m-b-20">Orders</h3>
             <h2>
-              <i class="fad fa-shopping-basket"></i>
+              <mat-icon class="material-icons-outlined">shopping_basket</mat-icon>
               <span class="float-right">{{total_order}}</span>
             </h2>
           </div>
@@ -19,7 +19,7 @@
           <div class="card-block">
             <h3 class="m-b-20">Delivery Partners</h3>
             <h2>
-              <i class="fad fa-truck"></i>
+              <mat-icon>local_shipping</mat-icon>
               <span class="float-right">{{delivery_partners}}</span>
             </h2>
           </div>
@@ -30,7 +30,7 @@
           <div class="card-block">
             <h3 class="m-b-20">Total Earnings</h3>
             <h2>
-              <i class="fad fa-wallet"></i>
+              <mat-icon class="material-icons-outlined">payments</mat-icon>
               <span class="float-right" *ngIf="revenue>0">₹{{revenue}}</span>
               <span class="float-right" *ngIf="revenue<=0">₹ 0.00</span>
             </h2>
@@ -42,7 +42,7 @@
           <div class="card-block">
             <h3 class="m-b-20">Users</h3>
             <h2>
-              <i class="fad fa-users"></i>
+              <mat-icon class="material-icons-outlined">people_alt</mat-icon>
               <span class="float-right">{{customers}}</span>
             </h2>
           </div>
@@ -79,6 +79,7 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -107,6 +108,7 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+
     <mat-grid-tile colspan="1" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -128,6 +130,7 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+    
     <mat-grid-tile colspan="2" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>

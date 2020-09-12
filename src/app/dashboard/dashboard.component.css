@@ -60,3 +60,7 @@
 .order-card i {
   font-size: 26px;
 }
+
+mat-icon {
+  font-size: 35px;
+}

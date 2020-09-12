@@ -33,7 +33,7 @@ export class LoginDisplayComponent implements OnInit {
       (x: users[]) => {
         if (x.length == 1) {
           localStorage.setItem('u_email_id', this.loginForm.get('u_email_id').value);
-          this._router.navigate(['/nav/']);
+          this._router.navigate(['/nav/dashboard']);
         }
         else {
           this.loading = false;

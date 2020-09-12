@@ -8,7 +8,7 @@
 <form class="normal-form" (ngSubmit)="onDeliveryboyAdd(f)" #f="ngForm" spellcheck="false">
   <mat-grid-list cols="2" rowHeight="300px">
     <mat-grid-tile>
-      <div class="controles-container mt-3">
+      <div class="controles-container">
         <mat-form-field appearance="fill" class="mb-1">
           <mat-label>Name</mat-label>
           <input required pattern="[a-z A-Z]*" ngModel name="deliveryboy_name" #deliveryboy_name="ngModel" matInput type="text">
@@ -34,7 +34,7 @@
           <mat-icon class="material-icons-outlined" matSuffix>mail</mat-icon>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" class="mb-1">
+        <mat-form-field appearance="fill">
           <mat-label>Password</mat-label>
           <input required ngModel name="password" #password="ngModel" matInput type="password">
           <mat-error *ngIf="password.hasError('required') && password.pristine">Password is Required</mat-error>
@@ -44,9 +44,9 @@
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
-      <div class="controles-container">
+      <div class="controles-container mt-0">
 
-        <mat-form-field appearance="fill" class="mb-2">
+        <mat-form-field appearance="fill" class="mb-2 mt-0">
           <mat-label>Address</mat-label>
           <textarea required ngModel name="deliveryboy_address" #deliveryboy_address="ngModel" matInput type="text" rows="7"></textarea>
           <mat-error *ngIf="deliveryboy_address.hasError('required') && deliveryboy_address.pristine">Address is Required</mat-error>

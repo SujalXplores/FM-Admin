@@ -31,3 +31,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Dhruv Modi
 Sujal Shah
 Biren Rana
+
+## Premium FontAwesome API v5.12.0 for premium icons
+https://pro.fontawesome.com/releases/v5.12.0/css/all.css
