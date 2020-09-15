@@ -10,7 +10,7 @@
 
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Product Name</mat-label>
-          <input appAutoFocus required ngModel name="pro_name" #pro_name="ngModel" matInput type="text">
+          <input autofocus required ngModel name="pro_name" #pro_name="ngModel" matInput type="text">
           <mat-error class="hint" *ngIf="pro_name.hasError('required') && !pro_name.pristine">Product Name is Required</mat-error>
         </mat-form-field>
 

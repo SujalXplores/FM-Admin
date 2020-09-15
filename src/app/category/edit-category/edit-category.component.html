@@ -7,7 +7,7 @@
 
                 <mat-form-field class="example-full-width" appearance="outline">
                   <mat-label>Enter Category Name</mat-label>
-                  <input appAutoFocus required name="c_name" [(ngModel)]=c_name1 #c_name="ngModel" matInput type="text" placeholder="Edit Category Name">
+                  <input autofocus required name="c_name" [(ngModel)]=c_name1 #c_name="ngModel" matInput type="text" placeholder="Edit Category Name">
                   <mat-error class="hint" *ngIf="c_name.hasError('required') && !c_name.pristine">Name is Required</mat-error>
                 </mat-form-field>
 

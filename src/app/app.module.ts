@@ -73,7 +73,6 @@ import { ViewMoreDeliveryboyComponent } from './deliveryboy/view-more-deliverybo
 import { DeliverydetailComponent } from './deliverydetail/deliverydetail.component';
 import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders/add-assigned-orders.component';
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
-import { AutoFocusDirective } from './auto-focus.directive';
 import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.component';
 import { ViewMoreComponent } from './deliverydetail/view-more/view-more.component';
 import { ChartsModule } from '@progress/kendo-angular-charts';
@@ -87,6 +86,7 @@ import { WalletComponent } from './wallet/wallet.component';
 import 'hammerjs';
 import { ThemeSwitchService } from './theme-switch.service';
 import { CustomDialogComponent } from './shared/custom-dialog/custom-dialog.component';
+import { NumbersOnlyDirective } from './shared/numbers-only.directive';
 
 @NgModule({
   declarations: [
@@ -125,13 +125,13 @@ import { CustomDialogComponent } from './shared/custom-dialog/custom-dialog.comp
     DeliverydetailComponent,
     AddAssignedOrdersComponent,
     EditCategoryComponent,
-    AutoFocusDirective,
     TrackingdisplayComponent,
     ViewMoreComponent,
     PdfTableComponent,
     EdituserimageComponent,
     WalletComponent,
     CustomDialogComponent,
+    NumbersOnlyDirective,
   ],
   imports: [
     routingArr,

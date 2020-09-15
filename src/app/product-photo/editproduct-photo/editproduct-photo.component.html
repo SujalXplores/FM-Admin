@@ -7,7 +7,7 @@
         <div>
 
           <mat-form-field class="example-full-width" appearance="outline">
-            <mat-select appAutoFocus formControlName="fk_pro_id">
+            <mat-select autofocus formControlName="fk_pro_id">
               <mat-option *ngFor="let item of list" [value]="item.pro_id">
                 {{item.pro_name | titlecase}}
               </mat-option>

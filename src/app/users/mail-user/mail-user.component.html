@@ -20,7 +20,7 @@
     
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Title/Subject</mat-label>
-        <input appAutoFocus formControlName="subject" matInput type="text" placeholder="Enter the subject">
+        <input autofocus formControlName="subject" matInput type="text" placeholder="Enter the subject">
         <mat-error *ngIf="mailUserForm.get('subject').hasError('required') && !mailUserForm.pristine">Title/Subject is Required</mat-error>
       </mat-form-field><br>
     

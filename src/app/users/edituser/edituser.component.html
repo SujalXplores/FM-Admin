@@ -12,7 +12,7 @@
   
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Userame</mat-label>
-            <input appAutoFocus formControlName="u_name" matInput type="text" placeholder="Enter New Name">
+            <input autofocus formControlName="u_name" matInput type="text" placeholder="Enter New Name">
             <mat-error class="hint" *ngIf="user_update.get('u_name').hasError('required') && !user_update.pristine">Name is Required!</mat-error>
             <mat-error class="hint" *ngIf="user_update.get('u_name').hasError('pattern') && !user_update.pristine">Only Letters</mat-error>
             <mat-icon class="material-icons-outlined" matSuffix>account_circle</mat-icon>

@@ -10,7 +10,7 @@
 
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Select Product</mat-label>
-          <mat-select appAutoFocus required ngModel name="fk_pro_id" #fk_pro_id="ngModel">
+          <mat-select autofocus required ngModel name="fk_pro_id" #fk_pro_id="ngModel">
             <mat-option *ngFor="let item of productarr" [value]="item.pro_id">
               {{item.pro_name | titlecase}}
             </mat-option>
