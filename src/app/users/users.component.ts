@@ -17,7 +17,13 @@ import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dial
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
-  constructor(private notificationService: NotificationService, private _data: UsersdataService, public _dialog: MatDialog, private _router: Router, public dialog: MatDialog) {
+  constructor(
+    private notificationService: NotificationService,
+    private _data: UsersdataService,
+    public _dialog: MatDialog,
+    private _router: Router,
+    public dialog: MatDialog
+  ) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -49,7 +55,7 @@ export class UsersComponent implements OnInit {
 
   ondeleteallclick() {
     this._data.deleteall(this.del_arr).subscribe(
-      (data) => {
+      () => {
         for (let i = 0; i < this.del_arr.length; i++) {
           let x = this.userarr.find(x => x.u_email_id == this.del_arr[i]);
           this.userarr.splice(this.userarr.indexOf(x), 1);
@@ -63,12 +69,13 @@ export class UsersComponent implements OnInit {
   }
 
   onDelete(item: users) {
-    this._data.deleteUsers(item.u_email_id).subscribe(
-      (data: any) => {
-        this.userarr.splice(this.userarr.indexOf(item), 1);
-        this.dataSource.data = this.userarr;
-      }
-    );
+    this._data.deleteUsers(item.u_email_id).subscribe(() => {
+      this.userarr.splice(this.userarr.indexOf(item), 1);
+      this.dataSource.data = this.userarr;
+    },
+    (error)=>{
+      this.notificationService.warn(error);
+    });
   }
 
   OnUserEdit(item: users) {
@@ -89,9 +96,7 @@ export class UsersComponent implements OnInit {
   }
 
   masterToggle() {
-    this.isAllSelected() ?
-    this.selection.clear() :
-    this.dataSource.data.forEach(row => this.selection.select(row));
+    this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
   ngOnInit() {

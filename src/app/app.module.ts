@@ -35,7 +35,7 @@ import { routingArr } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EdituserComponent } from './users/edituser/edituser.component';
 import { AdduserComponent } from './users/adduser/adduser.component';
-import { PhoneDirective } from './phone.directive';
+import { PhoneDirective } from './shared/phone.directive';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProductComponent } from './product/product.component';
 import { AddproductComponent } from './product/addproduct/addproduct.component';
@@ -84,7 +84,6 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { WalletComponent } from './wallet/wallet.component';
 
 import 'hammerjs';
-import { ThemeSwitchService } from './theme-switch.service';
 import { CustomDialogComponent } from './shared/custom-dialog/custom-dialog.component';
 import { NumbersOnlyDirective } from './shared/numbers-only.directive';
 
@@ -190,7 +189,7 @@ import { NumbersOnlyDirective } from './shared/numbers-only.directive';
     ViewMoreComponent,//assigned order details
     AdddeliveryboyComponent
   ],
-  providers: [ThemeSwitchService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

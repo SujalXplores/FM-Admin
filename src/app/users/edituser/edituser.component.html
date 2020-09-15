@@ -20,7 +20,7 @@
 
           <mat-form-field class="example-full-width" appearance="outline">
             <mat-label>Phone Number</mat-label>
-            <input #input formControlName="u_mobileno" type="text" pKeyFilter="int" matInput appPhone placeholder="+91 Enter New Mobile Number">
+            <input #input formControlName="u_mobileno" type="text" numberOnly matInput appPhone placeholder="+91 Enter New Mobile Number">
             <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
             <mat-error class="hint" *ngIf="user_update.get('u_mobileno').hasError('required') && !user_update.pristine">Mobile Number is Required!</mat-error>
             <mat-error class="hint" *ngIf="user_update.get('u_mobileno').hasError('minlength') && !user_update.pristine">Mobile number must be of 10 digits!</mat-error>

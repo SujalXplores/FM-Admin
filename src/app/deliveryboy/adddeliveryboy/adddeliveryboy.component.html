@@ -19,7 +19,7 @@
 
         <mat-form-field appearance="fill" class="mb-1">
           <mat-label>Mobile Number</mat-label>
-          <input pKeyFilter="int" required pattern="[0-9]*" #input maxlength="10" ngModel name="deliveryboy_mobileno" #deliveryboy_mobileno="ngModel" type="number" matInput appPhone>
+          <input numberOnly required pattern="[0-9]*" #input maxlength="10" ngModel name="deliveryboy_mobileno" #deliveryboy_mobileno="ngModel" type="number" matInput appPhone>
           <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
           <mat-error *ngIf="deliveryboy_mobileno.hasError('required') && deliveryboy_mobileno.pristine">Mobile Number is Required</mat-error>
           <mat-error *ngIf="deliveryboy_mobileno.hasError('minlength') && deliveryboy_mobileno.pristine">Mobile number must be of 10 digits!</mat-error>
