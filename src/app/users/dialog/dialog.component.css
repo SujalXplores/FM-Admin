@@ -1,25 +1,47 @@
-.example-header-image {
+.header-image {
   background-size: cover;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
-.example-card {
-  max-width: 400px;
+
+mat-icon {
+  font-size: 26px !important;
+  vertical-align: baseline;
 }
-section {
-  overflow: hidden;
+
+div.container {
+  margin: 0px 40px;
 }
-.customer-badge {
-  border-radius: 2px;
-  padding: 0.25em 0.5em;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.3px;
+
+.fill-remaining-space {
+  flex: 1 1 auto;
 }
-.status-user {
-  background-color: #c8e6c9;
-  color: #256029;
+
+form.normal-form {
+  margin: 10px;
 }
-.status-admin {
-  background-color: #ffcdd2;
-  color: #c63737;
+
+.controles-container {
+  width: 100%;
+  padding: 5%;
+}
+
+.controles-container > * {
+  width: 100%;
+}
+
+.add-bottom-padding {
+  padding-bottom: 10px;
+}
+
+.button-row button {
+  margin-right: 10px;
+}
+
+.btn-dialog-close {
+  width: 45px;
+  min-width: 0px !important;
+  height: 40px;
+  padding: 0px !important;
 }

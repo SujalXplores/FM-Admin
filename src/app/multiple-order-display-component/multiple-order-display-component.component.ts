@@ -8,7 +8,11 @@ import { GetUserService } from '../main-nav/get-user.service';
   styleUrls: ['./multiple-order-display-component.component.css']
 })
 export class MultipleOrderDisplayComponentComponent implements OnInit {
-  constructor(private _user: GetUserService, public orderService: OrderdataService, public _activated_routes: ActivatedRoute) { }
+  constructor(
+    private _user: GetUserService,
+    public orderService: OrderdataService,
+    public _activated_routes: ActivatedRoute
+  ) { }
 
   order_id: number;
   order_total: number;
@@ -21,12 +25,14 @@ export class MultipleOrderDisplayComponentComponent implements OnInit {
   ordermultiple: any[] = [];
   user_addr: string;
   user_mob: number;
+  orderId: number;
 
   ngOnInit(): void {
     this.order_id = this._activated_routes.snapshot.params['order_id'];
     this.orderService.getProductById(this.order_id).subscribe(
       (data: any[]) => {
         this.ordermultiple = data;
+        this.orderId = data[0].fk_order_id;
         this.fk_u_email_id = data[0].fk_u_email_id;
         this.order_date = data[0].order_date;
         this.payment_type = data[0].payment_type;

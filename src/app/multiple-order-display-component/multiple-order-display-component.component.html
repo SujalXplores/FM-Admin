@@ -1,4 +1,4 @@
-<section fxLayout="row wrap" fxLayoutAlign="space-around" fxFlexFill>
+<!-- <section fxLayout="row wrap" fxLayoutAlign="space-around" fxFlexFill>
   <mat-card fxFlex="500px" fxFlex.xs="100%">
     <img src="../../assets/image/orderdetails.png" class="mb-4">
     <mat-card-title>Order Details</mat-card-title>
@@ -42,4 +42,80 @@
     
     <h2>Grand Total: <span class="text-success">{{order_amount | currency:"INR"}}</span></h2>
   </mat-card>
-</section>
+</section> -->
+<div class="invoice-box">
+  <table cellpadding="0" cellspacing="0">
+      <tr class="top">
+          <td colspan="2">
+              <table>
+                  <tr>
+                      <td class="title">
+                          <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:300px;">
+                      </td>
+                      
+                      <td>
+                          Invoice #: {{order_id}}<br>
+                          Created: {{order_date | date : 'mediumDate'}}
+                      </td>
+                  </tr>
+              </table>
+          </td>
+      </tr>
+      
+      <tr class="information">
+          <td colspan="2">
+              <table>
+                  <tr>
+                      <td>
+                          Billed To:<br>
+                          {{user_addr | titlecase}}
+                      </td>
+                      
+                      <td>
+                          {{user_mob}}<br>
+                          {{fk_u_email_id}}
+                      </td>
+                  </tr>
+              </table>
+          </td>
+      </tr>
+      
+      <tr class="heading">
+          <td>
+              Payment Method
+          </td>
+          <td></td>
+      </tr>
+      
+      <tr class="details">
+          <td>
+            {{payment_type | uppercase}}
+          </td>
+          <td></td>
+      </tr>
+      
+      <tr class="heading">
+          <td>
+              Item
+          </td>
+          <td>
+              Qty
+          </td>
+      </tr>
+      
+      <tr class="item" *ngFor="let item of ordermultiple">
+          <td>
+            {{item.pro_name | titlecase}}
+          </td>
+          <td>
+            x{{item.qty}}
+          </td>
+      </tr>
+      
+      <tr class="total">
+          <td>
+            Total:{{order_amount | currency:"INR"}}
+          </td>
+      </tr>
+  </table>
+</div>

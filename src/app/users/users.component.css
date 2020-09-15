@@ -95,3 +95,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 .grid-container {
   margin: 20px;
 }
+
+.hide {
+  display: none;
+}

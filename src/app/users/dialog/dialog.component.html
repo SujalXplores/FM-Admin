@@ -1,34 +1,31 @@
-<section fxLayout="row wrap" fxLayoutAlign="center center">
-  <mat-card class="example-card" fxFlex="500px" fxFlex.xs="100%">
-    <mat-card-header>
-      <img
-        mat-card-avatar
-        class="example-header-image"
-        src="http://localhost:3000/images/user_photos/{{ user_image }}"
-        onerror="this.src='../../../assets/image/default-avatar.png';"
-      />
-      <mat-card-title>{{ user_name | titlecase }}'s Details</mat-card-title>
-      <mat-card-subtitle>
-        <span [class]="'customer-badge status-' + user_type">{{ user_type | titlecase }}</span>
-      </mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-list>
-        <mat-divider></mat-divider>
-        <mat-list-item>Email ID : {{ user_email }}</mat-list-item>
-        <mat-divider></mat-divider>
-
-        <mat-list-item>Phone No : {{ user_phone }}</mat-list-item>
-        <mat-divider></mat-divider>
-
-        <mat-list-item>Address : {{ user_address | titlecase }}</mat-list-item>
-        <mat-divider></mat-divider>
-      </mat-list>
-    </mat-card-content>
-    <mat-card-actions>
-      <div mat-dialog-actions>
-        <button mat-button (click)="onCancelClick()">Close</button>
+<div fxLayout="row wrap" fxLayoutAlign="center center">
+  <div fxFlex="500px" fxFlex.xs="100%">
+    <mat-toolbar>
+      <img class="header-image" onerror="this.src='../../../assets/image/default-avatar.svg';" src="http://localhost:3000/images/user_photos/{{ user_image }}"/>
+      <div class="mat-card-header ml-3">
+        <div mat-dialog-title>{{ user_name | titlecase }}'s Details</div>
       </div>
-    </mat-card-actions>
-  </mat-card>
-</section>
+      <span class="fill-remaining-space"></span>
+      <button class="btn-dialog-close" mat-stroked-button tabIndex="-1" (click)="onClose()"><mat-icon>clear</mat-icon></button>
+    </mat-toolbar>
+
+    <table class="table">
+      <tr scope="col">
+        <td>Name</td>
+        <td>{{ user_name | titlecase }}</td>
+      </tr>
+      <tr scope="col">
+        <td>Email</td>
+        <td>{{ user_email }}</td>
+      </tr>
+      <tr scope="col">
+        <td>Mobile Number</td>
+        <td>+91 {{ user_phone | numberMask }}</td>
+      </tr>
+      <tr scope="col">
+        <td>Address</td>
+        <td><address>{{ user_address | titlecase }}</address></td>
+      </tr>
+    </table>
+  </div>
+</div>

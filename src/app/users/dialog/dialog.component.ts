@@ -30,7 +30,7 @@ export class DialogComponent implements OnInit {
     this.user_type = this.data.u_type;
   }
 
-  onCancelClick() {
+  onClose() {
     this.dialogRef.close();
   }
 }

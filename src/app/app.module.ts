@@ -86,6 +86,7 @@ import { WalletComponent } from './wallet/wallet.component';
 import 'hammerjs';
 import { CustomDialogComponent } from './shared/custom-dialog/custom-dialog.component';
 import { NumbersOnlyDirective } from './shared/numbers-only.directive';
+import { NumberMaskPipe } from './shared/number-mask.pipe';
 
 @NgModule({
   declarations: [
@@ -131,6 +132,7 @@ import { NumbersOnlyDirective } from './shared/numbers-only.directive';
     WalletComponent,
     CustomDialogComponent,
     NumbersOnlyDirective,
+    NumberMaskPipe,
   ],
   imports: [
     routingArr,

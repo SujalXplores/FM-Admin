@@ -1,7 +1,7 @@
 <div fxLayout="row wrap" fxLayoutAlign="center center">
   <div fxFlex="500px" fxFlex.xs="100%">
     <mat-toolbar>
-      <img class="header-image" onerror="this.src='../../../assets/image/default-avatar.png';" src="http://localhost:3000/images/deliveryboy_photos/{{delivery_img}}"/>
+      <img class="header-image" src="http://localhost:3000/images/deliveryboy_photos/{{delivery_img}}" onerror="this.src='../../../assets/image/default-avatar.svg';"/>
       <div class="mat-card-header ml-3">
         <div mat-dialog-title>{{ delivery_name | titlecase }}'s Details</div>
       </div>
@@ -19,8 +19,8 @@
         <td>{{ delivery_email }}</td>
       </tr>
       <tr scope="col">
-        <td>Mobile No</td>
-        <td>{{ delivery_mobileno }}</td>
+        <td>Mobile Number</td>
+        <td>+91 {{ delivery_mobileno }}</td>
       </tr>
       <tr scope="col">
         <td>Address</td>

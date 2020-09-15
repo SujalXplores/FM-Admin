@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { users } from './users';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UsersdataService } from './usersdata.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -39,9 +39,11 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   openDialog(row) {
-    this.dialog.open(DialogComponent, {
-      data: row
-    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.height = "auto";
+    dialogConfig.width = "auto";
+    dialogConfig.data = row;
+    this.dialog.open(DialogComponent, dialogConfig);
   }
 
   oncheckboxchange(row: users) {
@@ -73,9 +75,10 @@ export class UsersComponent implements OnInit {
       this.userarr.splice(this.userarr.indexOf(item), 1);
       this.dataSource.data = this.userarr;
     },
-    (error)=>{
-      this.notificationService.warn(error);
-    });
+      (error) => {
+        this.notificationService.warn(error);
+      }
+    );
   }
 
   OnUserEdit(item: users) {
@@ -100,14 +103,12 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._data.getAllUsers().subscribe(
-      (data: users[]) => {
-        this.userarr = data;
-        this.dataSource.data = data;
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      }
-    );
+    this._data.getAllUsers().subscribe((data: users[]) => {
+      this.userarr = data;
+      this.dataSource.data = data;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
 
   OnUserMail(row) {
