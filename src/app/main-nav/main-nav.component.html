@@ -12,49 +12,49 @@
 
     <mat-nav-list>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/dashboard">
-        <mat-icon class="material-icons-outlined">insert_chart</mat-icon>
+      <a #rl1="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/dashboard">
+        <mat-icon [ngClass]='rl1.isActive ? "material-icons" : "material-icons-outlined"'>insert_chart</mat-icon>
         <span>Dashboard</span>
       </a>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/users">
-        <mat-icon class="material-icons-outlined">account_box</mat-icon>
+      <a #rl2="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/users">
+        <mat-icon [ngClass]='rl2.isActive ? "material-icons" : "material-icons-outlined"'>account_box</mat-icon>
         <span>Users</span>
       </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/deliveryboy">
-        <mat-icon class="material-icons-outlined">local_shipping</mat-icon>
+      <a #rl3="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/deliveryboy">
+        <mat-icon [ngClass]='rl3.isActive ? "material-icons" : "material-icons-outlined"'>local_shipping</mat-icon>
         <span>DeliveryPartner</span>
       </a>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/deliverdetails">
-        <mat-icon class="material-icons-outlined">assignment_turned_in</mat-icon>
+      <a #rl4="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/deliverdetails">
+        <mat-icon [ngClass]='rl4.isActive ? "material-icons" : "material-icons-outlined"'>assignment_turned_in</mat-icon>
         <span>Assign Order</span>
       </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/trackingdisplay">
-        <mat-icon class="material-icons-outlined">room</mat-icon>
+      <a #rl5="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/trackingdisplay">
+        <mat-icon [ngClass]='rl5.isActive ? "material-icons" : "material-icons-outlined"'>room</mat-icon>
         <span>Tracking</span>
       </a>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/order">
-        <mat-icon class="material-icons-outlined">shopping_basket</mat-icon>
-        <span>Orders</span>
+      <a #rl6="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/order">
+        <mat-icon [ngClass]='rl6.isActive ? "material-icons" : "material-icons-outlined"'>receipt</mat-icon>
+        <span>Invoice</span>
       </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/product">
-        <mat-icon class="material-icons-outlined">local_hospital</mat-icon>
+      <a #rl7="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/product">
+        <mat-icon [ngClass]='rl7.isActive ? "material-icons" : "material-icons-outlined"'>local_hospital</mat-icon>
         <span>Products</span>
       </a>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/product_photo">
-        <mat-icon class="material-icons-outlined">add_photo_alternate</mat-icon>
+      <a #rl8="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/product_photo">
+        <mat-icon [ngClass]='rl8.isActive ? "material-icons" : "material-icons-outlined"'>add_photo_alternate</mat-icon>
         <span>Product Photo</span>
       </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/category">
-        <mat-icon class="material-icons-outlined">apps</mat-icon>
+      <a #rl9="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/category">
+        <mat-icon [ngClass]='rl9.isActive ? "material-icons" : "material-icons-outlined"'>category</mat-icon>
         <span>Category</span>
       </a>
       <mat-divider></mat-divider>
-      <a mat-list-item [routerLinkActive]="['active']" routerLink="/nav/walletdisplay">
-        <mat-icon class="material-icons-outlined">account_balance_wallet</mat-icon>
+      <a #rl0="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/walletdisplay">
+        <mat-icon [ngClass]='rl0.isActive ? "material-icons" : "material-icons-outlined"'>account_balance_wallet</mat-icon>
         <span>Wallet</span>
       </a>
     </mat-nav-list>

@@ -26,6 +26,7 @@ export class MultipleOrderDisplayComponentComponent implements OnInit {
   user_addr: string;
   user_mob: number;
   orderId: number;
+  invoice_name: string;
 
   ngOnInit(): void {
     this.order_id = this._activated_routes.snapshot.params['order_id'];
@@ -38,11 +39,12 @@ export class MultipleOrderDisplayComponentComponent implements OnInit {
         this.payment_type = data[0].payment_type;
         this.order_status = data[0].order_status;
         this.order_amount = data[0].order_amount;
+        this.invoice_name = 'invoice'+this.order_date+'ID'+this.orderId+'.pdf';
         this._user.getUserByEmail(this.fk_u_email_id).subscribe((data1) => {
           this.user_addr = data1[0].u_address;
           this.user_mob = data1[0].u_mobileno;
-        })
+        });
       }
-    )
+    );
   }
 }

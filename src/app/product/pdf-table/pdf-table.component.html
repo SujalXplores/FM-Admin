@@ -2,13 +2,13 @@
     <h1 class="mat-h1">Preview</h1>
 </div>
 
-<button (click)="pdf.saveAs('Product-list.pdf')" routerLink='/nav/pdfProduct' color="warn" mat-raised-button matTooltip="This table will stored to your internal storage." class="addbutton">
+<button (click)="pdf.saveAs('Product-list.pdf')" routerLink='/nav/pdfProduct' color="warn" mat-raised-button matTooltip="This table will saved as pdf to your internal storage." class="addbutton">
     <mat-icon>picture_as_pdf</mat-icon>&nbsp;
     <span>Save as PDF</span>
 </button>
 
 <div class="mat-elevation-z8">
-  <kendo-pdf-export #pdf paperSize="A3" margin="0cm">
+  <kendo-pdf-export #pdf paperSize="A4" margin="1cm">
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
 
       <ng-container matColumnDef="pro_id">
