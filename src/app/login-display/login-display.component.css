@@ -3,11 +3,17 @@ img {
   height: 80px;
 }
 
+.logo {
+  width: auto;
+  max-width: 200px;
+  text-align: left;
+  height: auto;
+}
+
 .forgot {
-  color: blue;
-  font-weight: 500;
+  right: 0 !important;
+  color: #3f51b5;
   cursor: pointer;
-  font-size: 15px;
   outline: 0;
   border: 0;
 }
@@ -29,12 +35,12 @@ img {
 body,
 html {
   height: 100%;
-  font-family: Roboto;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-  font-family: Roboto;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 1.7;
   color: #000000;
@@ -52,7 +58,7 @@ h6 {
 }
 
 p {
-  font-family: Roboto;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: 1.7;
   color: #666666;
@@ -86,9 +92,9 @@ button {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-image: url(../../assets/image/bg.jpg);
-  background-repeat: repeat;
-  background-size: 250px 230px;
+  background-image: url(../../assets/image/cool-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .wrap-login100 {
@@ -111,17 +117,12 @@ button {
 
 .login100-form-title {
   display: block;
-  font-family: Roboto;
-  font-weight: bold;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 500;
   font-size: 30px;
   color: #333333;
   line-height: 1.2;
-  text-align: center;
   margin-bottom: 20px;
-}
-
-.login100-form-title i {
-  font-size: 60px;
 }
 
 /*------------------------------------------------------------------
@@ -135,7 +136,7 @@ button {
 }
 
 .input100 {
-  font-family: Roboto;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 15px;
   color: #555555;
   line-height: 1.2;
@@ -153,6 +154,9 @@ button {
 @media (max-width: 576px) {
   .wrap-login100 {
     padding: 77px 15px 33px 15px;
+  }
+  .logo {
+    width: 250px;
   }
 }
 
