@@ -60,10 +60,7 @@ export class ForgotPasswordComponent implements OnInit {
       name: new FormControl(null, [Validators.required, Validators.email])
     });
     this.changePasswordForm = new FormGroup({
-      u_password: new FormControl(null, [
-        Validators.required,
-        Validators.minLength(8)
-      ]),
+      u_password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
       confirm_password: new FormControl(null)
     }, { validators: this.checkPasswords });
   }

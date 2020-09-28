@@ -7,9 +7,10 @@ import { Subscription } from 'rxjs';
 })
 export class UsersdataService {
   constructor(private _http: HttpClient) { }
-
+  
   url: string = 'http://localhost:3000/user/';
   url1: string = 'http://localhost:3000/uimage/';
+  password_url: string = 'http://localhost:3000/u_password/';
   deleteurl: string = 'http://localhost:3000/userdelete/';
 
   invokeRefresh = new EventEmitter();
@@ -43,6 +44,17 @@ export class UsersdataService {
     let body = JSON.stringify(item);
     let x = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.put(this.url + u_email_id, body, { headers: x });
+  }
+
+  update_password(u_email_id, item) {
+    let body = {
+      "u_password": item.u_password,
+      "new_password": item.new_password,
+      "confirm_password": item.confirm_password,
+      "u_email_id": u_email_id
+    }
+    let x = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.put(this.password_url + u_email_id, body, { headers: x });
   }
 
   updateUserimage(u_email_id, item) {

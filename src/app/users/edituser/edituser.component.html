@@ -1,64 +1,100 @@
-<section fxLayout="row wrap" fxLayoutAlign="space-around">
-  <mat-card fxFlex="500px" fxFlex.xs="100%">    
-    <mat-card-content>
-      <div>
-        <form class="example-form" [formGroup]="user_update" (ngSubmit)="OnUserEdit()" spellcheck="false">
+<div class="container" fxLayoutGap fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex="95%">
+    <mat-card>
+      <mat-card-content>
+        <h2>My Profile</h2>
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+          <div fxFlex="30%" fxFlex.sm="95%" fxFlex.xs="95%">
+            <form [formGroup]="updateuserpic" (ngSubmit)="on_userimage_update()" spellcheck="false">
+              <div class="profile-card">
+                <div class="profile-img">
+                  <img src="{{userurl}}" onerror="this.src='../../../assets/image/default-avatar.svg';">
+                  <div class="file btn btn-lg btn-primary">
+                    <mat-icon>edit</mat-icon>
+                    <input type="file" name="file" name="u_img" (change)="onChange($event)" />
+                  </div>
+                </div>
+                <small>{{img_text}}</small><br>
+                <button [disabled]="!selectedFile" type="submit" mat-stroked-button color="primary">Update image</button>
+              </div>
+            </form>
+          </div>
+          <div fxFlex></div>
+          <div fxFlex="65%" fxFlex.sm="95%" fxFlex.xs="950%">
+            <mat-tab-group>
+              <mat-tab label="Profile Settings">
+                <form class="example-form" [formGroup]="user_update" (ngSubmit)="OnUserEdit()" spellcheck="false">
+                  <div fxLayout="row">
+                    <div fxFlex="50%" fxFlex.md="60%" fxFlex.sm="50%" fxFlex.xs="100%">
+                      <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input #username="matInput" autofocus formControlName="u_name" matInput type="text">
+                        <mat-error *ngIf="user_update.get('u_name').hasError('required') && !user_update.pristine">Name is Required!</mat-error>
+                        <mat-error *ngIf="user_update.get('u_name').hasError('pattern') && !user_update.pristine">Only Letters</mat-error>
+                        <mat-icon [color]="username.focused ? 'primary' : ''" class="material-icons-outlined" matSuffix>account_circle</mat-icon>
+                      </mat-form-field>
 
-          <mat-card-header>
-            <img class="img" matTooltip="Click here to change profile photo" (click)="onImgClick()" mat-card-avatar src="http://localhost:3000/images/user_photos/{{u_image}}" onerror="this.src='../../../assets/image/default-avatar.svg';"/>
-            <mat-card-title>Your Profile</mat-card-title>
-            <mat-card-subtitle>{{u_email_id}}</mat-card-subtitle>
-          </mat-card-header>
-  
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Userame</mat-label>
-            <input autofocus formControlName="u_name" matInput type="text" placeholder="Enter New Name">
-            <mat-error class="hint" *ngIf="user_update.get('u_name').hasError('required') && !user_update.pristine">Name is Required!</mat-error>
-            <mat-error class="hint" *ngIf="user_update.get('u_name').hasError('pattern') && !user_update.pristine">Only Letters</mat-error>
-            <mat-icon class="material-icons-outlined" matSuffix>account_circle</mat-icon>
-          </mat-form-field>
+                      <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Phone Number</mat-label>
+                        <input #phone="matInput" formControlName="u_mobileno" type="text" numberOnly matInput appPhone>
+                        <mat-hint align="end">{{phone.value?.length || 0}}/10</mat-hint>
+                        <mat-error *ngIf="user_update.get('u_mobileno').hasError('required') && !user_update.pristine">Mobile Number is Required!</mat-error>
+                        <mat-error *ngIf="user_update.get('u_mobileno').hasError('minlength') && !user_update.pristine">Mobile number must be of 10 digits!</mat-error>
+                        <mat-icon [color]="phone.focused ? 'primary' : ''" matSuffix>smartphone</mat-icon>
+                      </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Phone Number</mat-label>
-            <input #input formControlName="u_mobileno" type="text" numberOnly matInput appPhone placeholder="+91 Enter New Mobile Number">
-            <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-            <mat-error class="hint" *ngIf="user_update.get('u_mobileno').hasError('required') && !user_update.pristine">Mobile Number is Required!</mat-error>
-            <mat-error class="hint" *ngIf="user_update.get('u_mobileno').hasError('minlength') && !user_update.pristine">Mobile number must be of 10 digits!</mat-error>
-            <mat-error class="hint" *ngIf="user_update.get('u_mobileno').hasError('pattern') && !user_update.pristine">Only Digits are allowed!</mat-error>
-            <mat-icon matSuffix>phone</mat-icon>
-          </mat-form-field>
+                      <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Address</mat-label>
+                        <textarea rows="5" formControlName="u_address" matInput></textarea>
+                        <mat-error *ngIf="user_update.get('u_address').hasError('required') && !user_update.pristine">Address is Required!</mat-error>
+                      </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Change Password</mat-label>
-            <input pPassword class="pPassword" [type]="hide ? 'password' : 'text'" formControlName="u_password" matInput placeholder="Set New Password">
-            <mat-error class="hint" *ngIf="user_update.get('u_password').hasError('required') && !user_update.pristine">Password is Required!</mat-error>
-            <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
-              <mat-icon class="material-icons-outlined">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
-            </button>
-          </mat-form-field>
+                      <button [disabled]="!user_update.valid" type="submit" mat-raised-button color="accent">Save</button>
+                    </div>
+                  </div>
+                </form>
+              </mat-tab>
+              <mat-tab label="Change Password">
+                <form class="example-form" [formGroup]="user_update_password" (ngSubmit)="onPasswordChange()" spellcheck="false">
+                  <div fxLayout="row">
+                    <div fxFlex="50%" fxFlex.md="60%" fxFlex.sm="50%" fxFlex.xs="100%">
+                      <p class="mt-2"><mat-icon style="vertical-align: middle;" color="primary" class="mr-1">verified_user</mat-icon>Fill below form to change your password</p>
+                      <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Old Password</mat-label>
+                        <input [type]="hide ? 'password' : 'text'" formControlName="u_password" matInput>
+                        <mat-error *ngIf="user_update_password.get('u_password').hasError('required') && !user_update_password.pristine">Old Password is Required!</mat-error>
+                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+                          <mat-icon class="material-icons-outlined">{{hide ? 'remove_red_eye' : 'visibility_off'}}</mat-icon>
+                        </button>
+                      </mat-form-field>
 
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Address</mat-label>
-            <input formControlName="u_address" matInput type="text" placeholder="Change Your Address">
-            <mat-error class="hint" *ngIf="user_update.get('u_address').hasError('required') && !user_update.pristine">Address is Required!</mat-error>
-            <mat-icon class="material-icons-outlined" matSuffix>home_work</mat-icon>
-          </mat-form-field>
-  
-          <button class="example-full-width" type="submit" mat-raised-button color="accent">Save</button>
+                      <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>New Password</mat-label>
+                        <input [type]="hide ? 'password' : 'text'" formControlName="new_password" matInput>
+                        <mat-error *ngIf="user_update_password.get('new_password').hasError('required') && !user_update_password.pristine">New Password is Required!</mat-error>
+                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+                          <mat-icon class="material-icons-outlined">{{hide ? 'remove_red_eye' : 'visibility_off'}}</mat-icon>
+                        </button>
+                      </mat-form-field>
 
-        </form>
-      </div>
-    </mat-card-content>
-  </mat-card>
+                      <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Confirm Password</mat-label>
+                        <input [type]="hide ? 'password' : 'text'" formControlName="confirm_password" matInput>
+                        <mat-error *ngIf="!user_update_password.valid && !user_update_password.get('confirm_password').pristine">Password not matched!</mat-error>
+                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
+                          <mat-icon class="material-icons-outlined">{{hide ? 'remove_red_eye' : 'visibility_off'}}</mat-icon>
+                        </button>
+                      </mat-form-field>
 
-  <mat-card *ngIf="isShow" fxFlex="300px" fxFlex.xs="100%">
-    <mat-card-header>
-      <mat-card-title>Profile Photo</mat-card-title>
-      <mat-card-subtitle>Only jpg,png & jpeg format is allowed.</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content class="dashboard-card-content">
-      <app-edituserimage></app-edituserimage>
-    </mat-card-content>
-  </mat-card>
-  
-</section>
+                      <button [disabled]="!user_update_password.valid" type="submit" mat-raised-button color="accent">Save</button>
+                    </div>
+                  </div>
+                </form>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

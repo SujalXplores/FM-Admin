@@ -13,16 +13,16 @@
 				<mat-label>Email</mat-label>
 				<input matInput formControlName="u_email_id" autofocus>
 				<mat-hint>We don't share your credentials to anyone.</mat-hint>
-				<mat-error *ngIf="loginForm.get('u_email_id').hasError('required') && loginForm.get('u_email_id').pristine">Email is <b>required!</b></mat-error>
-				<mat-error *ngIf="loginForm.get('u_email_id').hasError('email') && loginForm.get('u_email_id').pristine">Invalid Email!</mat-error>
+				<mat-error *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email is <b>required!</b></mat-error>
+				<mat-error *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-error>
 			</mat-form-field>
 			<!-- password -->
 			<mat-form-field  class="wrap-input100" appearance="fill">
 				<mat-label>Password</mat-label>
-				<input matInput formControlName="u_password" [type]="hide ? 'password' : 'text'">
-				<mat-error *ngIf="loginForm.get('u_password').hasError('required') && loginForm.get('u_password').pristine">Password is <b>required!</b></mat-error>
+				<input matInput #password="matInput" formControlName="u_password" [type]="hide ? 'password' : 'text'">
+				<mat-error *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password is <b>required!</b></mat-error>
 				<button type="button" mat-icon-button matSuffix (click)="hide = !hide">
-					<mat-icon style="font-size: 23px;" class="material-icons-outlined mb-2">{{hide ? 'visibility_off' : 'remove_red_eye'}}</mat-icon>
+					<mat-icon style="font-size: 23px;" class="material-icons-outlined mb-2" [color]="password.focused ? 'primary' : ''">{{hide ? 'remove_red_eye' : 'visibility_off'}}</mat-icon>
 				</button>
 				<mat-hint align="end" class="forgot" routerLink="/forgotPass">Forgot Password?</mat-hint>
 			</mat-form-field>

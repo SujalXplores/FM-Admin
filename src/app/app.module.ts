@@ -78,7 +78,6 @@ import { ViewMoreComponent } from './deliverydetail/view-more/view-more.componen
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
-import { EdituserimageComponent } from './users/edituserimage/edituserimage.component';
 
 import { NgOtpInputModule } from 'ng-otp-input';
 import { WalletComponent } from './wallet/wallet.component';
@@ -128,7 +127,6 @@ import { NumberMaskPipe } from './shared/number-mask.pipe';
     TrackingdisplayComponent,
     ViewMoreComponent,
     PdfTableComponent,
-    EdituserimageComponent,
     WalletComponent,
     CustomDialogComponent,
     NumbersOnlyDirective,
