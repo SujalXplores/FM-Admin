@@ -1,26 +1,18 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormGroup, Validators, FormControl, AbstractControl, FormGroupDirective, NgForm } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ForgotPasswordService } from './forgot-password.service';
 import { NotificationService } from '../notification.service';
 import { MatStepper } from '@angular/material/stepper';
-import { MAT_STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { ErrorStateMatcher } from '@angular/material/core';
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const invalidCtrl = !!(control && control.invalid && control.parent.pristine);
-    const invalidParent = !!(control && control.parent && control.parent.invalid && control.parent.pristine);
-    return (invalidCtrl || invalidParent);
-  }
-}
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.css'],
   providers: [{
-    provide: MAT_STEPPER_GLOBAL_OPTIONS, useValue: { displayDefaultIndicatorType: false }
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: { displayDefaultIndicatorType: false }
   }],
   encapsulation: ViewEncapsulation.None,
 })
@@ -47,12 +39,12 @@ export class ForgotPasswordComponent implements OnInit {
   hide_svg2: boolean = false;
   hide_svg3: boolean = false;
   hide: boolean = true;
-  matcher = new MyErrorStateMatcher();
 
   constructor(
     private notificationService: NotificationService,
     private _router: Router,
-    public _mail: ForgotPasswordService
+    public _mail: ForgotPasswordService,
+    private _snackbar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -83,7 +75,7 @@ export class ForgotPasswordComponent implements OnInit {
         if (data[0] && data[0].u_password) {
           this.password = data[0].u_password;
           this._mail.passwordMail(this.u_email_id, "Verification Code", "\n\n\nThe varification code is: <b>" + this.otp + " < /b>\nUse it to proceed further.\nIf you didn't request this code you can safely ignore it.").subscribe((data) => {
-            this.notificationService.info('📧 OTP has been sent on' + this.u_email_id + '. Check inbox.');
+            this.notificationService.info('📧 OTP has been sent on ' + this.u_email_id + '. Check inbox.');
             this.hide_svg1 = false;
             this.hide_svg2 = true;
             this.myStepper.next();
@@ -110,8 +102,8 @@ export class ForgotPasswordComponent implements OnInit {
   onResendOTP() {
     this.otp = Math.floor(1000 + Math.random() * 9000);
     if (this.forgetPasswordForm.get('name').value != null) {
-      this._mail.getUserByEmail(this.u_email_id).subscribe((data) => {
-        this._mail.passwordMail(this.u_email_id, "Verification Code", "\n\n\nThe varification code is:  <b>" + this.otp + "</b>\nUse it to proceed further.\nIf you didn't request this code you can safely ignore it.").subscribe((data) => {
+      this._mail.getUserByEmail(this.u_email_id).subscribe(() => {
+        this._mail.passwordMail(this.u_email_id, "Verification Code", "\n\n\nThe varification code is: " + this.otp + "\nUse it to proceed further.\nIf you didn't request this code you can safely ignore it.").subscribe(() => {
           this.notificationService.info('📧 OTP has been sent on ' + this.u_email_id + ', Check inbox.');
         });
       });
@@ -121,10 +113,10 @@ export class ForgotPasswordComponent implements OnInit {
   onChangePassword() {
     let passOBJ = {
       u_email_id: this.u_email_id,
-      u_password: this.changePasswordForm.value.u_password
+      new_password: this.changePasswordForm.value.u_password
     }
     this._mail.changePassword(passOBJ).subscribe(
-      (data: any) => {
+      () => {
         this._router.navigate(['']);
         this.notificationService.success('✔️ Password has been changed!');
       }

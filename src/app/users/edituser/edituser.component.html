@@ -72,6 +72,7 @@
                         <mat-label>New Password</mat-label>
                         <input [type]="hide ? 'password' : 'text'" formControlName="new_password" matInput>
                         <mat-error *ngIf="user_update_password.get('new_password').hasError('required') && !user_update_password.pristine">New Password is Required!</mat-error>
+                        <mat-error *ngIf="user_update_password.get('new_password').hasError('minlength') && !user_update_password.pristine">Minimum 8 characters are Required!</mat-error>
                         <button type="button" mat-icon-button matSuffix (click)="hide = !hide">
                           <mat-icon class="material-icons-outlined">{{hide ? 'remove_red_eye' : 'visibility_off'}}</mat-icon>
                         </button>

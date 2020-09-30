@@ -37,18 +37,15 @@ export class EdituserComponent implements OnInit {
     }
     this.u_email_id = this._act_route.snapshot.params['u_email_id'];
     this.user_update = new FormGroup({
-      u_email_id: new FormControl(),
       u_name: new FormControl(null, [Validators.required]),
       u_mobileno: new FormControl(null, [Validators.required, Validators.minLength(10)]),
-      u_password: new FormControl(),
       u_address: new FormControl(null, [Validators.required]),
-      u_type: new FormControl(),
     });
 
     this.user_update_password = new FormGroup({
-      u_password: new FormControl("dam@9999", [Validators.required]),
-      new_password: new FormControl("abcd1234", [Validators.required]),
-      confirm_password: new FormControl("abcd1234", [Validators.required])
+      u_password: new FormControl(null, [Validators.required]),
+      new_password: new FormControl(null, [Validators.required,Validators.minLength(8)]),
+      confirm_password: new FormControl(null, [Validators.required])
     }, { validators: this.checkPasswords });
 
     this.updateuserpic = new FormGroup({

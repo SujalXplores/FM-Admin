@@ -4,13 +4,6 @@
   outline: 0;
 }
 
-img {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 mat-sidenav-content {
   overflow-x: hidden;
 }
@@ -39,12 +32,6 @@ mat-icon {
 
 span {
   width: 100%;
-}
-
-.welcome {
-  text-align: center;
-  font-weight: 400;
-  font-size: medium;
 }
 
 .mat-list-item.active{

@@ -24,7 +24,9 @@ export class ForgotPasswordService {
     return this._http.get(this.url1 + u_email_id);
   }
 
-  changePassword(obj: any) {
-    return this._http.post(this.changePasswordURL, obj);
+  changePassword(item) {
+    let body = JSON.stringify(item);
+    let x = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.put(this.changePasswordURL, body, { headers: x });
   }
 }

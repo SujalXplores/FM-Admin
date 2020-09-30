@@ -1,23 +1,15 @@
-<mat-sidenav-container class="sidenav-container mat-app-background">
+<mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    
-    <div class="welcome">
-      <mat-toolbar>
-        <img (click)="OnUserEdit()" class="mx-auto d-block" align="center" src="http://localhost:3000/images/user_photos/{{u_image}}" onerror="this.src='../../../assets/image/default-avatar.svg';">
-      </mat-toolbar>
-      <div style="font-size: medium;">
-        {{u_name | titlecase}}
-      </div>
-    </div>
+    <mat-toolbar>Menu</mat-toolbar>
 
     <mat-nav-list>
       <mat-divider></mat-divider>
       <a #rl1="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/dashboard">
-        <mat-icon [ngClass]='rl1.isActive ? "material-icons" : "material-icons-outlined"'>insert_chart</mat-icon>
+        <mat-icon [ngClass]='rl1.isActive ? "material-icons" : "material-icons-outlined"'>dashboard</mat-icon>
         <span>Dashboard</span>
       </a>
       <a #rl2="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/users">
-        <mat-icon [ngClass]='rl2.isActive ? "material-icons" : "material-icons-outlined"'>account_box</mat-icon>
+        <mat-icon [ngClass]='rl2.isActive ? "material-icons" : "material-icons-outlined"'>people_alt</mat-icon>
         <span>Users</span>
       </a>
       <mat-divider></mat-divider>
@@ -40,7 +32,7 @@
       </a>
       <mat-divider></mat-divider>
       <a #rl7="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/product">
-        <mat-icon [ngClass]='rl7.isActive ? "material-icons" : "material-icons-outlined"'>local_hospital</mat-icon>
+        <mat-icon [ngClass]='rl7.isActive ? "material-icons" : "material-icons-outlined"'>shopping_basket</mat-icon>
         <span>Products</span>
       </a>
       <a #rl8="routerLinkActive" mat-list-item [routerLinkActive]="['active']" routerLink="/nav/product_photo">
@@ -70,14 +62,15 @@
         *ngIf="isHandset$ | async">
         <mat-icon mat-mini-fab aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>FutureMediSurgico</span>
-      <button class="menu" mat-icon-button [matMenuTriggerFor]="beforeMenu">
-        <mat-icon>more_vert</mat-icon>
+      <span fxShow fxHide.xs>FutureMediSurgico</span>
+      <button class="menu" mat-button [matMenuTriggerFor]="beforeMenu">
+        <mat-icon>person</mat-icon>
+        <span fxShow fxHide.xs>{{u_name}}</span>
       </button>
       <mat-menu #beforeMenu="matMenu" xPosition="before">
         <button (click)='OnUserEdit()' mat-menu-item>
-          <mat-icon class="material-icons-outlined">account_circle</mat-icon>
-          <span>My Profile</span>
+          <mat-icon class="material-icons-outlined">account_box</mat-icon>
+          <span>Account</span>
         </button>
         <mat-divider></mat-divider>
         <button mat-menu-item (click)='confirmDialog()'>
