@@ -63,6 +63,7 @@ export class EdituserComponent implements OnInit {
     this._userdata.updateUser(this.u_email_id, this.user_update.value).subscribe(() => {
       this._router.navigate(['/nav/users']);
       this.notificationService.info('Profile settings updated !');
+      this._userdata.onRefreshClick();
     });
   }
 
@@ -93,7 +94,7 @@ export class EdituserComponent implements OnInit {
     }
     this._userdata.updateUserimage(this.u_email_id, fd).subscribe((data: users) => {
       this.notificationService.info('Profile Photo has been updated.');
-      this._userdata.onRefreshClick();
+      this.ngOnInit();
     });
   }
 

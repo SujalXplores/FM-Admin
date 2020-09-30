@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { GetUserService } from './get-user.service';
 import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
+import { UsersdataService } from '../users/usersdata.service';
 @Component({
   selector: 'app-main-nav',
   templateUrl: './main-nav.component.html',
@@ -16,7 +17,8 @@ export class MainNavComponent {
     private _user: GetUserService,
     private breakpointObserver: BreakpointObserver,
     public router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _refresh: UsersdataService
   ) { }
   hide: boolean = true;
   date = new Date();
@@ -30,6 +32,11 @@ export class MainNavComponent {
   );
 
   ngOnInit() {
+    if (this._refresh.subsVar == undefined) {
+      this._refresh.subsVar = this._refresh.invokeRefresh.subscribe(() => {
+        this.ngOnInit();
+      });
+    }
     this.u_email_id = localStorage.getItem('u_email_id');
     this._user.getUserByEmail(this.u_email_id).subscribe((data) => {
       if (data[0]) {
