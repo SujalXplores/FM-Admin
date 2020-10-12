@@ -5,6 +5,7 @@ import { deliveryboy } from '../deliveryboy';
 import { SendMailService } from './send-mail.service';
 import { maildata } from './valetMail';
 import { NotificationService } from 'src/app/notification.service';
+import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-valet-mail',
   templateUrl: './valet-mail.component.html',
@@ -16,6 +17,7 @@ export class ValetMailComponent implements OnInit {
   mailVendorForm: FormGroup;
   deliveryboy_name: string;
   img: string;
+  url: string = environment.db;
 
   ngOnInit(): void {
     this.mailVendorForm = new FormGroup({

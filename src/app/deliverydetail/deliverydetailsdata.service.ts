@@ -2,19 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { deliverdetails } from './deliverydetail';
 import { OrderBoyAssign } from './orderboyassign';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class DeliverydetailsdataService {
   constructor(private _http: HttpClient) { }
 
-  public url: string = 'http://localhost:3000/deliverdetails/';
-  public deleteUrl: string = 'http://localhost:3000/dBoyDeatil_Delete/';
-  public urlorderAssigned: string = 'http://localhost:3000/orderAssigned/';
-  public urlorderNotAssigned: string = 'http://localhost:3000/orderNotAssigned/';
-  public urlDboy: string = 'http://localhost:3000/deliveryboy/';
-  public urlAddAsignOrders: string = 'http://localhost:3000/AddAssignedOrder/';
-  public urltrack: string = 'http://localhost:3000/track/';
+  public url: string = environment.db + 'deliverdetails/';
+  public deleteUrl: string = environment.db + 'dBoyDeatil_Delete/';
+  public urlorderAssigned: string = environment.db + 'orderAssigned/';
+  public urlorderNotAssigned: string = environment.db + 'orderNotAssigned/';
+  public urlDboy: string = environment.db + 'deliveryboy/';
+  public urlAddAsignOrders: string = environment.db + 'AddAssignedOrder/';
+  public urltrack: string = environment.db + 'track/';
 
   addTrack(item) {
     return this._http.post(this.urltrack, item);

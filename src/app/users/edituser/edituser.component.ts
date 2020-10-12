@@ -5,6 +5,7 @@ import { users } from '../users';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NotificationService } from 'src/app/notification.service';
 import { GetUserService } from 'src/app/main-nav/get-user.service';
+import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-edituser',
   templateUrl: './edituser.component.html',
@@ -68,7 +69,7 @@ export class EdituserComponent implements OnInit {
   }
 
   formDataBind(item: users) {
-    this.userurl = "http://localhost:3000/images/user_photos/" + item.u_image;
+    this.userurl = environment.db + "images/user_photos/" + item.u_image;
     this.user_update.patchValue({
       u_name: item.u_name,
       u_mobileno: item.u_mobileno,

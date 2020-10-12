@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { order } from './order';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class OrderdataService {
   constructor(private http: HttpClient) { }
 
-  url: string = 'http://localhost:3000/order/';
+  url: string = environment.db + 'order/';
 
   getAllOrder() {
     return this.http.get(this.url);

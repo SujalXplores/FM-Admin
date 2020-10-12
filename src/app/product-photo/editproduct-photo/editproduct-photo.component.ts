@@ -6,6 +6,7 @@ import { product_photo } from '../product-photo';
 import { product } from 'src/app/product/product';
 import { ProductdataService } from 'src/app/product/productdata.service';
 import { NotificationService } from 'src/app/notification.service';
+import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-editproduct-photo',
   templateUrl: './editproduct-photo.component.html',
@@ -45,7 +46,7 @@ export class EditproductPhotoComponent implements OnInit {
   }
 
   formDataBind(item: product_photo) {
-    this.photoUrl = "http://localhost:3000/images/product_photos/" + item.pro_photo;
+    this.photoUrl = environment.db + "images/product_photos/" + item.pro_photo;
     this.photo_update.patchValue({
       fk_pro_id: item.fk_pro_id,
       pro_photo: item.pro_photo

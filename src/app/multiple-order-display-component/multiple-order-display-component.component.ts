@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrderdataService } from '../order/orderdata.service';
 import { ActivatedRoute } from '@angular/router';
 import { GetUserService } from '../main-nav/get-user.service';
+import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-multiple-order-display-component',
   templateUrl: './multiple-order-display-component.component.html',
@@ -27,6 +28,7 @@ export class MultipleOrderDisplayComponentComponent implements OnInit {
   user_mob: number;
   orderId: number;
   invoice_name: string;
+  url: string = environment.db;
 
   ngOnInit(): void {
     this.order_id = this._activated_routes.snapshot.params['order_id'];

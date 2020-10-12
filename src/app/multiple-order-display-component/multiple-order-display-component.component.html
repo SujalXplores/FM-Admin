@@ -11,7 +11,7 @@
     <header>
       <div class="row align-items-center">
         <div class="col-sm-7 text-center text-sm-left mb-3 mb-sm-0">
-          <img id="logo" src="../../assets/image/logo.png" alt="Future Medisurgico"
+          <img id="logo" src="../../assets/image/future_m.png" alt="Future Medisurgico"
             style="width: 100%; max-width: 300px;" />
         </div>
         <div class="col-sm-5 text-center text-sm-right">
@@ -51,7 +51,7 @@
             <tr *ngFor="let item of ordermultiple;let i = index;">
               <td class="center">{{i+1}}</td>
               <td class="left strong k-var--border-radius">
-                <img src="http://localhost:3000/images/product_photos/{{item.pro_photo}}" height="50" width="50">
+                <img src="{{url}}images/product_photos/{{item.pro_photo}}" height="50" width="50">
               </td>
               <td class="left">{{item.pro_name | titlecase}}</td>
               <td class="right">Rs.{{item.pro_price}}</td>

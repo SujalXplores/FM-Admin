@@ -2,7 +2,7 @@
   <mat-card fxFlex="500px" fxFlex.xs="100%">
 
     <mat-card-header>
-      <img mat-card-avatar class="example-header-image" onerror="this.src='../../../assets/image/default-avatar.svg';" src="http://localhost:3000/images/user_photos/{{ u_image }}"/>
+      <img mat-card-avatar class="example-header-image" onerror="this.src='../../../assets/image/default-avatar.svg';" src="{{url}}images/user_photos/{{ u_image }}"/>
       <mat-card-title>Send Mail to {{ u_name | titlecase }}</mat-card-title>
       <mat-card-subtitle>
         <span [class]="'customer-badge status-' + u_type">{{u_type | titlecase}}</span>

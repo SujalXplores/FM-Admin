@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  db: 'https://ecombackend10.herokuapp.com/'
 };

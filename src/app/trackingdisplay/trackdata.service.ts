@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tracking } from './tracking';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class TrackdataService {
   constructor(private _http: HttpClient) { }
 
-  public url: string = 'http://localhost:3000/track/';
-  public deleteUrl: string = 'http://localhost:3000/track_Delete/';
+  public url: string = environment.db + 'track/';
+  public deleteUrl: string = environment.db + 'track_Delete/';
 
   deleteAll(item: number[]) {
     let body = JSON.stringify(item);

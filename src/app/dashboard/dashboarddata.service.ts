@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboarddataService {
 
-  url: string = 'http://localhost:3000/dashboardTrendingPro/';
-  order_url: string = 'http://localhost:3000/ordersbyDate/';
-  invoice_url: string = 'http://localhost:3000/invoicemode/';
-  revenue_url: string = 'http://localhost:3000/revenue/';
-  totalorder_url: string = 'http://localhost:3000/totalorders/';
-  customer_url: string = 'http://localhost:3000/customers/';
-  delivery_partner_url: string = 'http://localhost:3000/delivery_partner/';
-  status_url: string = 'http://localhost:3000/track_status';
+  url: string = environment.db + 'dashboardTrendingPro/';
+  order_url: string = environment.db + 'ordersbyDate/';
+  invoice_url: string = environment.db + 'invoicemode/';
+  revenue_url: string = environment.db + 'revenue/';
+  totalorder_url: string = environment.db + 'totalorders/';
+  customer_url: string = environment.db + 'customers/';
+  delivery_partner_url: string = environment.db + 'delivery_partner/';
+  status_url: string = environment.db + 'track_status';
 
   constructor(public _http: HttpClient) { }
 

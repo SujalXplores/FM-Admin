@@ -4,6 +4,7 @@ import { DeliveryboydataService } from '../deliveryboydata.service';
 import { deliveryboy } from '../deliveryboy';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NotificationService } from 'src/app/notification.service';
+import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-editdeliveryboy',
   templateUrl: './editdeliveryboy.component.html',
@@ -36,7 +37,7 @@ export class EditdeliveryboyComponent implements OnInit {
   }
 
   formDataBind(item: deliveryboy) {
-    this.image_url = "http://localhost:3000/images/deliveryboy_photos/" + item.img;
+    this.image_url = environment.db + "images/deliveryboy_photos/" + item.img;
     this.deliveryPartner_update.patchValue({
       deliveryboy_name: item.deliveryboy_name,
       deliveryboy_address: item.deliveryboy_address,

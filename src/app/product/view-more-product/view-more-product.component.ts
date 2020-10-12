@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { product } from '../product';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductdataService } from '../productdata.service';
+import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-view-more-product',
   templateUrl: './view-more-product.component.html',
@@ -17,6 +18,7 @@ export class ViewMoreProductComponent implements OnInit {
   product_desc: string;
   image_arr: string[] = [];
   i: number;
+  url: string = environment.db;
 
   ngOnInit() {
     this.product_id = this.data.pro_id;

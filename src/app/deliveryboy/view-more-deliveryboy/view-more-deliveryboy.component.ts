@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { environment } from 'src/environments/environment.prod';
 import { deliveryboy } from '../deliveryboy';
 @Component({
   selector: 'app-view-more-deliveryboy',
@@ -17,6 +18,7 @@ export class ViewMoreDeliveryboyComponent implements OnInit {
   delivery_name: string;
   delivery_mobileno: number;
   deliveryboy_address: string;
+  url: string = environment.db
 
   ngOnInit() {
     this.delivery_img = this.data.img;

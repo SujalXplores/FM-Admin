@@ -5,6 +5,7 @@ import { users } from '../users';
 import { SendMailService } from 'src/app/deliveryboy/valet-mail/send-mail.service';
 import { maildata } from 'src/app/deliveryboy/valet-mail/valetMail';
 import { NotificationService } from 'src/app/notification.service';
+import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-mail-user',
   templateUrl: './mail-user.component.html',
@@ -17,6 +18,7 @@ export class MailUserComponent implements OnInit {
   u_name: string;
   u_type: string;
   u_image: string;
+  url: string = environment.db;
 
   ngOnInit(): void {
     this.mailUserForm = new FormGroup({

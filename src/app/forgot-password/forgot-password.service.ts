@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class ForgotPasswordService {
   constructor(public _http: HttpClient) { }
 
-  public url1: string = "http://localhost:3000/user/";
-  public emailurrl: string = "http://localhost:3000/forgot_pass/";
-  public changePasswordURL: string = 'http://localhost:3000/u_password/';
+  public url1: string = environment.db + "user/";
+  public emailurrl: string = environment.db + "forgot_pass/";
+  public changePasswordURL: string = environment.db + 'u_password/';
 
   passwordMail(u_email_id, message, u_password) {
     let body = {

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductPhotodataService {
   constructor(private http: HttpClient) { }
 
-  url: string = 'http://localhost:3000/product_photo/';
+  url: string = environment.db + 'product_photo/';
 
   getAllProductPhoto() {
     return this.http.get(this.url);

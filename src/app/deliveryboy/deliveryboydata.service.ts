@@ -1,13 +1,14 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class DeliveryboydataService {
   constructor(private _http: HttpClient) { }
 
-  url: string = 'http://localhost:3000/deliveryboy/';
+  url: string = environment.db + 'deliveryboy/';
   invokeRefresh = new EventEmitter();
   subsVar: Subscription;
 

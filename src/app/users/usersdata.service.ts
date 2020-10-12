@@ -2,16 +2,17 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { users } from './users';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class UsersdataService {
   constructor(private _http: HttpClient) { }
   
-  url: string = 'http://localhost:3000/user/';
-  url1: string = 'http://localhost:3000/uimage/';
-  password_url: string = 'http://localhost:3000/u_password/';
-  deleteurl: string = 'http://localhost:3000/userdelete/';
+  url: string = environment.db + 'user/';
+  url1: string = environment.db + 'uimage/';
+  password_url: string = environment.db + 'u_password/';
+  deleteurl: string = environment.db + 'userdelete/';
 
   invokeRefresh = new EventEmitter();
   subsVar: Subscription;

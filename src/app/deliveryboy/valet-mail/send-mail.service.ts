@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class SendMailService {
   constructor(private _http: HttpClient) { }
 
-  url: string = "http://localhost:3000/email/";
+  url: string = environment.db + "email/";
 
   generatemail(item) {
     let body = JSON.stringify(item);

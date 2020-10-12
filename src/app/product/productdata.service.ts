@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { product } from './product';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductdataService {
   constructor(private http: HttpClient) { }
 
-  url: string = 'http://localhost:3000/product/';
-  photo_url: string = 'http://localhost:3000/pro_photo/';
-  deleteurl: string = 'http://localhost:3000/productdelete/';
+  url: string = environment.db + 'product/';
+  photo_url: string = environment.db + 'pro_photo/';
+  deleteurl: string = environment.db + 'productdelete/';
 
   deleteall(item: number[]) {
     let body = JSON.stringify(item);

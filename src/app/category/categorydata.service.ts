@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { category } from './category';
+import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class CategorydataService {
   constructor(private http: HttpClient) { }
 
-  url: string = 'http://localhost:3000/category/';
+  url: string = environment.db + 'category/';
 
   getAllCategory() {
     return this.http.get(this.url);
