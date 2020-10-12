@@ -22,6 +22,12 @@
   margin-left: 10px;
 }
 
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
 .order-card {
   color: #fff;
 }

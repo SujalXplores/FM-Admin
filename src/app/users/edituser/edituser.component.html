@@ -8,7 +8,7 @@
             <form [formGroup]="updateuserpic" (ngSubmit)="on_userimage_update()" spellcheck="false">
               <div class="profile-card">
                 <div class="profile-img">
-                  <img src="{{userurl}}" onerror="this.src='../../../assets/image/default-avatar.svg';">
+                  <img src="{{userurl}}" onerror="this.src='assets/image/default-avatar.svg';">
                   <div class="file btn btn-lg btn-primary">
                     <mat-icon>edit</mat-icon>
                     <input type="file" name="file" name="u_img" (change)="onChange($event)" />

@@ -61,12 +61,6 @@ export class DashboardComponent {
     this.getStatus();
     this.get_small_widget_data();
     this.get_trending_product();
-    for (let y = this.startyr; y <= this.currentYear; y++) {
-      this.yearArray.push(y);
-    }
-    setTimeout(() => {    // To fetch data every minute
-      this.ngOnInit();
-    }, 60000);
   }
 
   getStatus() {
@@ -149,7 +143,7 @@ export class DashboardComponent {
     return `${args.dataItem.category} : ${this.intl.formatNumber(args.dataItem.value, '')}`;
   }
 
-  public onYearChange(): void {
+  onYearChange(): void {
     this._data.getAllorder(this.selectedYear).subscribe((data1: any[]) => {
       this.monthOrderCount = [];
       this.monthOrderCount = data1;
