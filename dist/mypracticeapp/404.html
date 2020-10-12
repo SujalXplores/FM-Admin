@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Admin Panel</title>
+<base href="https://sujalshah3234.github.io/testadmin/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<!-- bootstrap api -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<!-- Angular material api -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+<!-- Loader css -->
+<style type="text/css">
+    #fuse-splash-screen {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2D323D;
+        z-index: 99999;
+        pointer-events: none;
+    }
+    #fuse-splash-screen .center {
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #fuse-splash-screen .logo {
+        width: 128px;
+        margin: 0 auto;
+    }
+    #fuse-splash-screen .logo img {
+        filter: drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.2))
+    }
+    #fuse-splash-screen .spinner-wrapper {
+        display: block;
+        position: relative;
+        width: 100%;
+        min-height: 100px;
+        height: 100px;
+    }
+    #fuse-splash-screen .spinner-wrapper .spinner {
+        position: absolute;
+        overflow: hidden;
+        left: 50%;
+        margin-left: -50px;
+        animation: outer-rotate 2.91667s linear infinite;
+    }
+    #fuse-splash-screen .spinner-wrapper .spinner .inner {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        animation: sporadic-rotate 5.25s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+    }
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .gap {
+        position: absolute;
+        left: 49px;
+        right: 49px;
+        top: 0;
+        bottom: 0;
+        border-top: 10px solid;
+        box-sizing: border-box;
+    }
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .left,
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .right {
+        position: absolute;
+        top: 0;
+        height: 100px;
+        width: 50px;
+        overflow: hidden;
+    }
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .left .half-circle,
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .right .half-circle {
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        box-sizing: border-box;
+        border: 10px solid #4285F4;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+    }
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .left {
+        left: 0;
+    }
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .left .half-circle {
+        left: 0;
+        border-right-color: transparent;
+        animation: left-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+        -webkit-animation: left-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+    }
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .right {
+        right: 0;
+    }
+    #fuse-splash-screen .spinner-wrapper .spinner .inner .right .half-circle {
+        right: 0;
+        border-left-color: transparent;
+        animation: right-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+        -webkit-animation: right-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+    }
+    @keyframes outer-rotate {
+        0% {
+            transform: rotate(0deg) scale(0.5);
+        }
+        100% {
+            transform: rotate(360deg) scale(0.5);
+        }
+    }
+    @keyframes left-wobble {
+        0%, 100% {
+            transform: rotate(130deg);
+        }
+        50% {
+            transform: rotate(-5deg);
+        }
+    }
+    @keyframes right-wobble {
+        0%, 100% {
+            transform: rotate(-130deg);
+        }
+        50% {
+            transform: rotate(5deg);
+        }
+    }
+    @keyframes sporadic-rotate {
+        12.5% {
+            transform: rotate(135deg);
+        }
+        25% {
+            transform: rotate(270deg);
+        }
+        37.5% {
+            transform: rotate(405deg);
+        }
+        50% {
+            transform: rotate(540deg);
+        }
+        62.5% {
+            transform: rotate(675deg);
+        }
+        75% {
+            transform: rotate(810deg);
+        }
+        87.5% {
+            transform: rotate(945deg);
+        }
+        100% {
+            transform: rotate(1080deg);
+        }
+    }
+</style>
+<link rel="stylesheet" href="styles.7973e1b7f8b4fded7c12.css"></head>
+    <body class="mat-typography">
+        <app-root>
+            <div id="fuse-splash-screen">
+                <div class="center">
+                    <div class="logo">
+                        <img width="128" src="assets/image/logo.svg">
+                    </div>
+                    <div class="spinner-wrapper">
+                        <div class="spinner">
+                            <div class="inner">
+                                <div class="gap"></div>
+                                <div class="left">
+                                    <div class="half-circle"></div>
+                                </div>
+                                <div class="right">
+                                    <div class="half-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </app-root>
+    <script src="runtime-es2015.66c79b9d36e7169e27b0.js" type="module"></script><script src="runtime-es5.66c79b9d36e7169e27b0.js" nomodule defer></script><script src="polyfills-es5.368fba3b5ae608c57d48.js" nomodule defer></script><script src="polyfills-es2015.e271a016c7638f49de53.js" type="module"></script><script src="main-es2015.e17639cabc154c2dfb8c.js" type="module"></script><script src="main-es5.e17639cabc154c2dfb8c.js" nomodule defer></script></body>
+</html>
