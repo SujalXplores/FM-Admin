@@ -75,8 +75,6 @@ import { AddAssignedOrdersComponent } from './deliverydetail/add-assigned-orders
 import { EditCategoryComponent } from './category/edit-category/edit-category.component';
 import { TrackingdisplayComponent } from './trackingdisplay/trackingdisplay.component';
 import { ViewMoreComponent } from './deliverydetail/view-more/view-more.component';
-import { ChartsModule } from '@progress/kendo-angular-charts';
-import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
 import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
 
 import { NgOtpInputModule } from 'ng-otp-input';
@@ -174,8 +172,6 @@ import { NumberMaskPipe } from './shared/number-mask.pipe';
     MatStepperModule,
     DragDropModule,
     MatGridListModule,
-    ChartsModule,
-    PDFExportModule,
 
     NgOtpInputModule
   ],

@@ -1,14 +1,14 @@
 <div class="grid-container">
     <h1 class="mat-h1">Preview</h1>
 </div>
-
-<button (click)="pdf.saveAs('Product-list.pdf')" routerLink='/nav/pdfProduct' color="warn" mat-raised-button matTooltip="This table will saved as pdf to your internal storage." class="addbutton">
+<!-- (click)="pdf.saveAs('Product-list.pdf')" -->
+<button routerLink='/nav/pdfProduct' color="warn" mat-raised-button matTooltip="This table will saved as pdf to your internal storage." class="addbutton">
     <mat-icon>picture_as_pdf</mat-icon>&nbsp;
     <span>Save as PDF</span>
 </button>
 
 <div class="mat-elevation-z8">
-  <kendo-pdf-export #pdf paperSize="A4" margin="1cm">
+  <!-- <kendo-pdf-export #pdf paperSize="A4" margin="1cm"> -->
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
 
       <ng-container matColumnDef="pro_id">
@@ -40,11 +40,16 @@
           'low'  : row.pro_price < 100}"> Rs.{{row.pro_price}}/- </td>
       </ng-container>
 
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="9999">
+          No data...
+        </td>
+      </tr>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;">
-
     </table>
     
-  </kendo-pdf-export>
+  <!-- </kendo-pdf-export> -->
   <mat-paginator [pageSizeOptions]="[50,100,150,200]" showFirstLastButtons></mat-paginator>
 </div>

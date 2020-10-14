@@ -17,9 +17,7 @@ export class DialogComponent implements OnInit {
   user_email: string;
   user_name: string;
   user_phone: string;
-  user_password: string;
-  user_address: string;
-  user_type: string;
+  user_address: string = "Address is not provided by user yet.";
   url: string = environment.db;
 
   ngOnInit() {
@@ -27,9 +25,7 @@ export class DialogComponent implements OnInit {
     this.user_email = this.data.u_email_id;
     this.user_name = this.data.u_name;
     this.user_phone = this.data.u_mobileno;
-    this.user_password = this.data.u_password;
     this.user_address = this.data.u_address;
-    this.user_type = this.data.u_type;
   }
 
   onClose() {

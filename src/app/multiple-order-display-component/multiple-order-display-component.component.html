@@ -1,12 +1,13 @@
 <div class="mt-1 text-center">
-  <button (click)="pdf.saveAs(invoice_name)" color="warn" mat-raised-button
+  <!-- (click)="pdf.saveAs(invoice_name)"  -->
+  <button color="warn" mat-raised-button
     matTooltip="This invoice will saved as pdf to your internal storage.">
     <mat-icon>picture_as_pdf</mat-icon>&nbsp;
     <span>Save as PDF</span>
   </button>
 </div>
 
-<kendo-pdf-export #pdf paperSize="A3" margin="0cm">
+<!-- <kendo-pdf-export #pdf paperSize="A3" margin="0cm"> -->
   <div class="container-fluid invoice-container">
     <header>
       <div class="row align-items-center">
@@ -84,4 +85,4 @@
       <span class="float-right">+91 9879805858  |  futuremedisurgico19@gmail.com</span>
     </span>
   </div>
-</kendo-pdf-export>
+<!-- </kendo-pdf-export> -->
