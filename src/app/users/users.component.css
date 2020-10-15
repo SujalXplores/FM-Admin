@@ -38,60 +38,6 @@ td,th {
   width: 50%;
 }
 
-tr.example-detail-row {
-  height: 0;
-}
-
-tr.example-element-row:not(.example-expanded-row):hover {
-  background: #777;
-}
-
-tr.example-element-row:not(.example-expanded-row):active {
-  background: #efefef;
-}
-
-.example-element-row td {
-  border-bottom-width: 0;
-}
-
-.example-element-detail {
-  overflow: hidden;
-  display: flex;
-}
-
-.example-element-diagram {
-  min-width: 80px;
-  padding: 8px;
-  font-weight: lighter;
-  margin: 8px;
-}
-
-.customer-badge {
-  border-radius: 2px;
-  padding: 0.25em 0.5em;
-  text-transform: capitalize;
-  font-size: 12px;
-  letter-spacing: 0.3px;
-}
-
-.status-user {
-  display: inline-block;
-  padding: 0 12px;
-  border-radius: 32px;
-  font-size: 13px;
-  color: #ffffff;
-  background-color: #2eaa36;
-}
-
-.status-admin {
-  display: inline-block;
-  padding: 0 12px;
-  border-radius: 32px;
-  font-size: 13px;
-  color: #ffffff;
-  background-color: #c63737;
-}
-
 .grid-container {
   margin: 20px;
 }

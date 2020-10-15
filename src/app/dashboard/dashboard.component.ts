@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { DashboarddataService } from "./dashboarddata.service";
-import { Chart } from 'chart.js';
+import { Chart } from "chart.js/dist/Chart.js";
 var now = new Date();
 @Component({
   selector: "app-dashboard",
@@ -35,7 +35,7 @@ export class DashboardComponent {
 
   currentYear = now.getFullYear();
   selectedYear: number = this.currentYear;
-  
+
   public statusData: any[] = [];
 
   ngOnInit() {
@@ -48,16 +48,16 @@ export class DashboardComponent {
 
   get_small_widget_data(): void {
     this._data.getRevenue().subscribe((data2: any[]) => {
-      this.revenue = data2[0].revenue;
-    });
-    this._data.getTotalOrder().subscribe((data3: any[]) => {
-      this.total_order = data3[0].total_order;
-    });
-    this._data.getCustomer().subscribe((data4: any[]) => {
-      this.customers = data4[0].customers;
-    });
-    this._data.getDeliveryPartner().subscribe((data5: any[]) => {
-      this.delivery_partners = data5[0].delivery_partners;
+      this._data.getTotalOrder().subscribe((data3: any[]) => {
+        this._data.getCustomer().subscribe((data4: any[]) => {
+          this._data.getDeliveryPartner().subscribe((data5: any[]) => {
+            this.revenue = data2[0].revenue;
+            this.total_order = data3[0].total_order;
+            this.customers = data4[0].customers;
+            this.delivery_partners = data5[0].delivery_partners;
+          });
+        });
+      });
     });
   }
 
@@ -69,7 +69,7 @@ export class DashboardComponent {
       for (let j = 0; j < data1.length; j++) {
         this.orderData.push(this.monthOrderCount[j].COUNT);
       }
-      this.month = this.months.slice(0,this.orderData.length);
+      this.month = this.months.slice(0, this.orderData.length);
       this.LineChart = new Chart('lineChart', {
         type: 'line',
         data: {
@@ -79,7 +79,8 @@ export class DashboardComponent {
             data: this.orderData,
             fill: true,
             lineTension: 0.2,
-            borderColor: "green",
+            borderColor: "rgba(116, 0, 255, 1)",
+            backgroundColor: "rgba(116, 0, 255, 0.1)",
             borderWidth: 1
           }]
         },
@@ -105,7 +106,7 @@ export class DashboardComponent {
         this.Cash_On_Dlivery_Amount = data[0].total;
       } else {
         this.Cash_On_Dlivery_Amount = 0;
-      } 
+      }
     });
     this._data.getInvoiceByMode("wallet").subscribe((data: any) => {
       if (data[0].total) {
@@ -130,14 +131,14 @@ export class DashboardComponent {
           datasets: [{
             data: this.paymentdata,
             backgroundColor: [
-              'rgba(6, 75, 55, 0.2)',
-              'rgba(175, 97, 14, 0.2)',
-              'rgba(6, 6, 75, 0.2)'
+              'rgba(0, 174, 90, 0.2)',
+              'rgba(255, 114, 25, 0.2)',
+              'rgba(0, 98, 255, 0.2)'
             ],
             borderColor: [
-              'rgba(6, 75, 55, 1)',
-              'rgba(175, 97, 14, 1)',
-              'rgba(6, 6, 75, 1)'
+              'rgba(0, 174, 90, 1)',
+              'rgba(255, 114, 25, 1)',
+              'rgba(0, 98, 255, 1)'
             ],
             borderWidth: 1
           }]
@@ -170,13 +171,13 @@ export class DashboardComponent {
           datasets: [{
             data: this.statusData,
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 99, 132, 0.2)',
               'rgba(255, 206, 86, 0.2)'
             ],
             borderColor: [
-              'rgba(255,99,132,1)',
               'rgba(54, 162, 235, 1)',
+              'rgba(255,99,132,1)',
               'rgba(255, 206, 86, 1)'
             ],
             borderWidth: 1
@@ -214,7 +215,8 @@ export class DashboardComponent {
           datasets: [{
             label: 'No. of Products',
             data: this.bill_data_display,
-            borderColor: "blue",
+            borderColor: "rgba(234, 74, 42, 1)",
+            backgroundColor: "rgba(234, 74, 42, 0.1)",
             borderWidth: 1
           }]
         },

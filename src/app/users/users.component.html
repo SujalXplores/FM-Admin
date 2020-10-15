@@ -42,7 +42,12 @@
     <ng-container matColumnDef="u_type">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
       <td mat-cell *matCellDef="let row">
-      <span [class]="'customer-badge status-' + row.u_type">{{row.u_type | titlecase}} </span></td>
+        <mat-chip-list>
+          <mat-chip color="{{ row.u_type == 'admin' ? 'warn' : 'primary'}}" selected>
+            {{row.u_type | titlecase}}
+          </mat-chip>
+        </mat-chip-list>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="action">

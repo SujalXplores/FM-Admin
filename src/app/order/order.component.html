@@ -41,10 +41,11 @@
     <ng-container matColumnDef="order_status">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Status</th>
       <td mat-cell *matCellDef="let row">
-        <span [ngClass]="{
-          'status-packing' : row.order_status == 'packing',
-          'status-ontheway' : row.order_status == 'on the way',
-          'status-delivered' : row.order_status == 'delivered'}">{{row.order_status | titlecase}}</span>
+        <mat-chip-list>
+          <mat-chip style="font-size: x-small;" color="{{ row.order_status == 'packing' ? 'warn' : (row.order_status == 'on the way' ? 'accent' : 'primary')}}" selected>
+            {{row.order_status | titlecase}}
+          </mat-chip>
+        </mat-chip-list>
       </td>
     </ng-container>
 
