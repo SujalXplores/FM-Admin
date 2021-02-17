@@ -11,12 +11,12 @@
   <div class="container-fluid invoice-container">
     <header>
       <div class="row align-items-center">
-        <div class="col-sm-7 text-center text-sm-left mb-3 mb-sm-0">
+        <div class="col-sm-7 text-center text-sm-start mb-3 mb-sm-0">
           <img id="logo" src="assets/image/future_m.png" alt="Future Medisurgico"
             style="width: 100%; max-width: 300px;" />
         </div>
-        <div class="col-sm-5 text-center text-sm-right">
-          <h4 class="text-7 mb-0">Invoice</h4>
+        <div class="col-sm-5 text-center text-sm-end">
+          <h4 class="text-7 mb-0 float-end">Invoice</h4>
         </div>
       </div>
       <hr>
@@ -25,7 +25,7 @@
     <main>
       <div class="row">
         <div class="col-sm-6"><strong>Date:</strong> {{order_date | date : 'mediumDate'}}</div>
-        <div class="col-sm-6 text-sm-right"> <strong>Invoice No:</strong> {{order_id}}</div>
+        <div class="col-sm-6 text-sm-end"> <strong>Invoice No:</strong> {{order_id}}</div>
       </div>
       <hr>
       <div class="row">
@@ -81,8 +81,8 @@
     </div>
     <hr style="margin-top: 100px;">
     <span>
-      <strong class="float-left">Thank you for choosing us!</strong>
-      <span class="float-right">+91 9879805858  |  futuremedisurgico19@gmail.com</span>
+      <strong class="float-start">Thank you for choosing us!</strong>
+      <span class="float-end">+91 9879805858  |  futuremedisurgico19@gmail.com</span>
     </span>
   </div>
 <!-- </kendo-pdf-export> -->

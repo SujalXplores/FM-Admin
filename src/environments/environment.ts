@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   db: 'https://ecombackend10.herokuapp.com/'
+  // db: 'http://localhost:3000/'
 };
 
 /*
