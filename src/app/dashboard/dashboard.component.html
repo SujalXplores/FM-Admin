@@ -55,27 +55,20 @@
     <mat-card class="dashboard-card" fxFlex="97%" fxFlex.xs="100%">
       <mat-card-header>
         <mat-card-title>
-          Monthly Selling
-          <button mat-icon-button class="more-button" (click)="get_monthly_selling()">
-            <mat-icon style="font-size: 26px;">refresh</mat-icon>
-          </button>
+          Trending Products
         </mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
         <div>
-          <canvas id="lineChart" width="500" height="400"></canvas>
+          <canvas id="barChart" width="500" height="400"></canvas>
         </div>
       </mat-card-content>
     </mat-card>
-
 
     <mat-card class="dashboard-card" fxFlex="48%" fxFlex.xs="100%">
       <mat-card-header>
         <mat-card-title>
           Payment Methods
-          <button mat-icon-button class="more-button" (click)="get_payment_method()">
-            <mat-icon style="font-size: 26px;">refresh</mat-icon>
-          </button>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
@@ -89,9 +82,6 @@
       <mat-card-header>
         <mat-card-title>
           Current Status
-          <button mat-icon-button class="more-button" (click)="getStatus()">
-            <mat-icon style="font-size: 26px;">refresh</mat-icon>
-          </button>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
@@ -100,19 +90,16 @@
         </div>
       </mat-card-content>
     </mat-card>
-    
+
     <mat-card class="dashboard-card" fxFlex="97%" fxFlex.xs="100%">
       <mat-card-header>
         <mat-card-title>
-          Trending Products
-          <button mat-icon-button class="more-button" (click)="get_trending_product()">
-            <mat-icon style="font-size: 26px;">refresh</mat-icon>
-          </button>
+          Monthly Selling
         </mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
         <div>
-          <canvas id="barChart" width="500" height="400"></canvas>
+          <canvas id="lineChart" width="500" height="400"></canvas>
         </div>
       </mat-card-content>
     </mat-card>

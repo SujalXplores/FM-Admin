@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -80,8 +79,6 @@ import { PdfTableComponent } from './product/pdf-table/pdf-table.component';
 
 import { NgOtpInputModule } from 'ng-otp-input';
 import { WalletComponent } from './wallet/wallet.component';
-
-import 'hammerjs';
 import { CustomDialogComponent } from './shared/custom-dialog/custom-dialog.component';
 import { NumbersOnlyDirective } from './shared/numbers-only.directive';
 import { NumberMaskPipe } from './shared/number-mask.pipe';
@@ -134,8 +131,7 @@ import { NumberMaskPipe } from './shared/number-mask.pipe';
   imports: [
     routingArr,
     BrowserModule,
-    FlexLayoutModule, //flex-layout
-    AppRoutingModule,
+    FlexLayoutModule,
     BrowserAnimationsModule,
     HttpClientModule,
     LayoutModule,
@@ -174,18 +170,7 @@ import { NumberMaskPipe } from './shared/number-mask.pipe';
     DragDropModule,
     MatGridListModule,
     MatChipsModule,
-
     NgOtpInputModule
-  ],
-  entryComponents: [
-    DialogComponent,
-    ViewMoreProductComponent,
-    OrderDialogComponent,
-    ViewMoreProductPhotoComponent,
-    ValetMailComponent,
-    MailUserComponent,
-    ViewMoreComponent,//assigned order details
-    AdddeliveryboyComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

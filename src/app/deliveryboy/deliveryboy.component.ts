@@ -11,6 +11,8 @@ import { ViewMoreDeliveryboyComponent } from './view-more-deliveryboy/view-more-
 import { NotificationService } from '../notification.service';
 import { AdddeliveryboyComponent } from './adddeliveryboy/adddeliveryboy.component';
 import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-deliveryboy',
@@ -18,7 +20,7 @@ import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dial
   styleUrls: ['./deliveryboy.component.css'],
 })
 export class DeliveryboyComponent implements OnInit {
-
+  private unsubscribe = new Subject();
   cancleClicked: boolean = false;
   deliveryboyarr: deliveryboy[] = [];
   displayedColumns: string[] = ['deliveryboy_name', 'deliveryboy_mobileno', 'action'];
@@ -38,7 +40,7 @@ export class DeliveryboyComponent implements OnInit {
   }
 
   onDelete(item: deliveryboy) {
-    this._data.deleteDeliveryboy(item.deliveryboy_id).subscribe(() => {
+    this._data.deleteDeliveryboy(item.deliveryboy_id).pipe(takeUntil(this.unsubscribe)).subscribe(() => {
       this.deliveryboyarr.splice(this.deliveryboyarr.indexOf(item), 1);
       this.dataSource.data = this.deliveryboyarr;
       this.notificationService.warn('Record deleted successfully !');
@@ -69,11 +71,11 @@ export class DeliveryboyComponent implements OnInit {
 
   ngOnInit(): void {
     if (this._data.subsVar == undefined) {
-      this._data.subsVar = this._data.invokeRefresh.subscribe(() => {
+      this._data.subsVar = this._data.invokeRefresh.pipe(takeUntil(this.unsubscribe)).subscribe(() => {
         this.ngOnInit();
       });
     }
-    this._data.getAllDeliveryboy().subscribe(
+    this._data.getAllDeliveryboy().pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: deliveryboy[]) => {
         console.log(data);
         this.deliveryboyarr = data;
@@ -114,10 +116,15 @@ export class DeliveryboyComponent implements OnInit {
       autoFocus: false,
       data: dialogData
     });
-    dialogRef.afterClosed().subscribe(dialogResult => {
+    dialogRef.afterClosed().pipe(takeUntil(this.unsubscribe)).subscribe(dialogResult => {
       if (dialogResult == true) {
         this.onDelete(item);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

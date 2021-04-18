@@ -3,14 +3,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OrderdataService } from '../orderdata.service';
 import { order } from '../order';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-editorder',
   templateUrl: './editorder.component.html',
   styleUrls: ['./editorder.component.css']
 })
 export class EditorderComponent implements OnInit {
-  constructor(private _snackBar: MatSnackBar, private _act_route: ActivatedRoute, private _orderdata: OrderdataService, private _router: Router) { }
-
+  constructor(private _act_route: ActivatedRoute, private _orderdata: OrderdataService, private _router: Router) { }
+  private unsubscribe = new Subject();
   order_id1: number;
   order_amount1: string;
   order_date1: Date;
@@ -20,7 +22,7 @@ export class EditorderComponent implements OnInit {
 
   ngOnInit() {
     this.order_id1 = this._act_route.snapshot.params["order_id"];
-    this._orderdata.editOrder(this.order_id1).subscribe(
+    this._orderdata.editOrder(this.order_id1).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: order) => {
         this.order_id1 = data[0].order_id;
         this.order_amount1 = data[0].order_amount;
@@ -33,10 +35,15 @@ export class EditorderComponent implements OnInit {
   }
 
   OnOrderEdit(f) {
-    this._orderdata.updateOrder(f.value).subscribe(
+    this._orderdata.updateOrder(f.value).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: any) => {
         this._router.navigate(['/nav/order']);
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

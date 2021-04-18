@@ -6,6 +6,9 @@ import { SendMailService } from './send-mail.service';
 import { maildata } from './valetMail';
 import { NotificationService } from 'src/app/notification.service';
 import { environment } from 'src/environments/environment.prod';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 @Component({
   selector: 'app-valet-mail',
   templateUrl: './valet-mail.component.html',
@@ -13,7 +16,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ValetMailComponent implements OnInit {
   constructor(private notificationService: NotificationService, public dialogref: MatDialogRef<ValetMailComponent>, private _mail: SendMailService, @Inject(MAT_DIALOG_DATA) public data: deliveryboy) { }
-
+  private unsubscribe = new Subject();
   mailVendorForm: FormGroup;
   deliveryboy_name: string;
   img: string;
@@ -30,7 +33,7 @@ export class ValetMailComponent implements OnInit {
   }
 
   onMailVendor(f) {
-    this._mail.generatemail(f.value).subscribe(
+    this._mail.generatemail(f.value).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: maildata[]) => { }
     )
     this.dialogref.close();
@@ -39,5 +42,10 @@ export class ValetMailComponent implements OnInit {
 
   onClose() {
     this.dialogref.close();
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

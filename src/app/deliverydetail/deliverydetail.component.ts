@@ -7,13 +7,15 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DeliverydetailsdataService } from './deliverydetailsdata.service';
 import { ViewMoreComponent } from './view-more/view-more.component';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-deliverydetail',
   templateUrl: './deliverydetail.component.html',
   styleUrls: ['./deliverydetail.component.css']
 })
 export class DeliverydetailComponent implements OnInit {
-
+  private unsubscribe = new Subject();
   displayedColumns: string[] = ['deliveryboy_name', 'deliveryboy_id', 'date', 'actions'];
   dataSource: MatTableDataSource<OrderBoyAssign>;
   ordersArr: OrderBoyAssign[] = [];
@@ -26,7 +28,7 @@ export class DeliverydetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
-    this._data.getAllAssignOrders().subscribe(
+    this._data.getAllAssignOrders().pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: OrderBoyAssign[]) => {
         this.ordersArr = data;
         this.dataSource.data = this.ordersArr;
@@ -50,5 +52,10 @@ export class DeliverydetailComponent implements OnInit {
     this.dialog.open(ViewMoreComponent, {
       data: row
     });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

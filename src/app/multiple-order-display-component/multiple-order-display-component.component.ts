@@ -3,6 +3,8 @@ import { OrderdataService } from '../order/orderdata.service';
 import { ActivatedRoute } from '@angular/router';
 import { GetUserService } from '../main-nav/get-user.service';
 import { environment } from 'src/environments/environment.prod';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-multiple-order-display-component',
   templateUrl: './multiple-order-display-component.component.html',
@@ -14,7 +16,8 @@ export class MultipleOrderDisplayComponentComponent implements OnInit {
     public orderService: OrderdataService,
     public _activated_routes: ActivatedRoute
   ) { }
-
+  
+  private unsubscribe = new Subject();
   order_id: number;
   order_total: number;
   pro_photo: string;
@@ -32,7 +35,7 @@ export class MultipleOrderDisplayComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.order_id = this._activated_routes.snapshot.params['order_id'];
-    this.orderService.getProductById(this.order_id).subscribe(
+    this.orderService.getProductById(this.order_id).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: any[]) => {
         this.ordermultiple = data;
         this.orderId = data[0].fk_order_id;
@@ -42,11 +45,16 @@ export class MultipleOrderDisplayComponentComponent implements OnInit {
         this.order_status = data[0].order_status;
         this.order_amount = data[0].order_amount;
         this.invoice_name = 'invoice'+this.order_date+'ID'+this.orderId+'.pdf';
-        this._user.getUserByEmail(this.fk_u_email_id).subscribe((data1) => {
+        this._user.getUserByEmail(this.fk_u_email_id).pipe(takeUntil(this.unsubscribe)).subscribe((data1) => {
           this.user_addr = data1[0].u_address;
           this.user_mob = data1[0].u_mobileno;
         });
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

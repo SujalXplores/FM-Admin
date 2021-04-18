@@ -10,6 +10,9 @@ import { ProductdataService } from './productdata.service';
 import { ViewMoreProductComponent } from './view-more-product/view-more-product.component';
 import { NotificationService } from '../notification.service';
 import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -21,6 +24,7 @@ export class ProductComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
   }
 
+  private unsubscribe = new Subject();
   cancleClicked: boolean = false;
   productarr: product[] = [];
   del_arr: number[] = [];
@@ -46,7 +50,7 @@ export class ProductComponent implements OnInit {
   }
 
   ondeleteallclick() {
-    this._data.deleteall(this.del_arr).subscribe(
+    this._data.deleteall(this.del_arr).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data) => {
         for (let i = 0; i < this.del_arr.length; i++) {
           let x = this.productarr.find(x => x.pro_id == this.del_arr[i]);
@@ -61,7 +65,7 @@ export class ProductComponent implements OnInit {
   }
 
   onDelete(item: product) {
-    this._data.deleteProduct(item.pro_id).subscribe(
+    this._data.deleteProduct(item.pro_id).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: any) => {
         this.productarr.splice(this.productarr.indexOf(item), 1);
         this.dataSource.data = this.productarr;
@@ -82,7 +86,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._data.getAllProducts().subscribe(
+    this._data.getAllProducts().pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: product[]) => {
         this.productarr = data;
         this.dataSource.data = data;
@@ -112,10 +116,15 @@ export class ProductComponent implements OnInit {
       autoFocus: false,
       data: dialogData
     });
-    dialogRef.afterClosed().subscribe(dialogResult => {
+    dialogRef.afterClosed().pipe(takeUntil(this.unsubscribe)).subscribe(dialogResult => {
       if (dialogResult == true) {
         this.ondeleteallclick();
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

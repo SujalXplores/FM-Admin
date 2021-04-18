@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NotificationService } from 'src/app/notification.service';
 import { GetUserService } from 'src/app/main-nav/get-user.service';
 import { environment } from 'src/environments/environment.prod';
+
 @Component({
   selector: 'app-edituser',
   templateUrl: './edituser.component.html',
@@ -42,13 +43,11 @@ export class EdituserComponent implements OnInit {
       u_mobileno: new FormControl(null, [Validators.required, Validators.minLength(10)]),
       u_address: new FormControl(null, [Validators.required]),
     });
-
     this.user_update_password = new FormGroup({
       u_password: new FormControl(null, [Validators.required]),
       new_password: new FormControl(null, [Validators.required,Validators.minLength(8)]),
       confirm_password: new FormControl(null, [Validators.required])
     }, { validators: this.checkPasswords });
-
     this.updateuserpic = new FormGroup({
       u_image: new FormControl(null)
     });

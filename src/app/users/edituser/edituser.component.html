@@ -58,7 +58,7 @@
                 <form class="example-form" [formGroup]="user_update_password" (ngSubmit)="onPasswordChange()" spellcheck="false">
                   <div fxLayout="row">
                     <div fxFlex="50%" fxFlex.md="60%" fxFlex.sm="50%" fxFlex.xs="100%">
-                      <p class="mt-2"><mat-icon style="vertical-align: middle;" color="primary" class="mr-1">verified_user</mat-icon>Fill below form to change your password</p>
+                      <p class="mt-2">Fill below form to change your password</p>
                       <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Old Password</mat-label>
                         <input [type]="hide ? 'password' : 'text'" formControlName="u_password" matInput>

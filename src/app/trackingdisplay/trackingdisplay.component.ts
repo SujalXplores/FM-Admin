@@ -9,6 +9,8 @@ import { TrackdataService } from './trackdata.service';
 import { NotificationService } from '../notification.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-trackingdisplay',
   templateUrl: './trackingdisplay.component.html',
@@ -24,6 +26,7 @@ export class TrackingdisplayComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
   }
 
+  private unsubscribe = new Subject();
   cancleClicked: boolean = false;
   trackingarr: tracking[] = [];
   del_arr: number[] = [];
@@ -34,7 +37,7 @@ export class TrackingdisplayComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   ngOnInit(): void {
-    this._trackdata.getAllTrack().subscribe(
+    this._trackdata.getAllTrack().pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: tracking[]) => {
         this.trackingarr = data;
         this.dataSource.data = data;
@@ -58,7 +61,7 @@ export class TrackingdisplayComponent implements OnInit {
   }
 
   onDeleteAllClick() {
-    this._trackdata.deleteAll(this.del_arr).subscribe(
+    this._trackdata.deleteAll(this.del_arr).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data) => {
         for (let i = 0; i < this.del_arr.length; i++) {
           let x = this.trackingarr.find(x => x.track_id == this.del_arr[i]);
@@ -72,7 +75,7 @@ export class TrackingdisplayComponent implements OnInit {
   }
 
   onDelete(row) {
-    this._trackdata.deleteTrack(row.track_id).subscribe(
+    this._trackdata.deleteTrack(row.track_id).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: any) => {
         this.trackingarr.splice(this.trackingarr.indexOf(row), 1);
         this.dataSource.data = this.trackingarr;
@@ -96,7 +99,7 @@ export class TrackingdisplayComponent implements OnInit {
       autoFocus: false,
       data: dialogData
     });
-    dialogRef.afterClosed().subscribe(dialogResult => {
+    dialogRef.afterClosed().pipe(takeUntil(this.unsubscribe)).subscribe(dialogResult => {
       if (dialogResult == true) {
         this.onDelete(item);
       }
@@ -111,10 +114,15 @@ export class TrackingdisplayComponent implements OnInit {
       autoFocus: false,
       data: dialogData
     });
-    dialogRef.afterClosed().subscribe(dialogResult => {
+    dialogRef.afterClosed().pipe(takeUntil(this.unsubscribe)).subscribe(dialogResult => {
       if (dialogResult == true) {
         this.onDeleteAllClick();
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

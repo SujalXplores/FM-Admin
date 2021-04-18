@@ -8,25 +8,25 @@
 				Sign In
 			</span>
 			<span>with your Future Medisurgico account.</span>
-			<!-- email -->
+			
 			<mat-form-field class="wrap-input100" appearance="fill">
 				<mat-label>Email</mat-label>
 				<input matInput formControlName="u_email_id" autofocus>
-				<mat-hint>We don't share your credentials to anyone.</mat-hint>
+				<mat-hint>We respect your privacy.</mat-hint>
 				<mat-error *ngIf="loginForm.get('u_email_id').hasError('required') && !loginForm.get('u_email_id').pristine">Email is <b>required!</b></mat-error>
 				<mat-error *ngIf="loginForm.get('u_email_id').hasError('email') && !loginForm.get('u_email_id').pristine">Invalid Email!</mat-error>
 			</mat-form-field>
-			<!-- password -->
+
 			<mat-form-field  class="wrap-input100" appearance="fill">
 				<mat-label>Password</mat-label>
 				<input matInput #password="matInput" formControlName="u_password" [type]="hide ? 'password' : 'text'">
 				<mat-error *ngIf="loginForm.get('u_password').hasError('required') && !loginForm.get('u_password').pristine">Password is <b>required!</b></mat-error>
 				<button type="button" mat-icon-button matSuffix (click)="hide = !hide">
-					<mat-icon style="font-size: 23px;" class="material-icons-outlined mb-2" [color]="password.focused ? 'primary' : ''">{{hide ? 'remove_red_eye' : 'visibility_off'}}</mat-icon>
+					<mat-icon class="material-icons-outlined mb-2" [color]="password.focused ? 'primary' : ''">{{hide ? 'remove_red_eye' : 'visibility_off'}}</mat-icon>
 				</button>
 				<mat-hint align="end" class="forgot" routerLink="/forgotPass">Forgot Password?</mat-hint>
 			</mat-form-field>
-			<!-- submit -->
+
 			<button [disabled]="!loginForm.valid || loading" type="submit" mat-raised-button color="primary" class="example-full-width">
 				<mat-icon *ngIf="loading">
 					<mat-spinner mode="indeterminate" diameter="20"></mat-spinner>

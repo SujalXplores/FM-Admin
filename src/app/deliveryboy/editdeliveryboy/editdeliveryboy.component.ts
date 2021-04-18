@@ -5,6 +5,9 @@ import { deliveryboy } from '../deliveryboy';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NotificationService } from 'src/app/notification.service';
 import { environment } from 'src/environments/environment.prod';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 @Component({
   selector: 'app-editdeliveryboy',
   templateUrl: './editdeliveryboy.component.html',
@@ -12,7 +15,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class EditdeliveryboyComponent implements OnInit {
   constructor(private notificationService: NotificationService, private _act_route: ActivatedRoute, private _deliveryboydata: DeliveryboydataService, private _router: Router) { }
-  
+  private unsubscribe = new Subject();
   deliveryboy_id: number;
   deliveryPartner_update: FormGroup;
   selectedFile: File = null;
@@ -29,7 +32,7 @@ export class EditdeliveryboyComponent implements OnInit {
       password: new FormControl(null, [Validators.required]),
       img: new FormControl(null, [Validators.required])
     });
-    this._deliveryboydata.editDeliveryboy(this.deliveryboy_id).subscribe(
+    this._deliveryboydata.editDeliveryboy(this.deliveryboy_id).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: deliveryboy[]) => {
         this.formDataBind(data[0]);
       }
@@ -60,7 +63,7 @@ export class EditdeliveryboyComponent implements OnInit {
     fd.append('deliveryboy_mobileno', this.deliveryPartner_update.get('deliveryboy_mobileno').value);
     fd.append('deliveryboy_email', this.deliveryPartner_update.get('deliveryboy_email').value);
     fd.append('password', this.deliveryPartner_update.get('password').value);
-    this._deliveryboydata.updateDeliveryboy(this.deliveryboy_id, fd).subscribe(
+    this._deliveryboydata.updateDeliveryboy(this.deliveryboy_id, fd).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: deliveryboy) => {
         this._router.navigate(['/nav/deliveryboy']);
         this.notificationService.info('Your changes has been saved.');
@@ -71,5 +74,10 @@ export class EditdeliveryboyComponent implements OnInit {
   onChange(f) {
     this.selectedFile = <File>f.target.files[0];
     this.img_text = this.selectedFile.name;
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

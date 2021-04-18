@@ -5,6 +5,8 @@ import { deliverdetails } from '../deliverydetail';
 import { DeliverydetailsdataService } from '../deliverydetailsdata.service';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/notification.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-add-assigned-orders',
   templateUrl: './add-assigned-orders.component.html',
@@ -15,7 +17,7 @@ export class AddAssignedOrdersComponent implements OnInit {
     this.dataSourceOrder = new MatTableDataSource();
     this.dataSourceDelivery = new MatTableDataSource();
   }
-
+  private unsubscribe = new Subject();
   displayedColumnsOrder: string[] = ['check', 'order_id', 'fk_u_email_id'];
   selrectedOrderArr: number[] = [];
   dataSourceOrder: MatTableDataSource<OrderBoyAssign>
@@ -24,12 +26,12 @@ export class AddAssignedOrdersComponent implements OnInit {
   dataSourceDelivery: MatTableDataSource<deliverdetails>;
 
   ngOnInit(): void {
-    this._orderAssign.getnotAssignedOrders().subscribe(
+    this._orderAssign.getnotAssignedOrders().pipe(takeUntil(this.unsubscribe)).subscribe(
       (dataOrders: OrderBoyAssign[]) => {
         this.dataSourceOrder.data = dataOrders;
       }
     );
-    this._orderAssign.getAllDboy().subscribe(
+    this._orderAssign.getAllDboy().pipe(takeUntil(this.unsubscribe)).subscribe(
       (dataDelivery: deliverdetails[]) => {
         this.dataSourceDelivery.data = dataDelivery;
       }
@@ -46,14 +48,14 @@ export class AddAssignedOrdersComponent implements OnInit {
         'selectedOrderArr': this.selrectedOrderArr,
         'selectedDBoyId': this.SelectedDboyId
       };
-      this._orderAssign.addOrderAssigned(objOrderAssigned).subscribe((x: any) => {
+      this._orderAssign.addOrderAssigned(objOrderAssigned).pipe(takeUntil(this.unsubscribe)).subscribe((x: any) => {
         if (x.insertId > 0) {
           this.notificationService.info('Selected Order is assigned to ' + this.SelectedDboyId);
           let trackObject = {
             status: "packing",
             fk_detail_id: x.insertId,
           };
-          this._orderAssign.addTrack(trackObject).subscribe((y: any) => { });
+          this._orderAssign.addTrack(trackObject).pipe(takeUntil(this.unsubscribe)).subscribe((y: any) => { });
           this._router.navigate(['/nav/deliverdetails']);
         }
         else {
@@ -74,5 +76,10 @@ export class AddAssignedOrdersComponent implements OnInit {
 
   onBack() {
     this._router.navigate(['/nav/deliverdetails']);
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

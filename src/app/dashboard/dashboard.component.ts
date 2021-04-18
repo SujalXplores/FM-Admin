@@ -1,56 +1,59 @@
 import { Component } from "@angular/core";
 import { DashboarddataService } from "./dashboarddata.service";
 import { Chart } from "chart.js/dist/Chart.js";
-var now = new Date();
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/internal/operators";
+
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
   styleUrls: ["./dashboard.component.css"],
 })
 export class DashboardComponent {
-  constructor(public _data: DashboarddataService) { }
-  LineChart = [];
-  PieChart = [];
-  DoughutChart = [];
-  BarChart = [];
-  paymentdata = [];
-
-  public monthOrderCount: any[] = [];
-  public orderData: any[] = [];
-  months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
-  month = [];
-
-  public bill_data: any[] = [];
-  public bill_data_display: any[] = [];
-  public bill_data_name_display: any[] = [];
-
-  public paypalAmount: number = 0;
-  public Cash_On_Dlivery_Amount: number = 0;
-  public wallet_amount: number = 0;
-
-  public revenue: number;
-  public total_order: any[] = [];
-  public customers: any[] = [];
-  public delivery_partners: any[] = [];
-
-  currentYear = now.getFullYear();
-  selectedYear: number = this.currentYear;
-
-  public statusData: any[] = [];
-
-  ngOnInit() {
+  constructor(public _data: DashboarddataService) { 
     this.get_small_widget_data();
     this.get_monthly_selling();
     this.get_payment_method();
     this.getStatus();
     this.get_trending_product();
   }
+  private unsubscribe = new Subject();
+  LineChart = [];
+  PieChart = [];
+  DoughutChart = [];
+  BarChart = [];
+  paymentdata = [];
+
+  monthOrderCount: any[] = [];
+  orderData: any[] = [];
+  months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  month = [];
+
+  bill_data: any[] = [];
+  bill_data_display: any[] = [];
+  bill_data_name_display: any[] = [];
+
+  paypalAmount: number = 0;
+  Cash_On_Dlivery_Amount: number = 0;
+  wallet_amount: number = 0;
+
+  revenue: number;
+  total_order: any[] = [];
+  customers: any[] = [];
+  delivery_partners: any[] = [];
+  now = new Date();
+  currentYear = this.now.getFullYear();
+  selectedYear: number = this.currentYear;
+
+  statusData: any[] = [];
+
+  ngOnInit() {}
 
   get_small_widget_data(): void {
-    this._data.getRevenue().subscribe((data2: any[]) => {
-      this._data.getTotalOrder().subscribe((data3: any[]) => {
-        this._data.getCustomer().subscribe((data4: any[]) => {
-          this._data.getDeliveryPartner().subscribe((data5: any[]) => {
+    this._data.getRevenue().pipe(takeUntil(this.unsubscribe)).subscribe((data2: any[]) => {
+      this._data.getTotalOrder().pipe(takeUntil(this.unsubscribe)).subscribe((data3: any[]) => {
+        this._data.getCustomer().pipe(takeUntil(this.unsubscribe)).subscribe((data4: any[]) => {
+          this._data.getDeliveryPartner().pipe(takeUntil(this.unsubscribe)).subscribe((data5: any[]) => {
             this.revenue = data2[0].revenue;
             this.total_order = data3[0].total_order;
             this.customers = data4[0].customers;
@@ -64,7 +67,7 @@ export class DashboardComponent {
   get_monthly_selling(): void {
     this.monthOrderCount = [];
     this.orderData = [];
-    this._data.getAllorder(this.selectedYear).subscribe((data1: any[]) => {
+    this._data.getAllorder(this.selectedYear).pipe(takeUntil(this.unsubscribe)).subscribe((data1: any[]) => {
       this.monthOrderCount = data1;
       for (let j = 0; j < data1.length; j++) {
         this.orderData.push(this.monthOrderCount[j].COUNT);
@@ -79,8 +82,7 @@ export class DashboardComponent {
             data: this.orderData,
             fill: true,
             lineTension: 0.2,
-            borderColor: "rgba(116, 0, 255, 1)",
-            backgroundColor: "rgba(116, 0, 255, 0.1)",
+            borderColor: "green",
             borderWidth: 1
           }]
         },
@@ -101,21 +103,21 @@ export class DashboardComponent {
 
   get_payment_method(): void {
     this.paymentdata = [];
-    this._data.getInvoiceByMode("cod").subscribe((data: any) => {
+    this._data.getInvoiceByMode("cod").pipe(takeUntil(this.unsubscribe)).subscribe((data: any) => {
       if (data[0].total) {
         this.Cash_On_Dlivery_Amount = data[0].total;
       } else {
         this.Cash_On_Dlivery_Amount = 0;
       }
     });
-    this._data.getInvoiceByMode("wallet").subscribe((data: any) => {
+    this._data.getInvoiceByMode("wallet").pipe(takeUntil(this.unsubscribe)).subscribe((data: any) => {
       if (data[0].total) {
         this.wallet_amount = data[0].total;
       } else {
         this.wallet_amount = 0;
       }
     });
-    this._data.getInvoiceByMode("paypal").subscribe((data: any) => {
+    this._data.getInvoiceByMode("paypal").pipe(takeUntil(this.unsubscribe)).subscribe((data: any) => {
       if (data[0].total) {
         this.paypalAmount = data[0].total;
       } else {
@@ -160,7 +162,7 @@ export class DashboardComponent {
 
   getStatus(): void {
     this.statusData = [];
-    this._data.getStatus().subscribe((data3: any) => {
+    this._data.getStatus().pipe(takeUntil(this.unsubscribe)).subscribe((data3: any) => {
       this.statusData.push(data3[0].Delivered);
       this.statusData.push(data3[0].Packing);
       this.statusData.push(data3[0].On_The_Way);
@@ -202,7 +204,7 @@ export class DashboardComponent {
     this.bill_data = [];
     this.bill_data_display = [];
     this.bill_data_name_display = [];
-    this._data.getTopOrder().subscribe((data1: any[]) => {
+    this._data.getTopOrder().pipe(takeUntil(this.unsubscribe)).subscribe((data1: any[]) => {
       this.bill_data = data1;
       for (let i = 0; i < data1.length; i++) {
         this.bill_data_display.push(this.bill_data[i].total);
@@ -233,5 +235,10 @@ export class DashboardComponent {
         }
       });
     });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

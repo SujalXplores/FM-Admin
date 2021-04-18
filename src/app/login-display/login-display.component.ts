@@ -4,6 +4,9 @@ import { LogindataService } from './logindata.service';
 import { users } from '../users/users';
 import { Router } from '@angular/router';
 import { NotificationService } from '../notification.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 @Component({
   selector: 'app-login-display',
   templateUrl: './login-display.component.html',
@@ -16,6 +19,7 @@ export class LoginDisplayComponent implements OnInit {
     private _logindata: LogindataService
   ) { }
 
+  private unsubscribe = new Subject();
   loginForm: FormGroup;
   hide: boolean = true;
   loading: boolean = false;
@@ -29,7 +33,7 @@ export class LoginDisplayComponent implements OnInit {
 
   onLogin() {
     this.loading = true;
-    this._logindata.login(this.loginForm.value).subscribe((x: users[]) => {
+    this._logindata.login(this.loginForm.value).pipe(takeUntil(this.unsubscribe)).subscribe((x: users[]) => {
       if (x.length == 1) {
         localStorage.setItem('u_email_id', this.loginForm.get('u_email_id').value);
         this._router.navigate(['/nav/dashboard']);
@@ -44,5 +48,10 @@ export class LoginDisplayComponent implements OnInit {
         this.notificationService.warn("Can't connect to server.");
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

@@ -6,6 +6,8 @@ import { NotificationService } from '../notification.service';
 import { MatStepper } from '@angular/material/stepper';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-forgot-password',
@@ -27,6 +29,7 @@ export class ForgotPasswordComponent implements OnInit {
     placeholder: '',
   };
 
+  private unsubscribe = new Subject();
   forgetPasswordForm: FormGroup;
   changePasswordForm: FormGroup;
   otp: number = 0;
@@ -57,7 +60,7 @@ export class ForgotPasswordComponent implements OnInit {
     }, { validators: this.checkPasswords });
   }
 
-  checkPasswords(group: FormGroup) { // here we have the 'passwords' group
+  checkPasswords(group: FormGroup) {
     let pass = group.controls.u_password.value;
     let confirmPass = group.controls.confirm_password.value;
     return pass === confirmPass ? null : { notSame: true }
@@ -71,10 +74,10 @@ export class ForgotPasswordComponent implements OnInit {
     this.otp = Math.floor(1000 + Math.random() * 9000);
     if (this.forgetPasswordForm.get('name').value != null) {
       this.u_email_id = this.forgetPasswordForm.get('name').value;
-      this._mail.getUserByEmail(this.u_email_id).subscribe((data) => {
+      this._mail.getUserByEmail(this.u_email_id).pipe(takeUntil(this.unsubscribe)).subscribe((data) => {
         if (data[0] && data[0].u_password) {
           this.password = data[0].u_password;
-          this._mail.passwordMail(this.u_email_id, "Verification Code", "\n\n\nThe varification code is: <b>" + this.otp + " < /b>\nUse it to proceed further.\nIf you didn't request this code you can safely ignore it.").subscribe((data) => {
+          this._mail.passwordMail(this.u_email_id, "Verification Code", "\n\n\nThe varification code is: <b>" + this.otp + " < /b>\nUse it to proceed further.\nIf you didn't request this code you can safely ignore it.").pipe(takeUntil(this.unsubscribe)).subscribe((data) => {
             this.notificationService.info('📧 OTP has been sent on ' + this.u_email_id + '. Check inbox.');
             this.hide_svg1 = false;
             this.hide_svg2 = true;
@@ -102,8 +105,8 @@ export class ForgotPasswordComponent implements OnInit {
   onResendOTP() {
     this.otp = Math.floor(1000 + Math.random() * 9000);
     if (this.forgetPasswordForm.get('name').value != null) {
-      this._mail.getUserByEmail(this.u_email_id).subscribe(() => {
-        this._mail.passwordMail(this.u_email_id, "Verification Code", "\n\n\nThe varification code is: " + this.otp + "\nUse it to proceed further.\nIf you didn't request this code you can safely ignore it.").subscribe(() => {
+      this._mail.getUserByEmail(this.u_email_id).pipe(takeUntil(this.unsubscribe)).subscribe(() => {
+        this._mail.passwordMail(this.u_email_id, "Verification Code", "\n\n\nThe varification code is: " + this.otp + "\nUse it to proceed further.\nIf you didn't request this code you can safely ignore it.").pipe(takeUntil(this.unsubscribe)).subscribe(() => {
           this.notificationService.info('📧 OTP has been sent on ' + this.u_email_id + ', Check inbox.');
         });
       });
@@ -115,11 +118,16 @@ export class ForgotPasswordComponent implements OnInit {
       u_email_id: this.u_email_id,
       new_password: this.changePasswordForm.value.u_password
     }
-    this._mail.changePassword(passOBJ).subscribe(
+    this._mail.changePassword(passOBJ).pipe(takeUntil(this.unsubscribe)).subscribe(
       () => {
         this._router.navigate(['']);
         this.notificationService.success('✔️ Password has been changed!');
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

@@ -9,6 +9,8 @@ import { CategorydataService } from './categorydata.service';
 import { NotificationService } from '../notification.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogModel, CustomDialogComponent } from '../shared/custom-dialog/custom-dialog.component';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -23,7 +25,8 @@ export class CategoryComponent implements OnInit {
   ) {
     this.dataSource = new MatTableDataSource();
   }
-
+  
+  private unsubscribe = new Subject();
   cancleClicked: boolean = false;
   categoryarr: category[] = [];
   displayedColumns: string[] = ['c_id', 'c_name', 'delete', 'edit'];
@@ -44,7 +47,7 @@ export class CategoryComponent implements OnInit {
   }
 
   onDelete(item: category) {
-    this._data.deleteCategory(item.c_id).subscribe(
+    this._data.deleteCategory(item.c_id).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: any) => {
         this.categoryarr.splice(this.categoryarr.indexOf(item), 1);
         this.dataSource.data = this.categoryarr;
@@ -54,7 +57,7 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._data.getAllCategory().subscribe(
+    this._data.getAllCategory().pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: category[]) => {
         this.categoryarr = data;
         this.dataSource.data = data;
@@ -84,10 +87,15 @@ export class CategoryComponent implements OnInit {
       autoFocus: false,
       data: dialogData
     });
-    dialogRef.afterClosed().subscribe(dialogResult => {
+    dialogRef.afterClosed().pipe(takeUntil(this.unsubscribe)).subscribe(dialogResult => {
       if (dialogResult == true) {
         this.onDelete(item);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

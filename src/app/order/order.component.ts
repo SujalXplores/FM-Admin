@@ -8,6 +8,9 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Router } from '@angular/router';
 import { OrderdataService } from './orderdata.service';
 import { NotificationService } from '../notification.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -18,6 +21,7 @@ export class OrderComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
   }
 
+  private unsubscribe = new Subject();
   cancleClicked: boolean = false;
   orderarr: order[] = [];
   expandedElement: ViewMore | null;
@@ -33,7 +37,7 @@ export class OrderComponent implements OnInit {
   }
 
   onDelete(item: order) {
-    this._data.deleteOrder(item.order_id).subscribe(
+    this._data.deleteOrder(item.order_id).pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: any) => {
         this.orderarr.splice(this.orderarr.indexOf(item), 1);
         this.dataSource.data = this.orderarr;
@@ -54,7 +58,7 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._data.getAllOrder().subscribe(
+    this._data.getAllOrder().pipe(takeUntil(this.unsubscribe)).subscribe(
       (data: order[]) => {
         this.orderarr = data;
         this.dataSource.data = data;
@@ -74,6 +78,11 @@ export class OrderComponent implements OnInit {
     this.isAllSelected() ?
     this.selection.clear() :
     this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }
 

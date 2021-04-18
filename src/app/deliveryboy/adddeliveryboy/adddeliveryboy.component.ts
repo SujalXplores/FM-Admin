@@ -3,6 +3,9 @@ import { DeliveryboydataService } from '../deliveryboydata.service';
 import { deliveryboy } from '../deliveryboy';
 import { NotificationService } from 'src/app/notification.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 @Component({
   selector: 'app-adddeliveryboy',
   templateUrl: './adddeliveryboy.component.html',
@@ -18,15 +21,14 @@ export class AdddeliveryboyComponent implements OnInit, OnDestroy {
   arrDeliveryboy: deliveryboy[] = [];
   selectedFile: File = null;
   value = '';
-  subscription: any;
+  private unsubscribe = new Subject();
   loading: boolean = false;
 
   ngOnInit(): void { }
 
   ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
   onDeliveryboyAdd(f) {
@@ -39,7 +41,7 @@ export class AdddeliveryboyComponent implements OnInit, OnDestroy {
     fd.append('deliveryboy_email', f.value.deliveryboy_email);
     fd.append('password', f.value.password);
     fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.subscription = this._deliveryboydata.addDeliveryboy(fd).subscribe(() => {
+    this._deliveryboydata.addDeliveryboy(fd).pipe(takeUntil(this.unsubscribe)).subscribe(() => {
       this._deliveryboydata.do_Refresh();
       this.notificationService.success('✔️ Record added successfully !');
       this.loading = false;
